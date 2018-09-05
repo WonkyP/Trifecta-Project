@@ -1,1 +1,1 @@
-Unity Version: Unity 2018.2.5f1
+Unity Version: Unity 2018.2.6f1
