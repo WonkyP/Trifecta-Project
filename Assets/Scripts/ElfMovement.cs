@@ -8,6 +8,7 @@ public class ElfMovement : MonoBehaviour
     public float JumpForce = 5;
     private Rigidbody2D rb;
     private bool jumping = false;
+    public float lengthOfTheRayCast;
 
     // Use this for initialization
     void Start()
@@ -18,32 +19,32 @@ public class ElfMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire3") && isGrounded())
-            jumping = true;
-    }
-
-    private void FixedUpdate()
-    {
-        Jump();
-    }
-
-    void Jump()
-    {
-        if (jumping)
+        if (Input.GetButtonDown("Fire3") && jumping == false)
         {
-            //rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
-            // modifying the velocity of the rigidbody solves a bug that appears using addForce
-            rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.y);
-            jumping = false;
+            jumping = true; // just a safe gard to make sure that double jumps never happens
+            Jump();
         }
     }
 
-    bool isGrounded()
-    {
-        if (Physics2D.Raycast(transform.position - new Vector3(0.0f, transform.lossyScale.y / 2 + 0.02f, 0.0f), Vector2.down, 0.001f))
-            return true;
-        else
-            return false;
+    void Jump() { 
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(0, -1), lengthOfTheRayCast, 9/*Ignores the player layer*/); // create the raycast
+            if (hit != false) // checks if the raycast hits anything
+            {
+                print(hit.transform.name); // Chacks the name of the object you are jumping on
+                Debug.DrawRay(transform.position, new Vector2(0, -lengthOfTheRayCast), Color.green, 0.5f); // Draw the raycast with a green colour
+
+            }
+            else
+            {
+                Debug.DrawRay(transform.position, new Vector2(0, -lengthOfTheRayCast), Color.red, 0.5f); // draw the raycast with a red colour to show that it's not on the floor
+                jumping = false;
+                return; // You ain't gonna jump son!
+            }
+
+            // modifying the velocity of the rigidbody solves a bug that appears using addForce
+            rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.y);
+            jumping = false;
     }
 
 }
