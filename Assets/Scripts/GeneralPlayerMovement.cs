@@ -3,8 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GeneralPlayerMovement : MonoBehaviour {
+    [Header("Daughter Stats")]
+    public float dSpeed;
 
-    public float speed = 10.0f;
+    [Header("Spirit Stats")]
+    public float sSpeed;
+
+    [Header("Wizard Stats")]
+    public float wSpeed;
+
+    float curSpeed;
+
     private Rigidbody2D rb;
     public bool right = true;
 
@@ -31,6 +40,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
 
         anim = GetComponent<Animator>();
+
+
+        curSpeed = dSpeed;
     }
 
     void Update()
@@ -49,8 +61,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
     void GeneralMovement()
     {
         float h = Input.GetAxis("Horizontal");
-        transform.position = new Vector2(transform.position.x + speed * Time.deltaTime * h, transform.position.y);
-        rb.AddForce(Vector2.right * speed * h);
+        transform.position = new Vector2(transform.position.x + curSpeed * Time.deltaTime * h, transform.position.y);
+        rb.AddForce(Vector2.right * curSpeed * h);
 
         if (h > 0)
         {
@@ -81,16 +93,19 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 anim.Play("Girl");
                 c2Script.enabled = false;
                 c0Script.enabled = true;
+                curSpeed = dSpeed;
                 break;
             case 1:
                 anim.Play("Warrior");
                 c0Script.enabled = false;
                 c1Script.enabled = true;
+                curSpeed = sSpeed;
                 break;
             case 2:
                 anim.Play("Wizard");
                 c1Script.enabled = false;
                 c2Script.enabled = true;
+                curSpeed = wSpeed;
                 break;
         }
     }
