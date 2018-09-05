@@ -29,8 +29,6 @@ public class GeneralPlayerMovement : MonoBehaviour {
         c1Script = GetComponent<KnightMovement>();
         c2Script = GetComponent<MagicMovement>();
 
-        //// The component to switch the color for each character
-        //render = GetComponent<MeshRenderer>();
 
         anim = GetComponent<Animator>();
     }
@@ -52,16 +50,16 @@ public class GeneralPlayerMovement : MonoBehaviour {
     {
         float h = Input.GetAxis("Horizontal");
         transform.position = new Vector2(transform.position.x + speed * Time.deltaTime * h, transform.position.y);
-        //rb.AddForce(Vector2.right * speed * h);
-        //if (h == 0)
-        //{
-        //    right = true;
-        //    rb.velocity = new Vector2(0, rb.velocity.y);
-        //}
-        //else
-        //{
-        //    right = false;
-        //}
+        rb.AddForce(Vector2.right * speed * h);
+
+        if (h > 0)
+        {
+            right = true;
+        }
+        else if(h < 0)
+        {
+            right = false;
+        }
 
     }
 
