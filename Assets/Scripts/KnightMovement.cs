@@ -35,16 +35,11 @@ public class KnightMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Z) && NextToBox())
         {
             box = hit.collider.gameObject;
-            Debug.Log(box);
-            //Debug.Log(hit.collider.gameObject.tag);
-            box.GetComponent<FixedJoint2D>().enabled = true;
-            box.GetComponent<FixedJoint2D>().connectedBody = rb;
-            box.GetComponent<Rigidbody2D>().mass = 0.0001f;
+            box.transform.parent = transform;
         }
-        else if (Input.GetKeyUp(KeyCode.Z) && NextToBox())
+        else if (Input.GetKeyUp(KeyCode.Z))
         {
-            box.GetComponent<FixedJoint2D>().enabled = false;
-            box.GetComponent<Rigidbody2D>().mass = 3;
+            box.transform.parent = null;
         }
 
 
