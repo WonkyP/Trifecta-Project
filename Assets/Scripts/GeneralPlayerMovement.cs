@@ -18,9 +18,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
     public bool right = true;
 
     // A variable for each character to enable and disable each power
-    private ElfMovement c0Script;
-    private KnightMovement c1Script;
-    private MagicMovement c2Script;
+    private DaughterMovement c0Script;
+    private SpiritMovement c1Script;
+    private FatherMovement c2Script;
 
     // A variable for the animations
     Animator anim;
@@ -34,9 +34,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
 
         // The scripts of the other characters
-        c0Script = GetComponent<ElfMovement>();
-        c1Script = GetComponent<KnightMovement>();
-        c2Script = GetComponent<MagicMovement>();
+        c0Script = GetComponent<DaughterMovement>();
+        c1Script = GetComponent<SpiritMovement>();
+        c2Script = GetComponent<FatherMovement>();
 
 
         anim = GetComponent<Animator>();
@@ -48,7 +48,6 @@ public class GeneralPlayerMovement : MonoBehaviour {
     void Update()
     {
         ChangeCharacter();
-        SelectCharacter();
     }
 
     // Update for physics engine
@@ -60,53 +59,51 @@ public class GeneralPlayerMovement : MonoBehaviour {
     // General movement of the player
     void GeneralMovement()
     {
-        float h = Input.GetAxis("Horizontal");
-        transform.position = new Vector2(transform.position.x + curSpeed * Time.deltaTime * h, transform.position.y);
-        rb.AddForce(Vector2.right * curSpeed * h);
-
-        if (h > 0)
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            right = true;
-        }
-        else if(h < 0)
-        {
+            transform.position = new Vector2(transform.position.x - curSpeed * Time.deltaTime, transform.position.y);
+            rb.AddForce(Vector2.left * curSpeed);
             right = false;
         }
-
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.position = new Vector2(transform.position.x + curSpeed * Time.deltaTime, transform.position.y);
+            rb.AddForce(Vector2.right * curSpeed);
+            right = true;
+        }
     }
 
     void ChangeCharacter()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            //anim.Play("ChangeCharacter");
-            GameManager.instance.CharacterManager();
+            anim.Play("Girl");
+            c0Script.enabled = true;
+            c1Script.enabled = false;
+            c2Script.enabled = false;
+            curSpeed = dSpeed;
         }
-    }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            anim.Play("Warrior");
+            c0Script.enabled = false;
+            c1Script.enabled = true;
+            c2Script.enabled = false;
+            curSpeed = sSpeed;
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            anim.Play("Wizard");
+            c0Script.enabled = false;
+            c1Script.enabled = false;
+            c2Script.enabled = true;
+            curSpeed = wSpeed;
+        }
 
-    // Enable and disable the scripts of each character to select the powers
-    void SelectCharacter()
-    {
-        switch (GameManager.instance.getCurrentCharacter())
-        {
-            case 0:
-                anim.Play("Girl");
-                c2Script.enabled = false;
-                c0Script.enabled = true;
-                curSpeed = dSpeed;
-                break;
-            case 1:
-                anim.Play("Warrior");
-                c0Script.enabled = false;
-                c1Script.enabled = true;
-                curSpeed = sSpeed;
-                break;
-            case 2:
-                anim.Play("Wizard");
-                c1Script.enabled = false;
-                c2Script.enabled = true;
-                curSpeed = wSpeed;
-                break;
-        }
+        //if (Input.GetButtonDown("Fire2"))
+        //{
+        //    //anim.Play("ChangeCharacter");
+        //    GameManager.instance.CharacterManager();
+        //}
     }
 }

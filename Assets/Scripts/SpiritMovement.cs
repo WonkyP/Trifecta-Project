@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KnightMovement : MonoBehaviour
-{
-
+public class SpiritMovement : MonoBehaviour
+{ 
     RaycastHit2D hit;
     GameObject box;
     private Rigidbody2D rb;
@@ -39,7 +38,15 @@ public class KnightMovement : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.Z))
         {
-            box.transform.parent = null;
+            try
+            {
+                box.transform.parent = null;
+            }
+            catch
+            {
+                Debug.Log("Box without parent attached");
+            }
+            
         }
 
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class magicBox : MonoBehaviour {
-    private MagicMovement player;
+    private FatherMovement player;
     private GameObject playerObject;
 
     //private Collider2D colision;
@@ -12,7 +12,7 @@ public class magicBox : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         playerObject = GameObject.FindGameObjectWithTag("Player");
-        player = playerObject.GetComponent<MagicMovement>();
+        player = playerObject.GetComponent<FatherMovement>();
 
         //colision = GetComponent<Collider2D>();
         view = GetComponent<MeshRenderer>();

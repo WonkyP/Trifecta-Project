@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicMovement : MonoBehaviour {
+public class FatherMovement : MonoBehaviour {
 
     //int habilityCounter = 0;
     public bool activatePlatform;

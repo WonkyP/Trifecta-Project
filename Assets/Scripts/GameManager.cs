@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
     {
         instance = this;
         abilitySelected.text = "Choosen Character " + currentCharacter;
-        abilityExplanation.text = "Elfs can Jump by pressing 'Z'";
+        abilityExplanation.text = "Daughter can Jump by pressing 'Z'";
     }
 
     // Update is called once per frame
@@ -34,36 +34,24 @@ public class GameManager : MonoBehaviour {
         switch (currentCharacter)
         {
             case 0:
-                name = "Elf";
-                explanation = "Elfs can Jump by pressing 'Z'";
+                name = "Daughter";
+                explanation = "Daughter can Jump by pressing 'Z'";
                 break;
             case 1:
-                name = "Dwarft";
-                explanation = "Dwarfts can move heavy blocks by pressing 'Z'";
+                name = "Spirit of the forest";
+                explanation = "Spirit of the forest can move heavy blocks by pressing 'Z'";
                 break;
             case 2:
-                name = "Wizard";
-                explanation = "Wizards can reveal the darkest secrets by pressing 'Z'";
+                name = "Father";
+                explanation = "Father can reveal the darkest secrets by pressing 'Z'";
                 break;
             default:
                 name = "No character selected correctly";
-                explanation = "Elfs can Jump by pressing 'Z'";
+                explanation = "Daughter can Jump by pressing 'Z'";
                 break;
         }
 
         abilitySelected.text = "Choosen Character: " + name;
         abilityExplanation.text = explanation;
-    }
-
-    public void CharacterManager()
-    {
-        currentCharacter++;
-        if (currentCharacter > 2)
-            currentCharacter = 0;            
-    }
-
-    public int getCurrentCharacter()
-    {
-        return currentCharacter;
     }
 }

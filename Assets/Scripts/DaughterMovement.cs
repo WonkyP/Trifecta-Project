@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElfMovement : MonoBehaviour
+public class DaughterMovement : MonoBehaviour
 {
     // Carl was here!
     public float JumpForce = 5;
