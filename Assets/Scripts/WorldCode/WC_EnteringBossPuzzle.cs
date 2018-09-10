@@ -8,6 +8,7 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
     public int sceneIndexNumber; // we have to set the scene index our self :(
     bool entryGrantet = false;
 
+    public string NameOfTheExitObject;
 	
 	void Update () {
         if (entryGrantet)
@@ -15,7 +16,9 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
             if (Input.GetButtonDown("Fire1")) // Currently set to E on the keyboard.
             {
                 print("YOU MAY PASS");
-                SceneManager.LoadScene(sceneIndexNumber);
+                GameObject.FindGameObjectWithTag("DoorNr").GetComponent<DoNotDestroy>().NameOfTheObject = NameOfTheExitObject; // set the exit object
+
+                SceneManager.LoadScene(sceneIndexNumber); // load the next scene
             }
             
         }
