@@ -12,7 +12,7 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
 	void Update () {
         if (entryGrantet)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1")) // Currently set to E on the keyboard.
             {
                 print("YOU MAY PASS");
                 SceneManager.LoadScene(sceneIndexNumber);
