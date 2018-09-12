@@ -15,7 +15,7 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
         {
             if (Input.GetButtonDown("Fire1")) // Currently set to E on the keyboard.
             {
-                print("YOU MAY PASS");
+                //print("YOU MAY PASS");
                 GameObject.FindGameObjectWithTag("DoorNr").GetComponent<DoNotDestroy>().NameOfTheObject = NameOfTheExitObject; // set the exit object
 
                 SceneManager.LoadScene(sceneIndexNumber); // load the next scene

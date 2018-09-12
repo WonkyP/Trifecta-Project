@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4635477006301172}
   - component: {fileID: 114441612155766866}
   - component: {fileID: 212895817145515048}
-  - component: {fileID: 58728224401213012}
+  - component: {fileID: 70658076203139236}
   m_Layer: 0
   m_Name: ABossDoor
   m_TagString: Untagged
@@ -101,8 +101,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58728224401213012
-CircleCollider2D:
+--- !u!70 &70658076203139236
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -114,8 +114,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
 --- !u!114 &114441612155766866
 MonoBehaviour:
   m_ObjectHideFlags: 1

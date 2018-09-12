@@ -10,21 +10,36 @@ public class DaughterMovement : MonoBehaviour
     private bool jumping = false;
     public float lengthOfTheRayCast;
 
-
+    GeneralPlayerMovement gpm;
+    int controlNr;
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gpm = GetComponent<GeneralPlayerMovement>();
+        controlNr = gpm.Controls;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2") && jumping == false)
+        if (controlNr == 0)
         {
-            jumping = true; // just a safe gard to make sure that double jumps never happens
-            Jump();
+            if (Input.GetButtonDown("AbilityA 01") && jumping == false)
+            {
+                jumping = true; // just a safe gard to make sure that double jumps never happens
+                Jump();
+            }
         }
+        else
+        {
+            if (Input.GetButtonDown("AbilityB 01") && jumping == false)
+            {
+                jumping = true; // just a safe gard to make sure that double jumps never happens
+                Jump();
+            }
+        }
+
     }
 
     void Jump() { 
@@ -32,7 +47,7 @@ public class DaughterMovement : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(0, -1), lengthOfTheRayCast, 9/*Ignores the player layer*/); // create the raycast
             if (hit != false) // checks if the raycast hits anything
             {
-                print(hit.transform.name); // Chacks the name of the object you are jumping on
+                //print(hit.transform.name); // Chacks the name of the object you are jumping on
                 Debug.DrawRay(transform.position, new Vector2(0, -lengthOfTheRayCast), Color.green, 0.5f); // Draw the raycast with a green colour
 
             }
