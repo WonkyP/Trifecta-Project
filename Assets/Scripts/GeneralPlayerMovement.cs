@@ -67,6 +67,16 @@ public class GeneralPlayerMovement : MonoBehaviour {
         {
             float SPD = curSpeed * Input.GetAxis("Horizontal"); // set spd to the curspeed and dir the player is walking
             transform.position = new Vector2(transform.position.x + SPD * Time.deltaTime, transform.position.y); // moving the char
+
+            // LEFT RIGHT
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                right = false;
+            }
+            else if (Input.GetAxis("Horizontal") > 0)
+            {
+                right = true;
+            }
         }
     }
 
