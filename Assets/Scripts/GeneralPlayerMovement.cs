@@ -44,10 +44,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
         c1Script = GetComponent<SpiritMovement>();
         c2Script = GetComponent<FatherMovement>();
 
-
         anim = GetComponent<Animator>();
-
-
+    
         curSpeed = dSpeed;
     }
 
@@ -129,7 +127,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
             changeChar(curActivChar);
         }
+
     }
+
     void changeChar(int nr)
     {
         switch (nr)

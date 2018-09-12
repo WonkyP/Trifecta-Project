@@ -18,25 +18,12 @@ public class SpiritMovement : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        //if (Input.GetButton("Fire3") && NextToBox())
-        //{
-        //    box = hit.collider.gameObject;
-        //    box.GetComponent<FixedJoint2D>().enabled = true;
-        //    box.GetComponent<FixedJoint2D>().connectedBody = rb;
-        //    box.GetComponent<Rigidbody2D>().mass = 0.0001f;
-        //}
-        //else if (Input.GetButtonUp("Fire2") && NextToBox())
-        //{
-        //    box.GetComponent<FixedJoint2D>().enabled = false;
-        //    box.GetComponent<Rigidbody2D>().mass = 1;
-        //}
-
-        if (Input.GetKey(KeyCode.Z) && NextToBox())
+        if (Input.GetButton("Fire2") && NextToBox())
         {
             box = hit.collider.gameObject;
             box.transform.parent = transform;
         }
-        else if (Input.GetKeyUp(KeyCode.Z))
+        else if (Input.GetButtonUp("Fire2"))
         {
             try
             {
@@ -46,8 +33,25 @@ public class SpiritMovement : MonoBehaviour
             {
                 Debug.Log("Box without parent attached");
             }
-            
         }
+
+        //if (Input.GetKey(KeyCode.Z) && NextToBox())
+        //{
+        //    box = hit.collider.gameObject;
+        //    box.transform.parent = transform;
+        //}
+        //else if (Input.GetKeyUp(KeyCode.Space))
+        //{
+        //    try
+        //    {
+        //        box.transform.parent = null;
+        //    }
+        //    catch
+        //    {
+        //        Debug.Log("Box without parent attached");
+        //    }
+            
+        //}
 
 
         Debug.DrawRay(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, Color.green);

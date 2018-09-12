@@ -10,18 +10,17 @@ public class DaughterMovement : MonoBehaviour
     private bool jumping = false;
     public float lengthOfTheRayCast;
 
-    GeneralPlayerMovement gpm;
+
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        gpm = GetComponent<GeneralPlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire3") && jumping == false)
+        if (Input.GetButtonDown("Fire2") && jumping == false)
         {
             jumping = true; // just a safe gard to make sure that double jumps never happens
             Jump();
