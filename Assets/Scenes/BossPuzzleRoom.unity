@@ -224,6 +224,48 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b79c0e3c9ef17fe4aa59762b756da25c, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &186821105
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4327188377589156, guid: 3f82af73ad13d4646bde44a56de87c7d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 317.31363
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327188377589156, guid: 3f82af73ad13d4646bde44a56de87c7d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 144.65999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327188377589156, guid: 3f82af73ad13d4646bde44a56de87c7d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 6.8958883
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327188377589156, guid: 3f82af73ad13d4646bde44a56de87c7d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327188377589156, guid: 3f82af73ad13d4646bde44a56de87c7d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327188377589156, guid: 3f82af73ad13d4646bde44a56de87c7d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327188377589156, guid: 3f82af73ad13d4646bde44a56de87c7d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327188377589156, guid: 3f82af73ad13d4646bde44a56de87c7d, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f82af73ad13d4646bde44a56de87c7d, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &426056398
 Prefab:
   m_ObjectHideFlags: 0
@@ -267,6 +309,11 @@ Prefab:
         type: 2}
       propertyPath: sceneIndexNumber
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114441612155766866, guid: 03b7103ca2d8a484fad3a408d46a6323,
+        type: 2}
+      propertyPath: NameOfTheExitObject
+      value: EntryPoint01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03b7103ca2d8a484fad3a408d46a6323, type: 2}
@@ -493,6 +540,11 @@ Prefab:
     - target: {fileID: 4919905486200406, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114881268266390140, guid: 696d3721d042eec40bb264d18f4f5d9e,
+        type: 2}
+      propertyPath: Controls
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}

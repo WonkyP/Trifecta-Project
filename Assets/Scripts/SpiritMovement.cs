@@ -9,31 +9,64 @@ public class SpiritMovement : MonoBehaviour
     //private Rigidbody2D rb; 
     private GeneralPlayerMovement script;
 
+
+    //Other Controlls
+    GeneralPlayerMovement gpm;
+    int controls;
+
     // Use this for initialization
     void Start ()
     {
         //rb = GetComponent<Rigidbody2D>();
         script = GetComponent<GeneralPlayerMovement>();
+
+        gpm = GetComponent<GeneralPlayerMovement>();
+        controls = gpm.Controls;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButton("Fire2") && NextToBox())
+        if (controls == 0)
         {
-            box = hit.collider.gameObject;
-            box.transform.parent = transform;
+            if (Input.GetButton("AbilityA 01") && NextToBox())
+            {
+                box = hit.collider.gameObject;
+                box.transform.parent = transform;
+            }
+            else if (Input.GetButtonUp("AbilityA 01"))
+            {
+                try
+                {
+                    box.transform.parent = null;
+                }
+                catch
+                {
+                    Debug.Log("Box without parent attached");
+                }
+            }
         }
-        else if (Input.GetButtonUp("Fire2"))
+        else
         {
-            try
+            if (Input.GetButton("AbilityB 01") && NextToBox())
             {
-                box.transform.parent = null;
+                box = hit.collider.gameObject;
+                box.transform.parent = transform;
             }
-            catch
+            else if (Input.GetButtonUp("AbilityB 01"))
             {
-                Debug.Log("Box without parent attached");
+                try
+                {
+                    box.transform.parent = null;
+                }
+                catch
+                {
+                    Debug.Log("Box without parent attached");
+                }
             }
         }
+
+
+       
 
         //if (Input.GetKey(KeyCode.Z) && NextToBox())
         //{
