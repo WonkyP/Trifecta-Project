@@ -6,13 +6,13 @@ public class SpiritMovement : MonoBehaviour
 { 
     RaycastHit2D hit;
     GameObject box;
-    private Rigidbody2D rb;
+    //private Rigidbody2D rb; 
     private GeneralPlayerMovement script;
 
     // Use this for initialization
     void Start ()
     {
-        rb = GetComponent<Rigidbody2D>();
+        //rb = GetComponent<Rigidbody2D>();
         script = GetComponent<GeneralPlayerMovement>();
 	}
 	
