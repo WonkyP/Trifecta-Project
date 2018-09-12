@@ -24,6 +24,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
     private SpiritMovement c1Script;
     private FatherMovement c2Script;
 
+    private GameManager c3Script;
+
     // A variable for the animations
     Animator anim;
 
@@ -43,6 +45,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
         c0Script = GetComponent<DaughterMovement>();
         c1Script = GetComponent<SpiritMovement>();
         c2Script = GetComponent<FatherMovement>();
+
 
         anim = GetComponent<Animator>();
     
@@ -136,6 +139,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
             }
 
             changeChar(curActivChar);
+
+            GameManager.instance.updateHUD(curActivChar);
         }
 
     }

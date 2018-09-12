@@ -9,13 +9,19 @@ public class GameManager : MonoBehaviour {
 
     public Text abilitySelected;
     public Text abilityExplanation;
+    public Image canvasCharacterImage;
+
+    private Animator canvasAnimator;
 
     // This manages the current character the player is using
     int currentCharacter = 0;
 
     void Start()
     {
-        instance = this;
+        //instance = this;
+
+        canvasAnimator = canvasCharacterImage.GetComponent<Animator>();
+        canvasAnimator.Play("HUDWarrior");
         abilitySelected.text = "Choosen Character " + currentCharacter;
         abilityExplanation.text = "Daughter can Jump by pressing 'Z'";
     }
@@ -24,6 +30,12 @@ public class GameManager : MonoBehaviour {
     void Update()
     {
         printCharacterInfo();
+    }
+
+    public void updateHUD(int nr)
+    {
+        //change the image showed on the HUD
+
     }
 
     void printCharacterInfo()
