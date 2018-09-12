@@ -15,7 +15,7 @@ public class FatherMovement : MonoBehaviour {
 
     void MagicPower()
     {
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown("Fire2"))
         {
             if (!activatePlatform)
                 activatePlatform = true;

@@ -19,7 +19,7 @@ public class DaughterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire3") && jumping == false)
+        if (Input.GetButtonDown("Fire2") && jumping == false)
         {
             jumping = true; // just a safe gard to make sure that double jumps never happens
             Jump();

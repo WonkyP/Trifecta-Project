@@ -38,10 +38,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
         c1Script = GetComponent<SpiritMovement>();
         c2Script = GetComponent<FatherMovement>();
 
-
         anim = GetComponent<Animator>();
-
-
+    
         curSpeed = dSpeed;
     }
 
@@ -91,7 +89,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
             c2Script.enabled = false;
             curSpeed = sSpeed;
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.S))
         {
             anim.Play("Wizard");
             c0Script.enabled = false;
