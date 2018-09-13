@@ -28,6 +28,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
     // A variable for the animations
     Animator anim;
+    int characterSelected;// this variable will be used for the GameManager Getter "updateHUD" to change the HUD when Control = 0
 
     // A variable to change the color of the Player wen he changes the character
     //private MeshRenderer render;
@@ -50,6 +51,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
         anim = GetComponent<Animator>();
     
         curSpeed = dSpeed;
+
+        characterSelected = 0;
     }
 
     void Update()
@@ -85,6 +88,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
     void ChangeCharacter()
     {
+       
         if (Controls == 0)
         {
             if (Input.GetButtonDown("Girl"))
@@ -93,6 +97,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 c0Script.enabled = true;
                 c1Script.enabled = false;
                 c2Script.enabled = false;
+                characterSelected = 0;
                 curSpeed = dSpeed;
             }
             else if (Input.GetButtonDown("Spirit"))
@@ -101,6 +106,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 c0Script.enabled = false;
                 c1Script.enabled = true;
                 c2Script.enabled = false;
+                characterSelected = 1;
                 curSpeed = sSpeed;
             }
             else if (Input.GetButtonDown("OldMan"))
@@ -109,8 +115,11 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 c0Script.enabled = false;
                 c1Script.enabled = false;
                 c2Script.enabled = true;
+                characterSelected = 2;
                 curSpeed = wSpeed;
             }
+
+            GameManager.instance.updateHUD(characterSelected);
         }
         else            //the other movement
         {
@@ -137,10 +146,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
                     curActivChar = 0;
                 }
             }
-
             changeChar(curActivChar);
-
-            GameManager.instance.updateHUD(curActivChar);
         }
 
     }
@@ -156,6 +162,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 c2Script.enabled = false;
                 curSpeed = dSpeed;
                 break;
+
             case 1: // the spirit
                 anim.Play("Warrior");
                 c0Script.enabled = false;
@@ -174,5 +181,6 @@ public class GeneralPlayerMovement : MonoBehaviour {
             default:
                 break;
         }
+        GameManager.instance.updateHUD(nr);
     }
 }

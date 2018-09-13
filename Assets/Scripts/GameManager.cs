@@ -18,23 +18,38 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
-        //instance = this;
+        instance = this;
 
         canvasAnimator = canvasCharacterImage.GetComponent<Animator>();
-        canvasAnimator.Play("HUDWarrior");
-        abilitySelected.text = "Choosen Character " + currentCharacter;
-        abilityExplanation.text = "Daughter can Jump by pressing 'Z'";
+        //abilitySelected.text = "Choosen Character " + currentCharacter;
+        //abilityExplanation.text = "Daughter can Jump by pressing 'Z'"; Maybe for monday 17/09/18 will be useful to use this
+        abilitySelected.text = "";
+        abilityExplanation.text = "";
     }
 
     // Update is called once per frame
     void Update()
     {
-        printCharacterInfo();
+
     }
 
-    public void updateHUD(int nr)
+    public void updateHUD(int nr) //change the image showed on the HUD
     {
-        //change the image showed on the HUD
+
+        switch (nr)
+        {
+            case 0: // change to the girl
+                canvasAnimator.Play("HUDGirl");
+                break;
+         
+            case 1: // change to the warrior 
+                canvasAnimator.Play("HUDWarrior");
+                break;
+            case 2://cahnge to the wizarld
+                canvasAnimator.Play("HUDwizard");
+                break;
+
+        }
 
     }
 
