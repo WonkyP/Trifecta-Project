@@ -26,7 +26,7 @@ public class SpiritMovement : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        if (controls == 0)
+        if (controls == 0) // The X Y B controller layout
         {
             if (Input.GetButton("AbilityA 01") && NextToBox())
             {
@@ -45,7 +45,7 @@ public class SpiritMovement : MonoBehaviour
                 }
             }
         }
-        else
+        else // the LB and RB controller layout
         {
             if (Input.GetButton("AbilityB 01") && NextToBox())
             {

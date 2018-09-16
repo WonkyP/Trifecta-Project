@@ -55,7 +55,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
         characterSelected = 0;
     }
 
-    void Update()
+    void Update() // used to get the player input since they don't live in frames
     {
         ChangeCharacter();
     }
@@ -88,7 +88,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
     void ChangeCharacter()
     {
-       
+       // the player controls where the player change who they are by pressing X Y B on the controller || A S D on keyboard
         if (Controls == 0)
         {
             if (Input.GetButtonDown("Girl"))
@@ -121,7 +121,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
             GameManager.instance.updateHUD(characterSelected);
         }
-        else            //the other movement
+        else            //the Switch Movement where the player changes char with LB and RB on the controller
         {
             if (Input.GetButtonDown("LeftButton"))
             {
@@ -151,7 +151,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
     }
 
-    void changeChar(int nr)
+    void changeChar(int nr) // just an function made to make it clearer how the switching happens
     {
         switch (nr)
         {

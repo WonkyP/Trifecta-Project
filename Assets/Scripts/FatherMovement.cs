@@ -26,7 +26,7 @@ public class FatherMovement : MonoBehaviour {
 
     void MagicPower()
     {
-        if (controls == 0)
+        if (controls == 0) // X Y B
         {
             if (Input.GetButtonDown("AbilityA 01"))
             {
@@ -36,7 +36,7 @@ public class FatherMovement : MonoBehaviour {
                     activatePlatform = false;
             }
         }
-        else
+        else // LB and RB
         {
             if (Input.GetButtonDown("AbilityB 01"))
             {
