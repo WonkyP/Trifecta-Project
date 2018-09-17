@@ -9,6 +9,7 @@ public class DaughterMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool jumping = false;
     public float lengthOfTheRayCast;
+    public float widthOfTheRayCast;
 
     GeneralPlayerMovement gpm;
     int controlNr;
@@ -46,8 +47,8 @@ public class DaughterMovement : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(0, -1), lengthOfTheRayCast, 9/*Ignores the player layer*/); // create the raycast
         // check if theres any ground near the player's feet
-        RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(1, 0), lengthOfTheRayCast / 4, 9/*Ignores the player layer*/);
-        RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-1, 0), lengthOfTheRayCast / 4, 9/*Ignores the player layer*/);
+        RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(1, 0), widthOfTheRayCast, 9/*Ignores the player layer*/);
+        RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-1, 0), widthOfTheRayCast, 9/*Ignores the player layer*/);
 
 
         if (hit == true || hitRight == true || hitLeft == true) // checks if the raycast hits anything
@@ -56,8 +57,8 @@ public class DaughterMovement : MonoBehaviour
         Debug.DrawRay(transform.position, new Vector2(0, -lengthOfTheRayCast), Color.green, 0.5f); // Draw the raycast with a green colour
 
         // debugs for left and right
-        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(lengthOfTheRayCast / 4, 0), Color.yellow, 0.5f);
-        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-lengthOfTheRayCast / 4, 0), Color.yellow, 0.5f);
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(widthOfTheRayCast, 0), Color.yellow, 0.5f);
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-widthOfTheRayCast, 0), Color.yellow, 0.5f);
 
 
         }
