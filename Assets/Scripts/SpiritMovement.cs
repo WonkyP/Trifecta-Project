@@ -115,4 +115,11 @@ public class SpiritMovement : MonoBehaviour
 
         return false;
     }
+
+
+    private void OnDisable()
+    {
+        if (box.transform.parent != null)
+            box.transform.parent = null;
+    }
 }

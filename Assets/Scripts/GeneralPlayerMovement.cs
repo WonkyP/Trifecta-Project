@@ -188,4 +188,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
         }
         GameManager.instance.updateHUD(nr);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameManager.instance.missionComplete();
+    }
 }

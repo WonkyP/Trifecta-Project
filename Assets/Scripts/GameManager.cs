@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour {
 
     public Text abilitySelected;
     public Text abilityExplanation;
+
     public Image canvasCharacterImage;
+    public Image youWin;
 
     private Animator canvasAnimator;
 
@@ -25,12 +27,18 @@ public class GameManager : MonoBehaviour {
         //abilityExplanation.text = "Daughter can Jump by pressing 'Z'"; Maybe for monday 17/09/18 will be useful to use this
         abilitySelected.text = "";
         abilityExplanation.text = "";
+
+        youWin.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+    public void missionComplete()
+    {
+        youWin.enabled = true;
     }
 
     public void updateHUD(int nr) //change the image showed on the HUD
