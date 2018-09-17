@@ -36,6 +36,11 @@ public class GeneralPlayerMovement : MonoBehaviour {
     // FOR THE OTHER CONTROLS
     int curActivChar;
 
+    public void ChangeMovements(int move) // change movements
+    {
+        Controls = move;
+        this.gameObject.SendMessage("Start");
+    }
 
     // Use this for initialization
     void Start ()

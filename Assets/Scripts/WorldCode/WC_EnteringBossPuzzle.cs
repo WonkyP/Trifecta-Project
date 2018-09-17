@@ -13,7 +13,7 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
 	void Update () {
         if (entryGrantet)
         {
-            if (Input.GetButtonDown("Fire1")) // Currently set to E on the keyboard.
+            if (Input.GetButtonDown("Fire1") && Time.timeScale != 0) // Currently set to E on the keyboard.
             {
                 //print("YOU MAY PASS");
                 GameObject.FindGameObjectWithTag("DoorNr").GetComponent<DoNotDestroy>().NameOfTheObject = NameOfTheExitObject; // set the exit object

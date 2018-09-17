@@ -54,11 +54,21 @@ public class Canvas_Menu : MonoBehaviour {
     //We need to update the 2 "Input" buttons in Options to select a controller scheme and go back to Menu!
     public void Input1()
     {
+        print("1");
+
         //Code for selecting the input 1 here.
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GeneralPlayerMovement gpm = player.GetComponent<GeneralPlayerMovement>();
+        gpm.ChangeMovements(0);
     }
     public void Input2()
     {
+        print("2");
         //Code for selecting the input 2 here.
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GeneralPlayerMovement gpm = player.GetComponent<GeneralPlayerMovement>();
+        gpm.ChangeMovements(1);
+
     }
 
 
