@@ -6,7 +6,6 @@ public class SpiritMovement : MonoBehaviour
 { 
     RaycastHit2D hit;
     GameObject box;
-    //private Rigidbody2D rb; 
     private GeneralPlayerMovement script;
 
 
@@ -17,7 +16,6 @@ public class SpiritMovement : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        //rb = GetComponent<Rigidbody2D>();
         script = GetComponent<GeneralPlayerMovement>();
 
         gpm = GetComponent<GeneralPlayerMovement>();
@@ -26,69 +24,9 @@ public class SpiritMovement : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        if (controls == 0) // The X Y B controller layout
-        {
-            if (Input.GetButton("AbilityA 01") && NextToBox())
-            {
-                box = hit.collider.gameObject;
-                box.transform.parent = transform;
-            }
-            else if (Input.GetButtonUp("AbilityA 01"))
-            {
-                try
-                {
-                    box.transform.parent = null;
-                }
-                catch
-                {
-                    Debug.Log("Box without parent attached");
-                }
-            }
-        }
-        else // the LB and RB controller layout
-        {
-            if (Input.GetButton("AbilityB 01") && NextToBox())
-            {
-                box = hit.collider.gameObject;
-                box.transform.parent = transform;
-            }
-            else if (Input.GetButtonUp("AbilityB 01"))
-            {
-                try
-                {
-                    box.transform.parent = null;
-                }
-                catch
-                {
-                    Debug.Log("Box without parent attached");
-                }
-            }
-        }
-
-
-       
-
-        //if (Input.GetKey(KeyCode.Z) && NextToBox())
-        //{
-        //    box = hit.collider.gameObject;
-        //    box.transform.parent = transform;
-        //}
-        //else if (Input.GetKeyUp(KeyCode.Space))
-        //{
-        //    try
-        //    {
-        //        box.transform.parent = null;
-        //    }
-        //    catch
-        //    {
-        //        Debug.Log("Box without parent attached");
-        //    }
-            
-        //}
-
-
-        Debug.DrawRay(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, Color.green);
-        Debug.DrawRay(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, Color.red);
+        // How to Debug raycast, in case we need it
+        //Debug.DrawRay(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, Color.green);
+        //Debug.DrawRay(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, Color.red);
     }
 
     bool NextToBox()
@@ -114,6 +52,45 @@ public class SpiritMovement : MonoBehaviour
 
 
         return false;
+    }
+
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (controls == 0)
+        {
+            if (enabled && Input.GetButton("AbilityA 01") && collision.gameObject.tag == "Box")
+            {
+                box = collision.gameObject;
+                box.transform.parent = transform;
+            }
+
+            if (enabled && Input.GetButtonUp("AbilityA 01"))
+            {
+                box.transform.parent = null;
+                Debug.Log("EEEEEEEEEEEEEEEEEEE!");
+            }
+        }
+        else
+        {
+            if (enabled && Input.GetButton("AbilityA 01") && collision.gameObject.tag == "Box")
+            {
+                box = collision.gameObject;
+                box.transform.parent = transform;
+            }
+
+            if (enabled && Input.GetButtonUp("AbilityA 01"))
+            {
+                box.transform.parent = null;
+            }
+        }
+        
+    }
+
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+            box.transform.parent = null;
     }
 
 
