@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114536404846463378}
   - component: {fileID: 114539482192208654}
   - component: {fileID: 95521453491856636}
-  - component: {fileID: 70132177482768824}
+  - component: {fileID: 61286537052550904}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -67,8 +67,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &70132177482768824
-CapsuleCollider2D:
+--- !u!61 &61286537052550904
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -80,8 +80,18 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.2541518, y: 2.9715912}
-  m_Direction: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.856, y: 3.02}
+    newSize: {x: 1.856, y: 3.02}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.856, y: 3.02}
+  m_EdgeRadius: 0
 --- !u!95 &95521453491856636
 Animator:
   serializedVersion: 3
@@ -128,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbaacc9bd21d0a4087f42ee90d41d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 25
+  JumpForce: 30
   lengthOfTheRayCast: 1.5
   widthOfTheRayCast: 0.45
   AirJumpTime: 0.01
@@ -146,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activatePlatform: 0
-  JumpForce: 25
+  JumpForce: 30
   lengthOfTheRayCast: 1.5
   widthOfTheRayCast: 0.45
   AirJumpTime: 0.01
@@ -163,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f3cfe84483afb46ad545fb30074ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Controls: 0
+  Controls: 1
   dSpeed: 12
   sSpeed: 8
   wSpeed: 8

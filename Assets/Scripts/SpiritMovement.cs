@@ -6,11 +6,10 @@ public class SpiritMovement : MonoBehaviour
 { 
     RaycastHit2D hit;
     GameObject box;
-    private GeneralPlayerMovement script;
+    private GeneralPlayerMovement gpm;
 
 
     //Other Controlls
-    GeneralPlayerMovement gpm;
     int controlNr;
 
 
@@ -39,8 +38,6 @@ public class SpiritMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gpm = GetComponent<GeneralPlayerMovement>();
-        controlNr = gpm.Controls;
-        script = GetComponent<GeneralPlayerMovement>();
         controlNr = gpm.Controls;
     }
 
@@ -157,7 +154,7 @@ public class SpiritMovement : MonoBehaviour
     {
         try
         {
-            if (script.right)
+            if (gpm.right)
                 hit = Physics2D.Raycast(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, 1.0f);
             else
                 hit = Physics2D.Raycast(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, 1.0f);
@@ -197,13 +194,13 @@ public class SpiritMovement : MonoBehaviour
         }
         else
         {
-            if (enabled && Input.GetButton("AbilityA 01") && collision.gameObject.tag == "Box")
+            if (enabled && Input.GetButton("AbilityB 01") && collision.gameObject.tag == "Box")
             {
                 box = collision.gameObject;
                 box.transform.parent = transform;
             }
 
-            if (enabled && Input.GetButtonUp("AbilityA 01"))
+            if (enabled && Input.GetButtonUp("AbilityB 01"))
             {
                 box.transform.parent = null;
             }
@@ -214,7 +211,11 @@ public class SpiritMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (box.transform != null)
+        {
             box.transform.parent = null;
+
+        }
     }
 
 
