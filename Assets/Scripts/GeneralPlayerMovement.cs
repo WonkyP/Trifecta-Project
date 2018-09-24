@@ -36,6 +36,11 @@ public class GeneralPlayerMovement : MonoBehaviour {
     // FOR THE OTHER CONTROLS
     int curActivChar;
 
+
+    // CANVAS
+    GameObject AbilityWheel;
+    Animator WheelAnimator;
+
     public void ChangeMovements(int move) // change movements
     {
         Controls = move;
@@ -45,6 +50,11 @@ public class GeneralPlayerMovement : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        // THE HUD (AbilityWheel)
+        AbilityWheel = GameObject.FindGameObjectWithTag("AbilityWheel");
+        WheelAnimator = AbilityWheel.GetComponent<Animator>();
+
+
         //rb = GetComponent<Rigidbody2D>();
 
         // The scripts of the other characters
@@ -123,12 +133,13 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 characterSelected = 2;
                 curSpeed = wSpeed;
             }
+            WheelAnimator.SetInteger("Character", characterSelected); // change the hud wheel
 
             GameManager.instance.updateHUD(characterSelected);
         }
         else            //the Switch Movement where the player changes char with LB and RB on the controller
         {
-            if (Input.GetButtonDown("LeftButton"))
+            if (Input.GetButtonDown("RightButton"))
             {
                 if (curActivChar != 0)
                 {
@@ -140,7 +151,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 }
                
             }
-            if (Input.GetButtonDown("RightButton"))
+            if (Input.GetButtonDown("LeftButton"))
             {
                 if (curActivChar != 2)
                 {
@@ -186,6 +197,10 @@ public class GeneralPlayerMovement : MonoBehaviour {
             default:
                 break;
         }
+
+        WheelAnimator.SetInteger("Character", nr); // change the hud wheel
+
+
         GameManager.instance.updateHUD(nr);
     }
 

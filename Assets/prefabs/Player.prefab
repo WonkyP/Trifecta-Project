@@ -128,6 +128,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbaacc9bd21d0a4087f42ee90d41d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpForce: 25
+  lengthOfTheRayCast: 1.5
+  widthOfTheRayCast: 0.45
+  AirJumpTime: 0.01
+  airJumpAmount: 0
+  coyoteTime: 0.1
 --- !u!114 &114539482192208654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,6 +146,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activatePlatform: 0
+  JumpForce: 25
+  lengthOfTheRayCast: 1.5
+  widthOfTheRayCast: 0.45
+  AirJumpTime: 0.01
+  airJumpAmount: 0
+  coyoteTime: 0.1
 --- !u!114 &114881268266390140
 MonoBehaviour:
   m_ObjectHideFlags: 1

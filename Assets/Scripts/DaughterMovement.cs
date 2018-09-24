@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DaughterMovement : MonoBehaviour
 {
-    // Carl was here!
+    [Header("Jumping")]
     public float JumpForce = 5;
     private Rigidbody2D rb;
     bool jumping = false;
@@ -16,7 +16,7 @@ public class DaughterMovement : MonoBehaviour
     //Air Jumps
     public int airJumpAmount;
     int curJump = 0;
-    // Saf jumping
+    // Safe jumping
     public float coyoteTime;
     float curSafeJumpTime = 0;
 
@@ -35,7 +35,7 @@ public class DaughterMovement : MonoBehaviour
     {
         if (controlNr == 0) // X Y B
         {
-            if (Input.GetButtonDown("AbilityA 01"))// && jumping == false)
+            if (Input.GetButtonDown("Jump"))// && jumping == false)
             {
                 //jumping = true; // just a safe gard to make sure that double jumps never happens
                 Jump();
@@ -43,7 +43,7 @@ public class DaughterMovement : MonoBehaviour
         }
         else // LB and RB
         {
-            if (Input.GetButtonDown("AbilityB 01"))// && jumping == false)
+            if (Input.GetButtonDown("Jump"))// && jumping == false)
             {
                 //jumping = true; // just a safe gard to make sure that double jumps never happens
                 Jump();
@@ -60,7 +60,6 @@ public class DaughterMovement : MonoBehaviour
         RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(1, 0), widthOfTheRayCast, 9/*Ignores the player layer*/);
         RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-1, 0), widthOfTheRayCast, 9/*Ignores the player layer*/);
 
-
         if (hitRight == true || hitLeft == true) // checks if the raycast hits anything
         {
             curJump = airJumpAmount;
@@ -75,8 +74,6 @@ public class DaughterMovement : MonoBehaviour
                     jumping = false;
                     curAirJumpTime = AirJumpTime;
                 }
-
-                /////
                 jumpable = false;
                 return;
             }
@@ -90,13 +87,10 @@ public class DaughterMovement : MonoBehaviour
         }
         else if (jumping == false)
         {
-
             if (curSafeJumpTime < 0) // checks if the time for jump is still not out
             {
                 jumping = true;
                 curSafeJumpTime = coyoteTime;
-;
-
             }
             else
             {
@@ -123,7 +117,6 @@ public class DaughterMovement : MonoBehaviour
 
             // modifying the velocity of the rigidbody solves a bug that appears using addForce
             rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.y);
-            //jumping = false;
         }
         else if (curJump > 0)
         {
