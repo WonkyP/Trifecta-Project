@@ -10,6 +10,9 @@ public class DaughterMovement : MonoBehaviour
     private bool jumping = false;
     public float lengthOfTheRayCast;
     public float widthOfTheRayCast;
+    public float AirJumpTime;
+    float curAirJumpTime;
+    bool jumpable = false;
 
     GeneralPlayerMovement gpm;
     int controlNr;
@@ -41,37 +44,73 @@ public class DaughterMovement : MonoBehaviour
             }
         }
 
+        CheckJump();
     }
+    public float time = 1;
 
-    void Jump() { 
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(0, -1), lengthOfTheRayCast, 9/*Ignores the player layer*/); // create the raycast
+    void CheckJump()
+    {
         // check if theres any ground near the player's feet
         RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(1, 0), widthOfTheRayCast, 9/*Ignores the player layer*/);
         RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-1, 0), widthOfTheRayCast, 9/*Ignores the player layer*/);
 
 
-        if (hit == true || hitRight == true || hitLeft == true) // checks if the raycast hits anything
+        if (hitRight == true || hitLeft == true) // checks if the raycast hits anything
         {
-        //print(hit.transform.name); // Chacks the name of the object you are jumping on
-        Debug.DrawRay(transform.position, new Vector2(0, -lengthOfTheRayCast), Color.green, 0.5f); // Draw the raycast with a green colour
 
-        // debugs for left and right
-        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(widthOfTheRayCast, 0), Color.yellow, 0.5f);
-        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-widthOfTheRayCast, 0), Color.yellow, 0.5f);
+            // debugs for left and right
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(widthOfTheRayCast, 0), Color.green, 0.5f);
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-widthOfTheRayCast, 0), Color.green, 0.5f);
 
+            if (jumping) // currently jumping
+            {
+                jumpable = false;
+            }
+            else
+            {
+                jumpable = true;
+            }
+
+            if (time <= 0 && jumping == false)
+            {
+                jumping = true;
+                time = 1;
+            }
+            else //if (jumping == false)
+            {
+                time -= Time.deltaTime;
+            }
 
         }
         else
         {
+            if (curAirJumpTime <= 0)
+            {
+                jumpable = false;
+                
+            }
+            else
+            {
+                curAirJumpTime -= Time.deltaTime;
+            }
             Debug.DrawRay(transform.position, new Vector2(0, -lengthOfTheRayCast), Color.red, 0.5f); // draw the raycast with a red colour to show that it's not on the floor
-            jumping = false;
-            return; // You ain't gonna jump son!
+
+        }
+    }
+
+    void Jump() {
+
+        if (jumpable)
+        {
+            curAirJumpTime = AirJumpTime;
+            jumpable = false;
+
+            // modifying the velocity of the rigidbody solves a bug that appears using addForce
+            rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.y);
+            //jumping = false;
         }
 
-        // modifying the velocity of the rigidbody solves a bug that appears using addForce
-        rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.y);
-        jumping = false;
-}
+
+    }
 
 }
