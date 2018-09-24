@@ -7,12 +7,15 @@ public class DaughterMovement : MonoBehaviour
     // Carl was here!
     public float JumpForce = 5;
     private Rigidbody2D rb;
-    private bool jumping = false;
+    public bool jumping = false;
     public float lengthOfTheRayCast;
     public float widthOfTheRayCast;
     public float AirJumpTime;
     float curAirJumpTime;
     bool jumpable = false;
+
+    public float SafeJumpTime;
+    float curSafeJumpTime = 0;
 
     GeneralPlayerMovement gpm;
     int controlNr;
@@ -46,10 +49,10 @@ public class DaughterMovement : MonoBehaviour
 
         CheckJump();
     }
-    public float time = 1;
 
     void CheckJump()
     {
+
         // check if theres any ground near the player's feet
         RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(1, 0), widthOfTheRayCast, 9/*Ignores the player layer*/);
         RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-1, 0), widthOfTheRayCast, 9/*Ignores the player layer*/);
@@ -57,44 +60,58 @@ public class DaughterMovement : MonoBehaviour
 
         if (hitRight == true || hitLeft == true) // checks if the raycast hits anything
         {
-
-            // debugs for left and right
-            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(widthOfTheRayCast, 0), Color.green, 0.5f);
-            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-widthOfTheRayCast, 0), Color.green, 0.5f);
-
             if (jumping) // currently jumping
             {
+                //Set the timer for the next jump here
+                if (curAirJumpTime > 0)
+                {
+                    curAirJumpTime -= Time.deltaTime;
+                }else
+                {
+                    jumping = false;
+                    curAirJumpTime = AirJumpTime;
+                }
+
+                /////
                 jumpable = false;
+                return;
             }
             else
             {
                 jumpable = true;
             }
+            // debugs for left and right
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(widthOfTheRayCast, 0), Color.green, 0.5f);
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-widthOfTheRayCast, 0), Color.green, 0.5f);
+        }
+        else if (jumping == false)
+        {
 
-            if (time <= 0 && jumping == false)
+            if (curSafeJumpTime < 0)
             {
                 jumping = true;
-                time = 1;
+                curSafeJumpTime = SafeJumpTime;
+
             }
-            else //if (jumping == false)
+            else
             {
-                time -= Time.deltaTime;
+                curSafeJumpTime -= Time.deltaTime;
             }
+            //if (curAirJumpTime <= 0)
+            //{
+            //    jumpable = false;
+
+            //}
+            //else
+            //{
+            //    curAirJumpTime -= Time.deltaTime;
+            //}
+            Debug.DrawRay(transform.position, new Vector2(0, -lengthOfTheRayCast), Color.red, 0.5f); // draw the raycast with a red colour to show that it's not on the floor
 
         }
         else
         {
-            if (curAirJumpTime <= 0)
-            {
-                jumpable = false;
-                
-            }
-            else
-            {
-                curAirJumpTime -= Time.deltaTime;
-            }
-            Debug.DrawRay(transform.position, new Vector2(0, -lengthOfTheRayCast), Color.red, 0.5f); // draw the raycast with a red colour to show that it's not on the floor
-
+            jumping = true;
         }
     }
 
@@ -102,6 +119,7 @@ public class DaughterMovement : MonoBehaviour
 
         if (jumpable)
         {
+            jumping = true;
             curAirJumpTime = AirJumpTime;
             jumpable = false;
 
