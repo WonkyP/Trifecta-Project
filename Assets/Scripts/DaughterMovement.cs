@@ -13,9 +13,11 @@ public class DaughterMovement : MonoBehaviour
     public float AirJumpTime;
     float curAirJumpTime;
     bool jumpable = false;
-    public int jumpAmount;
-    public int curJump = 0;
-    public float SafeJumpTime;
+    //Air Jumps
+    public int airJumpAmount;
+    int curJump = 0;
+    // Saf jumping
+    public float coyoteTime;
     float curSafeJumpTime = 0;
 
     GeneralPlayerMovement gpm;
@@ -61,7 +63,7 @@ public class DaughterMovement : MonoBehaviour
 
         if (hitRight == true || hitLeft == true) // checks if the raycast hits anything
         {
-            curJump = jumpAmount;
+            curJump = airJumpAmount;
             if (jumping) // currently jumping
             {
                 //Set the timer for the next jump here
@@ -89,25 +91,18 @@ public class DaughterMovement : MonoBehaviour
         else if (jumping == false)
         {
 
-            if (curSafeJumpTime < 0)
+            if (curSafeJumpTime < 0) // checks if the time for jump is still not out
             {
                 jumping = true;
-                curSafeJumpTime = SafeJumpTime;
+                curSafeJumpTime = coyoteTime;
+;
 
             }
             else
             {
                 curSafeJumpTime -= Time.deltaTime;
             }
-            //if (curAirJumpTime <= 0)
-            //{
-            //    jumpable = false;
 
-            //}
-            //else
-            //{
-            //    curAirJumpTime -= Time.deltaTime;
-            //}
             Debug.DrawRay(transform.position, new Vector2(0, -lengthOfTheRayCast), Color.red, 0.5f); // draw the raycast with a red colour to show that it's not on the floor
 
         }
@@ -119,13 +114,8 @@ public class DaughterMovement : MonoBehaviour
 
     void Jump() {
 
-        if (curJump > 0)
-        {
-            curJump -= 1;
-            // modifying the velocity of the rigidbody solves a bug that appears using addForce
-            rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.y);
-        }
-        if (jumpable)
+
+        if (jumpable && jumping == false)
         {
             jumping = true;
             curAirJumpTime = AirJumpTime;
@@ -134,6 +124,12 @@ public class DaughterMovement : MonoBehaviour
             // modifying the velocity of the rigidbody solves a bug that appears using addForce
             rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.y);
             //jumping = false;
+        }
+        else if (curJump > 0)
+        {
+            curJump -= 1;
+            // modifying the velocity of the rigidbody solves a bug that appears using addForce
+            rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.y);
         }
 
 

@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1042503808180818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.64, y: -6.67, z: 0}
+  m_LocalPosition: {x: -4.68, y: -1.08, z: 0}
   m_LocalScale: {x: 0.87, y: 0.89, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,11 +112,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpForce: 25
-  jumping: 0
   lengthOfTheRayCast: 1.5
   widthOfTheRayCast: 0.45
-  AirJumpTime: 0.1
-  SafeJumpTime: 0.2
+  AirJumpTime: 0.01
+  airJumpAmount: 1
+  coyoteTime: 0.1
 --- !u!114 &114536404846463378
 MonoBehaviour:
   m_ObjectHideFlags: 1
