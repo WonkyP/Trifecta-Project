@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BoxCode : MonoBehaviour {
-
+    public int pixelDensity = 64;
     // Just a smart block from room design
     public Transform box;
     Color col;
@@ -12,7 +12,7 @@ public class BoxCode : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Text uiText = GetComponent<Text>(); // get uiText component
-        uiText.text = box.localScale.x + " x " + box.localScale.y; // set the text to show the size
+        uiText.text = box.localScale.x * pixelDensity + " x " + box.localScale.y * pixelDensity; // set the text to show the size
         col = new Color(box.localScale.x * 0.1f, 0, box.localScale.y * 0.1f); // set color based on the size of the game
         uiText.color = col; // set the color
 	}

@@ -7,13 +7,14 @@ public class DaughterMovement : MonoBehaviour
     // Carl was here!
     public float JumpForce = 5;
     private Rigidbody2D rb;
-    public bool jumping = false;
+    bool jumping = false;
     public float lengthOfTheRayCast;
     public float widthOfTheRayCast;
     public float AirJumpTime;
     float curAirJumpTime;
     bool jumpable = false;
-
+    public int jumpAmount;
+    public int curJump = 0;
     public float SafeJumpTime;
     float curSafeJumpTime = 0;
 
@@ -32,17 +33,17 @@ public class DaughterMovement : MonoBehaviour
     {
         if (controlNr == 0) // X Y B
         {
-            if (Input.GetButtonDown("AbilityA 01") && jumping == false)
+            if (Input.GetButtonDown("AbilityA 01"))// && jumping == false)
             {
-                jumping = true; // just a safe gard to make sure that double jumps never happens
+                //jumping = true; // just a safe gard to make sure that double jumps never happens
                 Jump();
             }
         }
         else // LB and RB
         {
-            if (Input.GetButtonDown("AbilityB 01") && jumping == false)
+            if (Input.GetButtonDown("AbilityB 01"))// && jumping == false)
             {
-                jumping = true; // just a safe gard to make sure that double jumps never happens
+                //jumping = true; // just a safe gard to make sure that double jumps never happens
                 Jump();
             }
         }
@@ -60,6 +61,7 @@ public class DaughterMovement : MonoBehaviour
 
         if (hitRight == true || hitLeft == true) // checks if the raycast hits anything
         {
+            curJump = jumpAmount;
             if (jumping) // currently jumping
             {
                 //Set the timer for the next jump here
@@ -117,6 +119,12 @@ public class DaughterMovement : MonoBehaviour
 
     void Jump() {
 
+        if (curJump > 0)
+        {
+            curJump -= 1;
+            // modifying the velocity of the rigidbody solves a bug that appears using addForce
+            rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.y);
+        }
         if (jumpable)
         {
             jumping = true;
