@@ -28,7 +28,11 @@ public class GameManager : MonoBehaviour {
         abilitySelected.text = "";
         abilityExplanation.text = "";
 
-        youWin.enabled = false;
+        if (youWin != null)
+        {
+            youWin.enabled = false;
+
+        }
     }
 
     // Update is called once per frame
@@ -38,7 +42,11 @@ public class GameManager : MonoBehaviour {
     }
     public void missionComplete()
     {
-        youWin.enabled = true;
+        if (youWin != null)
+        {
+            youWin.enabled = true;
+
+        }
     }
 
     public void updateHUD(int nr) //change the image showed on the HUD

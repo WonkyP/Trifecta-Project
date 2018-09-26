@@ -211,17 +211,17 @@ public class SpiritMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (box.transform != null)
-        {
-            box.transform.parent = null;
+        //if (box.transform != null)
+        //{
+        //    box.transform.parent = null;
 
-        }
+        //}
     }
 
 
     private void OnDisable()
     {
-        if (box.transform.parent != null)
-            box.transform.parent = null;
+        //if (box.transform.parent != null)
+        //    box.transform.parent = null;
     }
 }

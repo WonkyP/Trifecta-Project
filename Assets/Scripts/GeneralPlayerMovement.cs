@@ -52,7 +52,11 @@ public class GeneralPlayerMovement : MonoBehaviour {
     {
         // THE HUD (AbilityWheel)
         AbilityWheel = GameObject.FindGameObjectWithTag("AbilityWheel");
-        WheelAnimator = AbilityWheel.GetComponent<Animator>();
+        if (AbilityWheel != null)
+        {
+            WheelAnimator = AbilityWheel.GetComponent<Animator>();
+
+        }
 
 
         //rb = GetComponent<Rigidbody2D>();
@@ -198,7 +202,11 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 break;
         }
 
-        WheelAnimator.SetInteger("Character", nr); // change the hud wheel
+        if (AbilityWheel != null)
+        {
+            WheelAnimator.SetInteger("Character", nr); // change the hud wheel
+
+        }
 
 
         GameManager.instance.updateHUD(nr);
