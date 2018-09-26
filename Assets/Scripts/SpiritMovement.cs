@@ -55,9 +55,11 @@ public class SpiritMovement : MonoBehaviour
         ///////////// JUMP
         if (controlNr == 0) // X Y B
         {
+            CheckJump();
+
             if (Input.GetButtonDown("Jump"))// && jumping == false)
             {
-                //jumping = true; // just a safe gard to make sure that double jumps never happens
+                // just a safe gard to make sure that double jumps never happens
                 Jump();
             }
 
@@ -86,9 +88,11 @@ public class SpiritMovement : MonoBehaviour
         }
         else // LB and RB
         {
+            CheckJump();
+
             if (Input.GetButtonDown("Jump"))// && jumping == false)
             {
-                //jumping = true; // just a safe gard to make sure that double jumps never happens
+                // just a safe gard to make sure that double jumps never happens
                 Jump();
             }
 
@@ -114,7 +118,6 @@ public class SpiritMovement : MonoBehaviour
             }
         }
 
-        CheckJump();
 
         // Debug Raycast
         Debug.DrawRay(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, Color.green);

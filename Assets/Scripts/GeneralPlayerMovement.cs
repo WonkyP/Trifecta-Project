@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GeneralPlayerMovement : MonoBehaviour {
-    public int Controls = 0;
+    [HideInInspector]
+    public int Controls = 1;
 
     [Header("Daughter Stats")]
     public float dSpeed;
@@ -55,11 +56,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
         if (AbilityWheel != null)
         {
             WheelAnimator = AbilityWheel.GetComponent<Animator>();
-
         }
-
-
-        //rb = GetComponent<Rigidbody2D>();
 
         // The scripts of the other characters
         c0Script = GetComponent<DaughterMovement>();
@@ -108,8 +105,6 @@ public class GeneralPlayerMovement : MonoBehaviour {
     void ChangeCharacter()
     {
        // the player controls where the player change who they are by pressing X Y B on the controller || A S D on keyboard
-        if (Controls == 0)
-        {
             if (Input.GetButtonDown("Girl"))
             {
                 anim.Play("Girl");
@@ -140,34 +135,34 @@ public class GeneralPlayerMovement : MonoBehaviour {
             WheelAnimator.SetInteger("Character", characterSelected); // change the hud wheel
 
             GameManager.instance.updateHUD(characterSelected);
-        }
-        else            //the Switch Movement where the player changes char with LB and RB on the controller
-        {
+        
+
+            //the Switch Movement where the player changes char with LB and RB on the controller
             if (Input.GetButtonDown("RightButton"))
             {
-                if (curActivChar != 0)
+                if (characterSelected != 0)
                 {
-                    curActivChar -= 1;
+                characterSelected -= 1;
                 }
                 else
                 {
-                    curActivChar = 2;
+                characterSelected = 2;
                 }
                
             }
             if (Input.GetButtonDown("LeftButton"))
             {
-                if (curActivChar != 2)
+                if (characterSelected != 2)
                 {
-                    curActivChar += 1;
+                characterSelected += 1;
                 }
                 else
                 {
-                    curActivChar = 0;
+                characterSelected = 0;
                 }
             }
-            changeChar(curActivChar);
-        }
+            changeChar(characterSelected);
+        
 
     }
 
@@ -207,7 +202,6 @@ public class GeneralPlayerMovement : MonoBehaviour {
             WheelAnimator.SetInteger("Character", nr); // change the hud wheel
 
         }
-
 
         GameManager.instance.updateHUD(nr);
     }

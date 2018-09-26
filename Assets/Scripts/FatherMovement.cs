@@ -42,26 +42,14 @@ public class FatherMovement : MonoBehaviour {
         MagicPower();
 
 
+        CheckJump();
 
         //// Jumps
-        if (controlNr == 0) // X Y B
+        if (Input.GetButtonDown("Jump"))// && jumping == false)
         {
-            if (Input.GetButtonDown("Jump"))// && jumping == false)
-            {
-                //jumping = true; // just a safe gard to make sure that double jumps never happens
-                Jump();
-            }
+            // just a safe gard to make sure that double jumps never happens
+            Jump();
         }
-        else // LB and RB
-        {
-            if (Input.GetButtonDown("Jump"))// && jumping == false)
-            {
-                //jumping = true; // just a safe gard to make sure that double jumps never happens
-                Jump();
-            }
-        }
-
-        CheckJump();
     }
 
     void CheckJump()

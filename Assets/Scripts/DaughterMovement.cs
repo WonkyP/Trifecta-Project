@@ -34,29 +34,18 @@ public class DaughterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (controlNr == 0) // X Y B
-        {
-            if (Input.GetButtonDown("Jump"))// && jumping == false)
-            {
-                //jumping = true; // just a safe gard to make sure that double jumps never happens
-                Jump();
-            }
-        }
-        else // LB and RB
-        {
-            if (Input.GetButtonDown("Jump"))// && jumping == false)
-            {
-                //jumping = true; // just a safe gard to make sure that double jumps never happens
-                Jump();
-            }
-        }
-
+        // Checking if the char are grounded and or have a air jump
         CheckJump();
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            // The char jump once
+            Jump();
+        }
     }
 
     void CheckJump()
     {
-
         // check if theres any ground near the player's feet
         RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(1, 0), widthOfTheRayCast, 9/*Ignores the player layer*/);
         RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-1, 0), widthOfTheRayCast, 9/*Ignores the player layer*/);
