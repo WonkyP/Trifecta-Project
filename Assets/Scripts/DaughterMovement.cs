@@ -6,6 +6,7 @@ public class DaughterMovement : MonoBehaviour
 {
     [Header("Jumping")]
     public float JumpForce = 5;
+    public float DoubleJumpForce = 5;
     private Rigidbody2D rb;
     bool jumping = false;
     public float lengthOfTheRayCast;
@@ -122,7 +123,7 @@ public class DaughterMovement : MonoBehaviour
         {
             curJump -= 1;
             // modifying the velocity of the rigidbody solves a bug that appears using addForce
-            rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.y);
+            rb.velocity = new Vector3(rb.velocity.x, DoubleJumpForce, rb.velocity.y);
         }
 
 

@@ -246,7 +246,17 @@ Prefab:
     - target: {fileID: 114881268266390140, guid: 696d3721d042eec40bb264d18f4f5d9e,
         type: 2}
       propertyPath: Controls
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114293559025299394, guid: 696d3721d042eec40bb264d18f4f5d9e,
+        type: 2}
+      propertyPath: DoubleJumpForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114293559025299394, guid: 696d3721d042eec40bb264d18f4f5d9e,
+        type: 2}
+      propertyPath: JumpForce
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}
@@ -438,11 +448,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4043111409979848, guid: 9606bb3544adf544a82b5696d1955f24, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -318.31363
+      value: -316.31
       objectReference: {fileID: 0}
     - target: {fileID: 4043111409979848, guid: 9606bb3544adf544a82b5696d1955f24, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -145.65999
+      value: -148.66
       objectReference: {fileID: 0}
     - target: {fileID: 4043111409979848, guid: 9606bb3544adf544a82b5696d1955f24, type: 2}
       propertyPath: m_LocalPosition.z
@@ -471,6 +481,10 @@ Prefab:
     - target: {fileID: 1960498064497642, guid: 9606bb3544adf544a82b5696d1955f24, type: 2}
       propertyPath: m_Name
       value: SmartBlock (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043111409979848, guid: 9606bb3544adf544a82b5696d1955f24, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9606bb3544adf544a82b5696d1955f24, type: 2}
