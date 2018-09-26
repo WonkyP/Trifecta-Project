@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpiritMovement : MonoBehaviour
-{ 
-    RaycastHit2D hit;
+{
+    RaycastHit2D rightHit;
+    RaycastHit2D leftHit;
     GameObject box;
     private GeneralPlayerMovement gpm;
 
@@ -59,6 +60,29 @@ public class SpiritMovement : MonoBehaviour
                 //jumping = true; // just a safe gard to make sure that double jumps never happens
                 Jump();
             }
+
+            if (Input.GetKey(KeyCode.UpArrow) && NextToBox())
+            {
+                if (rightHit)
+                    box = rightHit.collider.gameObject;
+                else if (leftHit)
+                    box = leftHit.collider.gameObject;
+
+                box.transform.parent = transform;
+            }
+            else if (Input.GetKey(KeyCode.UpArrow) || !NextToBox())
+            {
+                if (box != null)
+                    box.transform.parent = null;
+                //try
+                //{
+                //    box.transform.parent = null;
+                //}
+                //catch
+                //{
+                //    Debug.Log("Box without parent attached");
+                //}
+            }
         }
         else // LB and RB
         {
@@ -67,9 +91,35 @@ public class SpiritMovement : MonoBehaviour
                 //jumping = true; // just a safe gard to make sure that double jumps never happens
                 Jump();
             }
+
+            if (Input.GetButton("AbilityA 01") && NextToBox())
+            {
+                if (rightHit)
+                    box = rightHit.collider.gameObject;
+                else if (leftHit)
+                    box = leftHit.collider.gameObject;
+
+                box.transform.parent = transform;
+            }
+            else if (Input.GetButtonUp("AbilityA 01") || !NextToBox())
+            {
+                try
+                {
+                    box.transform.parent = null;
+                }
+                catch
+                {
+                    Debug.Log("Box without parent attached");
+                }
+            }
         }
 
         CheckJump();
+
+        // Debug Raycast
+        Debug.DrawRay(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, Color.green);
+        Debug.DrawRay(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, Color.red);
+
     }
 
     void CheckJump()
@@ -148,80 +198,47 @@ public class SpiritMovement : MonoBehaviour
     }
 
     ///DRAGGING
-	
+
 
     bool NextToBox()
     {
-        try
+        bool b = false;
+
+        //Pablo
+        // I made two raycast as a prevent solution of one bug related to the boxes
+        // bug: the boxes kept attached to the player when they were far from him
+        // I will try to do the boxes movement in another way that can simplify the code
+
+        //if (script.right)
+        rightHit = Physics2D.Raycast(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, 1.0f);
+        //else
+        leftHit = Physics2D.Raycast(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, 1.0f);
+
+
+
+        if (rightHit.collider != null)
         {
-            if (gpm.right)
-                hit = Physics2D.Raycast(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, 1.0f);
-            else
-                hit = Physics2D.Raycast(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, 1.0f);
-
-            //Debug.Log(hit.collider.gameObject.tag);
-
-            if (hit.collider.gameObject.tag == "Box")
-                return true;
-            else
-                return false;
+            if (rightHit.collider.gameObject.tag == "Box")
+                b = true;
         }
-        catch
+        else if (leftHit.collider != null)
         {
-            Debug.Log("Variable hit is null");
-        }
-
-
-        return false;
-    }
-
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (controlNr == 0)
-        {
-            if (enabled && Input.GetButton("AbilityA 01") && collision.gameObject.tag == "Box")
-            {
-                box = collision.gameObject;
-                box.transform.parent = transform;
-            }
-
-            if (enabled && Input.GetButtonUp("AbilityA 01"))
-            {
-                box.transform.parent = null;
-                Debug.Log("EEEEEEEEEEEEEEEEEEE!");
-            }
+            if (leftHit.collider.gameObject.tag == "Box")
+                b = true;
         }
         else
         {
-            if (enabled && Input.GetButton("AbilityB 01") && collision.gameObject.tag == "Box")
-            {
-                box = collision.gameObject;
-                box.transform.parent = transform;
-            }
-
-            if (enabled && Input.GetButtonUp("AbilityB 01"))
-            {
-                box.transform.parent = null;
-            }
+            b = false;
         }
-        
-    }
 
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        //if (box.transform != null)
-        //{
-        //    box.transform.parent = null;
-
-        //}
+        return b;
     }
 
 
     private void OnDisable()
     {
-        //if (box.transform.parent != null)
-        //    box.transform.parent = null;
+        if(box != null)
+            if (box.transform.parent != null)
+                box.transform.parent = null;
     }
 }
