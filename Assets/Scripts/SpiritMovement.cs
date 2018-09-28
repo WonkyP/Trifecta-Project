@@ -96,7 +96,7 @@ public class SpiritMovement : MonoBehaviour
                 Jump();
             }
 
-            if (Input.GetButton("AbilityA 01") && NextToBox())
+            if (Input.GetButton("AbilityB 01") && NextToBox())
             {
                 if (rightHit)
                     box = rightHit.collider.gameObject;
@@ -105,7 +105,7 @@ public class SpiritMovement : MonoBehaviour
 
                 box.transform.parent = transform;
             }
-            else if (Input.GetButtonUp("AbilityA 01") || !NextToBox())
+            else if (Input.GetButtonUp("AbilityB 01") || !NextToBox())
             {
                 try
                 {

@@ -132,9 +132,13 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 characterSelected = 2;
                 curSpeed = wSpeed;
             }
+        if (WheelAnimator != null)
+        {
             WheelAnimator.SetInteger("Character", characterSelected); // change the hud wheel
 
-            GameManager.instance.updateHUD(characterSelected);
+        }
+
+        GameManager.instance.updateHUD(characterSelected);
         
 
             //the Switch Movement where the player changes char with LB and RB on the controller
