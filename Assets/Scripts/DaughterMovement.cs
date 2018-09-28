@@ -23,6 +23,8 @@ public class DaughterMovement : MonoBehaviour
 
     GeneralPlayerMovement gpm;
     int controlNr;
+
+
     // Use this for initialization
     void Start()
     {
@@ -34,6 +36,7 @@ public class DaughterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // Checking if the char are grounded and or have a air jump
         CheckJump();
 

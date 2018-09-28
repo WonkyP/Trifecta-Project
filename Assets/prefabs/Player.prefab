@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dacad082a3c95c04599837f3171d3742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 25
+  JumpForce: 30
+  DoubleJumpForce: 20
   lengthOfTheRayCast: 1.5
   widthOfTheRayCast: 0.45
   AirJumpTime: 0.01
@@ -178,6 +179,9 @@ MonoBehaviour:
   sSpeed: 8
   wSpeed: 8
   right: 0
+  gFourceDown: 5
+  gFourceUp: 3
+  velY: 0
 --- !u!212 &212148880604007368
 SpriteRenderer:
   m_ObjectHideFlags: 1

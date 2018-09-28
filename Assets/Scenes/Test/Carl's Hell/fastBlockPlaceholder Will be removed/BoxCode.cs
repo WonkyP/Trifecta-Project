@@ -13,7 +13,7 @@ public class BoxCode : MonoBehaviour {
     void Start () {
         Text uiText = GetComponent<Text>(); // get uiText component
         uiText.text = box.localScale.x * pixelDensity + " x " + box.localScale.y * pixelDensity; // set the text to show the size
-        col = new Color(box.localScale.x * 0.1f, 0, box.localScale.y * 0.1f); // set color based on the size of the game
+        col = new Color((box.localScale.x + 2)* 0.1f, 0, (box.localScale.y + 2)* 0.1f); // set color based on the size of the game
         uiText.color = col; // set the color
 	}
 

@@ -42,6 +42,16 @@ public class GeneralPlayerMovement : MonoBehaviour {
     GameObject AbilityWheel;
     Animator WheelAnimator;
 
+
+    //Gravity Control
+    [Header("Jumping ARK")]
+    public float gFourceDown = 4;
+    public float gFourceUp = 3;
+    // You don't get the gravity of this var
+    float velY;
+    Rigidbody2D rb;
+
+
     public void ChangeMovements(int move) // change movements
     {
         Controls = move;
@@ -51,6 +61,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        // get rb
+        rb = GetComponent<Rigidbody2D>();
+
         // THE HUD (AbilityWheel)
         AbilityWheel = GameObject.FindGameObjectWithTag("AbilityWheel");
         if (AbilityWheel != null)
@@ -213,5 +226,18 @@ public class GeneralPlayerMovement : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameManager.instance.missionComplete();
+    }
+
+    void GravityControl()
+    {
+        velY = rb.velocity.y;
+        if (velY < 0)
+        {
+            rb.gravityScale = gFourceDown;
+        }
+        else
+        {
+            rb.gravityScale = gFourceUp;
+        }
     }
 }
