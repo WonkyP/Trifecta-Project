@@ -120,8 +120,8 @@ public class SpiritMovement : MonoBehaviour
 
 
         // Debug Raycast
-        Debug.DrawRay(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, Color.green);
-        Debug.DrawRay(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, Color.red);
+        Debug.DrawRay(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.4f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, Color.green);
+        Debug.DrawRay(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.4f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, Color.red);
 
     }
 
@@ -207,16 +207,10 @@ public class SpiritMovement : MonoBehaviour
     {
         bool b = false;
 
-        //Pablo
-        // I made two raycast as a prevent solution of one bug related to the boxes
-        // bug: the boxes kept attached to the player when they were far from him
-        // I will try to do the boxes movement in another way that can simplify the code
-
         //if (script.right)
-        rightHit = Physics2D.Raycast(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, 1.0f);
+        rightHit = Physics2D.Raycast(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.4f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, 1.0f);
         //else
-        leftHit = Physics2D.Raycast(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, 1.0f);
-
+        leftHit = Physics2D.Raycast(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.4f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, 1.0f);
 
 
         if (rightHit.collider != null)
@@ -228,12 +222,13 @@ public class SpiritMovement : MonoBehaviour
         {
             if (leftHit.collider.gameObject.tag == "Box")
                 b = true;
+            Debug.Log("Valor NextToBoxIzq: " + b);
         }
         else
         {
             b = false;
         }
-
+        
         return b;
     }
 
