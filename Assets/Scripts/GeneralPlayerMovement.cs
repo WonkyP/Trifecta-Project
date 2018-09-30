@@ -29,7 +29,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
     // A variable for the animations
     Animator anim;
-    int characterSelected;// this variable will be used for the GameManager Getter "updateHUD" to change the HUD when Control = 0
+    [HideInInspector]
+    public int characterSelected;// this variable will be used for the GameManager Getter "updateHUD" to change the HUD when Control = 0
 
     // A variable to change the color of the Player wen he changes the character
     //private MeshRenderer render;
