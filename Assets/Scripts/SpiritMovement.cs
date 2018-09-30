@@ -63,7 +63,7 @@ public class SpiritMovement : MonoBehaviour
                 Jump();
             }
 
-            if (Input.GetKey(KeyCode.UpArrow) && NextToBox())
+            if (Input.GetButton("AbilityB 01") && NextToBox())
             {
                 if (rightHit)
                     box = rightHit.collider.gameObject;
@@ -72,18 +72,16 @@ public class SpiritMovement : MonoBehaviour
 
                 box.transform.parent = transform;
             }
-            else if (Input.GetKey(KeyCode.UpArrow) || !NextToBox())
+            else if (Input.GetButtonUp("AbilityB 01") || !NextToBox())
             {
-                if (box != null)
+                try
+                {
                     box.transform.parent = null;
-                //try
-                //{
-                //    box.transform.parent = null;
-                //}
-                //catch
-                //{
-                //    Debug.Log("Box without parent attached");
-                //}
+                }
+                catch
+                {
+                    Debug.Log("Box without parent attached");
+                }
             }
         }
         else // LB and RB
