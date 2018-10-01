@@ -34,6 +34,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
     // A variable to change the color of the Player wen he changes the character
     //private MeshRenderer render;
+    SpriteRenderer sR;
+
 
     // FOR THE OTHER CONTROLS
     int curActivChar;
@@ -64,6 +66,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
     {
         // get rb
         rb = GetComponent<Rigidbody2D>();
+
+        // sR
+        sR = GetComponent<SpriteRenderer>();
 
         // THE HUD (AbilityWheel)
         AbilityWheel = GameObject.FindGameObjectWithTag("AbilityWheel");
@@ -108,10 +113,12 @@ public class GeneralPlayerMovement : MonoBehaviour {
             if (Input.GetAxis("Horizontal") < 0)
             {
                 right = false;
+                sR.flipX = true;
             }
             else if (Input.GetAxis("Horizontal") > 0)
             {
                 right = true;
+                sR.flipX = false;
             }
         }
     }

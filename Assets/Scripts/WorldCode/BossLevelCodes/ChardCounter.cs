@@ -39,19 +39,21 @@ public class ChardCounter : MonoBehaviour {
             curChar = GPM.characterSelected;
             curShardCount -= 1;
 
-            ChardNrText.text = curShardCount.ToString();
 
-            if (curShardCount <= 0)
+            if (curShardCount <= -1)
             {
                 // Disable everything!!!
                 GPM.enabled = false; // turns off the GPM
                 Time.timeScale = 0; // Time set to 0
                 shardUI.SetActive(true); // activate the ui
-
+                return;
             }
+
+            ChardNrText.text = curShardCount.ToString();
+
         }
-        
-	}
+
+    }
 
     public void RestartScene()
     {

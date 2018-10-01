@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114536404846463378}
   - component: {fileID: 114539482192208654}
   - component: {fileID: 95521453491856636}
-  - component: {fileID: 61286537052550904}
+  - component: {fileID: 70124680354777026}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -67,8 +67,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61286537052550904
-BoxCollider2D:
+--- !u!70 &70124680354777026
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -79,19 +79,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.856, y: 3.02}
-    newSize: {x: 1.856, y: 3.02}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.856, y: 3.02}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.01, y: 1.1}
+  m_Size: {x: 0.82, y: 2.22}
+  m_Direction: 0
 --- !u!95 &95521453491856636
 Animator:
   serializedVersion: 3
@@ -123,8 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpForce: 30
   DoubleJumpForce: 20
-  lengthOfTheRayCast: 1.5
-  widthOfTheRayCast: 0.45
+  lengthOfTheRayCast: 0.2
+  widthOfTheRayCast: 0.25
   AirJumpTime: 0.01
   airJumpAmount: 1
   coyoteTime: 0.1
@@ -140,8 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpForce: 30
-  lengthOfTheRayCast: 1.5
-  widthOfTheRayCast: 0.45
+  lengthOfTheRayCast: 0.2
+  widthOfTheRayCast: 0.25
   AirJumpTime: 0.01
   airJumpAmount: 0
   coyoteTime: 0.1
@@ -158,8 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatePlatform: 0
   JumpForce: 30
-  lengthOfTheRayCast: 1.5
-  widthOfTheRayCast: 0.45
+  lengthOfTheRayCast: 0.2
+  widthOfTheRayCast: 0.25
   AirJumpTime: 0.01
   airJumpAmount: 0
   coyoteTime: 0.1
@@ -179,9 +169,9 @@ MonoBehaviour:
   sSpeed: 8
   wSpeed: 8
   right: 0
+  characterSelected: 0
   gFourceDown: 5
   gFourceUp: 3
-  velY: 0
 --- !u!212 &212148880604007368
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -217,7 +207,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 72d23f2679a12f647add2f2777094d49, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 2b8fb96ed1f85a641aaff2dfae3d5341, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
