@@ -30,7 +30,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
     // A variable for the animations
     Animator anim;
     [HideInInspector]
-    public int characterSelected;// this variable will be used for the GameManager Getter "updateHUD" to change the HUD when Control = 0
+    public int characterSelected = 2;// this variable will be used for the GameManager Getter "updateHUD" to change the HUD when Control = 0
 
     // A variable to change the color of the Player wen he changes the character
     //private MeshRenderer render;
@@ -38,7 +38,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
 
     // FOR THE OTHER CONTROLS
-    int curActivChar;
+    //int curActivChar;
 
 
     // CANVAS
@@ -64,6 +64,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        characterSelected = 2;
+
         // get rb
         rb = GetComponent<Rigidbody2D>();
 
@@ -87,7 +89,6 @@ public class GeneralPlayerMovement : MonoBehaviour {
     
         curSpeed = dSpeed;
 
-        characterSelected = 0;
     }
 
     void Update() // used to get the player input since they don't live in frames
@@ -165,18 +166,6 @@ public class GeneralPlayerMovement : MonoBehaviour {
             //the Switch Movement where the player changes char with LB and RB on the controller
             if (Input.GetButtonDown("RightButton"))
             {
-                if (characterSelected != 0)
-                {
-                characterSelected -= 1;
-                }
-                else
-                {
-                characterSelected = 2;
-                }
-               
-            }
-            if (Input.GetButtonDown("LeftButton"))
-            {
                 if (characterSelected != 2)
                 {
                 characterSelected += 1;
@@ -184,6 +173,18 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 else
                 {
                 characterSelected = 0;
+                }
+               
+            }
+            if (Input.GetButtonDown("LeftButton"))
+            {
+                if (characterSelected != 0)
+                {
+                characterSelected -= 1;
+                }
+                else
+                {
+                characterSelected = 2;
                 }
             }
             changeChar(characterSelected);
