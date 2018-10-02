@@ -1203,7 +1203,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1682,6 +1682,20 @@ Prefab:
     - target: {fileID: 4901718334191380, guid: 4fcb2fe80de371a42a92417ee1c36b61, type: 2}
       propertyPath: m_RootOrder
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114575686634616132, guid: 4fcb2fe80de371a42a92417ee1c36b61,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Available soul switches:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460086799429184, guid: 4fcb2fe80de371a42a92417ee1c36b61,
+        type: 2}
+      propertyPath: m_Text
+      value: 'You have no more soul switches left for this room.
+
+
+
+        (This text will be replaced with a "fail" animation later in production)'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fcb2fe80de371a42a92417ee1c36b61, type: 2}
@@ -2545,11 +2559,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4919905486200406, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -19.96
+      value: -28.44
       objectReference: {fileID: 0}
     - target: {fileID: 4919905486200406, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -12.43
+      value: -16.85
       objectReference: {fileID: 0}
     - target: {fileID: 4919905486200406, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}
       propertyPath: m_LocalPosition.z
