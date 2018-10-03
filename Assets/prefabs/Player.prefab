@@ -61,7 +61,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 2
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -111,8 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dacad082a3c95c04599837f3171d3742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 30
-  DoubleJumpForce: 18
+  JumpForce: 20
+  DoubleJumpForce: 10
   lengthOfTheRayCast: 0.2
   widthOfTheRayCast: 0.25
   AirJumpTime: 0.01
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbaacc9bd21d0a4087f42ee90d41d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 30
+  JumpForce: 20
   lengthOfTheRayCast: 0.2
   widthOfTheRayCast: 0.25
   AirJumpTime: 0.01
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activatePlatform: 0
-  JumpForce: 30
+  JumpForce: 20
   lengthOfTheRayCast: 0.2
   widthOfTheRayCast: 0.25
   AirJumpTime: 0.01
@@ -168,10 +168,10 @@ MonoBehaviour:
   dSpeed: 12
   sSpeed: 8
   wSpeed: 8
-  right: 0
+  right: 1
   characterSelected: 0
-  gFourceDown: 5
-  gFourceUp: 3
+  gFourceDown: 2
+  gFourceUp: 1
 --- !u!212 &212148880604007368
 SpriteRenderer:
   m_ObjectHideFlags: 1

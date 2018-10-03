@@ -99,7 +99,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
     // Update for physics engine
     void FixedUpdate()
     {
-        GeneralMovement(); 
+        GeneralMovement();
+        GravityControl();
     }
 
     // General movement of the player
