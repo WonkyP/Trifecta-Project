@@ -18,6 +18,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
     float curSpeed;
 
     //private Rigidbody2D rb; // a relic from when we used force to move the char
+    [HideInInspector]
     public bool right = true;
 
     // A variable for each character to enable and disable each power
@@ -55,6 +56,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
     public float velY;
     Rigidbody2D rb;
 
+    [Header("Dead Zone for movement")]
+    public float movementDeadZone = 0.1f;
 
     public void ChangeMovements(int move) // change movements
     {
@@ -109,6 +112,10 @@ public class GeneralPlayerMovement : MonoBehaviour {
     {
         if (Input.GetAxis("Horizontal") != 0)
         {
+            if (Input.GetAxis("Horizontal") <= movementDeadZone && Input.GetAxis("Horizontal") >= -movementDeadZone)
+            {
+                return;
+            }
             float SPD = curSpeed * Input.GetAxis("Horizontal"); // set spd to the curspeed and dir the player is walking
             transform.position = new Vector2(transform.position.x + SPD * Time.deltaTime, transform.position.y); // moving the char
 

@@ -172,6 +172,8 @@ MonoBehaviour:
   characterSelected: 0
   gFourceDown: 2
   gFourceUp: 1
+  velY: 0
+  movementDeadZone: 0.2
 --- !u!212 &212148880604007368
 SpriteRenderer:
   m_ObjectHideFlags: 1
