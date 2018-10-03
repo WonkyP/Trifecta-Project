@@ -51,7 +51,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
     public float gFourceDown = 4;
     public float gFourceUp = 3;
     // You don't get the gravity of this var
-    float velY;
+    [HideInInspector]
+    public float velY;
     Rigidbody2D rb;
 
 

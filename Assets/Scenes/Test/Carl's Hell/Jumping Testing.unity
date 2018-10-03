@@ -893,7 +893,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4461850787687296, guid: 059d81e86ea2d6a4d8e00128e1a84d9b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4461850787687296, guid: 059d81e86ea2d6a4d8e00128e1a84d9b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1795,7 +1795,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4461850787687296, guid: 059d81e86ea2d6a4d8e00128e1a84d9b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4461850787687296, guid: 059d81e86ea2d6a4d8e00128e1a84d9b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2579,6 +2579,7 @@ GameObject:
   - component: {fileID: 1755714648}
   - component: {fileID: 1755714647}
   - component: {fileID: 1755714646}
+  - component: {fileID: 1755714649}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2617,7 +2618,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2646,6 +2647,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1755714649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1755714645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc22a765b093faf45a4500c071cf5a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraHight: 2
+  cameraZPos: -1
+  cSpeed: 1
+  CameraMoveTime: 0.5
+  LookDistance: 4
 --- !u!1001 &1811247877
 Prefab:
   m_ObjectHideFlags: 0
