@@ -1307,6 +1307,7 @@ MonoBehaviour:
   cLength: 0
   cameraHight: 4
   cameraZPos: -1
+  CameraMoveTime: 1
 --- !u!1001 &542853404
 Prefab:
   m_ObjectHideFlags: 0
@@ -3999,11 +4000,11 @@ Prefab:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 1064888171405534, guid: f4992272c5945e441b967b35e654332a, type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 1067589007479792, guid: f4992272c5945e441b967b35e654332a, type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
