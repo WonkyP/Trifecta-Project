@@ -9,6 +9,8 @@ public class Trigger_Tutorial : MonoBehaviour {
     public string textToDisplay;
     private GameObject tutBox;
     private Button tutBoxButton;
+    public GameObject UIToAnimate;
+
     // Use this for initialization
 
     void Start () {
@@ -40,6 +42,7 @@ public class Trigger_Tutorial : MonoBehaviour {
         //Deactivate tutorial box and resume time.
         tutBox.SetActive(false);
         Time.timeScale = 1;
+        UIToAnimate.SetActive(true);
         //Destroy the trigger from the scene.
         Destroy(gameObject);
     }
