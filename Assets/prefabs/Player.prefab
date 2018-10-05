@@ -145,18 +145,21 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1042503808180818}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dacad082a3c95c04599837f3171d3742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 20
-  DoubleJumpForce: 10
-  lengthOfTheRayCast: 0.2
-  widthOfTheRayCast: 0.25
-  AirJumpTime: 0.01
-  airJumpAmount: 1
-  coyoteTime: 0.1
+  jumpSpeed: 12
+  airJumpCount: 1
+  airTime: 0.2
+  DoubleJumpAirTime: 0.05
+  isGrounded: 1
+  drawRaycast: 0
+  hightOfTheRaycast: 0.2
+  widthOfTheRaycast: 0.15
+  yVel: 0
+  coyoteTime: 0.2
 --- !u!114 &114536404846463378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,12 +171,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbaacc9bd21d0a4087f42ee90d41d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 20
-  lengthOfTheRayCast: 0.2
-  widthOfTheRayCast: 0.25
-  AirJumpTime: 0.01
-  airJumpAmount: 0
-  coyoteTime: 0.1
+  jumpSpeed: 12
+  airJumpCount: 0
+  airTime: 0.2
+  DoubleJumpAirTime: 0
+  isGrounded: 0
+  drawRaycast: 0
+  hightOfTheRaycast: 0.2
+  widthOfTheRaycast: 0.15
+  yVel: 0
+  coyoteTime: 0.2
 --- !u!114 &114539482192208654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,13 +192,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b3a1c5a7f1d37643871e773cf3fe2d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSpeed: 12
+  airJumpCount: 0
+  airTime: 0.2
+  DoubleJumpAirTime: 0
+  isGrounded: 0
+  drawRaycast: 0
+  hightOfTheRaycast: 0.2
+  widthOfTheRaycast: 0.15
+  yVel: 0
+  coyoteTime: 0.2
   activatePlatform: 0
-  JumpForce: 20
-  lengthOfTheRayCast: 0.2
-  widthOfTheRayCast: 0.25
-  AirJumpTime: 0.01
-  airJumpAmount: 0
-  coyoteTime: 0.1
 --- !u!114 &114874534693430582
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -4,197 +4,212 @@ using UnityEngine;
 
 public class SpiritMovement : MonoBehaviour
 {
+
+    [Header("Jump Stats")]
+    public float jumpSpeed = 10;
+    public int airJumpCount = 1;
+    int curAirJumpCount;
+
+
+    [Header("Jump from the ground")]
+    public float airTime;
+    float curAirTime; // this var will change over time
+
+    [Header("Jump without ground")]
+    public float DoubleJumpAirTime;
+
+
+    // Getting varables
+    Rigidbody2D rb;
+
+    // Checking if it's grounded
+    [Space]
+    public bool isGrounded = false;
+
+    [Header("Raycasts")]
+    public bool drawRaycast = false;
+    public float hightOfTheRaycast;
+    public float widthOfTheRaycast;
+
+    [Space]
+    public float yVel;
+    float curVel;
+
+
+    [Space]
+    public float coyoteTime;
+    float curCoyoteTime;
+    bool jumping = false;
+
+
+    // Box
     RaycastHit2D rightHit;
     RaycastHit2D leftHit;
     GameObject box;
-    private GeneralPlayerMovement gpm;
+    //private GeneralPlayerMovement gpm; // don't think we need this one? not sure so it's still here commented out.  5.10.2018
 
-
-    //Other Controlls
-    int controlNr;
-
-
-    [Header("Jumping")]
-    public float JumpForce = 5;
-    private Rigidbody2D rb;
-    bool jumping = false;
-    public float lengthOfTheRayCast;
-    public float widthOfTheRayCast;
-    public float AirJumpTime;
-    float curAirJumpTime;
-    bool jumpable = false;
-    //Air Jumps
-    public int airJumpAmount;
-    int curJump = 0;
-    // Safe jumping
-    public float coyoteTime;
-    float curSafeJumpTime = 0;
-
-    // Use this for initialization
-    void Start()
+    //[Header("")]
+    public void Start()
     {
+
+        // setting vars
         rb = GetComponent<Rigidbody2D>();
-        gpm = GetComponent<GeneralPlayerMovement>();
-        controlNr = gpm.Controls;
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    public void Update()
     {
-
-        // How to Debug raycast, in case we need it
-        //Debug.DrawRay(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.right * transform.localScale.x, Color.green);
-        //Debug.DrawRay(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.25f, 0.0f, 0.0f), Vector2.left * transform.localScale.x, Color.red);
+        GroundCheck();
 
 
 
-        ///////////// JUMP
-        if (controlNr == 0) // X Y B
+        // THE BOCK MOVEMENT
+        if (Input.GetButton("AbilityB 01") && NextToBox())
         {
-            CheckJump();
+            if (rightHit)
+                box = rightHit.collider.gameObject;
+            else if (leftHit)
+                box = leftHit.collider.gameObject;
 
-            if (Input.GetButtonDown("Jump"))// && jumping == false)
-            {
-                // just a safe gard to make sure that double jumps never happens
-                Jump();
-            }
-
-            if (Input.GetButton("AbilityB 01") && NextToBox())
-            {
-                if (rightHit)
-                    box = rightHit.collider.gameObject;
-                else if (leftHit)
-                    box = leftHit.collider.gameObject;
-
-                box.transform.parent = transform;
-            }
-            else if (Input.GetButtonUp("AbilityB 01") || !NextToBox())
-            {
-                try
-                {
-                    box.transform.parent = null;
-                }
-                catch
-                {
-                    Debug.Log("Box without parent attached");
-                }
-            }
+            box.transform.parent = transform;
         }
-        else // LB and RB
+        else if (Input.GetButtonUp("AbilityB 01") || !NextToBox())
         {
-            CheckJump();
-
-            if (Input.GetButtonDown("Jump"))// && jumping == false)
+            try
             {
-                // just a safe gard to make sure that double jumps never happens
-                Jump();
+                box.transform.parent = null;
             }
-
-            if (Input.GetButton("AbilityB 01") && NextToBox())
+            catch
             {
-                if (rightHit)
-                    box = rightHit.collider.gameObject;
-                else if (leftHit)
-                    box = leftHit.collider.gameObject;
-
-                box.transform.parent = transform;
-            }
-            else if (Input.GetButtonUp("AbilityB 01") || !NextToBox())
-            {
-                try
-                {
-                    box.transform.parent = null;
-                }
-                catch
-                {
-                    Debug.Log("Box without parent attached");
-                }
+                Debug.Log("Box without parent attached");
             }
         }
 
 
-        // Debug Raycast
-        Debug.DrawRay(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.4f, 0.5f, 0.0f), Vector2.right * transform.localScale.x, Color.green);
-        Debug.DrawRay(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.4f, -0.5f, 0.0f), Vector2.left * transform.localScale.x, Color.red);
+
+        //coyote time
+        if (jumping == false)
+        {
+
+            if (isGrounded)
+            {
+                curCoyoteTime = coyoteTime;
+            }
+
+            else if (!isGrounded && curCoyoteTime > 0)
+            {
+                curCoyoteTime -= Time.deltaTime;
+
+                Jump();
+
+            }
+            else if (curCoyoteTime <= 0)
+            {
+            }
+        }
+
+
+
+        Jump();
 
     }
 
-    void CheckJump()
+    public void Jump()
     {
 
-        // check if theres any ground near the player's feet
-        RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(1, 0), widthOfTheRayCast, 9/*Ignores the player layer*/);
-        RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-1, 0), widthOfTheRayCast, 9/*Ignores the player layer*/);
 
-        if (hitRight == true || hitLeft == true) // checks if the raycast hits anything
+
+        // Jumping
+        if (Input.GetButtonUp("Jump"))// && curAirTime > 0) // jump over
         {
-            curJump = airJumpAmount;
-            if (jumping) // currently jumping
-            {
-                //Set the timer for the next jump here
-                if (curAirJumpTime > 0)
-                {
-                    curAirJumpTime -= Time.deltaTime;
-                }
-                else
-                {
-                    jumping = false;
-                    curAirJumpTime = AirJumpTime;
-                }
-                jumpable = false;
-                return;
-            }
-            else
-            {
-                jumpable = true;
-            }
-            // debugs for left and right
-            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(widthOfTheRayCast, 0), Color.green, 0.5f);
-            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - lengthOfTheRayCast), new Vector2(-widthOfTheRayCast, 0), Color.green, 0.5f);
+            curAirTime = 0;
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
+
+            jumping = false;
         }
-        else if (jumping == false)
+        else if (Input.GetButtonDown("Jump") && curCoyoteTime > 0) // take Off
         {
-            if (curSafeJumpTime < 0) // checks if the time for jump is still not out
-            {
-                jumping = true;
-                curSafeJumpTime = coyoteTime;
-            }
-            else
-            {
-                curSafeJumpTime -= Time.deltaTime;
-            }
+            jumping = true;
+            curCoyoteTime = 0;
 
-            Debug.DrawRay(transform.position, new Vector2(0, -lengthOfTheRayCast), Color.red, 0.5f); // draw the raycast with a red colour to show that it's not on the floor
+            curAirJumpCount = airJumpCount;
 
+            curVel = jumpSpeed; // set the vel
+
+            rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
+
+            curAirTime = airTime; // set how long the button press will be for
+            return;
+        }
+        else if (Input.GetButton("Jump") && curAirTime > 0) // In The Air
+        {
+            curAirTime -= Time.deltaTime;
+
+            curVel = curVel - Time.deltaTime * 5;
+
+            rb.velocity = new Vector2(rb.velocity.x, curVel);
+            return;
+        }
+        //////////////////////////////////////////////////////// X2!!!!
+        if (Input.GetButtonDown("Jump") && curAirJumpCount > 0) // checks if the player tries to jump in the air
+        {
+            curAirJumpCount -= 1;
+
+            curVel = jumpSpeed; // set the vel
+
+            rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
+
+            curAirTime = DoubleJumpAirTime; // set how long the button press will be for
+            return;
+        }
+    }
+
+    public void FixedUpdate()
+    {
+        yVel = rb.velocity.y;
+        Gravity();
+    }
+
+
+    public void Gravity()
+    {
+        if (yVel < 0)
+        {
+            rb.gravityScale = 4;
         }
         else
         {
-            jumping = true;
+            rb.gravityScale = 1;
         }
     }
 
-    void Jump()
+    public void GroundCheck()
     {
-
-
-        if (jumpable && jumping == false)
+        // check if player is grounded 
+        RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(1, 0), widthOfTheRaycast, 9/*Ignores the player layer*/);
+        RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(-1, 0), widthOfTheRaycast, 9/*Ignores the player layer*/);
+        if (drawRaycast)
         {
-            jumping = true;
-            curAirJumpTime = AirJumpTime;
-            jumpable = false;
-
-            // modifying the velocity of the rigidbody solves a bug that appears using addForce
-            rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.y);
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(widthOfTheRaycast, 0), Color.green, 0.5f);
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(-widthOfTheRaycast, 0), Color.green, 0.5f);
         }
-        else if (curJump > 0)
+
+        if (hitLeft || hitRight)
         {
-            curJump -= 1;
-            // modifying the velocity of the rigidbody solves a bug that appears using addForce
-            rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.y);
+            isGrounded = true;
+        }
+        else if (isGrounded)
+        {
+            isGrounded = false;
         }
     }
 
-    ///DRAGGING
+
+
+
+
+
 
 
     bool NextToBox()
@@ -222,15 +237,18 @@ public class SpiritMovement : MonoBehaviour
         {
             b = false;
         }
-        
+
         return b;
     }
 
 
     private void OnDisable()
     {
-        if(box != null)
+        if (box != null)
             if (box.transform.parent != null)
                 box.transform.parent = null;
     }
+
+
+
 }
