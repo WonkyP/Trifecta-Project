@@ -14,10 +14,6 @@ public class SpiritMovement : MonoBehaviour
     int controlNr;
 
 
-
-
-
-
     [Header("Jumping")]
     public float JumpForce = 5;
     private Rigidbody2D rb;
