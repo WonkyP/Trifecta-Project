@@ -5,7 +5,7 @@ using UnityEngine;
 public class DaughterMovement : MonoBehaviour
 {
     [Header("Jump Stats")]
-    public float jumpSpeed = 10;
+    public float jumpSpeed = 12;
     public int airJumpCount = 1;
     int curAirJumpCount;
 
@@ -84,7 +84,7 @@ public class DaughterMovement : MonoBehaviour
     public void Jump()
     {
         // Jumping
-        if (Input.GetButtonUp("Jump"))// && curAirTime > 0) // jump over
+        if (Input.GetButtonUp("Jump") && jumping == true)// && curAirTime > 0) // jump over
         {
             curAirTime = 0;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
@@ -168,5 +168,10 @@ public class DaughterMovement : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        curCoyoteTime = 0;
+
+    }
 
 }

@@ -121,7 +121,7 @@ public class SpiritMovement : MonoBehaviour
 
 
         // Jumping
-        if (Input.GetButtonUp("Jump"))// && curAirTime > 0) // jump over
+        if (Input.GetButtonUp("Jump") && jumping == true)// && curAirTime > 0) // jump over
         {
             curAirTime = 0;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
@@ -250,5 +250,9 @@ public class SpiritMovement : MonoBehaviour
     }
 
 
+    private void OnEnable()
+    {
+        curCoyoteTime = 0;
 
+    }
 }

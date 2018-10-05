@@ -11,7 +11,7 @@ public class CameraMovement : MonoBehaviour {
     [Header("Camera stats")]
     public float cSpeed;
 
-    public float CameraMoveTime = 1;
+    public float CameraMoveTime = 0.5f;
     float cameraTimer;
 
     Transform player;
