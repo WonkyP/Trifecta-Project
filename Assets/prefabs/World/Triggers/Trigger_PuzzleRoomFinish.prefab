@@ -35,8 +35,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1536055727291212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.53, y: -15.46, z: 0}
+  m_LocalScale: {x: 1, y: 3.225, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,7 +79,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScorePresenter: {fileID: 0}
   SoulShard: {fileID: 0}
-  Score1: {fileID: 0}
-  Score2: {fileID: 0}
-  Score3: {fileID: 0}
   scoreToDisplay: {fileID: 0}
