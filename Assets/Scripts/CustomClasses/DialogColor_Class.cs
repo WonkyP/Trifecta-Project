@@ -5,12 +5,11 @@ using UnityEngine;
 public class DialogColor_Class
 {
     public string text;
-    public enum whoTalking
+    public enum WhoTalking
     {
-        Anja, dad, tree
+        Anya, Brumund, Viraya
     }
-    public whoTalking talker = whoTalking.Anja;
-
+    public WhoTalking talker = WhoTalking.Anya;
 }
 
 

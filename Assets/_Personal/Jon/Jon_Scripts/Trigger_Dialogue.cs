@@ -6,15 +6,17 @@ using UnityEngine.UI;
 public class Trigger_Dialogue : MonoBehaviour {
 
     private GameObject player;
-    public string[] texts;
     public Text floatingText;
+    private GameObject TextBackground;
+    public DialogColor_Class[] dialogueList;
 
 	// Use this for initialization
 	void Start () {
         //Getting references
         player = GameObject.FindGameObjectWithTag("Player");
-        floatingText = player.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>();
-	}
+        floatingText = player.transform.GetChild(0).transform.GetChild(1).GetComponent<Text>();
+        TextBackground = player.transform.GetChild(0).transform.GetChild(0).gameObject;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,15 +30,35 @@ public class Trigger_Dialogue : MonoBehaviour {
     //Coroutine for displaying messages in the trigger's public strings one at a time with a delay.
     IEnumerator DisplayTexts()
     {
-        foreach(string message in texts)
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        foreach(DialogColor_Class message in dialogueList)
         {
-            floatingText.text = message;
+            TextBackground.SetActive(true);
+            floatingText.text = message.text;
+            switch (message.talker)
+            {
+                case DialogColor_Class.WhoTalking.Anya:
+                    Color myColor = new Color();
+                    ColorUtility.TryParseHtmlString("#34C8B7", out myColor);
+                    floatingText.color = myColor;
+                    
+                    break;
+                case DialogColor_Class.WhoTalking.Brumund:
+                    floatingText.color = Color.green;
+                    break;
+                case DialogColor_Class.WhoTalking.Viraya:
+                    floatingText.color = Color.black;
+                    break;
+                default:
+                    break;
+            }
             yield return new WaitForSeconds(5);
         }
         
         yield return null;
         //Reset floating text over player and destroy trigger.
         floatingText.text = "";
+        TextBackground.SetActive(false);
         Destroy(gameObject);
 
     }
