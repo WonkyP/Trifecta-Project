@@ -74,7 +74,19 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
             Debug.Log("Soul sprite attached to score 1!");
             scoreToDisplay.text = "1";
 
-            GiveSoulShards(1); // gives the SoulShards
+            //scene name
+            string sceneName = SceneManager.GetActiveScene().name;
+            int roomLevel = PlayerPrefs.GetInt(sceneName, 0);
+
+            if (roomLevel >= 1) // checks if this have been given before
+            {
+
+            }
+            else
+            {
+                PlayerPrefs.SetInt(sceneName, 1);
+                GiveSoulShards(1); // gives the SoulShards
+            }
         }
         yield return new WaitForSeconds(1);
         if (GameObject.Find("Canvas_PuzzleRoom").gameObject.GetComponent<ChardCounter>().curShardCount >= ChargesForScore2)
@@ -83,7 +95,19 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
             Score2.color = tmp;
             scoreToDisplay.text = "2";
 
-            GiveSoulShards(2); // gives the SoulShards
+            //scene name
+            string sceneName = SceneManager.GetActiveScene().name;
+            int roomLevel = PlayerPrefs.GetInt(sceneName, 0);
+
+            if (roomLevel >= 2) // checks if this have been given before
+            {
+
+            }
+            else
+            {
+                PlayerPrefs.SetInt(sceneName, 2);
+                GiveSoulShards(1); // gives the SoulShards
+            }
 
         }
         yield return new WaitForSeconds(1);
@@ -93,7 +117,19 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
             Score3.color = tmp;
             scoreToDisplay.text = "3";
 
-            GiveSoulShards(3); // gives the SoulShards
+            //scene name
+            string sceneName = SceneManager.GetActiveScene().name;
+            int roomLevel = PlayerPrefs.GetInt(sceneName, 0);
+
+            if (roomLevel >= 3) // checks if this have been given before
+            {
+
+            }
+            else
+            {
+                PlayerPrefs.SetInt(sceneName, 3);
+                GiveSoulShards(1); // gives the SoulShards
+            }
 
         }
 
@@ -102,6 +138,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
 
     public void GiveSoulShards(int amount)
     {
+
         // Gives the playerprefs point
         int curPlayerPref = PlayerPrefs.GetInt("SoulShards", 0) + amount;
         PlayerPrefs.SetInt("SoulShards", curPlayerPref);
