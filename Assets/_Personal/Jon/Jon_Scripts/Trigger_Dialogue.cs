@@ -39,6 +39,7 @@ public class Trigger_Dialogue : MonoBehaviour {
             {
                 case DialogColor_Class.WhoTalking.Anya:
                     Color myColor = new Color();
+                    //Copy desired color with hex string after the "#"
                     ColorUtility.TryParseHtmlString("#34C8B7", out myColor);
                     floatingText.color = myColor;
                     

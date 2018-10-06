@@ -17,6 +17,10 @@ public class CameraMovement : MonoBehaviour {
     Transform player;
     GeneralPlayerMovement GMP;
 
+    private float aspect;
+    public Transform CamMin;
+    public Transform CamMax;
+
     public float LookDistance;
     Vector3 p;
 
@@ -26,6 +30,11 @@ public class CameraMovement : MonoBehaviour {
         GMP = player.GetComponent<GeneralPlayerMovement>();
 
         cameraTimer = CameraMoveTime;
+
+        CamMin = GameObject.Find("CameraMin").transform;
+        CamMax = GameObject.Find("CameraMax").transform;
+        aspect = Camera.main.aspect;
+
 	}
 	
 	// Update is called once per frame
@@ -80,6 +89,23 @@ public class CameraMovement : MonoBehaviour {
 
     public void MovingTheCamera(Vector3 target)
     {
+        float orthSize = Camera.main.orthographicSize;
+        if(target.x < (CamMin.position.x + orthSize * aspect))
+        {
+            target.x = CamMin.position.x + orthSize * aspect;
+        }
+        else if (target.x > (CamMax.position.x - orthSize * aspect))
+        {
+            target.x = CamMax.position.x - orthSize * aspect;
+        }
+        if (target.y < (CamMin.position.y + orthSize))
+        {
+            target.y = CamMin.position.y + orthSize;
+        }
+        else if (target.y > (CamMax.position.y - orthSize))
+        {
+            target.y = CamMax.position.y - orthSize;
+        }
         transform.position = Vector3.Lerp(transform.position, target, Vector3.Distance(transform.position, target) * cSpeed * Time.deltaTime);
             //new Vector3(player.position.x, player.position.y + cameraHight, cameraZPos);
     }

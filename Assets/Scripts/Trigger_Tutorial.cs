@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Trigger_Tutorial : MonoBehaviour {
 
     public Text tutText;
+    public Sprite tutorialToSHow;
     public string textToDisplay;
     private GameObject tutBox;
     private Button tutBoxButton;
@@ -29,7 +30,8 @@ public class Trigger_Tutorial : MonoBehaviour {
         {   
             //Activates tutorial box and displays text as input from trigger gameObject in inspector. Stops time.
             tutBox.SetActive(true);
-            tutText.text = textToDisplay;
+            tutBox.GetComponent<Image>().sprite = tutorialToSHow;
+            //tutText.text = textToDisplay;
             //Adds button functionality to the button in the tutorial box.
             tutBoxButton.onClick.AddListener(OKbutton);
             Time.timeScale = 0;
