@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ShardControll : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+    public int SoulShards;
+
+    private void Start()
+    {
+        UpdateNumbers();
+    }
+
+    public void UpdateNumbers () {
+        SoulShards = PlayerPrefs.GetInt("SoulShards", 0);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

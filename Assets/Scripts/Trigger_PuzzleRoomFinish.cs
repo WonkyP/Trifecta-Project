@@ -10,6 +10,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
     public bool InteractionButtonPressed;
 
     public string SceneToLoad;
+    public string NameOfTheExitObject;
 
     public GameObject ScorePresenter;
     public Sprite SoulShard;
@@ -25,6 +26,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
     public int ChargesForScore1;
     public int ChargesForScore2;
     public int ChargesForScore3;
+
 
 	// Use this for initialization
 	void Start () {
@@ -71,6 +73,8 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
             Score1.color = tmp;
             Debug.Log("Soul sprite attached to score 1!");
             scoreToDisplay.text = "1";
+
+            GiveSoulShards(1); // gives the SoulShards
         }
         yield return new WaitForSeconds(1);
         if (GameObject.Find("Canvas_PuzzleRoom").gameObject.GetComponent<ChardCounter>().curShardCount >= ChargesForScore2)
@@ -78,6 +82,9 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
             Score2.sprite = SoulShard;
             Score2.color = tmp;
             scoreToDisplay.text = "2";
+
+            GiveSoulShards(2); // gives the SoulShards
+
         }
         yield return new WaitForSeconds(1);
         if (GameObject.Find("Canvas_PuzzleRoom").gameObject.GetComponent<ChardCounter>().curShardCount >= ChargesForScore3)
@@ -85,15 +92,27 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
             Score3.sprite = SoulShard;
             Score3.color = tmp;
             scoreToDisplay.text = "3";
+
+            GiveSoulShards(3); // gives the SoulShards
+
         }
 
         yield return null;
     }
 
+    public void GiveSoulShards(int amount)
+    {
+        // Gives the playerprefs point
+        int curPlayerPref = PlayerPrefs.GetInt("SoulShards", 0) + amount;
+        PlayerPrefs.SetInt("SoulShards", curPlayerPref);
+    }
+
+
     public void OKButton()
     {
         ScorePresenter.SetActive(false);
-        SceneManager.LoadScene(SceneToLoad);
+        GameObject.FindGameObjectWithTag("DoorNr").GetComponent<DoNotDestroy>().NameOfTheObject = NameOfTheExitObject; // set the exit object
+        SceneManager.LoadScene(SceneToLoad); // load the selected scene
     }
 
     // Update is called once per frame
