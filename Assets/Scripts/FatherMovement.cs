@@ -125,6 +125,8 @@ public class FatherMovement : MonoBehaviour
         {
             curAirJumpCount -= 1;
 
+            jumping = true;
+
             curVel = jumpSpeed; // set the vel
 
             rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
