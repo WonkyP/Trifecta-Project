@@ -107,12 +107,19 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
         PlayerPrefs.SetInt("SoulShards", curPlayerPref);
     }
 
+    IEnumerator FadeOutAndLoadScene()
+    {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFade>().fadeDir = 1f;
+        yield return new WaitForSeconds(3);
+        GameObject.FindGameObjectWithTag("DoorNr").GetComponent<DoNotDestroy>().NameOfTheObject = NameOfTheExitObject; // set the exit object
+        SceneManager.LoadScene(SceneToLoad); // load the selected scene
+        yield return null;
+    }
 
     public void OKButton()
     {
         ScorePresenter.SetActive(false);
-        GameObject.FindGameObjectWithTag("DoorNr").GetComponent<DoNotDestroy>().NameOfTheObject = NameOfTheExitObject; // set the exit object
-        SceneManager.LoadScene(SceneToLoad); // load the selected scene
+         
     }
 
     // Update is called once per frame
