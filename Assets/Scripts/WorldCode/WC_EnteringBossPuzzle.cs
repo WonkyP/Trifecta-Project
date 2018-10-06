@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class WC_EnteringBossPuzzle : MonoBehaviour {
 
-    public int sceneIndexNumber; // we have to set the scene index our self :(
+    public string SceneName; // we have to set the scene name
+
     bool entryGrantet = false;
 
     public string NameOfTheExitObject;
@@ -18,7 +19,7 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
                 //print("YOU MAY PASS");
                 GameObject.FindGameObjectWithTag("DoorNr").GetComponent<DoNotDestroy>().NameOfTheObject = NameOfTheExitObject; // set the exit object
 
-                SceneManager.LoadScene(sceneIndexNumber); // load the next scene
+                SceneManager.LoadScene(SceneName); // load the next scene
             }
             
         }

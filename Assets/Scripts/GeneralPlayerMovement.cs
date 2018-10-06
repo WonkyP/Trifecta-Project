@@ -68,7 +68,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        characterSelected = 2;
+        characterSelected = PlayerPrefs.GetInt("CharNr", 2);
 
         // get rb
         rb = GetComponent<Rigidbody2D>();
@@ -138,30 +138,36 @@ public class GeneralPlayerMovement : MonoBehaviour {
        // the player controls where the player change who they are by pressing X Y B on the controller || A S D on keyboard
             if (Input.GetButtonDown("Girl"))
             {
-                anim.Play("Girl");
-                c0Script.enabled = true;
-                c1Script.enabled = false;
-                c2Script.enabled = false;
-                characterSelected = 0;
-                curSpeed = dSpeed;
+            anim.Play("Girl");
+            c0Script.enabled = true;
+            c1Script.enabled = false;
+            c2Script.enabled = false;
+            characterSelected = 0;
+            PlayerPrefs.SetInt("CharNr", characterSelected);
+
+            curSpeed = dSpeed;
             }
             else if (Input.GetButtonDown("Spirit"))
             {
-                anim.Play("Warrior");
-                c0Script.enabled = false;
-                c1Script.enabled = true;
-                c2Script.enabled = false;
-                characterSelected = 1;
-                curSpeed = sSpeed;
+            anim.Play("Warrior");
+            c0Script.enabled = false;
+            c1Script.enabled = true;
+            c2Script.enabled = false;
+            characterSelected = 1;
+            PlayerPrefs.SetInt("CharNr", characterSelected);
+
+            curSpeed = sSpeed;
             }
             else if (Input.GetButtonDown("OldMan"))
             {
-                anim.Play("Wizard");
-                c0Script.enabled = false;
-                c1Script.enabled = false;
-                c2Script.enabled = true;
-                characterSelected = 2;
-                curSpeed = wSpeed;
+            anim.Play("Wizard");
+            c0Script.enabled = false;
+            c1Script.enabled = false;
+            c2Script.enabled = true;
+            characterSelected = 2;
+            PlayerPrefs.SetInt("CharNr", characterSelected);
+
+            curSpeed = wSpeed;
             }
         if (WheelAnimator != null)
         {
@@ -172,32 +178,38 @@ public class GeneralPlayerMovement : MonoBehaviour {
         GameManager.instance.updateHUD(characterSelected);
         
 
-            //the Switch Movement where the player changes char with LB and RB on the controller
-            if (Input.GetButtonDown("RightButton"))
+        //the Switch Movement where the player changes char with LB and RB on the controller
+        if (Input.GetButtonDown("RightButton"))
+        {
+            if (characterSelected != 2)
             {
-                if (characterSelected != 2)
-                {
-                characterSelected += 1;
-                }
-                else
-                {
-                characterSelected = 0;
-                }
-               
+            characterSelected += 1;
             }
-            if (Input.GetButtonDown("LeftButton"))
+            else
             {
-                if (characterSelected != 0)
-                {
-                characterSelected -= 1;
-                }
-                else
-                {
-                characterSelected = 2;
-                }
+            characterSelected = 0;
             }
-            changeChar(characterSelected);
-        
+
+            PlayerPrefs.SetInt("CharNr", characterSelected);
+
+
+        }
+        if (Input.GetButtonDown("LeftButton"))
+        {
+            if (characterSelected != 0)
+            {
+            characterSelected -= 1;
+            }
+            else
+            {
+            characterSelected = 2;
+            }
+
+            PlayerPrefs.SetInt("CharNr", characterSelected);
+
+        }
+
+        changeChar(characterSelected);
 
     }
 
