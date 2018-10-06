@@ -7,8 +7,8 @@ public class magicBox : MonoBehaviour
     private FatherMovement player;
     private GameObject playerObject;
 
-    private Collider2D colision;
-    private MeshRenderer view;
+    private BoxCollider2D colision;
+    private SpriteRenderer view;
 
     public char magicPlatformType = 'A'; // A default value // if it is A it will begin banish
                                          //B in case of platforms that start on the scene
@@ -19,8 +19,8 @@ public class magicBox : MonoBehaviour
         playerObject = GameObject.FindGameObjectWithTag("Player");
         player = playerObject.GetComponent<FatherMovement>();
 
-        colision = GetComponent<Collider2D>();
-        view = GetComponent<MeshRenderer>();
+        colision = GetComponent<BoxCollider2D>();
+        view = GetComponent<SpriteRenderer>();
 
         if (magicPlatformType == 'A')
         {
