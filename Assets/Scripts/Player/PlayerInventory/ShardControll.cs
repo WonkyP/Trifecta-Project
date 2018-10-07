@@ -10,12 +10,18 @@ public class ShardControll : MonoBehaviour {
     public bool RemovePP = false;
 
     [Header("should be assigned in the prefab")]
-    public Text TextOfUI;
+    public SpriteRenderer NrOne;
+    public SpriteRenderer NrTen;
+
     public Canvas Canvas;
 
+    [Header("Images for the numbers")]
+    public List<Sprite> Numbers = new List<Sprite>();
 
     private void Start()
     {
+        //PlayerPrefs.SetInt("SoulShards",57);
+
         Canvas.worldCamera = Camera.main; // set the camera
 
         if (RemovePP) // for play testing you can remove the soulshard count with this bool activ
@@ -29,8 +35,15 @@ public class ShardControll : MonoBehaviour {
     }
 
     public void UpdateNumbers () {
-        SoulShards = PlayerPrefs.GetInt("SoulShards", 0); 
-        TextOfUI.text = SoulShards.ToString(); // send the text to the UI
-	}
+        SoulShards = PlayerPrefs.GetInt("SoulShards", 0);
+
+        // find the rounded nrs for the ui images
+        int one = SoulShards - (SoulShards / 10) * 10;
+        int ten = SoulShards/10;
+        // set the up images
+        NrOne.sprite = Numbers[one];
+        NrTen.sprite = Numbers[ten];
+
+    }
 
 }
