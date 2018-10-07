@@ -45,7 +45,8 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
     {
         if(collision.tag == "Player")
         {
-            PlayerInRange = true;           
+            PlayerInRange = true;
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -53,6 +54,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
         if (collision.tag == "Player")
         {
             PlayerInRange = false;
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 
@@ -64,8 +66,6 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
         tmp.r = 255f;
         tmp.g = 255f;
         tmp.b = 255f;
-        //Disable trigger collider, so it only happens once
-        //gameObject.GetComponent<BoxCollider2D>().enabled = false;
         //These if statements look at Carl's script to find the current number of soul charges left and gives scores accordingly.
         if(GameObject.Find("Canvas_PuzzleRoom").gameObject.GetComponent<ChardCounter>().curShardCount >= ChargesForScore1)
         {
