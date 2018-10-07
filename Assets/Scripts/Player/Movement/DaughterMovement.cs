@@ -29,6 +29,7 @@ public class DaughterMovement : MonoBehaviour
     public bool drawRaycast = false;
     public float hightOfTheRaycast;
     public float widthOfTheRaycast;
+    public LayerMask JumpableLayers;
 
     [Space]
     public float yVel;
@@ -152,8 +153,8 @@ public class DaughterMovement : MonoBehaviour
     public void GroundCheck()
     {
         // check if player is grounded 
-        RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(1, 0), widthOfTheRaycast, 9/*Ignores the player layer*/);
-        RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(-1, 0), widthOfTheRaycast, 9/*Ignores the player layer*/);
+        RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(1, 0), widthOfTheRaycast, JumpableLayers/*Ignores the player layer*/);
+        RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(-1, 0), widthOfTheRaycast, JumpableLayers/*Ignores the player layer*/);
         if (drawRaycast)
         {
             Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(widthOfTheRaycast, 0), Color.green, 0.5f);

@@ -402,6 +402,48 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fcb2fe80de371a42a92417ee1c36b61, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &810768410
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4097033750803174, guid: 92cd26c7f27b2504996c408c052c0c0d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097033750803174, guid: 92cd26c7f27b2504996c408c052c0c0d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097033750803174, guid: 92cd26c7f27b2504996c408c052c0c0d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097033750803174, guid: 92cd26c7f27b2504996c408c052c0c0d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097033750803174, guid: 92cd26c7f27b2504996c408c052c0c0d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097033750803174, guid: 92cd26c7f27b2504996c408c052c0c0d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097033750803174, guid: 92cd26c7f27b2504996c408c052c0c0d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097033750803174, guid: 92cd26c7f27b2504996c408c052c0c0d, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 92cd26c7f27b2504996c408c052c0c0d, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &976698045
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +573,7 @@ GameObject:
   - component: {fileID: 1210043153}
   - component: {fileID: 1210043152}
   - component: {fileID: 1210043151}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Box
   m_TagString: Box
   m_Icon: {fileID: 0}

@@ -202,6 +202,9 @@ MonoBehaviour:
   drawRaycast: 0
   hightOfTheRaycast: 0.2
   widthOfTheRaycast: 0.15
+  JumpableLayers:
+    serializedVersion: 2
+    m_Bits: 4097
   yVel: 0
   coyoteTime: 0.2
 --- !u!114 &114536404846463378
@@ -223,6 +226,9 @@ MonoBehaviour:
   drawRaycast: 0
   hightOfTheRaycast: 0.2
   widthOfTheRaycast: 0.15
+  JumpableLayers:
+    serializedVersion: 2
+    m_Bits: 4097
   yVel: 0
   coyoteTime: 0.2
 --- !u!114 &114539482192208654
@@ -244,6 +250,9 @@ MonoBehaviour:
   drawRaycast: 0
   hightOfTheRaycast: 0.2
   widthOfTheRaycast: 0.15
+  JumpableLayers:
+    serializedVersion: 2
+    m_Bits: 4097
   yVel: 0
   coyoteTime: 0.2
   activatePlatform: 0
@@ -443,7 +452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -29.65, y: -16.54}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2.3515625, y: 2.7226562}
   m_Pivot: {x: 0.5302335, y: 0.12397825}
 --- !u!224 &224548029442626928
