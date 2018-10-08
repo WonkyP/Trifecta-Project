@@ -77,6 +77,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffb38ebffd1ec548a39b4664620e08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerInRange: 0
+  InteractionButtonPressed: 0
+  SceneToLoad: 
+  NameOfTheExitObject: 
   ScorePresenter: {fileID: 0}
-  SoulShard: {fileID: 0}
+  SoulShard: {fileID: 21300000, guid: 1121bfa47b05c0146a0f9795db67a020, type: 3}
   scoreToDisplay: {fileID: 0}
+  myTextArea: Number of charges left to determine score for this challenge
+  ChargesForScore1: 0
+  ChargesForScore2: 0
+  ChargesForScore3: 0
+  anyButton: 0
