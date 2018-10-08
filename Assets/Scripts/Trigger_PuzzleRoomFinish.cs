@@ -156,7 +156,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
     public void OKButton()
     {
         ScorePresenter.SetActive(false);
-         
+        StartCoroutine("FadeOutAndLoadScene");
     }
 
     // Update is called once per frame
