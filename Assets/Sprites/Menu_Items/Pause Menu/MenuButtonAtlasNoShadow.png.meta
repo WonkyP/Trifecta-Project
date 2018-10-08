@@ -5,6 +5,7 @@ TextureImporter:
     21300000: MenuButtonAtlasNoShadow_0
     21300002: MenuButtonAtlasNoShadow_1
     21300004: MenuButtonAtlasNoShadow_2
+    21300006: MenuButtonAtlasNoShadow_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -112,18 +113,18 @@ TextureImporter:
       name: MenuButtonAtlasNoShadow_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 448
+        x: 0
+        y: 441
         width: 482
-        height: 188
+        height: 190
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96f6f8c390dc38d4182df66536c6f6b6
+      spriteID: 9a26ded9b313d3b4ba63453d1aa8e47d
       vertices: []
       indices: 
       edges: []
@@ -133,17 +134,17 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 224
-        width: 483
+        y: 217
+        width: 482
         height: 191
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f740347c594eaeb42a06e99df1b0fd0b
+      spriteID: f5a351dd58e2dcc42a1cfe7c52845735
       vertices: []
       indices: 
       edges: []
@@ -152,18 +153,38 @@ TextureImporter:
       name: MenuButtonAtlasNoShadow_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 8
-        width: 482
-        height: 190
+        x: 155
+        y: 200
+        width: 63
+        height: 5
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc1a79bd64ff2c347a3838d9b1a28118
+      spriteID: 54f46116c2712d5408c212eb22d2b04e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuButtonAtlasNoShadow_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 482
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f9a0818bd28c9f4ba42da5405772bfe
       vertices: []
       indices: 
       edges: []
