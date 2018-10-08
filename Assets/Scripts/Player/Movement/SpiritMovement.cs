@@ -234,7 +234,6 @@ public class SpiritMovement : MonoBehaviour
         {
             if (leftHit.collider.gameObject.tag == "Box")
                 b = true;
-            Debug.Log("Valor NextToBoxIzq: " + b);
         }
         else
         {
