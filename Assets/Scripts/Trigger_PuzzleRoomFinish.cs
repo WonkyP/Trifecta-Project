@@ -61,6 +61,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
     //Coroutine for summarazing player performance in puzzle-room
     IEnumerator ShowScore()
     {
+
         //Getting color values
         tmp.a = 255f;
         tmp.r = 255f;
@@ -89,6 +90,8 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
             }
         }
         yield return new WaitForSeconds(1);
+        anyButton = true; // tell the anykey code that it's okay to go.
+
         if (GameObject.Find("Canvas_PuzzleRoom").gameObject.GetComponent<ChardCounter>().curShardCount >= ChargesForScore2)
         {
             Score2.sprite = SoulShard;
@@ -159,6 +162,8 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
         StartCoroutine("FadeOutAndLoadScene");
     }
 
+    public bool anyButton = false;
+
     // Update is called once per frame
     void Update () {
 		if(PlayerInRange == true && InteractionButtonPressed == false)
@@ -174,6 +179,14 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
                 ScorePresenter.transform.GetChild(6).gameObject.GetComponent<Button>().onClick.AddListener(OKButton);
                 StartCoroutine("ShowScore");
                 
+            }
+        }
+
+        if (anyButton)
+        {
+            if (Input.anyKeyDown)
+            {
+                OKButton();
             }
         }
 	}
