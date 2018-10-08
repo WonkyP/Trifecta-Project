@@ -59,6 +59,11 @@ public class GeneralPlayerMovement : MonoBehaviour {
     [Header("Dead Zone for movement")]
     public float movementDeadZone = 0.1f;
 
+    [Header("Char Speed")]
+    public float MoveSpeed;
+    float SPD;
+
+
     public void ChangeMovements(int move) // change movements
     {
         Controls = move;
@@ -103,6 +108,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
     // Update for physics engine
     void FixedUpdate()
     {
+        MoveSpeed = Input.GetAxis("Horizontal"); // for animation
+
         GeneralMovement();
         GravityControl();
     }
@@ -116,7 +123,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
             {
                 return;
             }
-            float SPD = curSpeed * Input.GetAxis("Horizontal"); // set spd to the curspeed and dir the player is walking
+            SPD = curSpeed * Input.GetAxis("Horizontal"); // set spd to the curspeed and dir the player is walking
             transform.position = new Vector2(transform.position.x + SPD * Time.deltaTime, transform.position.y); // moving the char
 
             // LEFT RIGHT
