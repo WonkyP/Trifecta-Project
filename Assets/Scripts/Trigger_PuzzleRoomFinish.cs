@@ -31,7 +31,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //Finding references
-        ScorePresenter = GameObject.FindGameObjectWithTag("Canvas_PuzzleRoom").transform.GetChild(2).gameObject;
+        ScorePresenter = GameObject.FindGameObjectWithTag("Canvas_PuzzleRoom").transform.GetChild(1).gameObject;
         SoulShard = Resources.Load<Sprite>("Placeholders/ShardPNG");
         scoreToDisplay = ScorePresenter.transform.GetChild(5).gameObject.GetComponent<Text>();
         Score1 = ScorePresenter.transform.GetChild(1).GetComponent<Image>();

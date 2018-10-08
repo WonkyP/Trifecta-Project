@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class Trigger_Tutorial : MonoBehaviour {
 
-    public Text tutText;
     public Sprite tutorialToSHow;
-    public string textToDisplay;
     private GameObject tutBox;
     private Button tutBoxButton;
     public GameObject UIToAnimate;
@@ -17,8 +15,7 @@ public class Trigger_Tutorial : MonoBehaviour {
     void Start () {
         //Trigger is finding references in the canvas to store, then deactivating the tutorial box. There must be Canvas_Menu prefab in the scene hierarchy.
         tutBox = GameObject.FindGameObjectWithTag("Canvas_Main").transform.GetChild(2).gameObject;
-        tutText = tutBox.transform.GetChild(0).GetComponent<Text>();
-        tutBoxButton = tutBox.transform.GetChild(1).GetComponent<Button>();
+        tutBoxButton = tutBox.transform.GetChild(0).GetComponent<Button>();
         tutBox.SetActive(false);
 
     }
@@ -31,7 +28,6 @@ public class Trigger_Tutorial : MonoBehaviour {
             //Activates tutorial box and displays text as input from trigger gameObject in inspector. Stops time.
             tutBox.SetActive(true);
             tutBox.GetComponent<Image>().sprite = tutorialToSHow;
-            //tutText.text = textToDisplay;
             //Adds button functionality to the button in the tutorial box.
             tutBoxButton.onClick.AddListener(OKbutton);
             Time.timeScale = 0;
@@ -44,7 +40,7 @@ public class Trigger_Tutorial : MonoBehaviour {
         //Deactivate tutorial box and resume time.
         tutBox.SetActive(false);
         Time.timeScale = 1;
-        UIToAnimate.SetActive(true);
+        //UIToAnimate.SetActive(true);
         //Destroy the trigger from the scene.
         Destroy(gameObject);
     }
