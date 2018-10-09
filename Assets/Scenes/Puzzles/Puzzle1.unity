@@ -625,6 +625,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114842521466873830, guid: fad5113d29da6c44194791ab746f8827,
+        type: 2}
+      propertyPath: NameOfTheExitObject
+      value: ExitPuzzel0101
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fad5113d29da6c44194791ab746f8827, type: 2}
   m_IsPrefabAsset: 0
@@ -3212,6 +3217,16 @@ Prefab:
     - target: {fileID: 1652654474354946, guid: a13219cc4df152e4e88729f487e8d5a6, type: 2}
       propertyPath: m_Name
       value: 5x1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 61406634631332012, guid: a13219cc4df152e4e88729f487e8d5a6,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61406634631332012, guid: a13219cc4df152e4e88729f487e8d5a6,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a13219cc4df152e4e88729f487e8d5a6, type: 2}
