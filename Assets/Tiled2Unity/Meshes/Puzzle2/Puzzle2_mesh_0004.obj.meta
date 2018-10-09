@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 4b0e22724b5c88b439e0e7e66b13a795
-=======
-guid: 8365104a13bd4dd42bad392e6c69c537
->>>>>>> 9ce1f488284a6b5f674b5415fae1459d86403688
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -11,9 +7,11 @@ ModelImporter:
     100002: //RootNode
     400000: Puzzle2_mesh_0004
     400002: //RootNode
+    2100000: Puzzle2_mesh_0004Mat
     2300000: Puzzle2_mesh_0004
     3300000: Puzzle2_mesh_0004
     4300000: Puzzle2_mesh_0004
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -66,7 +64,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
