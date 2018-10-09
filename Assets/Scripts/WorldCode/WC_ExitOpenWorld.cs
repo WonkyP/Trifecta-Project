@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WC_ExitOpenWorld : MonoBehaviour {
 
@@ -12,8 +13,22 @@ public class WC_ExitOpenWorld : MonoBehaviour {
     public string NameOfTheExitObject;
 
     public int EntryCost;
-	
-	void Update () {
+
+    [Header("need to be assigned but should already be in the prefab")]
+    public Text TheUIText;
+    public GameObject UiCanvas;
+    [Space]
+    public Sprite Open;
+
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt(SceneName, 0) == 1) // change the sprite to be open
+        {
+            GetComponent<SpriteRenderer>().sprite = Open;
+        }
+    }
+
+    void Update () {
         if (entryGrantet)
         {
             if (Input.GetButtonDown("Interact") && Time.timeScale != 0) // Currently set to E on the keyboard.
@@ -53,6 +68,13 @@ public class WC_ExitOpenWorld : MonoBehaviour {
         if (collision.gameObject.layer == 10) // checks what layer the triggering object is and activates if it's the "Player" layer
         {
             entryGrantet = true;
+
+            if (PlayerPrefs.GetInt(SceneName, 0) == 0)
+            {
+                UiCanvas.SetActive(true);
+                TheUIText.text = "Cost:  " + EntryCost.ToString();
+            }
+
         }
     }
 
@@ -61,6 +83,8 @@ public class WC_ExitOpenWorld : MonoBehaviour {
         if (collision.gameObject.layer == 10) // checks what layer the triggering object is and deactivates if it's the "Player" layer
         {
             entryGrantet = false;
+
+            UiCanvas.SetActive(false);
         }
     }
 

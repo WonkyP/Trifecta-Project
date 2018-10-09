@@ -12,7 +12,7 @@ public class PickUpShard : MonoBehaviour {
     public GameObject papa;
     private void Start()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
 
         if (PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + theShardNr.ToString(), 0) != 0)
         {
