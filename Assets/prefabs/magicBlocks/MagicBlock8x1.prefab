@@ -9,33 +9,32 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1325092609452010}
+  m_RootGameObject: {fileID: 1740493870816200}
   m_IsPrefabAsset: 1
---- !u!1 &1325092609452010
+--- !u!1 &1740493870816200
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4420601034903468}
-  - component: {fileID: 212598531869686394}
-  - component: {fileID: 61131756980880864}
-  - component: {fileID: 114867962487270084}
-  - component: {fileID: 114321679410637318}
+  - component: {fileID: 4187927633692302}
+  - component: {fileID: 212101256589260106}
+  - component: {fileID: 61402487383745378}
+  - component: {fileID: 114006111383280182}
   m_Layer: 0
-  m_Name: 8x1
+  m_Name: MagicBlock8x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4420601034903468
+--- !u!4 &4187927633692302
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325092609452010}
+  m_GameObject: {fileID: 1740493870816200}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -43,12 +42,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61131756980880864
+--- !u!61 &61402487383745378
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325092609452010}
+  m_GameObject: {fileID: 1740493870816200}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -68,36 +67,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114321679410637318
+--- !u!114 &114006111383280182
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325092609452010}
+  m_GameObject: {fileID: 1740493870816200}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf3139062e8405248a4efb13bcf0fc5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   magicPlatformType: 66
---- !u!114 &114867962487270084
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325092609452010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf3139062e8405248a4efb13bcf0fc5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magicPlatformType: 66
---- !u!212 &212598531869686394
+--- !u!212 &212101256589260106
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325092609452010}
+  m_GameObject: {fileID: 1740493870816200}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
