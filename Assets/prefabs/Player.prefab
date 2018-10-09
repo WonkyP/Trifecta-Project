@@ -194,10 +194,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dacad082a3c95c04599837f3171d3742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 12
+  jumpSpeed: 14
   airJumpCount: 1
-  airTime: 0.2
-  DoubleJumpAirTime: 0.05
+  airTime: 0.3
+  DoubleJumpSpeed: 12
+  DoubleJumpAirTime: 0.01
   isGrounded: 1
   drawRaycast: 0
   hightOfTheRaycast: 0.2
@@ -218,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbaacc9bd21d0a4087f42ee90d41d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 12
+  jumpSpeed: 14
   airJumpCount: 0
   airTime: 0.2
   DoubleJumpAirTime: 0
@@ -242,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b3a1c5a7f1d37643871e773cf3fe2d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 12
+  jumpSpeed: 14
   airJumpCount: 0
   airTime: 0.2
   DoubleJumpAirTime: 0
@@ -310,6 +311,7 @@ MonoBehaviour:
   gFourceUp: 1
   velY: 0
   movementDeadZone: 0.1
+  MoveSpeed: 0
 --- !u!114 &114969384142794806
 MonoBehaviour:
   m_ObjectHideFlags: 1

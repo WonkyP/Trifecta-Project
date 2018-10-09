@@ -116,7 +116,7 @@ public class FatherMovement : MonoBehaviour
         {
             curAirTime -= Time.deltaTime;
 
-            curVel = curVel - Time.deltaTime * 5;
+            curVel = curVel - Time.deltaTime * 20;
 
             rb.velocity = new Vector2(rb.velocity.x, curVel);
             return;

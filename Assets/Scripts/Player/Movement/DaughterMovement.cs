@@ -15,6 +15,7 @@ public class DaughterMovement : MonoBehaviour
     float curAirTime; // this var will change over time
 
     [Header("Jump without ground")]
+    public float DoubleJumpSpeed = 12;
     public float DoubleJumpAirTime;
 
 
@@ -43,7 +44,6 @@ public class DaughterMovement : MonoBehaviour
     //[Header("")]
     public void Start()
     {
-
         // setting vars
         rb = GetComponent<Rigidbody2D>();
     }
@@ -61,6 +61,7 @@ public class DaughterMovement : MonoBehaviour
 
             if (isGrounded)
             {
+                curAirJumpCount = airJumpCount;
                 curCoyoteTime = coyoteTime;
             }
 
@@ -75,7 +76,6 @@ public class DaughterMovement : MonoBehaviour
             {
             }
         }
-
 
 
         Jump();
@@ -97,7 +97,6 @@ public class DaughterMovement : MonoBehaviour
             jumping = true;
             curCoyoteTime = 0;
 
-            curAirJumpCount = airJumpCount;
 
             curVel = jumpSpeed; // set the vel
 
@@ -110,7 +109,7 @@ public class DaughterMovement : MonoBehaviour
         {
             curAirTime -= Time.deltaTime;
 
-            curVel = curVel - Time.deltaTime * 5;
+            curVel = curVel - Time.deltaTime * 20;
 
             rb.velocity = new Vector2(rb.velocity.x, curVel);
             return;
@@ -122,7 +121,7 @@ public class DaughterMovement : MonoBehaviour
 
             jumping = true;
 
-            curVel = jumpSpeed; // set the vel
+            curVel = DoubleJumpSpeed; // set the vel
 
             rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
 
