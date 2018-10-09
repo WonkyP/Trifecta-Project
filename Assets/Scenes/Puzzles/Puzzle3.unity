@@ -1275,7 +1275,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4327188377589156, guid: 3f82af73ad13d4646bde44a56de87c7d, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 114178654699516324, guid: 3f82af73ad13d4646bde44a56de87c7d,
         type: 2}
@@ -2168,7 +2168,7 @@ Transform:
   - {fileID: 1150759827}
   - {fileID: 990651796}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &520720725
 Prefab:
@@ -4546,9 +4546,17 @@ Prefab:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 23006415284835424, guid: 4fb0022e50dd94146b34d30267da34fb,
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23149616030653798, guid: 4fb0022e50dd94146b34d30267da34fb,
         type: 2}
       propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871930358158742, guid: 4fb0022e50dd94146b34d30267da34fb, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
