@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSpeed: 14
   airJumpCount: 0
-  airTime: 0.2
+  airTime: 0.3
   DoubleJumpAirTime: 0
   isGrounded: 0
   drawRaycast: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSpeed: 14
   airJumpCount: 0
-  airTime: 0.2
+  airTime: 0.3
   DoubleJumpAirTime: 0
   isGrounded: 0
   drawRaycast: 0
@@ -454,7 +454,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 2.3, y: -1.98}
   m_SizeDelta: {x: 2.3515625, y: 2.7226562}
   m_Pivot: {x: 0.5302335, y: 0.12397825}
 --- !u!224 &224548029442626928
