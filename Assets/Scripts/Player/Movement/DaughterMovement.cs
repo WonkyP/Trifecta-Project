@@ -133,7 +133,7 @@ public class DaughterMovement : MonoBehaviour
     public void FixedUpdate()
     {
         yVel = rb.velocity.y;
-        Gravity();
+        //Gravity();
     }
 
 

@@ -171,7 +171,7 @@ public class SpiritMovement : MonoBehaviour
     public void FixedUpdate()
     {
         yVel = rb.velocity.y;
-        Gravity();
+        //Gravity();
     }
 
 

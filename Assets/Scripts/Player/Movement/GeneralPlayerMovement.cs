@@ -270,7 +270,15 @@ public class GeneralPlayerMovement : MonoBehaviour {
         velY = rb.velocity.y;
         if (velY < 0)
         {
-            rb.gravityScale = gFourceDown;
+            if (velY > -20)
+            {
+                rb.gravityScale = gFourceDown;
+
+            }
+            else
+            {
+                rb.gravityScale = gFourceUp;
+            }
         }
         else
         {
