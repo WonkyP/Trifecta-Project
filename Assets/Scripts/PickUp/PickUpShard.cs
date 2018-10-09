@@ -12,6 +12,7 @@ public class PickUpShard : MonoBehaviour {
     public GameObject papa;
     private void Start()
     {
+        PlayerPrefs.DeleteAll();
 
         if (PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + theShardNr.ToString(), 0) != 0)
         {
@@ -25,7 +26,6 @@ public class PickUpShard : MonoBehaviour {
         {
 
             int pp = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + theShardNr.ToString(), 0);
-            print(pp);
 
             if (pp == 0)
             {

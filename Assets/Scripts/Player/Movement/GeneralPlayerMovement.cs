@@ -277,7 +277,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
             }
             else
             {
-                rb.gravityScale = gFourceUp;
+                rb.gravityScale = 0;
             }
         }
         else
