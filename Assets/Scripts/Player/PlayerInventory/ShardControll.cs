@@ -34,6 +34,11 @@ public class ShardControll : MonoBehaviour {
 
     }
 
+    private void FixedUpdate()
+    {
+        UpdateNumbers();
+    }
+
     public void UpdateNumbers () {
         SoulShards = PlayerPrefs.GetInt("SoulShards", 0);
 
