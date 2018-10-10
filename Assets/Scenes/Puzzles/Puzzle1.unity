@@ -596,12 +596,12 @@ Prefab:
     - target: {fileID: 114842521466873830, guid: fad5113d29da6c44194791ab746f8827,
         type: 2}
       propertyPath: ChargesForScore2
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114842521466873830, guid: fad5113d29da6c44194791ab746f8827,
         type: 2}
       propertyPath: ChargesForScore3
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fad5113d29da6c44194791ab746f8827, type: 2}
@@ -1432,7 +1432,7 @@ Transform:
   - {fileID: 1460118865}
   - {fileID: 1432435802}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &467447344
 Prefab:
@@ -1798,7 +1798,7 @@ Prefab:
     - target: {fileID: 224296674559001516, guid: b65f38434bf90424f92ba9bb6ef2d4e2,
         type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 224296674559001516, guid: b65f38434bf90424f92ba9bb6ef2d4e2,
         type: 2}
@@ -3144,7 +3144,7 @@ Prefab:
     - target: {fileID: 114298777583974070, guid: 4fcb2fe80de371a42a92417ee1c36b61,
         type: 2}
       propertyPath: StartShards
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fcb2fe80de371a42a92417ee1c36b61, type: 2}
@@ -3534,7 +3534,7 @@ Transform:
   m_LocalScale: {x: 1, y: 23.58, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1470195264
 Prefab:
@@ -4734,7 +4734,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1866622616
 Prefab:

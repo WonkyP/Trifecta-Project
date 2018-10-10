@@ -5601,6 +5601,11 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: 1.786
       objectReference: {fileID: 0}
+    - target: {fileID: 114729356866987266, guid: f809e623b2f458c43ba375a005745e1c,
+        type: 2}
+      propertyPath: EntryCost
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f809e623b2f458c43ba375a005745e1c, type: 2}
   m_IsPrefabAsset: 0
@@ -9160,6 +9165,11 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1642778527}
+    - target: {fileID: 224801091468382078, guid: b65f38434bf90424f92ba9bb6ef2d4e2,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b65f38434bf90424f92ba9bb6ef2d4e2, type: 2}
   m_IsPrefabAsset: 0
