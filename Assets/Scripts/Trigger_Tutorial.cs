@@ -10,6 +10,8 @@ public class Trigger_Tutorial : MonoBehaviour {
     private Button tutBoxButton;
     public GameObject UIToAnimate;
 
+
+    bool boxOpen = false;
     // Use this for initialization
 
     void Start () {
@@ -30,6 +32,7 @@ public class Trigger_Tutorial : MonoBehaviour {
             tutBox.GetComponent<Image>().sprite = tutorialToSHow;
             //Adds button functionality to the button in the tutorial box.
             tutBoxButton.onClick.AddListener(OKbutton);
+            boxOpen = true;
             Time.timeScale = 0;
         }
     }
@@ -47,6 +50,9 @@ public class Trigger_Tutorial : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
-	}
+        if (Input.anyKeyDown && boxOpen)
+        {
+            OKbutton();
+        }
+    }
 }
