@@ -24,9 +24,10 @@ public class ChardCounter : MonoBehaviour {
     [Header("Images for UI nr")]
     public List<Sprite> Numbers = new List<Sprite>();
 
+    bool outOfSwitches = false;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
         curShardCount = StartShards;
 
@@ -54,6 +55,7 @@ public class ChardCounter : MonoBehaviour {
 
             if (curShardCount <= -1)
             {
+                outOfSwitches = true;
                 // Disable everything!!!
                 GPM.enabled = false; // turns off the GPM
                 Time.timeScale = 0; // Time set to 0
@@ -76,6 +78,17 @@ public class ChardCounter : MonoBehaviour {
         One.sprite = Numbers[one];
         Ten.sprite = Numbers[ten];
 
+    }
+
+    public void Update()
+    {
+        if (outOfSwitches)
+        {
+            if (Input.anyKeyDown)
+            {
+                RestartScene();
+            }
+        }
     }
 
     public void RestartScene()
