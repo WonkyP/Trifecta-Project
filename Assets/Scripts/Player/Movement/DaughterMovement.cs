@@ -40,6 +40,14 @@ public class DaughterMovement : MonoBehaviour
     float curCoyoteTime;
     bool jumping = false;
 
+    [Header("Wall Jump")]
+    public bool wallJump = true;
+    public float PushFromTheWall = 10;
+    public float PushUpFromTheWall = 15;
+    public float wallStcik = 1;
+    public float wallSlide = -2;
+    //public LayerMask wallJumpLayer;
+    public bool doubleJumpAfterWall = true;
 
     //[Header("")]
     public void Start()
@@ -53,6 +61,72 @@ public class DaughterMovement : MonoBehaviour
 
     public void Update()
     {
+        if (wallJump)
+        {
+            // checks if the player is in the air
+            if (!isGrounded)
+            {
+                // raycasts to check for walls
+
+                RaycastHit2D rightcheck = Physics2D.Raycast(new Vector2(transform.position.x+0.5f, transform.position.y + 1),
+                    Vector2.right, 0.6f);
+
+                Debug.DrawRay(new Vector2(transform.position.x+0.5f, transform.position.y + 1),
+                    new Vector2(0.6f, 0), Color.cyan);
+
+                RaycastHit2D leftcheck = Physics2D.Raycast(new Vector2(transform.position.x - 0.5f, transform.position.y + 1),
+                Vector2.right, -0.6f);
+
+                Debug.DrawRay(new Vector2(transform.position.x - 0.5f, transform.position.y + 1),
+                    new Vector2(-0.6f, 0), Color.cyan);
+
+
+                if (leftcheck)
+                {
+
+                    if (leftcheck.collider.gameObject.layer == 13)
+                    {
+                        if (Input.GetButtonDown("Jump"))
+                        {
+                            if (doubleJumpAfterWall)
+                            {
+                                curAirJumpCount = 1;
+                            }
+
+                            rb.velocity = new Vector2(PushFromTheWall, PushUpFromTheWall);
+                            return;
+                        }
+                        else if (rb.velocity.y < -2)// slide
+                        {
+                            rb.velocity = new Vector2(-wallStcik, wallSlide);
+
+                        }
+                    }
+                }
+                if (rightcheck)
+                {
+                    if (rightcheck.collider.gameObject.layer == 13)
+                    {
+                        if (Input.GetButtonDown("Jump"))
+                        {
+                            if (doubleJumpAfterWall)
+                            {
+                                curAirJumpCount = 1;
+                            }
+
+                            rb.velocity = new Vector2(-PushFromTheWall, PushUpFromTheWall);
+                            return;
+                        }
+                        else if (rb.velocity.y < -2)// slide
+                        {
+                            rb.velocity = new Vector2(wallStcik, wallSlide);
+
+                        }
+                    }
+                }              
+            }
+        }
+
         GroundCheck();
 
         //coyote time
@@ -79,6 +153,24 @@ public class DaughterMovement : MonoBehaviour
 
 
         Jump();
+
+    }
+
+
+
+    void wallJumping()
+    {
+
+
+        // raycasts to check for walls
+        RaycastHit2D rightcheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1),
+            Vector2.right, 0.6f, JumpableLayers);
+
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1),
+            new Vector2(0.6f, 0), Color.cyan);
+
+
+
 
     }
 
@@ -133,20 +225,6 @@ public class DaughterMovement : MonoBehaviour
     public void FixedUpdate()
     {
         yVel = rb.velocity.y;
-        //Gravity();
-    }
-
-
-    public void Gravity()
-    {
-        if (yVel < 0)
-        {
-            rb.gravityScale = 4;
-        }
-        else
-        {
-            rb.gravityScale = 1;
-        }
     }
 
     public void GroundCheck()

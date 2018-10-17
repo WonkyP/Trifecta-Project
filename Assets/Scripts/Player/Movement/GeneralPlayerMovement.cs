@@ -63,6 +63,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
     public float MoveSpeed;
     float SPD;
 
+    [Header("colliding")]
+    public LayerMask layers;
 
     public void ChangeMovements(int move) // change movements
     {
@@ -119,6 +121,38 @@ public class GeneralPlayerMovement : MonoBehaviour {
     {
         if (Input.GetAxis("Horizontal") != 0)
         {
+            if (Input.GetAxis("Horizontal") > 0) // goes right
+            {
+                RaycastHit2D rightWall = Physics2D.Raycast(new Vector2(transform.position.x + 0.5f, transform.position.y + 1f), Vector2.down, 0.5f);
+                Debug.DrawRay(new Vector2(transform.position.x + 0.5f, transform.position.y + 1f), new Vector2(0, -0.5f), Color.green);
+                if (rightWall)
+                {
+                    if (rightWall.collider.gameObject.layer == 12 || rightWall.collider.gameObject.layer == 13)
+                    {
+                        print(rightWall.collider.name);
+                        return;
+                    }
+
+                }
+            }
+            if (Input.GetAxis("Horizontal") < 0) // goes left
+            {
+                RaycastHit2D leftWall = Physics2D.Raycast(new Vector2(transform.position.x - 0.5f, transform.position.y + 1f), Vector2.down, 0.5f);
+                Debug.DrawRay(new Vector2(transform.position.x - 0.5f, transform.position.y + 1f), new Vector2(0, -0.5f), Color.green);
+                if (leftWall)
+                {
+                    if (leftWall.collider.gameObject.layer == 12 || leftWall.collider.gameObject.layer == 13)
+                    {
+                        print(leftWall.collider.name);
+                        return;
+                    }
+
+                }
+            }
+
+
+
+
             if (Input.GetAxis("Horizontal") <= movementDeadZone && Input.GetAxis("Horizontal") >= -movementDeadZone)
             {
                 return;
