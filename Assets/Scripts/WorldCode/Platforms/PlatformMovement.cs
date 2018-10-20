@@ -4,30 +4,109 @@ using UnityEngine;
 
 public class PlatformMovement : MonoBehaviour {
 
-    public Vector2 initPos;
-    public float movements;
-    public bool action;
-    public char movementKind = 'v';
+    private Vector2 initialPosition;
+    public float movementDistance;
+
+    public int movementVelocity = 1;
+    private int movementDirection = 1;
+    public bool activate;
+
+    public char movementKind = 'v'; // it will be v for vertical movement and h for horizontal movement
      
 	// Use this for initialization
 	void Start () {
-        initPos = this.transform.position;
-        action = false;
+        initialPosition = this.transform.position;
+
+        if (movementVelocity >= 0)
+            movementDirection = 1;
+        else
+            movementDirection = -1;
+
+
+        activate = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(action)
-        if (movementKind == 'v')
+
+        if (activate)
         {
-            if (transform.position.y < initPos.y + movements) {
-                float newPosY = transform.position.y + 0.01f;
-                transform.position = new Vector2(transform.position.x, newPosY);
+            if (movementKind == 'v')
+            {
+                if (movementDirection == 1)
+                {
+                    if (transform.position.y < initialPosition.y + movementDirection * movementDistance)
+                    {
+                        float newPosY = transform.position.y + movementVelocity * 0.01f;
+                        transform.position = new Vector2(transform.position.x, newPosY);
+                    }
+                }
+                else
+                {
+                    if (transform.position.y > initialPosition.y + movementDirection * movementDistance)
+                    {
+                        float newPosY = transform.position.y + movementVelocity * 0.01f;
+                        transform.position = new Vector2(transform.position.x, newPosY);
+                    }
+                }
+            }
+            else if (movementKind == 'h')
+            {
+                if (movementDirection == 1)
+                {
+                    if (transform.position.x < initialPosition.x + movementDirection * movementDistance)
+                    {
+                        float newPosX = transform.position.x + movementVelocity * 0.01f;
+                        transform.position = new Vector2(newPosX, transform.position.y);
+                    }
+                }else
+                {
+                    if (transform.position.x > initialPosition.x + movementDirection * movementDistance)
+                    {
+                        float newPosX = transform.position.x + movementVelocity * 0.01f;
+                        transform.position = new Vector2(newPosX, transform.position.y);
+                    }
+                }
+
             }
         }
-        else if(movementKind == 'h')
+        else
         {
-
+            if (movementKind == 'v')
+            {
+                if (movementDirection == 1)
+                {
+                    if (transform.position.y > initialPosition.y)
+                    {
+                        float newPosY = transform.position.y - movementVelocity * 0.01f;
+                        transform.position = new Vector2(transform.position.x, newPosY);
+                    }
+                }
+                else {
+                    if (transform.position.y < initialPosition.y)
+                    {
+                        float newPosY = transform.position.y - movementVelocity * 0.01f;
+                        transform.position = new Vector2(transform.position.x, newPosY);
+                    }
+                }
+            }
+            else if (movementKind == 'h') {
+                if (movementDirection == 1)
+                {
+                    if (transform.position.x > initialPosition.x)
+                    {
+                        float newPosX = transform.position.x - movementVelocity * 0.01f;
+                        transform.position = new Vector2(newPosX, transform.position.y);
+                    }
+                }
+                else {
+                    if (transform.position.x < initialPosition.x)
+                    {
+                        float newPosX = transform.position.x - movementVelocity * 0.01f;
+                        transform.position = new Vector2(newPosX, transform.position.y);
+                    }
+                }
+            }
         }
 	}
 }
