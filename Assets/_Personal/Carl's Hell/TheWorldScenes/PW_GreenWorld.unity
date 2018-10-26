@@ -302,6 +302,11 @@ Prefab:
       propertyPath: wallStcik
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 50589469227409778, guid: 696d3721d042eec40bb264d18f4f5d9e,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}
   m_IsPrefabAsset: 0

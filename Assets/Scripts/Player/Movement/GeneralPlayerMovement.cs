@@ -179,7 +179,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
        // the player controls where the player change who they are by pressing X Y B on the controller || A S D on keyboard
             if (Input.GetButtonDown("Girl"))
             {
-            anim.Play("Girl");
+            //anim.Play("Girl");
+            anim.SetInteger("Char", 0);
             c0Script.enabled = true;
             c1Script.enabled = false;
             c2Script.enabled = false;
@@ -190,7 +191,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
             }
             else if (Input.GetButtonDown("Spirit"))
             {
-            anim.Play("Warrior");
+            //anim.Play("Warrior");
+            anim.SetInteger("Char", 2);
+
             c0Script.enabled = false;
             c1Script.enabled = true;
             c2Script.enabled = false;
@@ -201,7 +204,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
             }
             else if (Input.GetButtonDown("OldMan"))
             {
-            anim.Play("Wizard");
+            //anim.Play("Wizard");
+            anim.SetInteger("Char", 1);
+
             c0Script.enabled = false;
             c1Script.enabled = false;
             c2Script.enabled = true;
