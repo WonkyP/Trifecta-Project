@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BulletKey : MonoBehaviour {
 
-    public float velX = 5f;
-    public float velY = 0f;
+    public float velX_ = 5f;
+    private float velY_ = 0f;
     Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {
@@ -14,11 +14,23 @@ public class BulletKey : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rb.velocity = new Vector2(velX, velY);
+        rb.velocity = new Vector2(velX_, velY_);
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Destroy(this.gameObject);
+        if (collision.gameObject.tag != "Player")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void SetVelX(float velX)
+    {
+        velX_ = velX;
+    }
+
+    public void SetVelY(float velY) {
+        velY_ = velY;
     }
 }

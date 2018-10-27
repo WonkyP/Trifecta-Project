@@ -46,6 +46,14 @@ public class FatherMovement : MonoBehaviour
     public bool activatePlatform;
 
 
+    public GameObject magicBulletKey;
+    private BulletKey bulletScript;
+
+    public float bulletVelX;
+    public float bulletVelY;
+
+    public bool right = true;
+
 
     //[Header("")]
     public void Start()
@@ -88,6 +96,21 @@ public class FatherMovement : MonoBehaviour
 
         Jump();
 
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            magicBulletKey.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 1);
+
+            float bulletVelX_ = 5.0f;
+            if (!right)
+                bulletVelX_ = -bulletVelX;
+            else bulletVelX_ = bulletVelX;
+
+            bulletScript = magicBulletKey.GetComponent<BulletKey>();
+            bulletScript.SetVelX(bulletVelX_);
+
+            Instantiate(magicBulletKey);
+
+        }
     }
 
     public void Jump()
@@ -210,4 +233,11 @@ public class FatherMovement : MonoBehaviour
 
     }
 
+
+    public void changeShotDirecctio(int dir)
+    {
+        if (dir > 0)
+            right = true;
+        else right = false;
+    }
 }

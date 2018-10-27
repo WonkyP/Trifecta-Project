@@ -33,8 +33,6 @@ public class PlatformMovement : MonoBehaviour {
         if(collision.gameObject.tag == "BulletKey")
         {
             activate = !activate;
-            Debug.Log("Ha chocado una bala");
-            Destroy(collision.gameObject);
         }
     }
 
