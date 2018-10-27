@@ -22,6 +22,7 @@ public class FatherMovement : MonoBehaviour
 
     // Getting varables
     Rigidbody2D rb;
+    Animator anim;
 
     // Checking if it's grounded
     [Space]
@@ -52,6 +53,7 @@ public class FatherMovement : MonoBehaviour
 
         // setting vars
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     float curVel;
@@ -97,6 +99,9 @@ public class FatherMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
 
             jumping = false;
+
+            anim.SetBool("Jump", false);
+            anim.SetBool("DoubleJump", false);
         }
         else if (Input.GetButtonDown("Jump") && curCoyoteTime > 0) // take Off
         {
@@ -110,6 +115,8 @@ public class FatherMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
 
             curAirTime = airTime; // set how long the button press will be for
+
+            anim.SetBool("Jump", true);
             return;
         }
         else if (Input.GetButton("Jump") && curAirTime > 0) // In The Air
@@ -119,6 +126,9 @@ public class FatherMovement : MonoBehaviour
             curVel = curVel - Time.deltaTime * 20;
 
             rb.velocity = new Vector2(rb.velocity.x, curVel);
+
+            anim.SetBool("Jump", false);
+            anim.SetBool("DoubleJump", false);
             return;
         }
         //////////////////////////////////////////////////////// X2!!!!

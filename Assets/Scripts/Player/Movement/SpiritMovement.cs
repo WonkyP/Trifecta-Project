@@ -21,7 +21,7 @@ public class SpiritMovement : MonoBehaviour
 
     // Getting varables
     Rigidbody2D rb;
-
+    Animator anim;
     // Checking if it's grounded
     [Space]
     public bool isGrounded = false;
@@ -55,6 +55,7 @@ public class SpiritMovement : MonoBehaviour
 
         // setting vars
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
 
@@ -134,6 +135,9 @@ public class SpiritMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
 
             jumping = false;
+
+            anim.SetBool("Jump", false);
+            anim.SetBool("DoubleJump", false);
         }
         else if (Input.GetButtonDown("Jump") && curCoyoteTime > 0) // take Off
         {
@@ -147,6 +151,8 @@ public class SpiritMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
 
             curAirTime = airTime; // set how long the button press will be for
+
+            anim.SetBool("Jump", true);
             return;
         }
         else if (Input.GetButton("Jump") && curAirTime > 0) // In The Air
@@ -156,6 +162,9 @@ public class SpiritMovement : MonoBehaviour
             curVel = curVel - Time.deltaTime * 20;
 
             rb.velocity = new Vector2(rb.velocity.x, curVel);
+
+            anim.SetBool("Jump", false);
+            anim.SetBool("DoubleJump", false);
             return;
         }
         //////////////////////////////////////////////////////// X2!!!!
@@ -170,6 +179,8 @@ public class SpiritMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
 
             curAirTime = DoubleJumpAirTime; // set how long the button press will be for
+
+
             return;
         }
     }

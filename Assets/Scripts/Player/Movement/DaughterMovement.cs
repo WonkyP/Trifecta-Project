@@ -185,6 +185,9 @@ public class DaughterMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
 
             jumping = false;
+
+            anim.SetBool("Jump", false);
+            anim.SetBool("DoubleJump", false);
         }
         else if (Input.GetButtonDown("Jump") && curCoyoteTime > 0) // take Off
         {
@@ -197,6 +200,8 @@ public class DaughterMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
 
             curAirTime = airTime; // set how long the button press will be for
+
+            anim.SetBool("Jump", true);
             return;
         }
         else if (Input.GetButton("Jump") && curAirTime > 0) // In The Air
@@ -206,6 +211,9 @@ public class DaughterMovement : MonoBehaviour
             curVel = curVel - Time.deltaTime * 20;
 
             rb.velocity = new Vector2(rb.velocity.x, curVel);
+            anim.SetBool("Jump", false);
+            anim.SetBool("DoubleJump", false);
+
             return;
         }
         //////////////////////////////////////////////////////// X2!!!!
@@ -222,7 +230,6 @@ public class DaughterMovement : MonoBehaviour
             curAirTime = DoubleJumpAirTime; // set how long the button press will be for
 
             anim.SetBool("DoubleJump", true);
-            anim.SetBool("DoubleJump", false);
 
 
             
