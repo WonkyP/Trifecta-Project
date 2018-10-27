@@ -25,9 +25,21 @@ public class PlatformMovement : MonoBehaviour {
 
         activate = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if(collision.gameObject.tag == "BulletKey")
+        {
+            activate = !activate;
+            Debug.Log("Ha chocado una bala");
+            Destroy(collision.gameObject);
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         if (activate)
         {
