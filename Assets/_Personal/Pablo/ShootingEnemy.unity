@@ -232,6 +232,26 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a5b92596562a340aecb1f9cab8fa94, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &587492203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1777824079992172, guid: 84a5b92596562a340aecb1f9cab8fa94,
+    type: 2}
+  m_PrefabInternal: {fileID: 587492202}
+--- !u!114 &587492204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 587492203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58596b9cb96114b47a201203213e37fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Turret_Enemy_Bullets
+    prefab: {fileID: 1902344850471472, guid: 6c5572f0460e2b54ba25c6f6b0109329, type: 2}
+    size: 15
 --- !u!1001 &1233909345
 Prefab:
   m_ObjectHideFlags: 0
