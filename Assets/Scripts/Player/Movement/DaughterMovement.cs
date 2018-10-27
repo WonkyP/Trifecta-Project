@@ -21,6 +21,7 @@ public class DaughterMovement : MonoBehaviour
 
     // Getting varables
     Rigidbody2D rb;
+    Animator anim;
 
     // Checking if it's grounded
     [Space]
@@ -54,6 +55,7 @@ public class DaughterMovement : MonoBehaviour
     {
         // setting vars
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     float curVel;
@@ -218,9 +220,16 @@ public class DaughterMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
 
             curAirTime = DoubleJumpAirTime; // set how long the button press will be for
-            return;
+
+            anim.SetBool("DoubleJump", true);
+            anim.SetBool("DoubleJump", false);
+
+
+            
         }
     }
+
+    
 
     public void FixedUpdate()
     {
