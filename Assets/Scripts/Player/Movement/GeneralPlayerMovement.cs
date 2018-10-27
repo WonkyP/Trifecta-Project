@@ -28,6 +28,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
     private GameManager c3Script;
 
+    private TestSpawner c4Script;
+
     // A variable for the animations
     Animator anim;
     [HideInInspector]
@@ -100,6 +102,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
     
         curSpeed = dSpeed;
 
+
+        c4Script = GetComponent<TestSpawner>();
     }
 
     void Update() // used to get the player input since they don't live in frames
@@ -183,6 +187,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
             anim.SetInteger("Char", 0);
             c0Script.enabled = true;
             c1Script.enabled = false;
+
+            c4Script.enabled = false;
+
             c2Script.enabled = false;
             characterSelected = 0;
             PlayerPrefs.SetInt("CharNr", characterSelected);
@@ -196,6 +203,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
             c0Script.enabled = false;
             c1Script.enabled = true;
+
+            c4Script.enabled = true;
+
             c2Script.enabled = false;
             characterSelected = 1;
             PlayerPrefs.SetInt("CharNr", characterSelected);
@@ -209,6 +219,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
             c0Script.enabled = false;
             c1Script.enabled = false;
+
+            c4Script.enabled = false;
+
             c2Script.enabled = true;
             characterSelected = 2;
             PlayerPrefs.SetInt("CharNr", characterSelected);
@@ -267,6 +280,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 anim.Play("Girl");
                 c0Script.enabled = true;
                 c1Script.enabled = false;
+
+                c4Script.enabled = false;
+
                 c2Script.enabled = false;
                 curSpeed = dSpeed;
                 break;
@@ -275,6 +291,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 anim.Play("Warrior");
                 c0Script.enabled = false;
                 c1Script.enabled = true;
+
+                c4Script.enabled = true;
+
                 c2Script.enabled = false;
                 curSpeed = sSpeed;
                 break;
@@ -282,6 +301,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 anim.Play("Wizard");
                 c0Script.enabled = false;
                 c1Script.enabled = false;
+
+                c4Script.enabled = false;
+
                 c2Script.enabled = true;
                 curSpeed = wSpeed;
                 break;

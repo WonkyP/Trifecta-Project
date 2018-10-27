@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TestSpawner : MonoBehaviour {
 
+    public GameObject bullet;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +12,13 @@ public class TestSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+
+            bullet.transform.position = new Vector2(this.transform.position.x, this.transform.position.y);
+            Instantiate(bullet);
+           
+        }
 	}
+    
 }

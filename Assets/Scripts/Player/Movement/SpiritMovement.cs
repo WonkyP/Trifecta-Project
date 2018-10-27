@@ -114,6 +114,12 @@ public class SpiritMovement : MonoBehaviour
 
         Jump();
 
+
+        if (Input.GetButton("AbilityB 02")){
+            Debug.Log("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOL");
+        }
+
+
     }
 
     public void Jump()
