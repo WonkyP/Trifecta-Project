@@ -27,6 +27,12 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
     public int ChargesForScore2;
     public int ChargesForScore3;
 
+    [Space]
+    public bool anyButton = false;
+
+    // unlock abilities
+    [Header("Ability unlock")]
+    public string PowerUnlockID;
 
 	// Use this for initialization
 	void Start () {
@@ -78,6 +84,15 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
             //scene name
             string sceneName = SceneManager.GetActiveScene().name;
             int roomLevel = PlayerPrefs.GetInt(sceneName, 0);
+
+            //unlock
+            if (PowerUnlockID != "")
+            {
+                PlayerPrefs.SetInt(PowerUnlockID, 1);
+                GameObject p = GameObject.FindGameObjectWithTag("Player");
+                p.SendMessage("GiveAbbility");
+            }
+
 
             if (roomLevel >= 1) // checks if this have been given before
             {
@@ -162,7 +177,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
         StartCoroutine("FadeOutAndLoadScene");
     }
 
-    public bool anyButton = false;
+    
 
     // Update is called once per frame
     void Update () {

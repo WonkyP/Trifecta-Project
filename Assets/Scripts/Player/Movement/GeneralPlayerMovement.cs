@@ -172,6 +172,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 return;
             }
             SPD = curSpeed * Input.GetAxis("Horizontal"); // set spd to the curspeed and dir the player is walking
+            anim.SetFloat("X Movement", SPD); // set the animator x movement. ;) 
+
             transform.position = new Vector2(transform.position.x + SPD * Time.deltaTime, transform.position.y); // moving the char
 
             // LEFT RIGHT
@@ -186,6 +188,13 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 sR.flipX = false;
             }
         }
+        else if (SPD!= 0) // set things to 0 m8 ;) 
+        {
+            SPD = 0;
+            anim.SetFloat("X Movement", SPD); // set the animator x movement. ;) 
+
+        }
+
     }
 
     void ChangeCharacter()
@@ -336,6 +345,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
     void GravityControl()
     {
         velY = rb.velocity.y;
+        anim.SetFloat("Y_Vel", velY);
         if (velY < 0)
         {
             if (velY > -20)

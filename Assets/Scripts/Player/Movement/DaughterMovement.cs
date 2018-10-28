@@ -42,7 +42,7 @@ public class DaughterMovement : MonoBehaviour
     bool jumping = false;
 
     [Header("Wall Jump")]
-    public bool wallJump = true;
+    public bool wallJump = false;
     public float PushFromTheWall = 10;
     public float PushUpFromTheWall = 15;
     public float wallStcik = 1;
@@ -56,10 +56,23 @@ public class DaughterMovement : MonoBehaviour
         // setting vars
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        // setting abilities
+        GiveAbbility();
     }
 
     float curVel;
 
+    public void GiveAbbility()
+    {
+        if (!wallJump)
+        {
+            if (PlayerPrefs.GetInt("D01", 0) == 1)
+            {
+                wallJump = true;
+            }
+        }
+    }
 
     public void Update()
     {
@@ -70,10 +83,10 @@ public class DaughterMovement : MonoBehaviour
             {
                 // raycasts to check for walls
 
-                RaycastHit2D rightcheck = Physics2D.Raycast(new Vector2(transform.position.x+0.5f, transform.position.y + 1),
+                RaycastHit2D rightcheck = Physics2D.Raycast(new Vector2(transform.position.x + 0.5f, transform.position.y + 1),
                     Vector2.right, 0.6f);
 
-                Debug.DrawRay(new Vector2(transform.position.x+0.5f, transform.position.y + 1),
+                Debug.DrawRay(new Vector2(transform.position.x + 0.5f, transform.position.y + 1),
                     new Vector2(0.6f, 0), Color.cyan);
 
                 RaycastHit2D leftcheck = Physics2D.Raycast(new Vector2(transform.position.x - 0.5f, transform.position.y + 1),
@@ -88,6 +101,9 @@ public class DaughterMovement : MonoBehaviour
 
                     if (leftcheck.collider.gameObject.layer == 13)
                     {
+                        // animator bool
+                        anim.SetBool("WallSlide", true);
+
                         if (Input.GetButtonDown("Jump"))
                         {
                             if (doubleJumpAfterWall)
@@ -104,11 +120,18 @@ public class DaughterMovement : MonoBehaviour
 
                         }
                     }
+                    else
+                    {
+                        // animator bool
+                        anim.SetBool("WallSlide", false);
+                    }
                 }
                 if (rightcheck)
                 {
                     if (rightcheck.collider.gameObject.layer == 13)
                     {
+                        anim.SetBool("WallSlide", true);
+
                         if (Input.GetButtonDown("Jump"))
                         {
                             if (doubleJumpAfterWall)
@@ -125,9 +148,14 @@ public class DaughterMovement : MonoBehaviour
 
                         }
                     }
-                }              
-            }
-        }
+                    else
+                    {
+                        // animator bool
+                        anim.SetBool("WallSlide", false);
+                    }// wall slide animator
+                }// check tyhe wall on the right side             
+            }// check if player is grounded
+        }// Check if wall jumping is Activ
 
         GroundCheck();
 
