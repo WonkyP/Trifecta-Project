@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BulletKey : MonoBehaviour {
 
-    public float velX_ = 5f;
-    private float velY_ = 0f;
+    public float velX_ = 0f;
+    public float velY_ = 0f;
     Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {

@@ -55,6 +55,8 @@ public class FatherMovement : MonoBehaviour
     public bool right = true;
 
 
+    public bool OnMovablePlatform = false;
+
     //[Header("")]
     public void Start()
     {
@@ -100,16 +102,26 @@ public class FatherMovement : MonoBehaviour
         {
             magicBulletKey.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 1);
 
-            float bulletVelX_ = 5.0f;
-            if (!right)
-                bulletVelX_ = -bulletVelX;
-            else bulletVelX_ = bulletVelX;
-
             bulletScript = magicBulletKey.GetComponent<BulletKey>();
-            bulletScript.SetVelX(bulletVelX_);
+
+            if (!OnMovablePlatform)
+            {
+
+                float bulletVelX_ = 5.0f;
+                if (!right)
+                    bulletVelX_ = -bulletVelX;
+                else bulletVelX_ = bulletVelX;
+
+                bulletScript.SetVelY(0);
+                bulletScript.SetVelX(bulletVelX_);
+            }
+            else
+            {
+                bulletScript.SetVelY(-bulletVelY);
+                bulletScript.SetVelX(0);
+            }
 
             Instantiate(magicBulletKey);
-
         }
     }
 
@@ -240,4 +252,18 @@ public class FatherMovement : MonoBehaviour
             right = true;
         else right = false;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "MovablePlatform")
+            OnMovablePlatform = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "MovablePlatform")
+            OnMovablePlatform = false;
+    }
+
+
 }
