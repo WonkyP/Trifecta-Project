@@ -208,7 +208,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &70124680354777026
 CapsuleCollider2D:
@@ -593,7 +593,7 @@ MonoBehaviour:
   widthOfTheRaycast: 0.15
   JumpableLayers:
     serializedVersion: 2
-    m_Bits: 4097
+    m_Bits: 12289
   yVel: 0
   coyoteTime: 0.2
   wallJump: 0
@@ -658,7 +658,7 @@ MonoBehaviour:
   widthOfTheRaycast: 0.15
   JumpableLayers:
     serializedVersion: 2
-    m_Bits: 4097
+    m_Bits: 12289
   yVel: 0
   coyoteTime: 0.2
 --- !u!114 &114539482192208654
@@ -682,11 +682,12 @@ MonoBehaviour:
   widthOfTheRaycast: 0.15
   JumpableLayers:
     serializedVersion: 2
-    m_Bits: 4097
+    m_Bits: 12289
   yVel: 0
   coyoteTime: 0.2
   activatePlatform: 0
-  magicBulletKey: {fileID: 0}
+  magicBulletKey: {fileID: 1882487698761404, guid: 327655ada56d1824bae8d3e539ccd89d,
+    type: 2}
   bulletVelX: 0
   bulletVelY: 0
   right: 1
@@ -904,7 +905,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1042503808180818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.87, y: 0.89, z: 1}
   m_Children:
   - {fileID: 224548029442626928}

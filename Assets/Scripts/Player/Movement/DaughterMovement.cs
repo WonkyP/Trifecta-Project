@@ -172,6 +172,10 @@ public class DaughterMovement : MonoBehaviour
 
                 }
             }// check if player is grounded
+            else
+            {
+                anim.SetBool("WallSlide", false);
+            }
         }// Check if wall jumping is Activ
 
         GroundCheck();
