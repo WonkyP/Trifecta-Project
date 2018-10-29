@@ -231,6 +231,7 @@ public class DaughterMovement : MonoBehaviour
 
             jumping = false;
             PAO.isJumping = false;
+            PAO.isDoubleJump = false;
 
             anim.SetBool("Jump", false);
             anim.SetBool("DoubleJump", false);
@@ -240,7 +241,6 @@ public class DaughterMovement : MonoBehaviour
             jumping = true;
             PAO.isJumping = true;
             curCoyoteTime = 0;
-
 
             curVel = jumpSpeed; // set the vel
 
@@ -270,7 +270,7 @@ public class DaughterMovement : MonoBehaviour
             curAirJumpCount -= 1;
 
             jumping = true;
-            PAO.isJumping = true;
+            PAO.isDoubleJump = true;
 
             curVel = DoubleJumpSpeed; // set the vel
 
@@ -288,6 +288,10 @@ public class DaughterMovement : MonoBehaviour
         if (PAO.isJumping == true)
         {
             PAO.isJumping = false;
+        }
+        if (PAO.isDoubleJump == true)
+        {
+            PAO.isDoubleJump = false;
         }
     }
 

@@ -137,7 +137,7 @@ public class SpiritMovement : MonoBehaviour
         {
             curAirTime = 0;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
-
+            PAO.isJumping = false;
             jumping = false;
 
             anim.SetBool("Jump", false);
@@ -149,7 +149,7 @@ public class SpiritMovement : MonoBehaviour
             curCoyoteTime = 0;
 
             curAirJumpCount = airJumpCount;
-
+            PAO.isJumping = true;
             curVel = jumpSpeed; // set the vel
 
             rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
@@ -187,26 +187,20 @@ public class SpiritMovement : MonoBehaviour
 
             return;
         }
+
+        // turn jump audio off
+        if (PAO.isJumping == true)
+        {
+            PAO.isJumping = false;
+        }
     }
 
     public void FixedUpdate()
     {
         yVel = rb.velocity.y;
-        //Gravity();
     }
 
 
-    public void Gravity()
-    {
-        if (yVel < 0)
-        {
-            rb.gravityScale = 4;
-        }
-        else
-        {
-            rb.gravityScale = 1;
-        }
-    }
 
     public void GroundCheck()
     {

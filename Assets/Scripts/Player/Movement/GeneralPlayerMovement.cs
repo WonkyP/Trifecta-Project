@@ -137,7 +137,6 @@ public class GeneralPlayerMovement : MonoBehaviour
                     print(rightWall.collider.name);
                     if (rightWall.collider.gameObject.layer == 12 || rightWall.collider.gameObject.layer == 13)
                     {
-                        print(rightWall.collider.name);
                         return;
                     }
                 }
@@ -154,7 +153,6 @@ public class GeneralPlayerMovement : MonoBehaviour
                 {
                     if (leftWall.collider.gameObject.layer == 12 || leftWall.collider.gameObject.layer == 13)
                     {
-                        print(leftWall.collider.name);
                         return;
                     }
                 }
@@ -250,14 +248,10 @@ public class GeneralPlayerMovement : MonoBehaviour
             if (characterSelected != 2)
             {
                 characterSelected += 1;
-                print("!2");
-
             }
             else
             {
                 characterSelected = 0;
-                print("0");
-
             }
             anim.SetInteger("Char", characterSelected);
             PlayerPrefs.SetInt("CharNr", characterSelected);
@@ -293,6 +287,7 @@ public class GeneralPlayerMovement : MonoBehaviour
                 c1Script.enabled = false;
                 c2Script.enabled = false;
                 curSpeed = dSpeed;
+                PAO.currentSoul = nr;
                 break;
 
             case 1: // the old man
@@ -301,6 +296,8 @@ public class GeneralPlayerMovement : MonoBehaviour
                 c1Script.enabled = false;
                 c2Script.enabled = true;
                 curSpeed = wSpeed;
+                PAO.currentSoul = nr;
+
                 break;
 
             case 2: // the spirit
@@ -309,6 +306,8 @@ public class GeneralPlayerMovement : MonoBehaviour
                 c1Script.enabled = true;
                 c2Script.enabled = false;
                 curSpeed = sSpeed;
+                PAO.currentSoul = nr;
+
                 break;
 
 

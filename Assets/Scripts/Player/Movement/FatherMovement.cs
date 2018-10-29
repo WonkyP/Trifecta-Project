@@ -136,6 +136,7 @@ public class FatherMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
 
             jumping = false;
+            PAO.isJumping = false;
 
             anim.SetBool("Jump", false);
             anim.SetBool("DoubleJump", false);
@@ -144,6 +145,7 @@ public class FatherMovement : MonoBehaviour
         {
             jumping = true;
             curCoyoteTime = 0;
+            PAO.isJumping = true;
 
             curAirJumpCount = airJumpCount;
 
@@ -182,26 +184,19 @@ public class FatherMovement : MonoBehaviour
             curAirTime = DoubleJumpAirTime; // set how long the button press will be for
             return;
         }
+
+        // turn jump audio off
+        if (PAO.isJumping == true)
+        {
+            PAO.isJumping = false;
+        }
     }
 
     public void FixedUpdate()
     {
         yVel = rb.velocity.y;
-        //Gravity();
     }
 
-
-    public void Gravity()
-    {
-        if (yVel < 0)
-        {
-            rb.gravityScale = 4;
-        }
-        else
-        {
-            rb.gravityScale = 1;
-        }
-    }
 
     public void GroundCheck()
     {
