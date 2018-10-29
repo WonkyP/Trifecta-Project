@@ -49,7 +49,12 @@ public class SpiritMovement : MonoBehaviour
     RaycastHit2D rightHit;
     RaycastHit2D leftHit;
     GameObject box;
-    //private GeneralPlayerMovement gpm; // don't think we need this one? not sure so it's still here commented out.  5.10.2018
+    private GeneralPlayerMovement gpm;
+
+    // Second ability
+    ObjectPooler objectPooler;
+    public GameObject firePoint;
+    bool facingRight;
 
     //[Header("")]
     public void Start()
@@ -59,7 +64,9 @@ public class SpiritMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         PAO = GetComponent<PlayerAudioOutput>();
-
+        gpm = GetComponent<GeneralPlayerMovement>();
+        objectPooler = ObjectPooler.instance;
+        facingRight = gpm.right;
     }
 
 
@@ -90,6 +97,12 @@ public class SpiritMovement : MonoBehaviour
             {
                 Debug.Log("Box without parent attached");
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            objectPooler.spawnFromPool("Player_Bullets", firePoint.transform.position, firePoint.transform.rotation);
+            Debug.Log("Player shooting");
         }
 
 
@@ -129,9 +142,7 @@ public class SpiritMovement : MonoBehaviour
 
     public void Jump()
     {
-
-
-
+ 
         // Jumping
         if (Input.GetButtonUp("Jump") && jumping == true)// && curAirTime > 0) // jump over
         {
@@ -201,7 +212,6 @@ public class SpiritMovement : MonoBehaviour
     }
 
 
-
     public void GroundCheck()
     {
         // check if player is grounded 
@@ -226,17 +236,8 @@ public class SpiritMovement : MonoBehaviour
             isGrounded = false;
             PAO.isGrounded = false;
             anim.SetBool("isGrounded", false);
-
-
         }
     }
-
-
-
-
-
-
-
 
     bool NextToBox()
     {
@@ -264,6 +265,12 @@ public class SpiritMovement : MonoBehaviour
         }
 
         return b;
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
     }
 
 
