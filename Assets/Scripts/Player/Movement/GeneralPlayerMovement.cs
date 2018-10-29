@@ -178,7 +178,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
             }
             SPD = curSpeed * Input.GetAxis("Horizontal"); // set spd to the curspeed and dir the player is walking
             anim.SetFloat("X Movement", SPD); // set the animator x movement. ;) 
-            PAO.Walking = true; // audio
+            PAO.isWalking = true; // audio
 
             transform.position = new Vector2(transform.position.x + SPD * Time.deltaTime, transform.position.y); // moving the char
 
@@ -198,7 +198,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
         {
             SPD = 0;
             anim.SetFloat("X Movement", SPD); // set the animator x movement. ;) 
-            PAO.Walking = false; // audio
+            PAO.isWalking = false; // audio
         }
 
     }

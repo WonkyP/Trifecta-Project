@@ -4,23 +4,41 @@ using UnityEngine;
 
 public class PlayerAudioOutput : MonoBehaviour {
 
-    public bool Walking        = false;
-    public bool Grounded       = false;
-    public bool Jump           = false;
-    public bool SpiritAbilitie = false;
+    public bool isWalking   = false;
+    public bool isGrounded  = false;
+    public bool isJumping   = false;
+    public bool ability01 = false;
+    public bool ability02 = false;
+    public bool ability03 = false;
+    public int currentSoul;
 
+    public AudioSource PlayerFootsteps;
+    public AudioSource PlayerJump;
+    public AudioClip[] Footsteps;
+    public AudioClip Brumund_Jump;
+    public AudioClip Anya_Jump01;
+    public AudioClip Anya_Jump02;
+    public AudioClip Viraya_Jump01;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Walking && Grounded)
+        if (isWalking && isGrounded)
         {
-
+            int index = Random.Range(0, Footsteps.Length);
+            var tempClip = Footsteps[index];
+            PlayerFootsteps.clip = tempClip;
+            PlayerFootsteps.Play();
+        }
+        if(isJumping == true && currentSoul == 0)
+        {
+            PlayerJump.clip = Brumund_Jump;
+            PlayerJump.Play();
         }
 	}
 }

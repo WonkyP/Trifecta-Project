@@ -22,13 +22,14 @@ public class Audio_PlayerInput : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-         if (Input.GetKeyDown(KeyCode.Space))
+         if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAudioOutput>().isWalking == true && GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAudioOutput>().isGrounded == true)
      {
          int index = Random.Range(0, Footsteps.Length);
          var tempClip = Footsteps[index];
          PlayerFootsteps.clip = tempClip;
          PlayerFootsteps.Play();
      }
+         if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAudioOutput>().isJumping == true && GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAudioOutput>().ActiveChar == 0)
 
 	}
 }
