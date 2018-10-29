@@ -1841,6 +1841,17 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 61307021256781478, guid: 50e6ec9405478494d940220105cc40d8,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 212765257408456926, guid: 50e6ec9405478494d940220105cc40d8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: aab3cbcf7f347314dacaa11d9f89469f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50e6ec9405478494d940220105cc40d8, type: 2}
   m_IsPrefabAsset: 0
