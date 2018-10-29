@@ -603,6 +603,11 @@ Prefab:
       propertyPath: ChargesForScore3
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114842521466873830, guid: fad5113d29da6c44194791ab746f8827,
+        type: 2}
+      propertyPath: SceneToLoad
+      value: Level01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fad5113d29da6c44194791ab746f8827, type: 2}
   m_IsPrefabAsset: 0
@@ -3057,12 +3062,12 @@ Prefab:
     - target: {fileID: 224238415739597092, guid: 696d3721d042eec40bb264d18f4f5d9e,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -28.68
+      value: -26.49
       objectReference: {fileID: 0}
     - target: {fileID: 224238415739597092, guid: 696d3721d042eec40bb264d18f4f5d9e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 2.39
+      value: -14.94
       objectReference: {fileID: 0}
     - target: {fileID: 224238415739597092, guid: 696d3721d042eec40bb264d18f4f5d9e,
         type: 2}
@@ -3635,6 +3640,11 @@ Prefab:
     - target: {fileID: 4635477006301172, guid: 03b7103ca2d8a484fad3a408d46a6323, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114441612155766866, guid: 03b7103ca2d8a484fad3a408d46a6323,
+        type: 2}
+      propertyPath: SceneName
+      value: Level01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03b7103ca2d8a484fad3a408d46a6323, type: 2}

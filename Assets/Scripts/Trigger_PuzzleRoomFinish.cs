@@ -32,7 +32,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
 
     // unlock abilities
     [Header("Ability unlock")]
-    public string PowerUnlockID;
+    public string PowerUnlockID = "X";
 
 	// Use this for initialization
 	void Start () {
@@ -86,7 +86,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
             int roomLevel = PlayerPrefs.GetInt(sceneName, 0);
 
             //unlock
-            if (PowerUnlockID != "")
+            if (PowerUnlockID != "X")
             {
                 PlayerPrefs.SetInt(PowerUnlockID, 1);
                 GameObject p = GameObject.FindGameObjectWithTag("Player");
