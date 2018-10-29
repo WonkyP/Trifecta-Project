@@ -494,6 +494,11 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 95521453491856636, guid: 696d3721d042eec40bb264d18f4f5d9e,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 419adbae078f7094ab957aaee7f13a7d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}
   m_IsPrefabAsset: 0
@@ -3290,10 +3295,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6583b18ca32e0704283f1240019df8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walking: 0
-  Grounded: 0
-  Jump: 0
-  SpiritAbilitie: 0
+  isWalking: 0
+  isGrounded: 0
+  isJumping: 0
+  isDoubleJump: 0
+  ability01: 0
+  ability02: 0
+  ability03: 0
+  currentSoul: 0
+  PlayerFootsteps: {fileID: 0}
+  PlayerJump: {fileID: 0}
+  PlayerAbility: {fileID: 0}
+  Footsteps: []
+  Brumund_Jump: {fileID: 0}
+  Anya_Jump01: {fileID: 0}
+  Anya_Jump02: {fileID: 0}
+  Viraya_Jump01: {fileID: 0}
+  Brumund_Ability01: {fileID: 0}
+  Viraya_Ability01: {fileID: 0}
 --- !u!1 &505201805 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1092671394324336, guid: dbef507d0cbe32645904efbb2674530f,

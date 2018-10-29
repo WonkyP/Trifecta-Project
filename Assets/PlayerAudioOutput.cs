@@ -24,14 +24,14 @@ public class PlayerAudioOutput : MonoBehaviour {
     public AudioClip Brumund_Ability01;
     public AudioClip Viraya_Ability01;
 
-    // Use this for initialization
-    void Start () {
-
-
-	}
 	
 	// Update is called once per frame
 	void Update () {
+        if (Footsteps.Length == 0)
+        {
+            return;
+        }// anti error
+
         if (isWalking == true && isGrounded == true)
         {
             int index = Random.Range(0, Footsteps.Length);
