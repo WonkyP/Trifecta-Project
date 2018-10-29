@@ -30,9 +30,11 @@ public class PatrollEnemy : MonoBehaviour {
 
         if (viewHit)
         {
+            if(viewHit.collider.CompareTag("Untagged")){
                 Flip();
                 vel = -vel;
                 dir = -dir;
+            }
         }
 
         if (!feetHit)
