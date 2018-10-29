@@ -132,6 +132,11 @@ public class DaughterMovement : MonoBehaviour
                         anim.SetBool("WallSlide", false);
                     }
                 }
+                else
+                {
+                    // animator bool
+                    anim.SetBool("WallSlide", false);
+                }
                 if (rightcheck)
                 {
                     if (rightcheck.collider.gameObject.layer == 13)
@@ -167,6 +172,8 @@ public class DaughterMovement : MonoBehaviour
                 }// check tyhe wall on the right side
                 else
                 {
+                    // animator bool
+                    anim.SetBool("WallSlide", false);
                     //anim.SetBool("Jump", false);
                     //PAO.Jump = false;
 
