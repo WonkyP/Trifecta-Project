@@ -178,12 +178,12 @@ public class GeneralPlayerMovement : MonoBehaviour
             // LEFT RIGHT
             if (Input.GetAxis("Horizontal") < 0)
             {
-                right = false;
+                Flip();
                 sR.flipX = true;
             }
             else if (Input.GetAxis("Horizontal") > 0)
             {
-                right = true;
+                Flip();
                 sR.flipX = false;
             }
         }
@@ -352,5 +352,12 @@ public class GeneralPlayerMovement : MonoBehaviour
         {
             rb.gravityScale = gFourceUp;
         }
+    }
+
+
+    void Flip()
+    {
+        right = !right;
+        //transform.Rotate(0f, 180f, 0f);
     }
 }
