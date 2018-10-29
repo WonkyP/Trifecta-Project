@@ -25,6 +25,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
     private DaughterMovement c0Script;
     private SpiritMovement c1Script;
     private FatherMovement c2Script;
+    private PlayerAudioOutput PAO;
 
     private GameManager c3Script;
 
@@ -63,7 +64,8 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
     [Header("Char Speed")]
     public float MoveSpeed;
-    float SPD;
+    [HideInInspector]
+    public float SPD;
 
     [Header("colliding")]
     public LayerMask layers;
@@ -84,6 +86,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
         // sR
         sR = GetComponent<SpriteRenderer>();
+
+        // audio
+        PAO = GetComponent<PlayerAudioOutput>();
 
         // THE HUD (AbilityWheel)
         AbilityWheel = GameObject.FindGameObjectWithTag("AbilityWheel");
@@ -173,6 +178,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
             }
             SPD = curSpeed * Input.GetAxis("Horizontal"); // set spd to the curspeed and dir the player is walking
             anim.SetFloat("X Movement", SPD); // set the animator x movement. ;) 
+            PAO.Walking = true; // audio
 
             transform.position = new Vector2(transform.position.x + SPD * Time.deltaTime, transform.position.y); // moving the char
 
@@ -192,7 +198,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
         {
             SPD = 0;
             anim.SetFloat("X Movement", SPD); // set the animator x movement. ;) 
-
+            PAO.Walking = false; // audio
         }
 
     }
