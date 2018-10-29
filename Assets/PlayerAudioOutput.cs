@@ -39,7 +39,7 @@ public class PlayerAudioOutput : MonoBehaviour {
             PlayerFootsteps.clip = tempClip;
             PlayerFootsteps.Play();
         }
-        if(isJumping == true && currentSoul == 0)
+        if (isJumping == true && currentSoul == 0)
         {
             PlayerJump.clip = Brumund_Jump;
             PlayerJump.Play();

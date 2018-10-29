@@ -135,8 +135,10 @@ public class GeneralPlayerMovement : MonoBehaviour
             {
                 RaycastHit2D rightWall = Physics2D.Raycast(new Vector2(transform.position.x + 0.5f, transform.position.y + 1f), Vector2.down, 0.5f);
                 Debug.DrawRay(new Vector2(transform.position.x + 0.5f, transform.position.y + 1f), new Vector2(0, -0.5f), Color.green);
+                
                 if (rightWall)
                 {
+                    print(rightWall.collider.name);
                     if (rightWall.collider.gameObject.layer == 12 || rightWall.collider.gameObject.layer == 13)
                     {
                         print(rightWall.collider.name);
