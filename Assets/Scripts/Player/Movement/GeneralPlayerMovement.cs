@@ -34,7 +34,7 @@ public class GeneralPlayerMovement : MonoBehaviour
 
     // A variable for the animations
     Animator anim;
-    [HideInInspector]
+    //[HideInInspector]
     public int characterSelected = 2;// this variable will be used for the GameManager Getter "updateHUD" to change the HUD when Control = 0
 
     // A variable to change the color of the Player wen he changes the character
@@ -97,7 +97,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         {
             WheelAnimator = AbilityWheel.GetComponent<Animator>();
         }
-
         // The scripts of the other characters
         c0Script = GetComponent<DaughterMovement>();
         c1Script = GetComponent<SpiritMovement>();
@@ -107,9 +106,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
 
         curSpeed = dSpeed;
-
-
-
     }
 
     void Update() // used to get the player input since they don't live in frames
@@ -144,9 +140,7 @@ public class GeneralPlayerMovement : MonoBehaviour
                         print(rightWall.collider.name);
                         return;
                     }
-
                 }
-
                 if (c2Script.enabled)
                 {
                     c2Script.changeShotDirecctio(1);
@@ -163,7 +157,6 @@ public class GeneralPlayerMovement : MonoBehaviour
                         print(leftWall.collider.name);
                         return;
                     }
-
                 }
 
                 if (c2Script.enabled)
@@ -171,9 +164,6 @@ public class GeneralPlayerMovement : MonoBehaviour
                     c2Script.changeShotDirecctio(-1);
                 }
             }
-
-
-
 
             if (Input.GetAxis("Horizontal") <= movementDeadZone && Input.GetAxis("Horizontal") >= -movementDeadZone)
             {
@@ -215,9 +205,6 @@ public class GeneralPlayerMovement : MonoBehaviour
             anim.SetInteger("Char", 0);
             c0Script.enabled = true;
             c1Script.enabled = false;
-
-
-
             c2Script.enabled = false;
             characterSelected = 0;
             PlayerPrefs.SetInt("CharNr", characterSelected);
@@ -231,9 +218,6 @@ public class GeneralPlayerMovement : MonoBehaviour
 
             c0Script.enabled = false;
             c1Script.enabled = true;
-
-
-
             c2Script.enabled = false;
             characterSelected = 1;
             PlayerPrefs.SetInt("CharNr", characterSelected);
@@ -247,9 +231,6 @@ public class GeneralPlayerMovement : MonoBehaviour
 
             c0Script.enabled = false;
             c1Script.enabled = false;
-
-
-
             c2Script.enabled = true;
             characterSelected = 2;
             PlayerPrefs.SetInt("CharNr", characterSelected);
@@ -262,20 +243,21 @@ public class GeneralPlayerMovement : MonoBehaviour
 
         }
 
-        //GameManager.instance.updateHUD(characterSelected);
-
-
         //the Switch Movement where the player changes char with LB and RB on the controller
         if (Input.GetButtonDown("RightButton"))
         {
+
             if (characterSelected != 2)
             {
-                characterSelected += characterSelected;
+                characterSelected += 1;
+                print("!2");
 
             }
             else
             {
                 characterSelected = 0;
+                print("0");
+
             }
             anim.SetInteger("Char", characterSelected);
             PlayerPrefs.SetInt("CharNr", characterSelected);
@@ -306,7 +288,7 @@ public class GeneralPlayerMovement : MonoBehaviour
         switch (nr)
         {
             case 0: // the girl
-                anim.Play("Girl");
+                //anim.Play("Girl");
                 c0Script.enabled = true;
                 c1Script.enabled = false;
 
@@ -317,7 +299,7 @@ public class GeneralPlayerMovement : MonoBehaviour
                 break;
 
             case 1: // the spirit
-                anim.Play("Warrior");
+                //anim.Play("Warrior");
                 c0Script.enabled = false;
                 c1Script.enabled = true;
 
@@ -327,7 +309,7 @@ public class GeneralPlayerMovement : MonoBehaviour
                 curSpeed = sSpeed;
                 break;
             case 2: // the old man
-                anim.Play("Wizard");
+                //anim.Play("Wizard");
                 c0Script.enabled = false;
                 c1Script.enabled = false;
                 c2Script.enabled = true;
