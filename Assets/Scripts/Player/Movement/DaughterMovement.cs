@@ -23,6 +23,7 @@ public class DaughterMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     PlayerAudioOutput PAO;
+    SpriteRenderer SR;
 
     // Checking if it's grounded
     [Space]
@@ -58,6 +59,7 @@ public class DaughterMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         PAO = GetComponent<PlayerAudioOutput>();
+        SR = GetComponent<SpriteRenderer>();
 
         // setting abilities
         GiveAbbility();
@@ -97,15 +99,10 @@ public class DaughterMovement : MonoBehaviour
                 Debug.DrawRay(new Vector2(transform.position.x - 0.5f, transform.position.y + 1),
                     new Vector2(-0.6f, 0), Color.cyan);
 
-
                 if (leftcheck)
                 {
-
                     if (leftcheck.collider.gameObject.layer == 13)
                     {
-                        // animator bool
-                        anim.SetBool("WallSlide", true);
-
                         if (Input.GetButtonDown("Jump"))
                         {
                             anim.SetBool("Jump", true);
@@ -118,12 +115,16 @@ public class DaughterMovement : MonoBehaviour
                             }
 
                             rb.velocity = new Vector2(PushFromTheWall, PushUpFromTheWall);
+                            
+                            
                             return;
                         }
                         else if (rb.velocity.y < -2)// slide
                         {
                             rb.velocity = new Vector2(-wallStcik, wallSlide);
-
+                            // animator bool
+                            anim.SetBool("WallSlide", true);
+                            SR.flipX = false;
                         }
                     }
                     else
@@ -141,7 +142,7 @@ public class DaughterMovement : MonoBehaviour
                 {
                     if (rightcheck.collider.gameObject.layer == 13)
                     {
-                        anim.SetBool("WallSlide", true);
+                        
 
                         if (Input.GetButtonDown("Jump"))
                         {
@@ -156,11 +157,14 @@ public class DaughterMovement : MonoBehaviour
                             }
 
                             rb.velocity = new Vector2(-PushFromTheWall, PushUpFromTheWall);
+
                             return;
                         }
                         else if (rb.velocity.y < -2)// slide
                         {
                             rb.velocity = new Vector2(wallStcik, wallSlide);
+                            anim.SetBool("WallSlide", true);
+                            SR.flipX = true;
 
                         }
                     }
