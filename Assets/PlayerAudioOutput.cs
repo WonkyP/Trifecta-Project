@@ -34,27 +34,48 @@ public class PlayerAudioOutput : MonoBehaviour {
 
         if (isWalking == true && isGrounded == true)
         {
+            if (PlayerFootsteps.isPlaying)
+            {
+                return;
+            }
             int index = Random.Range(0, Footsteps.Length);
             var tempClip = Footsteps[index];
             PlayerFootsteps.clip = tempClip;
             PlayerFootsteps.Play();
+ 
         }
         if (isJumping == true && currentSoul == 0)
         {
-            PlayerJump.clip = Brumund_Jump;
+            if (PlayerJump.isPlaying)
+            {
+                return;
+            }
+            PlayerJump.clip = Anya_Jump01;
             PlayerJump.Play();
         }
         if (isJumping == true && currentSoul == 1)
         {
-            PlayerJump.clip = Anya_Jump01;
+            if (PlayerJump.isPlaying)
+            {
+                return;
+            }
+            PlayerJump.clip = Brumund_Jump;
             PlayerJump.Play();
         }
         if (isDoubleJump == true)
         {
+            if (PlayerJump.isPlaying)
+            {
+                return;
+            }
             PlayerJump.clip = Anya_Jump02;
         }
         if (isJumping == true && currentSoul == 2)
         {
+            if (PlayerJump.isPlaying)
+            {
+                return;
+            }
             PlayerJump.clip = Viraya_Jump01;
             PlayerJump.Play();
         }
