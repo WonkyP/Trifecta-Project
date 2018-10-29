@@ -307,6 +307,11 @@ Prefab:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114293559025299394, guid: 696d3721d042eec40bb264d18f4f5d9e,
+        type: 2}
+      propertyPath: wallJump
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}
   m_IsPrefabAsset: 0
@@ -327,6 +332,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 0}
+--- !u!114 &159862205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 159862193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6583b18ca32e0704283f1240019df8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Walking: 0
+  Grounded: 0
+  Jump: 0
+  SpiritAbilitie: 0
 --- !u!1001 &239753498
 Prefab:
   m_ObjectHideFlags: 0

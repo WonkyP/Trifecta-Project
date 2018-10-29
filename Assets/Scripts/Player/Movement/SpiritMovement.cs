@@ -22,6 +22,8 @@ public class SpiritMovement : MonoBehaviour
     // Getting varables
     Rigidbody2D rb;
     Animator anim;
+    PlayerAudioOutput PAO;
+
     // Checking if it's grounded
     [Space]
     public bool isGrounded = false;
@@ -56,6 +58,8 @@ public class SpiritMovement : MonoBehaviour
         // setting vars
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        PAO = GetComponent<PlayerAudioOutput>();
+
     }
 
 
@@ -218,10 +222,18 @@ public class SpiritMovement : MonoBehaviour
         if (hitLeft || hitRight)
         {
             isGrounded = true;
+            PAO.isGrounded = true;
+            anim.SetBool("isGrounded", true);
+
+
         }
         else if (isGrounded)
         {
             isGrounded = false;
+            PAO.isGrounded = false;
+            anim.SetBool("isGrounded", false);
+
+
         }
     }
 

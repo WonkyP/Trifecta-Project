@@ -23,6 +23,7 @@ public class FatherMovement : MonoBehaviour
     // Getting varables
     Rigidbody2D rb;
     Animator anim;
+    PlayerAudioOutput PAO;
 
     // Checking if it's grounded
     [Space]
@@ -62,8 +63,9 @@ public class FatherMovement : MonoBehaviour
     {
 
         // setting vars
-        rb = GetComponent<Rigidbody2D>();
+        rb   = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        PAO  = GetComponent<PlayerAudioOutput>();
     }
 
     float curVel;
@@ -215,10 +217,17 @@ public class FatherMovement : MonoBehaviour
         if (hitLeft || hitRight)
         {
             isGrounded = true;
+            PAO.isGrounded = true;
+            anim.SetBool("isGrounded", true);
+
         }
         else if (isGrounded)
         {
             isGrounded = false;
+            PAO.isGrounded = false;
+            anim.SetBool("isGrounded", false);
+
+
         }
     }
 

@@ -22,6 +22,7 @@ public class DaughterMovement : MonoBehaviour
     // Getting varables
     Rigidbody2D rb;
     Animator anim;
+    PlayerAudioOutput PAO;
 
     // Checking if it's grounded
     [Space]
@@ -56,6 +57,7 @@ public class DaughterMovement : MonoBehaviour
         // setting vars
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        PAO = GetComponent<PlayerAudioOutput>();
 
         // setting abilities
         GiveAbbility();
@@ -106,6 +108,10 @@ public class DaughterMovement : MonoBehaviour
 
                         if (Input.GetButtonDown("Jump"))
                         {
+                            anim.SetBool("Jump", true);
+                            //PAO.Jump = true;
+                            jumping = true;
+
                             if (doubleJumpAfterWall)
                             {
                                 curAirJumpCount = 1;
@@ -134,6 +140,11 @@ public class DaughterMovement : MonoBehaviour
 
                         if (Input.GetButtonDown("Jump"))
                         {
+                            anim.SetBool("Jump", true);
+                            //PAO.Jump = true;
+                            jumping = true;
+
+
                             if (doubleJumpAfterWall)
                             {
                                 curAirJumpCount = 1;
@@ -153,7 +164,13 @@ public class DaughterMovement : MonoBehaviour
                         // animator bool
                         anim.SetBool("WallSlide", false);
                     }// wall slide animator
-                }// check tyhe wall on the right side             
+                }// check tyhe wall on the right side
+                else
+                {
+                    //anim.SetBool("Jump", false);
+                    //PAO.Jump = false;
+
+                }
             }// check if player is grounded
         }// Check if wall jumping is Activ
 
@@ -213,6 +230,7 @@ public class DaughterMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
 
             jumping = false;
+            PAO.isJumping = false;
 
             anim.SetBool("Jump", false);
             anim.SetBool("DoubleJump", false);
@@ -220,6 +238,7 @@ public class DaughterMovement : MonoBehaviour
         else if (Input.GetButtonDown("Jump") && curCoyoteTime > 0) // take Off
         {
             jumping = true;
+            PAO.isJumping = true;
             curCoyoteTime = 0;
 
 
@@ -242,6 +261,7 @@ public class DaughterMovement : MonoBehaviour
             anim.SetBool("Jump", false);
             anim.SetBool("DoubleJump", false);
 
+
             return;
         }
         //////////////////////////////////////////////////////// X2!!!!
@@ -250,6 +270,7 @@ public class DaughterMovement : MonoBehaviour
             curAirJumpCount -= 1;
 
             jumping = true;
+            PAO.isJumping = true;
 
             curVel = DoubleJumpSpeed; // set the vel
 
@@ -262,6 +283,12 @@ public class DaughterMovement : MonoBehaviour
 
             
         }
+
+        // turn jump audio off
+        if (PAO.isJumping == true)
+        {
+            PAO.isJumping = false;
+        }
     }
 
     
@@ -269,6 +296,7 @@ public class DaughterMovement : MonoBehaviour
     public void FixedUpdate()
     {
         yVel = rb.velocity.y;
+
     }
 
     public void GroundCheck()
@@ -285,10 +313,15 @@ public class DaughterMovement : MonoBehaviour
         if (hitLeft || hitRight)
         {
             isGrounded = true;
+            PAO.isGrounded = true;
+            anim.SetBool("isGrounded", true);
         }
         else if (isGrounded)
         {
             isGrounded = false;
+            PAO.isGrounded = false;
+            anim.SetBool("isGrounded", false);
+
         }
     }
 

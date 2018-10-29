@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GeneralPlayerMovement : MonoBehaviour {
+public class GeneralPlayerMovement : MonoBehaviour
+{
     [HideInInspector]
     public int Controls = 1;
 
@@ -77,7 +78,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         characterSelected = PlayerPrefs.GetInt("CharNr", 2);
 
@@ -104,7 +105,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
 
         anim = GetComponent<Animator>();
-    
+
         curSpeed = dSpeed;
 
 
@@ -194,7 +195,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
                 sR.flipX = false;
             }
         }
-        else if (SPD!= 0) // set things to 0 m8 ;) 
+        else if (SPD != 0) // set things to 0 m8 ;) 
         {
             SPD = 0;
             anim.SetFloat("X Movement", SPD); // set the animator x movement. ;) 
@@ -205,9 +206,9 @@ public class GeneralPlayerMovement : MonoBehaviour {
 
     void ChangeCharacter()
     {
-       // the player controls where the player change who they are by pressing X Y B on the controller || A S D on keyboard
-            if (Input.GetButtonDown("Girl"))
-            {
+        // the player controls where the player change who they are by pressing X Y B on the controller || A S D on keyboard
+        if (Input.GetButtonDown("Girl"))
+        {
             //anim.Play("Girl");
             anim.SetInteger("Char", 0);
             c0Script.enabled = true;
@@ -220,25 +221,25 @@ public class GeneralPlayerMovement : MonoBehaviour {
             PlayerPrefs.SetInt("CharNr", characterSelected);
 
             curSpeed = dSpeed;
-            }
-            else if (Input.GetButtonDown("Spirit"))
-            {
+        }
+        else if (Input.GetButtonDown("Spirit"))
+        {
             //anim.Play("Warrior");
             anim.SetInteger("Char", 2);
 
             c0Script.enabled = false;
             c1Script.enabled = true;
 
- 
+
 
             c2Script.enabled = false;
             characterSelected = 1;
             PlayerPrefs.SetInt("CharNr", characterSelected);
 
             curSpeed = sSpeed;
-            }
-            else if (Input.GetButtonDown("OldMan"))
-            {
+        }
+        else if (Input.GetButtonDown("OldMan"))
+        {
             //anim.Play("Wizard");
             anim.SetInteger("Char", 1);
 
@@ -252,7 +253,7 @@ public class GeneralPlayerMovement : MonoBehaviour {
             PlayerPrefs.SetInt("CharNr", characterSelected);
 
             curSpeed = wSpeed;
-            }
+        }
         if (WheelAnimator != null)
         {
             WheelAnimator.SetInteger("Character", characterSelected); // change the hud wheel
@@ -260,19 +261,19 @@ public class GeneralPlayerMovement : MonoBehaviour {
         }
 
         //GameManager.instance.updateHUD(characterSelected);
-        
+
 
         //the Switch Movement where the player changes char with LB and RB on the controller
         if (Input.GetButtonDown("RightButton"))
         {
             if (characterSelected != 2)
             {
-            characterSelected += characterSelected;
-            
+                characterSelected += characterSelected;
+
             }
             else
             {
-            characterSelected = 0;
+                characterSelected = 0;
             }
             anim.SetInteger("Char", characterSelected);
             PlayerPrefs.SetInt("CharNr", characterSelected);
@@ -283,13 +284,13 @@ public class GeneralPlayerMovement : MonoBehaviour {
         {
             if (characterSelected != 0)
             {
-            characterSelected -= 1;
+                characterSelected -= 1;
             }
             else
             {
-            characterSelected = 2;
+                characterSelected = 2;
             }
-
+            anim.SetInteger("Char", characterSelected);
             PlayerPrefs.SetInt("CharNr", characterSelected);
 
         }
