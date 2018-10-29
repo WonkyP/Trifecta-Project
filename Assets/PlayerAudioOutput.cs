@@ -32,7 +32,7 @@ public class PlayerAudioOutput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isWalking && isGrounded)
+        if (isWalking == true && isGrounded == true)
         {
             int index = Random.Range(0, Footsteps.Length);
             var tempClip = Footsteps[index];
@@ -60,7 +60,13 @@ public class PlayerAudioOutput : MonoBehaviour {
         }
         if (ability01 == true && currentSoul == 0)
         {
-
+            PlayerAbility.clip = Brumund_Ability01;
+            PlayerAbility.Play();
+        }
+        if (ability01 == true && currentSoul == 2)
+        {
+            PlayerAbility.clip = Viraya_Ability01;
+            PlayerAbility.Play();
         }
     }
 }
