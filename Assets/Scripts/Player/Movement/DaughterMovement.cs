@@ -103,6 +103,9 @@ public class DaughterMovement : MonoBehaviour
                 {
                     if (leftcheck.collider.gameObject.layer == 13)
                     {
+                        // animator bool
+                        anim.SetBool("WallSlide", true);
+
                         if (Input.GetButtonDown("Jump"))
                         {
                             anim.SetBool("Jump", true);
@@ -142,8 +145,8 @@ public class DaughterMovement : MonoBehaviour
                 {
                     if (rightcheck.collider.gameObject.layer == 13)
                     {
-                        
 
+                        anim.SetBool("WallSlide", true);
                         if (Input.GetButtonDown("Jump"))
                         {
                             anim.SetBool("Jump", true);
