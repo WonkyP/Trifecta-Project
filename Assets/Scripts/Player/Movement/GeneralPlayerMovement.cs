@@ -219,7 +219,7 @@ public class GeneralPlayerMovement : MonoBehaviour
             c0Script.enabled = false;
             c1Script.enabled = true;
             c2Script.enabled = false;
-            characterSelected = 1;
+            characterSelected = 2;
             PlayerPrefs.SetInt("CharNr", characterSelected);
 
             curSpeed = sSpeed;
@@ -232,7 +232,7 @@ public class GeneralPlayerMovement : MonoBehaviour
             c0Script.enabled = false;
             c1Script.enabled = false;
             c2Script.enabled = true;
-            characterSelected = 2;
+            characterSelected = 1;
             PlayerPrefs.SetInt("CharNr", characterSelected);
 
             curSpeed = wSpeed;
@@ -291,30 +291,26 @@ public class GeneralPlayerMovement : MonoBehaviour
                 //anim.Play("Girl");
                 c0Script.enabled = true;
                 c1Script.enabled = false;
-
-
-
                 c2Script.enabled = false;
                 curSpeed = dSpeed;
                 break;
 
-            case 1: // the spirit
-                //anim.Play("Warrior");
-                c0Script.enabled = false;
-                c1Script.enabled = true;
-
-
-
-                c2Script.enabled = false;
-                curSpeed = sSpeed;
-                break;
-            case 2: // the old man
+            case 1: // the old man
                 //anim.Play("Wizard");
                 c0Script.enabled = false;
                 c1Script.enabled = false;
                 c2Script.enabled = true;
                 curSpeed = wSpeed;
                 break;
+
+            case 2: // the spirit
+                //anim.Play("Warrior");
+                c0Script.enabled = false;
+                c1Script.enabled = true;
+                c2Script.enabled = false;
+                curSpeed = sSpeed;
+                break;
+
 
             default:
                 break;
