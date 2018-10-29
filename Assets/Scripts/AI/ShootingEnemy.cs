@@ -10,14 +10,16 @@ public class ShootingEnemy : MonoBehaviour
     public GameObject Bullet;
     public float fireRate = 2.0f;
     private float fireTimer;
-    public bool Facing_Right = true;
+    public bool Facing_Right;
 
     // Use this for initialization
     void Start()
     {
         objectPooler = ObjectPooler.instance;
         fireTimer = fireRate;
-        Flip();
+
+        if (!Facing_Right)
+            Flip();
     }
 
     // Update is called once per frame
@@ -40,7 +42,6 @@ public class ShootingEnemy : MonoBehaviour
 
     private void Flip()
     {
-        if (!Facing_Right)
-            transform.Rotate(0f, 180, 0f);
+        transform.Rotate(0f, 180f, 0f);
     }
 }
