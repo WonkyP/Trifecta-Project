@@ -35,7 +35,7 @@ public class GeneralPlayerMovement : MonoBehaviour
     // A variable for the animations
     Animator anim;
     //[HideInInspector]
-    public int characterSelected = 2;// this variable will be used for the GameManager Getter "updateHUD" to change the HUD when Control = 0
+    public int characterSelected = 1;// this variable will be used for the GameManager Getter "updateHUD" to change the HUD when Control = 0
 
     // A variable to change the color of the Player wen he changes the character
     //private MeshRenderer render;
@@ -106,6 +106,8 @@ public class GeneralPlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
 
         curSpeed = dSpeed;
+
+        changeChar(characterSelected);
     }
 
     void Update() // used to get the player input since they don't live in frames
@@ -200,7 +202,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Girl"))
         {
             //anim.Play("Girl");
-            anim.SetInteger("Char", 0);
             c0Script.enabled = true;
             c1Script.enabled = false;
             c2Script.enabled = false;
@@ -212,7 +213,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         else if (Input.GetButtonDown("Spirit"))
         {
             //anim.Play("Warrior");
-            anim.SetInteger("Char", 2);
 
             c0Script.enabled = false;
             c1Script.enabled = true;
@@ -225,7 +225,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         else if (Input.GetButtonDown("OldMan"))
         {
             //anim.Play("Wizard");
-            anim.SetInteger("Char", 1);
 
             c0Script.enabled = false;
             c1Script.enabled = false;
@@ -253,7 +252,6 @@ public class GeneralPlayerMovement : MonoBehaviour
             {
                 characterSelected = 0;
             }
-            anim.SetInteger("Char", characterSelected);
             PlayerPrefs.SetInt("CharNr", characterSelected);
 
 
@@ -268,7 +266,6 @@ public class GeneralPlayerMovement : MonoBehaviour
             {
                 characterSelected = 2;
             }
-            anim.SetInteger("Char", characterSelected);
             PlayerPrefs.SetInt("CharNr", characterSelected);
 
         }
@@ -288,6 +285,8 @@ public class GeneralPlayerMovement : MonoBehaviour
                 c2Script.enabled = false;
                 curSpeed = dSpeed;
                 PAO.currentSoul = nr;
+                anim.SetInteger("Char", 0);
+
                 break;
 
             case 1: // the old man
@@ -297,6 +296,8 @@ public class GeneralPlayerMovement : MonoBehaviour
                 c2Script.enabled = true;
                 curSpeed = wSpeed;
                 PAO.currentSoul = nr;
+                anim.SetInteger("Char", 1);
+
 
                 break;
 
@@ -307,6 +308,8 @@ public class GeneralPlayerMovement : MonoBehaviour
                 c2Script.enabled = false;
                 curSpeed = sSpeed;
                 PAO.currentSoul = nr;
+                anim.SetInteger("Char", 2);
+
 
                 break;
 
