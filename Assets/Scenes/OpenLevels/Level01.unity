@@ -3274,6 +3274,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magicPlatformType: 66
+--- !u!1 &484850275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1042503808180818, guid: 696d3721d042eec40bb264d18f4f5d9e,
+    type: 2}
+  m_PrefabInternal: {fileID: 35568349}
+--- !u!114 &484850276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 484850275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6583b18ca32e0704283f1240019df8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Walking: 0
+  Grounded: 0
+  Jump: 0
+  SpiritAbilitie: 0
 --- !u!1 &505201805 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1092671394324336, guid: dbef507d0cbe32645904efbb2674530f,

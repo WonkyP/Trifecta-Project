@@ -267,13 +267,14 @@ public class GeneralPlayerMovement : MonoBehaviour {
         {
             if (characterSelected != 2)
             {
-            characterSelected += 1;
+            characterSelected += characterSelected;
+            
             }
             else
             {
             characterSelected = 0;
             }
-
+            anim.SetInteger("Char", characterSelected);
             PlayerPrefs.SetInt("CharNr", characterSelected);
 
 
