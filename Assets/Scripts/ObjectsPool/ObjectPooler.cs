@@ -18,8 +18,7 @@ public class ObjectPooler : MonoBehaviour
     // A list to store all of our different types of items
     public List<objectPoolItem> itemsToPool;
 
-    // New dictionary set to be able to find a specific pool
-    // public Dictionary<string, List<GameObject>> poolDictionary;
+    // New dictionary set to be able to find a specific pool of objects
     public Dictionary<string, Queue<GameObject>> poolDictionary;
 
     // We make the pool a singleton to get access in an easy way
@@ -43,7 +42,7 @@ public class ObjectPooler : MonoBehaviour
 
         foreach (objectPoolItem item in itemsToPool)
         {
-            // We create a queue for each pool of objects
+            // We create a gameObject queue for each key of the dictionary
             Queue<GameObject> objectPool = new Queue<GameObject>();
 
             // We add the objects to the pools
@@ -61,7 +60,7 @@ public class ObjectPooler : MonoBehaviour
     }
 
     // Method to get an item from one of the pools
-    public GameObject getItemFromPool(string tag)
+    GameObject getItemFromPool(string tag)
     {
         // To prevent unexpected errors
         if (!poolDictionary.ContainsKey(tag))
@@ -70,39 +69,32 @@ public class ObjectPooler : MonoBehaviour
             return null;
         }
 
-        //for (int i = 0; i < poolDictionary[tag].Capacity; i++)
-        //{
-        //    if (!poolDictionary[tag][i].activeInHierarchy)
-        //    {
-        //        return poolDictionary[tag][i];
-        //    }
-        //}
-
         // We search the pool and select the first element
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
-
-        // We give life to the gameObject
-        //objectToSpawn.SetActive(true);
-        //objectToSpawn.transform.position = position;
-        //objectToSpawn.transform.rotation = rotation;
 
         // We add the element selected to the back to reuse it later
         poolDictionary[tag].Enqueue(objectToSpawn);
 
         return objectToSpawn;
-
-        //return null;
     }
 
     // Method to spawn a gameObject from one of the pools
     public void spawnFromPool(string tag, Vector2 position, Quaternion rotation)
     {
+        // We search the pool and give life to one of the objects
         GameObject obj = getItemFromPool(tag);
         obj.transform.position = position;
         obj.transform.rotation = rotation;
         obj.SetActive(true);
+
+        // We call an specific method of an interface to make sure the start method of the reused objects works 
+        IPooledObject pooledObj = obj.GetComponent<IPooledObject>();
+
+        if (pooledObj != null)
+            pooledObj.OnObjectSpawn();
     }
 
+    // Method to disabled a gameObject form one of the pools
     public void killGameObject(GameObject obj)
     {
         obj.SetActive(false);

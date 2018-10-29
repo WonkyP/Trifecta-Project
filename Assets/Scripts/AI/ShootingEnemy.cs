@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShootingEnemy : MonoBehaviour
 {
+    ObjectPooler objectPooler;
 
     public Transform FirePoint;
     public GameObject Bullet;
@@ -14,6 +15,7 @@ public class ShootingEnemy : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        objectPooler = ObjectPooler.instance;
         fireTimer = fireRate;
         Flip();
     }
@@ -30,12 +32,7 @@ public class ShootingEnemy : MonoBehaviour
         fireTimer -= Time.deltaTime;
         if (fireTimer <= 0)
         {
-            //GameObject obj = ObjectPooler.instance.getItemFromPool("Turret_Enemy_Bullets");
-            //obj.transform.position = FirePoint.transform.position;
-            //obj.transform.rotation = FirePoint.transform.rotation;
-            //obj.SetActive(true);
-            ObjectPooler.instance.spawnFromPool("Turret_Enemy_Bullets", FirePoint.transform.position, FirePoint.transform.rotation);
-
+            objectPooler.spawnFromPool("Turret_Enemy_Bullets", FirePoint.transform.position, FirePoint.transform.rotation);
             fireTimer = fireRate;
         }
 

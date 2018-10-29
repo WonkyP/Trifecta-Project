@@ -2,27 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IPooledObject
 {
-
+    ObjectPooler objectPooler;
     public float speed = 5f;
     public Rigidbody2D rb;
 
     // Use this for initialization
-    void Start()
+    public void OnObjectSpawn()
     {
-
+        objectPooler = ObjectPooler.instance;
+        rb.velocity = transform.right * speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.right * speed;
+      
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        ObjectPooler.instance.killGameObject(gameObject);
+        objectPooler.killGameObject(gameObject);
         //gameObject.SetActive(false);
     }
 
