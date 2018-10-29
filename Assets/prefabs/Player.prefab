@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 95521453491856636}
   - component: {fileID: 70124680354777026}
   - component: {fileID: 222125769419067726}
+  - component: {fileID: 114557772334377464}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -208,6 +209,12 @@ MonoBehaviour:
     m_Bits: 4097
   yVel: 0
   coyoteTime: 0.2
+  wallJump: 0
+  PushFromTheWall: 10
+  PushUpFromTheWall: 15
+  wallStcik: 1
+  wallSlide: -2
+  doubleJumpAfterWall: 1
 --- !u!114 &114536404846463378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -257,6 +264,40 @@ MonoBehaviour:
   yVel: 0
   coyoteTime: 0.2
   activatePlatform: 0
+  magicBulletKey: {fileID: 0}
+  bulletVelX: 0
+  bulletVelY: 0
+  right: 1
+  OnMovablePlatform: 0
+--- !u!114 &114557772334377464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042503808180818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6583b18ca32e0704283f1240019df8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWalking: 0
+  isGrounded: 0
+  isJumping: 0
+  isDoubleJump: 0
+  ability01: 0
+  ability02: 0
+  ability03: 0
+  currentSoul: 0
+  PlayerFootsteps: {fileID: 0}
+  PlayerJump: {fileID: 0}
+  PlayerAbility: {fileID: 0}
+  Footsteps: []
+  Brumund_Jump: {fileID: 0}
+  Anya_Jump01: {fileID: 0}
+  Anya_Jump02: {fileID: 0}
+  Viraya_Jump01: {fileID: 0}
+  Brumund_Ability01: {fileID: 0}
+  Viraya_Ability01: {fileID: 0}
 --- !u!114 &114874534693430582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -312,6 +353,10 @@ MonoBehaviour:
   velY: 0
   movementDeadZone: 0.1
   MoveSpeed: 0
+  SPD: 0
+  layers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &114969384142794806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,7 +412,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -50948325
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300004, guid: 2b8fb96ed1f85a641aaff2dfae3d5341, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -445,7 +490,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1042503808180818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 0.87, y: 0.89, z: 1}
   m_Children:
   - {fileID: 224548029442626928}
@@ -454,7 +499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -29.7, y: -16.2}
+  m_AnchoredPosition: {x: 3.59, y: -0.24}
   m_SizeDelta: {x: 2.3515625, y: 2.7226562}
   m_Pivot: {x: 0.5302335, y: 0.12397825}
 --- !u!224 &224548029442626928

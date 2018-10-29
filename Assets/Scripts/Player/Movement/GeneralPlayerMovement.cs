@@ -80,7 +80,7 @@ public class GeneralPlayerMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        characterSelected = PlayerPrefs.GetInt("CharNr", 2);
+        characterSelected = PlayerPrefs.GetInt("CharNr", 1);
 
         // get rb
         rb = GetComponent<Rigidbody2D>();
