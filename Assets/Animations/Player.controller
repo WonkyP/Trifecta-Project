@@ -942,7 +942,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Warrioru
+  m_Name: Spirit
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1148,28 +1148,28 @@ AnimatorStateMachine:
     m_Position: {x: 12, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102102810870315258}
-    m_Position: {x: -108, y: -132, z: 0}
+    m_Position: {x: -228, y: -120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102645843408113964}
-    m_Position: {x: -108, y: -204, z: 0}
+    m_Position: {x: -228, y: -192, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102929219230742224}
-    m_Position: {x: 132, y: -204, z: 0}
+    m_Position: {x: 12, y: -192, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102486617958691042}
-    m_Position: {x: 132, y: -132, z: 0}
+    m_Position: {x: 12, y: -120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102290960914108422}
-    m_Position: {x: -108, y: -276, z: 0}
+    m_Position: {x: -228, y: -264, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102040176906696670}
-    m_Position: {x: 132, y: -276, z: 0}
+    m_Position: {x: 12, y: -264, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 324, y: 96, z: 0}
+  m_AnyStatePosition: {x: 180, y: 336, z: 0}
   m_EntryPosition: {x: -132, y: 156, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
