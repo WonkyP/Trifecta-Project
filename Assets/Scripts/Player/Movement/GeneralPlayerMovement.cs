@@ -241,7 +241,7 @@ public class GeneralPlayerMovement : MonoBehaviour
         }
 
         //the Switch Movement where the player changes char with LB and RB on the controller
-        if (Input.GetButtonDown("RightButton"))
+        if (Input.GetButtonDown("LeftButton"))
         {
 
             if (characterSelected != 2)
@@ -256,7 +256,7 @@ public class GeneralPlayerMovement : MonoBehaviour
 
 
         }
-        if (Input.GetButtonDown("LeftButton"))
+        if (Input.GetButtonDown("RightButton"))
         {
             if (characterSelected != 0)
             {
