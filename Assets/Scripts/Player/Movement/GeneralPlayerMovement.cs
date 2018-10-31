@@ -136,7 +136,6 @@ public class GeneralPlayerMovement : MonoBehaviour
                 
                 if (rightWall)
                 {
-                    print(rightWall.collider.name);
                     if (rightWall.collider.gameObject.layer == 12 || rightWall.collider.gameObject.layer == 13)
                     {
                         return;
@@ -335,9 +334,11 @@ public class GeneralPlayerMovement : MonoBehaviour
     void GravityControl()
     {
         velY = rb.velocity.y;
-        anim.SetFloat("Y_Vel", velY);
-        if (velY < 0)
+        anim.SetFloat("Y_Vel", velY); // down
+        if (velY < 0) 
         {
+            anim.SetBool("Jump", false);
+            anim.SetBool("DoubleJump", false);
             if (velY > -20)
             {
                 rb.gravityScale = gFourceDown;
@@ -348,9 +349,10 @@ public class GeneralPlayerMovement : MonoBehaviour
                 rb.gravityScale = 0;
             }
         }
-        else
+        else 
         {
             rb.gravityScale = gFourceUp;
+
         }
     }
 

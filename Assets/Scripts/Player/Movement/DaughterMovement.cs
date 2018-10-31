@@ -276,8 +276,8 @@ public class DaughterMovement : MonoBehaviour
             curVel = curVel - Time.deltaTime * 20;
 
             rb.velocity = new Vector2(rb.velocity.x, curVel);
-            anim.SetBool("Jump", false);
-            anim.SetBool("DoubleJump", false);
+            //anim.SetBool("Jump", false);
+            //anim.SetBool("DoubleJump", false);
 
 
             return;
