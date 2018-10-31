@@ -279,7 +279,7 @@ public class GeneralPlayerMovement : MonoBehaviour
     int lastChar;
     void changeChar(int nr) // just an function made to make it clearer how the switching happens
     {
-        anim.SetInteger("Char_Last", lastChar);
+        anim.SetFloat("Char_Last", lastChar);
         anim.SetInteger("Char", nr);
         PAO.currentSoul = nr;
         anim.SetTrigger("Char_Change");
