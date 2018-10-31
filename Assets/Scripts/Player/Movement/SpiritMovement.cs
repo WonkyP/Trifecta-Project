@@ -53,7 +53,8 @@ public class SpiritMovement : MonoBehaviour
 
     // Second ability
     ObjectPooler objectPooler;
-    public GameObject firePoint;
+    public GameObject firePointRight;
+    public GameObject firePointLeft;
     bool facingRight;
 
     //[Header("")]
@@ -101,8 +102,12 @@ public class SpiritMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.U))
         {
-            objectPooler.spawnFromPool("Player_Bullets", firePoint.transform.position, firePoint.transform.rotation);
-            Debug.Log("Player shooting");
+            if(gpm.right)
+                objectPooler.spawnFromPool("Player_Bullets", firePointRight.transform.position, firePointRight.transform.rotation);
+            else
+                objectPooler.spawnFromPool("Player_Bullets", firePointLeft.transform.position, firePointLeft.transform.rotation);
+
+            //Debug.Log("Player shooting");
         }
 
 

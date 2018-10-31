@@ -8,7 +8,7 @@ public class PlayerFirePoint : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        gpm = GetComponent<GeneralPlayerMovement>();
+        gpm = GameObject.Find("Player").GetComponent<GeneralPlayerMovement>();
 	}
 	
 	// Update is called once per frame
