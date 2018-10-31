@@ -202,6 +202,7 @@ public class GeneralPlayerMovement : MonoBehaviour
             c2Script.enabled = false;
             characterSelected = 0;
             PlayerPrefs.SetInt("CharNr", characterSelected);
+            changeChar(characterSelected);
 
             curSpeed = dSpeed;
         }
@@ -214,6 +215,7 @@ public class GeneralPlayerMovement : MonoBehaviour
             c2Script.enabled = false;
             characterSelected = 2;
             PlayerPrefs.SetInt("CharNr", characterSelected);
+            changeChar(characterSelected);
 
             curSpeed = sSpeed;
         }
@@ -226,6 +228,7 @@ public class GeneralPlayerMovement : MonoBehaviour
             c2Script.enabled = true;
             characterSelected = 1;
             PlayerPrefs.SetInt("CharNr", characterSelected);
+            changeChar(characterSelected);
 
             curSpeed = wSpeed;
         }
@@ -248,6 +251,7 @@ public class GeneralPlayerMovement : MonoBehaviour
                 characterSelected = 0;
             }
             PlayerPrefs.SetInt("CharNr", characterSelected);
+            changeChar(characterSelected);
 
 
         }
@@ -262,10 +266,10 @@ public class GeneralPlayerMovement : MonoBehaviour
                 characterSelected = 2;
             }
             PlayerPrefs.SetInt("CharNr", characterSelected);
+            changeChar(characterSelected);
 
         }
 
-        changeChar(characterSelected);
 
     }
     int lastChar;
@@ -274,8 +278,9 @@ public class GeneralPlayerMovement : MonoBehaviour
         anim.SetInteger("Char_Last", lastChar);
         anim.SetInteger("Char", nr);
         PAO.currentSoul = nr;
-        lastChar = nr;
         anim.SetTrigger("Char_Change");
+        lastChar = nr;
+
         switch (nr)
         {
             case 0: // the girl
@@ -310,7 +315,7 @@ public class GeneralPlayerMovement : MonoBehaviour
                 break;
 
 
-                
+
         }
 
         if (AbilityWheel != null)
