@@ -22,7 +22,6 @@ public class SpiritMovement : MonoBehaviour
     // Getting varables
     Rigidbody2D rb;
     Animator anim;
-    PlayerAudioOutput PAO;
 
     // Checking if it's grounded
     [Space]
@@ -64,7 +63,6 @@ public class SpiritMovement : MonoBehaviour
         // setting vars
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        PAO = GetComponent<PlayerAudioOutput>();
         gpm = GetComponent<GeneralPlayerMovement>();
         objectPooler = ObjectPooler.instance;
         facingRight = gpm.right;
@@ -153,7 +151,6 @@ public class SpiritMovement : MonoBehaviour
         {
             curAirTime = 0;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
-            PAO.isJumping = false;
             jumping = false;
 
             anim.SetBool("Jump", false);
@@ -165,7 +162,6 @@ public class SpiritMovement : MonoBehaviour
             curCoyoteTime = 0;
 
             curAirJumpCount = airJumpCount;
-            PAO.isJumping = true;
             curVel = jumpSpeed; // set the vel
 
             rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
@@ -204,11 +200,7 @@ public class SpiritMovement : MonoBehaviour
             return;
         }
 
-        // turn jump audio off
-        if (PAO.isJumping == true)
-        {
-            PAO.isJumping = false;
-        }
+
     }
 
     public void FixedUpdate()
@@ -231,7 +223,6 @@ public class SpiritMovement : MonoBehaviour
         if (hitLeft || hitRight)
         {
             isGrounded = true;
-            PAO.isGrounded = true;
             anim.SetBool("isGrounded", true);
 
 
@@ -239,7 +230,6 @@ public class SpiritMovement : MonoBehaviour
         else if (isGrounded)
         {
             isGrounded = false;
-            PAO.isGrounded = false;
             anim.SetBool("isGrounded", false);
         }
     }

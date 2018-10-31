@@ -22,7 +22,6 @@ public class DaughterMovement : MonoBehaviour
     // Getting varables
     Rigidbody2D rb;
     Animator anim;
-    PlayerAudioOutput PAO;
     SpriteRenderer SR;
 
     // Checking if it's grounded
@@ -58,7 +57,6 @@ public class DaughterMovement : MonoBehaviour
         // setting vars
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        PAO = GetComponent<PlayerAudioOutput>();
         SR = GetComponent<SpriteRenderer>();
 
         // setting abilities
@@ -255,8 +253,6 @@ public class DaughterMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
 
             jumping = false;
-            PAO.isJumping = false;
-            PAO.isDoubleJump = false;
 
             //anim.SetBool("Jump", false);
             //anim.SetBool("DoubleJump", false);
@@ -264,7 +260,6 @@ public class DaughterMovement : MonoBehaviour
         else if (Input.GetButtonDown("Jump") && curCoyoteTime > 0) // take Off
         {
             jumping = true;
-            PAO.isJumping = true;
             curCoyoteTime = 0;
 
             curVel = jumpSpeed; // set the vel
@@ -295,7 +290,6 @@ public class DaughterMovement : MonoBehaviour
             curAirJumpCount -= 1;
 
             jumping = true;
-            PAO.isDoubleJump = true;
 
             curVel = DoubleJumpSpeed; // set the vel
 
@@ -307,16 +301,6 @@ public class DaughterMovement : MonoBehaviour
 
 
             
-        }
-
-        // turn jump audio off
-        if (PAO.isJumping == true)
-        {
-            PAO.isJumping = false;
-        }
-        if (PAO.isDoubleJump == true)
-        {
-            PAO.isDoubleJump = false;
         }
     }
 
@@ -342,7 +326,6 @@ public class DaughterMovement : MonoBehaviour
         if (hitLeft || hitRight)
         {
             isGrounded = true;
-            PAO.isGrounded = true;
             anim.SetBool("isGrounded", true);
             anim.SetBool("WallSlide", false);
 
@@ -350,7 +333,6 @@ public class DaughterMovement : MonoBehaviour
         else if (isGrounded)
         {
             isGrounded = false;
-            PAO.isGrounded = false;
             anim.SetBool("isGrounded", false);
 
         }
