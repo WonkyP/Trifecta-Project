@@ -129,8 +129,9 @@ public class GeneralPlayerMovement : MonoBehaviour
     {
         if (Input.GetAxis("Horizontal") != 0)
         {
-            if (Input.GetAxis("Horizontal") > 0) // goes right
+            if (Input.GetAxis("Horizontal") > 0 && !right) // goes right
             {
+                Flip();
                 RaycastHit2D rightWall = Physics2D.Raycast(new Vector2(transform.position.x + 0.5f, transform.position.y + 1f), Vector2.down, 0.5f);
                 Debug.DrawRay(new Vector2(transform.position.x + 0.5f, transform.position.y + 1f), new Vector2(0, -0.5f), Color.green);
                 
@@ -146,8 +147,9 @@ public class GeneralPlayerMovement : MonoBehaviour
                     c2Script.changeShotDirecctio(1);
                 }
             }
-            if (Input.GetAxis("Horizontal") < 0) // goes left
+            if (Input.GetAxis("Horizontal") < 0 && right) // goes left
             {
+                Flip();
                 RaycastHit2D leftWall = Physics2D.Raycast(new Vector2(transform.position.x - 0.5f, transform.position.y + 1f), Vector2.down, 0.5f);
                 Debug.DrawRay(new Vector2(transform.position.x - 0.5f, transform.position.y + 1f), new Vector2(0, -0.5f), Color.green);
                 if (leftWall)
@@ -173,18 +175,6 @@ public class GeneralPlayerMovement : MonoBehaviour
             PAO.isWalking = true; // audio
 
             transform.position = new Vector2(transform.position.x + SPD * Time.deltaTime, transform.position.y); // moving the char
-
-            // LEFT RIGHT
-            if (Input.GetAxis("Horizontal") < 0)
-            {
-                Flip();
-                sR.flipX = true;
-            }
-            else if (Input.GetAxis("Horizontal") > 0)
-            {
-                Flip();
-                sR.flipX = false;
-            }
         }
         else if (SPD != 0) // set things to 0 m8 ;) 
         {
@@ -360,6 +350,6 @@ public class GeneralPlayerMovement : MonoBehaviour
     void Flip()
     {
         right = !right;
-        //transform.Rotate(0f, 180f, 0f);
+        transform.Rotate(0f, 180f, 0f);
     }
 }
