@@ -108,6 +108,8 @@ public class GeneralPlayerMovement : MonoBehaviour
         curSpeed = dSpeed;
 
         changeChar(characterSelected);
+
+        lastChar = characterSelected;
     }
 
     void Update() // used to get the player input since they don't live in frames
@@ -262,9 +264,14 @@ public class GeneralPlayerMovement : MonoBehaviour
         changeChar(characterSelected);
 
     }
-
+    int lastChar;
     void changeChar(int nr) // just an function made to make it clearer how the switching happens
     {
+        anim.SetInteger("Char_Last", lastChar);
+        anim.SetInteger("Char", nr);
+        PAO.currentSoul = nr;
+        lastChar = nr;
+        anim.SetTrigger("Char_Change");
         switch (nr)
         {
             case 0: // the girl
@@ -273,8 +280,6 @@ public class GeneralPlayerMovement : MonoBehaviour
                 c1Script.enabled = false;
                 c2Script.enabled = false;
                 curSpeed = dSpeed;
-                PAO.currentSoul = nr;
-                anim.SetInteger("Char", 0);
 
                 break;
 
@@ -284,9 +289,6 @@ public class GeneralPlayerMovement : MonoBehaviour
                 c1Script.enabled = false;
                 c2Script.enabled = true;
                 curSpeed = wSpeed;
-                PAO.currentSoul = nr;
-                anim.SetInteger("Char", 1);
-
 
                 break;
 
@@ -296,15 +298,15 @@ public class GeneralPlayerMovement : MonoBehaviour
                 c1Script.enabled = true;
                 c2Script.enabled = false;
                 curSpeed = sSpeed;
-                PAO.currentSoul = nr;
-                anim.SetInteger("Char", 2);
-
 
                 break;
 
 
             default:
                 break;
+
+
+                
         }
 
         if (AbilityWheel != null)

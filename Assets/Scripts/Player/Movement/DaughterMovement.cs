@@ -108,7 +108,7 @@ public class DaughterMovement : MonoBehaviour
 
                         if (Input.GetButtonDown("Jump"))
                         {
-                            anim.SetBool("Jump", true);
+                            anim.SetTrigger("Jump");
                             //PAO.Jump = true;
                             jumping = true;
 
@@ -149,7 +149,7 @@ public class DaughterMovement : MonoBehaviour
                         anim.SetBool("WallSlide", true);
                         if (Input.GetButtonDown("Jump"))
                         {
-                            anim.SetBool("Jump", true);
+                            anim.SetTrigger("Jump");
                             //PAO.Jump = true;
                             jumping = true;
 
@@ -257,8 +257,8 @@ public class DaughterMovement : MonoBehaviour
             PAO.isJumping = false;
             PAO.isDoubleJump = false;
 
-            anim.SetBool("Jump", false);
-            anim.SetBool("DoubleJump", false);
+            //anim.SetBool("Jump", false);
+            //anim.SetBool("DoubleJump", false);
         }
         else if (Input.GetButtonDown("Jump") && curCoyoteTime > 0) // take Off
         {
@@ -272,7 +272,7 @@ public class DaughterMovement : MonoBehaviour
 
             curAirTime = airTime; // set how long the button press will be for
 
-            anim.SetBool("Jump", true);
+            anim.SetTrigger("Jump");
             return;
         }
         else if (Input.GetButton("Jump") && curAirTime > 0) // In The Air
@@ -302,7 +302,7 @@ public class DaughterMovement : MonoBehaviour
 
             curAirTime = DoubleJumpAirTime; // set how long the button press will be for
 
-            anim.SetBool("DoubleJump", true);
+            anim.SetTrigger("DoubleJump");
 
 
             
@@ -343,6 +343,8 @@ public class DaughterMovement : MonoBehaviour
             isGrounded = true;
             PAO.isGrounded = true;
             anim.SetBool("isGrounded", true);
+            anim.SetBool("WallSlide", false);
+
         }
         else if (isGrounded)
         {
