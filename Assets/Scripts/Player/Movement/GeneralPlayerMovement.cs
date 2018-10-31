@@ -78,7 +78,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         Controls = move;
         this.gameObject.SendMessage("Start");
     }
-
     // Use this for initialization
     void Start()
     {
@@ -104,7 +103,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         c1Script = GetComponent<SpiritMovement>();
         c2Script = GetComponent<FatherMovement>();
 
-
         anim = GetComponent<Animator>();
 
         curSpeed = dSpeed;
@@ -113,12 +111,10 @@ public class GeneralPlayerMovement : MonoBehaviour
 
         lastChar = characterSelected;
     }
-
     void Update() // used to get the player input since they don't live in frames
     {
         ChangeCharacter();
     }
-
     // Update for physics engine
     void FixedUpdate()
     {
@@ -127,7 +123,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         GeneralMovement();
         GravityControl();
     }
-
     // General movement of the player
     void GeneralMovement()
     {
@@ -169,7 +164,6 @@ public class GeneralPlayerMovement : MonoBehaviour
                         return;
                     }
                 }
-
                 if (c2Script.enabled)
                 {
                     c2Script.changeShotDirecctio(-1);
@@ -192,7 +186,6 @@ public class GeneralPlayerMovement : MonoBehaviour
             anim.SetFloat("X Movement", SPD); // set the animator x movement. ;) 
             PAO.isWalking = false; // audio
         }
-
     }
 
     void ChangeCharacter()
@@ -200,7 +193,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         // the player controls where the player change who they are by pressing X Y B on the controller || A S D on keyboard
         if (Input.GetButtonDown("Girl"))
         {
-            //anim.Play("Girl");
             c0Script.enabled = true;
             c1Script.enabled = false;
             c2Script.enabled = false;
@@ -212,8 +204,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         }
         else if (Input.GetButtonDown("Spirit"))
         {
-            //anim.Play("Warrior");
-
             c0Script.enabled = false;
             c1Script.enabled = true;
             c2Script.enabled = false;
@@ -225,8 +215,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         }
         else if (Input.GetButtonDown("OldMan"))
         {
-            //anim.Play("Wizard");
-
             c0Script.enabled = false;
             c1Script.enabled = false;
             c2Script.enabled = true;
@@ -239,13 +227,10 @@ public class GeneralPlayerMovement : MonoBehaviour
         if (WheelAnimator != null)
         {
             WheelAnimator.SetInteger("Character", characterSelected); // change the hud wheel
-
         }
-
         //the Switch Movement where the player changes char with LB and RB on the controller
         if (Input.GetButtonDown("LeftButton"))
         {
-
             if (characterSelected != 2)
             {
                 characterSelected += 1;
@@ -256,8 +241,6 @@ public class GeneralPlayerMovement : MonoBehaviour
             }
             PlayerPrefs.SetInt("CharNr", characterSelected);
             changeChar(characterSelected);
-
-
         }
         if (Input.GetButtonDown("RightButton"))
         {
@@ -271,10 +254,7 @@ public class GeneralPlayerMovement : MonoBehaviour
             }
             PlayerPrefs.SetInt("CharNr", characterSelected);
             changeChar(characterSelected);
-
         }
-
-
     }
     int lastChar;
     void changeChar(int nr) // just an function made to make it clearer how the switching happens
@@ -293,41 +273,29 @@ public class GeneralPlayerMovement : MonoBehaviour
                 c1Script.enabled = false;
                 c2Script.enabled = false;
                 curSpeed = dSpeed;
-
                 break;
-
             case 1: // the old man
                 //anim.Play("Wizard");
                 c0Script.enabled = false;
                 c1Script.enabled = false;
                 c2Script.enabled = true;
                 curSpeed = wSpeed;
-
                 break;
-
             case 2: // the spirit
                 //anim.Play("Warrior");
                 c0Script.enabled = false;
                 c1Script.enabled = true;
                 c2Script.enabled = false;
                 curSpeed = sSpeed;
-
                 break;
-
-
             default:
                 break;
-
-
-
         }
-
         if (AbilityWheel != null)
         {
             WheelAnimator.SetInteger("Character", nr); // change the hud wheel
 
         }
-
         GameManager.instance.updateHUD(nr);
     }
 
@@ -335,7 +303,6 @@ public class GeneralPlayerMovement : MonoBehaviour
     {
         GameManager.instance.missionComplete();
     }
-
     void GravityControl()
     {
         velY = rb.velocity.y;
@@ -357,11 +324,8 @@ public class GeneralPlayerMovement : MonoBehaviour
         else 
         {
             rb.gravityScale = gFourceUp;
-
         }
     }
-
-
     void Flip()
     {
         right = !right;
