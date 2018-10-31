@@ -228,6 +228,51 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &646106402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 646106404}
+  - component: {fileID: 646106403}
+  m_Layer: 0
+  m_Name: ObjectPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &646106403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 646106402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58596b9cb96114b47a201203213e37fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToPool:
+  - tag: Player_Bullets
+    objectToPool: {fileID: 1184290511732758, guid: 795a33815bee5f94b93e96805228e833,
+      type: 2}
+    amountToPool: 5
+--- !u!4 &646106404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 646106402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.009781, y: 0.5380688, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1041605029
 Prefab:
   m_ObjectHideFlags: 0
@@ -278,8 +323,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1043098185}
-  - component: {fileID: 1043098186}
-  - component: {fileID: 1043098187}
   m_Layer: 10
   m_Name: FirePointRight
   m_TagString: Untagged
@@ -305,33 +348,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.7, y: 0.47}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1043098186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1043098184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58596b9cb96114b47a201203213e37fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsToPool:
-  - tag: Player_Bullets
-    objectToPool: {fileID: 1184290511732758, guid: 795a33815bee5f94b93e96805228e833,
-      type: 2}
-    amountToPool: 5
---- !u!114 &1043098187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1043098184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad5cd23eba96dcd42b6ab4f1463e289a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1404781435
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +439,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1899777094}
   - component: {fileID: 1899777093}
-  - component: {fileID: 1899777092}
   m_Layer: 10
   m_Name: FirePointLeft
   m_TagString: Untagged
@@ -431,17 +446,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1899777092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1899777091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad5cd23eba96dcd42b6ab4f1463e289a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1899777093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,13 +468,13 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1899777091}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
   m_Children: []
   m_Father: {fileID: 1734783194}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.75, y: 0.47000006}
