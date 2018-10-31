@@ -39,6 +39,7 @@ public class GeneralPlayerMovement : MonoBehaviour
 
     // A variable to change the color of the Player wen he changes the character
     //private MeshRenderer render;
+    SpriteRenderer sR;
 
 
     // FOR THE OTHER CONTROLS
@@ -84,7 +85,8 @@ public class GeneralPlayerMovement : MonoBehaviour
         // get rb
         rb = GetComponent<Rigidbody2D>();
 
-
+        // sR
+        sR = GetComponent<SpriteRenderer>();
 
         // audio
         PAO = GetComponent<PlayerAudioOutput>();
@@ -131,6 +133,9 @@ public class GeneralPlayerMovement : MonoBehaviour
         {
             if (Input.GetAxis("Horizontal") > 0 && !right) // goes right
             {
+                Flip();
+                sR.flipX = false;
+
                 RaycastHit2D rightWall = Physics2D.Raycast(new Vector2(transform.position.x + 0.5f, transform.position.y + 1f), Vector2.down, 0.5f);
                 Debug.DrawRay(new Vector2(transform.position.x + 0.5f, transform.position.y + 1f), new Vector2(0, -0.5f), Color.green);
                 
@@ -148,6 +153,9 @@ public class GeneralPlayerMovement : MonoBehaviour
             }
             if (Input.GetAxis("Horizontal") < 0 && right) // goes left
             {
+                Flip();
+                sR.flipX = true;
+
                 RaycastHit2D leftWall = Physics2D.Raycast(new Vector2(transform.position.x - 0.5f, transform.position.y + 1f), Vector2.down, 0.5f);
                 Debug.DrawRay(new Vector2(transform.position.x - 0.5f, transform.position.y + 1f), new Vector2(0, -0.5f), Color.green);
                 if (leftWall)
@@ -342,5 +350,11 @@ public class GeneralPlayerMovement : MonoBehaviour
             rb.gravityScale = gFourceUp;
 
         }
+    }
+
+
+    void Flip()
+    {
+        right = !right;
     }
 }

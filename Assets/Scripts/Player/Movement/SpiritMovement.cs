@@ -270,7 +270,7 @@ public class SpiritMovement : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        transform.Rotate(0f, 180f, 0f);
+        //transform.Rotate(0f, 180f, 0f);
     }
 
 

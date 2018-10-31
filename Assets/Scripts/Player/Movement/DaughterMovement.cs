@@ -23,6 +23,7 @@ public class DaughterMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     PlayerAudioOutput PAO;
+    SpriteRenderer SR;
 
     // Checking if it's grounded
     [Space]
@@ -58,6 +59,7 @@ public class DaughterMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         PAO = GetComponent<PlayerAudioOutput>();
+        SR = GetComponent<SpriteRenderer>();
 
         // setting abilities
         GiveAbbility();
@@ -101,6 +103,8 @@ public class DaughterMovement : MonoBehaviour
                 {
                     if (leftcheck.collider.gameObject.layer == 13)
                     {
+                        SR.flipX = false;
+
                         // animator bool
                         anim.SetBool("WallSlide", true);
 
@@ -142,6 +146,7 @@ public class DaughterMovement : MonoBehaviour
                 {
                     if (rightcheck.collider.gameObject.layer == 13)
                     {
+                        SR.flipX = true;
 
                         anim.SetBool("WallSlide", true);
                         if (Input.GetButtonDown("Jump"))
@@ -164,6 +169,7 @@ public class DaughterMovement : MonoBehaviour
                         {
                             rb.velocity = new Vector2(wallStcik, wallSlide);
                             anim.SetBool("WallSlide", true);
+
                         }
                     }
                     else
