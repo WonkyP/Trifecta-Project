@@ -512,7 +512,23 @@ Prefab:
       propertyPath: wallSlide
       value: -8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114293559025299394, guid: 696d3721d042eec40bb264d18f4f5d9e,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114536404846463378, guid: 696d3721d042eec40bb264d18f4f5d9e,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114539482192208654, guid: 696d3721d042eec40bb264d18f4f5d9e,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114500541328490064, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &37849857
@@ -32491,6 +32507,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1039809111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1042503808180818, guid: 696d3721d042eec40bb264d18f4f5d9e,
+    type: 2}
+  m_PrefabInternal: {fileID: 35568349}
+--- !u!114 &1039809112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1039809111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b8a03449c868e46b1a8ec58ef18031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1045552713
 Prefab:
   m_ObjectHideFlags: 0
