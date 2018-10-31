@@ -36,6 +36,8 @@ public class GeneralPlayerMovement : MonoBehaviour
     Animator anim;
     //[HideInInspector]
     public int characterSelected = 1;// this variable will be used for the GameManager Getter "updateHUD" to change the HUD when Control = 0
+    // Variable to rotate the PlayerFirepoint
+    public bool changeDir = false;
 
     // A variable to change the color of the Player wen he changes the character
     //private MeshRenderer render;
@@ -134,6 +136,7 @@ public class GeneralPlayerMovement : MonoBehaviour
             if (Input.GetAxis("Horizontal") > 0 && !right) // goes right
             {
                 Flip();
+                right = true;
                 sR.flipX = false;
 
                 RaycastHit2D rightWall = Physics2D.Raycast(new Vector2(transform.position.x + 0.5f, transform.position.y + 1f), Vector2.down, 0.5f);
@@ -154,6 +157,7 @@ public class GeneralPlayerMovement : MonoBehaviour
             if (Input.GetAxis("Horizontal") < 0 && right) // goes left
             {
                 Flip();
+                right = false;
                 sR.flipX = true;
 
                 RaycastHit2D leftWall = Physics2D.Raycast(new Vector2(transform.position.x - 0.5f, transform.position.y + 1f), Vector2.down, 0.5f);
@@ -361,5 +365,6 @@ public class GeneralPlayerMovement : MonoBehaviour
     void Flip()
     {
         right = !right;
+        changeDir = true;
     }
 }
