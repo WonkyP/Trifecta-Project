@@ -139,7 +139,7 @@ public class DaughterMovement : MonoBehaviour
                 else
                 {
                     // animator bool
-                    anim.SetBool("WallSlide", false);
+                    //anim.SetBool("WallSlide", false);
                 }
                 if (rightcheck)
                 {
@@ -180,16 +180,22 @@ public class DaughterMovement : MonoBehaviour
                 else
                 {
                     // animator bool
-                    anim.SetBool("WallSlide", false);
+                    //anim.SetBool("WallSlide", false);
                     //anim.SetBool("Jump", false);
                     //PAO.Jump = false;
 
                 }
+
+                if (!rightcheck && !leftcheck)
+                {
+                    anim.SetBool("WallSlide", false);
+                }
             }// check if player is grounded
             else
             {
-                anim.SetBool("WallSlide", false);
+                //anim.SetBool("WallSlide", false);
             }
+
         }// Check if wall jumping is Activ
 
         GroundCheck();
