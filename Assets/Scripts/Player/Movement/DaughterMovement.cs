@@ -47,8 +47,8 @@ public class DaughterMovement : MonoBehaviour
     public bool wallJump = false;
     public float PushFromTheWall = 10;
     public float PushUpFromTheWall = 15;
-    public float wallStcik = 1;
-    public float wallSlide = -2;
+    public float wallStcik = 6;
+    public float wallSlide = -8;
     //public LayerMask wallJumpLayer;
     public bool doubleJumpAfterWall = true;
 
@@ -87,17 +87,17 @@ public class DaughterMovement : MonoBehaviour
             {
                 // raycasts to check for walls
 
-                RaycastHit2D rightcheck = Physics2D.Raycast(new Vector2(transform.position.x + 0.5f, transform.position.y + 1),
-                    Vector2.right, 0.6f);
+                RaycastHit2D rightcheck = Physics2D.Raycast(new Vector2(transform.position.x + 0.4f, transform.position.y + 1),
+                    Vector2.right, 0.1f);
 
-                Debug.DrawRay(new Vector2(transform.position.x + 0.5f, transform.position.y + 1),
-                    new Vector2(0.6f, 0), Color.cyan);
+                Debug.DrawRay(new Vector2(transform.position.x + 0.4f, transform.position.y + 1),
+                    new Vector2(0.1f, 0), Color.cyan);
 
-                RaycastHit2D leftcheck = Physics2D.Raycast(new Vector2(transform.position.x - 0.5f, transform.position.y + 1),
-                Vector2.right, -0.6f);
+                RaycastHit2D leftcheck = Physics2D.Raycast(new Vector2(transform.position.x - 0.4f, transform.position.y + 1),
+                Vector2.right, -0.1f);
 
-                Debug.DrawRay(new Vector2(transform.position.x - 0.5f, transform.position.y + 1),
-                    new Vector2(-0.6f, 0), Color.cyan);
+                Debug.DrawRay(new Vector2(transform.position.x - 0.4f, transform.position.y + 1),
+                    new Vector2(-0.1f, 0), Color.cyan);
 
                 if (leftcheck)
                 {
