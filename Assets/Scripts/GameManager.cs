@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 
 
     // This manages the current character the player is using
-    int currentCharacter = 0;
+    //int currentCharacter = 0;
 
     void Start()
     {

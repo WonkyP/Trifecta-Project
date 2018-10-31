@@ -230,21 +230,21 @@ public class DaughterMovement : MonoBehaviour
 
 
 
-    void wallJumping()
-    {
+    //void wallJumping()
+    //{
 
 
-        // raycasts to check for walls
-        RaycastHit2D rightcheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1),
-            Vector2.right, 0.6f, JumpableLayers);
+    //    // raycasts to check for walls
+    //    RaycastHit2D rightcheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1),
+    //        Vector2.right, 0.6f, JumpableLayers);
 
-        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1),
-            new Vector2(0.6f, 0), Color.cyan);
-
-
+    //    Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1),
+    //        new Vector2(0.6f, 0), Color.cyan);
 
 
-    }
+
+
+    //}
 
     public void Jump()
     {
