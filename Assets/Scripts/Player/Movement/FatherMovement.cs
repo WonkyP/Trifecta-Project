@@ -58,6 +58,10 @@ public class FatherMovement : MonoBehaviour
 
     public bool OnMovablePlatform = false;
 
+    public GameObject rspawner;
+    public GameObject lspawner;
+
+
     //[Header("")]
     public void Start()
     {
@@ -102,28 +106,40 @@ public class FatherMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.U))
         {
-            magicBulletKey.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 1);
+            //magicBulletKey.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 1);
 
-            bulletScript = magicBulletKey.GetComponent<BulletKey>();
+            //bulletScript = magicBulletKey.GetComponent<BulletKey>();
 
             if (!OnMovablePlatform)
             {
 
-                float bulletVelX_ = 5.0f;
-                if (!right)
-                    bulletVelX_ = -bulletVelX;
-                else bulletVelX_ = bulletVelX;
+                //float bulletVelX_ = 5.0f;
+                if (!right)//will shoot to the left.
+                {
+                    ObjectPooler.instance.spawnFromPool("BulletKey", lspawner.transform.position, lspawner.transform.rotation);
+                }
+                //    bulletVelX_ = -bulletVelX;
+                else //will shoot to the right.
+                {
+                    //ObjectPooler.instance.spawnFromPool("BulletKey", rspawner.transform.position, rspawner.transform.rotation);
+                   
+                } /*bulletVelX_ = bulletVelX;*/
 
-                bulletScript.SetVelY(0);
-                bulletScript.SetVelX(bulletVelX_);
+                    //bulletScript.SetVelY(0);
+                    //bulletScript.SetVelX(bulletVelX_);
+
+                    
+                //ObjectPooler.instance.spawnFromPool("BulletKey", lspawner.transform.position, lspawner.transform.rotation);
             }
             else
             {
-                bulletScript.SetVelY(-bulletVelY);
-                bulletScript.SetVelX(0);
+
+                
+                //bulletScript.SetVelY(-bulletVelY);
+                //bulletScript.SetVelX(0);
             }
 
-            Instantiate(magicBulletKey);
+            //Instantiate(magicBulletKey);
         }
     }
 

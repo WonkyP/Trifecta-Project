@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class BulletKey : MonoBehaviour {
 
-    public float velX_ = 0f;
+    public float velX_ = 10f;
     public float velY_ = 0f;
     Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {
+
         rb = GetComponent<Rigidbody2D>();
 	}
 	
@@ -21,7 +22,8 @@ public class BulletKey : MonoBehaviour {
     {
         if (collision.gameObject.tag != "Player")
         {
-            Destroy(this.gameObject);
+            ObjectPooler.instance.killGameObject(gameObject);
+            //Destroy(this.gameObject);
         }
     }
 
