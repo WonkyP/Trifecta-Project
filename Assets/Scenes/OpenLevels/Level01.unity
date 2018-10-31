@@ -497,6 +497,11 @@ Prefab:
       value: 
       objectReference: {fileID: 243802020166878558, guid: 2ddf81a4bce59b644a4c312f930756ee,
         type: 2}
+    - target: {fileID: 114293559025299394, guid: 696d3721d042eec40bb264d18f4f5d9e,
+        type: 2}
+      propertyPath: wallJump
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}
   m_IsPrefabAsset: 0

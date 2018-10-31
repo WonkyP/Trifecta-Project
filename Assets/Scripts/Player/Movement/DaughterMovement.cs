@@ -23,7 +23,6 @@ public class DaughterMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     PlayerAudioOutput PAO;
-    SpriteRenderer SR;
 
     // Checking if it's grounded
     [Space]
@@ -59,7 +58,6 @@ public class DaughterMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         PAO = GetComponent<PlayerAudioOutput>();
-        SR = GetComponent<SpriteRenderer>();
 
         // setting abilities
         GiveAbbility();
@@ -127,7 +125,6 @@ public class DaughterMovement : MonoBehaviour
                             rb.velocity = new Vector2(-wallStcik, wallSlide);
                             // animator bool
                             anim.SetBool("WallSlide", true);
-                            SR.flipX = false;
                         }
                     }
                     else
@@ -167,8 +164,6 @@ public class DaughterMovement : MonoBehaviour
                         {
                             rb.velocity = new Vector2(wallStcik, wallSlide);
                             anim.SetBool("WallSlide", true);
-                            SR.flipX = true;
-
                         }
                     }
                     else
