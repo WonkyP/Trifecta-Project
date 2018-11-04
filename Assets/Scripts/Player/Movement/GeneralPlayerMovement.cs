@@ -290,13 +290,8 @@ public class GeneralPlayerMovement : MonoBehaviour
             WheelAnimator.SetInteger("Character", nr); // change the hud wheel
 
         }
-        GameManager.instance.updateHUD(nr);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        GameManager.instance.missionComplete();
-    }
     void GravityControl()
     {
         velY = rb.velocity.y;
