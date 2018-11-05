@@ -21,7 +21,10 @@ public class Jon_AnimationEventTest : MonoBehaviour {
     }
     public void PlayFoot()
     {
-        Movement.PlayOneShot(Footsteps[1]);
+        int index = Random.Range(0, Footsteps.Length);
+        var tempClip = Footsteps[index];
+        Movement.clip = tempClip;
+        Movement.PlayOneShot(tempClip);
         //AudioSource.PlayClipAtPoint(clip, gameObject.transform.position);
     }
 
