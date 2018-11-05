@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 95521453491856636}
   - component: {fileID: 70124680354777026}
   - component: {fileID: 222125769419067726}
-  - component: {fileID: 114500541328490064}
+  - component: {fileID: 114550025350902656}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -647,44 +647,9 @@ MonoBehaviour:
   wallJump: 0
   PushFromTheWall: 10
   PushUpFromTheWall: 15
-  wallStcik: 1
-  wallSlide: -2
+  wallStcik: 6
+  wallSlide: -8
   doubleJumpAfterWall: 1
---- !u!114 &114500541328490064
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1042503808180818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6583b18ca32e0704283f1240019df8eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWalking: 0
-  isGrounded: 0
-  isJumping: 0
-  isDoubleJump: 0
-  ability01: 0
-  ability02: 0
-  ability03: 0
-  currentSoul: 0
-  PlayerFootsteps: {fileID: 82641228074125540}
-  PlayerJump: {fileID: 82426774896574732}
-  PlayerAbility: {fileID: 82463342016398652}
-  Footsteps:
-  - {fileID: 8300000, guid: cb8703769a0f39d4a962fb730bbebcae, type: 3}
-  - {fileID: 8300000, guid: 1f57de1910fd5a64dad7cee33ab6accc, type: 3}
-  - {fileID: 8300000, guid: e24163c60b92f14438d85d4f45d75d5e, type: 3}
-  - {fileID: 8300000, guid: 1eecb7f02d6904e41946e711acc47e8f, type: 3}
-  - {fileID: 8300000, guid: 9bcbb7afb753adb4ab94f5c55f5d8081, type: 3}
-  - {fileID: 8300000, guid: 03ab07e3ba9b3a0488d6dfd7b3bbcd0f, type: 3}
-  Brumund_Jump: {fileID: 8300000, guid: e9fd2e77624758e40ab682058dd24adb, type: 3}
-  Anya_Jump01: {fileID: 8300000, guid: d031c586ac607b646922d4158331ee39, type: 3}
-  Anya_Jump02: {fileID: 8300000, guid: 5ed5047b4fe42634583d646500616edc, type: 3}
-  Viraya_Jump01: {fileID: 8300000, guid: 084fec2940fc45b4db002621fe6e1d28, type: 3}
-  Brumund_Ability01: {fileID: 8300000, guid: 4731f266908dddf41b3252b3af0dc926, type: 3}
-  Viraya_Ability01: {fileID: 8300000, guid: 652fad67ede0e144db3ca300e648718a, type: 3}
 --- !u!114 &114536404846463378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -745,6 +710,17 @@ MonoBehaviour:
   rspawner: {fileID: 1279965960306684}
   lspawner: {fileID: 1578601716682750}
   downSpawner: {fileID: 1669431234226538}
+--- !u!114 &114550025350902656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042503808180818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b8a03449c868e46b1a8ec58ef18031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114874534693430582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -990,7 +966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 118.07, y: 56.5}
+  m_AnchoredPosition: {x: 3.59, y: -0.24}
   m_SizeDelta: {x: 2.3515625, y: 2.7226562}
   m_Pivot: {x: 0.5302335, y: 0.12397825}
 --- !u!224 &224548029442626928
