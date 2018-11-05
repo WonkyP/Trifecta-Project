@@ -59,6 +59,7 @@ public class FatherMovement : MonoBehaviour
 
     public GameObject rspawner;
     public GameObject lspawner;
+    public GameObject downSpawner;
 
 
     //[Header("")]
@@ -119,7 +120,7 @@ public class FatherMovement : MonoBehaviour
                 //    bulletVelX_ = -bulletVelX;
                 else //will shoot to the right.
                 {
-                    //ObjectPooler.instance.spawnFromPool("BulletKey", rspawner.transform.position, rspawner.transform.rotation);
+                    ObjectPooler.instance.spawnFromPool("BulletKey", rspawner.transform.position, rspawner.transform.rotation);
                    
                 } /*bulletVelX_ = bulletVelX;*/
 
@@ -130,11 +131,8 @@ public class FatherMovement : MonoBehaviour
                 //ObjectPooler.instance.spawnFromPool("BulletKey", lspawner.transform.position, lspawner.transform.rotation);
             }
             else
-            {
-
-                
-                //bulletScript.SetVelY(-bulletVelY);
-                //bulletScript.SetVelX(0);
+            { 
+                ObjectPooler.instance.spawnFromPool("BulletKey", downSpawner.transform.position, downSpawner.transform.rotation);
             }
 
             //Instantiate(magicBulletKey);

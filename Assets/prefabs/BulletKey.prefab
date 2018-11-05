@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212190731163540966}
   - component: {fileID: 58136945269407466}
   - component: {fileID: 50582860923522492}
-  - component: {fileID: 114185472222867202}
+  - component: {fileID: 114397147982499512}
   m_Layer: 0
   m_Name: BulletKey
   m_TagString: BulletKey
@@ -72,13 +72,13 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114185472222867202
+--- !u!114 &114397147982499512
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,8 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125a6247d4a63c84b84d539c0d9b8003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velX_: 10
-  velY_: 0
+  speed: 20
+  rb: {fileID: 50582860923522492}
 --- !u!212 &212190731163540966
 SpriteRenderer:
   m_ObjectHideFlags: 1
