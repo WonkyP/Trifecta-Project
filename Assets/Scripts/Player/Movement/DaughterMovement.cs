@@ -109,6 +109,7 @@ public class DaughterMovement : MonoBehaviour
                         if (Input.GetButtonDown("Jump"))
                         {
                             anim.SetTrigger("Jump");
+                            print("PLAYER Wall JUMPED");
                             //PAO.Jump = true;
                             jumping = true;
 
@@ -150,6 +151,8 @@ public class DaughterMovement : MonoBehaviour
                         if (Input.GetButtonDown("Jump"))
                         {
                             anim.SetTrigger("Jump");
+                            print("PLAYER WALL JUMPED");
+
                             //PAO.Jump = true;
                             jumping = true;
 
@@ -269,6 +272,8 @@ public class DaughterMovement : MonoBehaviour
             curAirTime = airTime; // set how long the button press will be for
 
             anim.SetTrigger("Jump");
+            print("PLAYER JUMPED");
+
             return;
         }
         else if (Input.GetButton("Jump") && curAirTime > 0) // In The Air
