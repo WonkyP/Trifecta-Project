@@ -6,6 +6,9 @@ public class Jon_AnimationEventTest : MonoBehaviour {
 
     public AudioSource Movement;
     public AudioClip[] Footsteps;
+    public AudioClip BrumundJump;
+    public AudioClip AnyaJump;
+    public AudioClip VirayaJump;
 
 	// Use this for initialization
 	void Start () {
