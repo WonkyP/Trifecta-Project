@@ -15,12 +15,10 @@ public class PlatformLogic : MonoBehaviour
             player_ = collision.gameObject;
             player_.transform.parent = GetComponentInChildren<Transform>().transform;
         }
-        else if (collision.gameObject.tag == "Box")
-        {
-            collision.gameObject.transform.parent = GetComponentInChildren<Transform>().transform;
-        }
-
-        
+        //else if (collision.gameObject.tag == "Box")
+        //{
+        //    collision.gameObject.transform.parent = GetComponentInChildren<Transform>().transform;
+        //}
     }
 
 
@@ -30,10 +28,10 @@ public class PlatformLogic : MonoBehaviour
         {
             player_.transform.parent = null;
         }
-        else if (collision.gameObject.tag == "Box")
-        {
-            collision.gameObject.transform.parent = null;
-        }
+        //else if (collision.gameObject.tag == "Box")
+        //{
+        //    collision.gameObject.transform.parent = null;
+        //}
     }
-}
 
+}
