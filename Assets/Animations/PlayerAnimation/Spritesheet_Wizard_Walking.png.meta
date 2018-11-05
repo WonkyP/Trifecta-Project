@@ -2,11 +2,16 @@ fileFormatVersion: 2
 guid: d90875ae65da9f04090423de6615fbd5
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Spritesheet_Wizard_Walking_0
-    21300002: Spritesheet_Wizard_Walking_1
-    21300004: Spritesheet_Wizard_Walking_2
-    21300006: Spritesheet_Wizard_Walking_3
-    21300008: Spritesheet_Wizard_Walking_4
+    21300000: Animation_Form_Wizard_Walking01
+    21300002: Animation_Form_Wizard_Walking02
+    21300004: Animation_Form_Wizard_Walking03
+    21300006: Animation_Form_Wizard_Walking04
+    21300008: Animation_Form_Wizard_Walking05
+    21300010: Animation_Form_Wizard_Jump01
+    21300012: Animation_Form_Wizard_FallUp01
+    21300014: Animation_Form_Wizard_Fall01
+    21300016: Animation_Form_Wizard_Fall02
+    21300018: Animation_Form_Wizard_Landing01
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -111,10 +116,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spritesheet_Wizard_Walking_0
+      name: Animation_Form_Wizard_Walking01
       rect:
         serializedVersion: 2
-        x: 322
+        x: 8
         y: 1699
         width: 158
         height: 203
@@ -131,11 +136,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_Wizard_Walking_1
+      name: Animation_Form_Wizard_Walking02
       rect:
         serializedVersion: 2
-        x: 492
-        y: 1699
+        x: 197
+        y: 1700
         width: 147
         height: 203
       alignment: 9
@@ -151,10 +156,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_Wizard_Walking_2
+      name: Animation_Form_Wizard_Walking03
       rect:
         serializedVersion: 2
-        x: 682
+        x: 374
         y: 1699
         width: 157
         height: 203
@@ -171,10 +176,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_Wizard_Walking_3
+      name: Animation_Form_Wizard_Walking04
       rect:
         serializedVersion: 2
-        x: 881
+        x: 574
         y: 1699
         width: 181
         height: 203
@@ -191,11 +196,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheet_Wizard_Walking_4
+      name: Animation_Form_Wizard_Walking05
       rect:
         serializedVersion: 2
-        x: 1108
-        y: 1699
+        x: 804
+        y: 1701
         width: 157
         height: 203
       alignment: 9
@@ -206,6 +211,106 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 09a419eabf1a1f8429dfda95bb1cd4d3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Form_Wizard_Jump01
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 1600
+        width: 190
+        height: 296
+      alignment: 9
+      pivot: {x: 0.4675826, y: 0.00059055636}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 733ecaa9d75daf146bdecc10a07fa25e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Form_Wizard_FallUp01
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 1672
+        width: 217
+        height: 235
+      alignment: 9
+      pivot: {x: 0.4868496, y: 0.0061674076}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6971a07272fc7a5439662ef613adc367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Form_Wizard_Fall01
+      rect:
+        serializedVersion: 2
+        x: 1437
+        y: 1680
+        width: 219
+        height: 241
+      alignment: 9
+      pivot: {x: 0.5086871, y: 0.0066206683}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a00cece71de599040995e73edc0aadbc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Form_Wizard_Fall02
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 1640
+        width: 149
+        height: 360
+      alignment: 9
+      pivot: {x: 0.56384194, y: 0.04023641}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 648935b34f370dd438551eed28700d39
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Form_Wizard_Landing01
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 1659
+        width: 167
+        height: 314
+      alignment: 9
+      pivot: {x: 0.5284804, y: 0.048617806}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb65a325390edf245985ecedb05efc8d
       vertices: []
       indices: 
       edges: []
