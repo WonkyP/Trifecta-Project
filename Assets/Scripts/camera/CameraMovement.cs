@@ -5,13 +5,13 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
 
     [Header("Defult Camera Pos")]
-    public float cameraHight;
+    public float cameraHight = 2;
     public float cameraZPos = -1;
 
     [Header("Camera stats")]
-    public float cSpeed;
+    public float cSpeed = 2;
 
-    public float CameraMoveTime = 0.5f;
+    public float CameraMoveTime = 1f;
     float cameraTimer;
 
     Transform player;
@@ -21,7 +21,7 @@ public class CameraMovement : MonoBehaviour {
     public Transform CamMin;
     public Transform CamMax;
 
-    public float LookDistance;
+    public float LookDistance = 4;
     Vector3 p;
 
 	// Use this for initialization
