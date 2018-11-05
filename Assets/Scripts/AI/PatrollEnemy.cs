@@ -30,7 +30,8 @@ public class PatrollEnemy : MonoBehaviour {
 
         if (viewHit)
         {
-            if(viewHit.collider.CompareTag("Untagged")){
+            if(viewHit) // here are going to be the conditions if we want another behaviour for the enemy it it collides with another object
+            {
                 Flip();
                 vel = -vel;
                 dir = -dir;
