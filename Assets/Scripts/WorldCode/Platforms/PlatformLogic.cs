@@ -8,15 +8,19 @@ public class PlatformLogic : MonoBehaviour
     private GameObject player_;
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             player_ = collision.gameObject;
             player_.transform.parent = GetComponentInChildren<Transform>().transform;
         }
+        else if (collision.gameObject.tag == "Box")
+        {
+            collision.gameObject.transform.parent = GetComponentInChildren<Transform>().transform;
+        }
 
-        //Debug.Log("He entrado aqui");
+        
     }
 
 
@@ -25,6 +29,10 @@ public class PlatformLogic : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             player_.transform.parent = null;
+        }
+        else if (collision.gameObject.tag == "Box")
+        {
+            collision.gameObject.transform.parent = null;
         }
     }
 }
