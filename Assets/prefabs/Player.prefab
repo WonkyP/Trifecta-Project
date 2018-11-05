@@ -721,6 +721,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b8a03449c868e46b1a8ec58ef18031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Movement: {fileID: 82641228074125540}
+  Footsteps:
+  - {fileID: 8300000, guid: 42cd13983043e7347a8d08d446ccbe32, type: 3}
+  - {fileID: 8300000, guid: 73489f455766e004c9d5f647351f417a, type: 3}
 --- !u!114 &114874534693430582
 MonoBehaviour:
   m_ObjectHideFlags: 1
