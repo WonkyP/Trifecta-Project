@@ -49,6 +49,7 @@ public class SpiritMovement : MonoBehaviour
     RaycastHit2D leftHit;
     GameObject box;
     private GeneralPlayerMovement gpm;
+    Transform parent;
 
     // Second ability
     ObjectPooler objectPooler;
@@ -84,6 +85,7 @@ public class SpiritMovement : MonoBehaviour
             else if (leftHit)
                 box = leftHit.collider.gameObject;
 
+            parent = box.transform.parent;
             box.transform.parent = transform;
         }
         else if (Input.GetButtonUp("AbilityB 01") || !NextToBox())
@@ -273,7 +275,7 @@ public class SpiritMovement : MonoBehaviour
     {
         if (box != null)
             if (box.transform.parent != null)
-                box.transform.parent = null;
+                box.transform.parent = parent;
     }
 
 
