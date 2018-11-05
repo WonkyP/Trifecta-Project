@@ -8,6 +8,7 @@ public class Jon_AnimationEventTest : MonoBehaviour {
     public AudioClip[] Footsteps;
     public AudioClip BrumundJump;
     public AudioClip AnyaJump;
+    public AudioClip AnyaJump2;
     public AudioClip VirayaJump;
 
 	// Use this for initialization
@@ -26,6 +27,11 @@ public class Jon_AnimationEventTest : MonoBehaviour {
         Movement.clip = tempClip;
         Movement.PlayOneShot(tempClip);
         //AudioSource.PlayClipAtPoint(clip, gameObject.transform.position);
+    }
+    public void PlayJump(AudioClip clip)
+    {
+        Movement.clip = clip;
+        Movement.PlayOneShot(clip);
     }
 
     // Update is called once per frame

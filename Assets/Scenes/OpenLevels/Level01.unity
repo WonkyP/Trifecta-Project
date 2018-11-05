@@ -389,11 +389,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114550025350902656, guid: 696d3721d042eec40bb264d18f4f5d9e,
-        type: 2}
-      propertyPath: Footsteps.Array.size
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 224238415739597092, guid: 696d3721d042eec40bb264d18f4f5d9e,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -484,36 +479,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.12397825
       objectReference: {fileID: 0}
-    - target: {fileID: 114550025350902656, guid: 696d3721d042eec40bb264d18f4f5d9e,
-        type: 2}
-      propertyPath: Footsteps.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 229c2d282395900469e2b4cfae0c0087, type: 3}
-    - target: {fileID: 114550025350902656, guid: 696d3721d042eec40bb264d18f4f5d9e,
-        type: 2}
-      propertyPath: Footsteps.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: d48af157378ebd9419cec2e4a36f1105, type: 3}
-    - target: {fileID: 114550025350902656, guid: 696d3721d042eec40bb264d18f4f5d9e,
-        type: 2}
-      propertyPath: Footsteps.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: 06b2e2b43eaab654cbe4b16bb8ad9827, type: 3}
-    - target: {fileID: 114550025350902656, guid: 696d3721d042eec40bb264d18f4f5d9e,
-        type: 2}
-      propertyPath: Footsteps.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: b9b1a782416ae2747b6336a1441d5d0d, type: 3}
-    - target: {fileID: 114550025350902656, guid: 696d3721d042eec40bb264d18f4f5d9e,
-        type: 2}
-      propertyPath: Footsteps.Array.data[6]
-      value: 
-      objectReference: {fileID: 8300000, guid: fc70924fdd7030f489bb02b120fea8a7, type: 3}
-    - target: {fileID: 114550025350902656, guid: 696d3721d042eec40bb264d18f4f5d9e,
-        type: 2}
-      propertyPath: BrumundJump
-      value: 
-      objectReference: {fileID: 8300000, guid: cb48be1c161f3f843b00015b7a087682, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696d3721d042eec40bb264d18f4f5d9e, type: 2}
   m_IsPrefabAsset: 0
@@ -32429,6 +32394,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 82156754546965042, guid: c1f80333453d7c84a9d385ce28403455,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243530683580400140, guid: 2ddf81a4bce59b644a4c312f930756ee,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1f80333453d7c84a9d385ce28403455, type: 2}
   m_IsPrefabAsset: 0
