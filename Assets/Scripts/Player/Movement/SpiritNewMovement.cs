@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpiritMovement : MonoBehaviour
+public class SpiritNewMovement : MonoBehaviour
 {
 
 

@@ -25,7 +25,7 @@ public class GeneralPlayerMovement : MonoBehaviour
     // A variable for each character to enable and disable each power
     private DaughterMovement c0Script;
     private FatherNewMovement c1Script;
-    private SpiritMovement c2Script;
+    private SpiritNewMovement c2Script;
 
     private GameManager c3Script;
 
@@ -98,7 +98,7 @@ public class GeneralPlayerMovement : MonoBehaviour
         // The scripts of the other characters
         c0Script = GetComponent<DaughterMovement>();
         c1Script = GetComponent<FatherNewMovement>();
-        c2Script = GetComponent<SpiritMovement>();
+        c2Script = GetComponent<SpiritNewMovement>();
 
         anim = GetComponent<Animator>();
 

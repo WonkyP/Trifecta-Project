@@ -189,7 +189,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<GeneralPlayerMovement>().enabled = false;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<DaughterMovement>().enabled = false;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<FatherNewMovement>().enabled = false;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<SpiritMovement>().enabled = false;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<SpiritNewMovement>().enabled = false;
                 ScorePresenter.SetActive(true);
                 ScorePresenter.transform.GetChild(6).gameObject.GetComponent<Button>().onClick.AddListener(OKButton);
                 StartCoroutine("ShowScore");
