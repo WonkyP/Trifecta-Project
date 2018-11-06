@@ -644,7 +644,7 @@ MonoBehaviour:
     m_Bits: 12289
   yVel: 0
   coyoteTime: 0.2
-  wallJump: 1
+  wallJump: 0
   PushFromTheWall: 10
   PushUpFromTheWall: 15
   wallStcik: 6
@@ -658,7 +658,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1042503808180818}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dbaacc9bd21d0a4087f42ee90d41d3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b3a1c5a7f1d37643871e773cf3fe2d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpSpeed: 14

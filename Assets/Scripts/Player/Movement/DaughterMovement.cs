@@ -54,6 +54,8 @@ public class DaughterMovement : MonoBehaviour
     //[Header("")]
     public void Start()
     {
+        JumpableLayers = LayerMask.GetMask("Ground", "WallJump", "Default");
+
         // setting vars
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
