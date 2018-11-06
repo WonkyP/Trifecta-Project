@@ -33,7 +33,7 @@ public class Trigger_Tutorial : MonoBehaviour {
             //Adds button functionality to the button in the tutorial box.
             tutBoxButton.onClick.AddListener(OKbutton);
             boxOpen = true;
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
         }
     }
 
