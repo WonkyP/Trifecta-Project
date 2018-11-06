@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FatherMovement : MonoBehaviour
+public class FatherNewMovement : MonoBehaviour
 {
 
-
     [Header("Jump Stats")]
-    public float jumpSpeed = 12;
-    public int airJumpCount = 1;
+    public float jumpSpeed = 14;
+    public int airJumpCount = 0;
     int curAirJumpCount;
 
 
     [Header("Jump from the ground")]
-    public float airTime;
+    public float airTime = 0.3f;
     float curAirTime; // this var will change over time
 
     [Header("Jump without ground")]
-    public float DoubleJumpAirTime;
+    public float DoubleJumpAirTime = 0;
 
 
     // Getting varables
@@ -30,55 +29,86 @@ public class FatherMovement : MonoBehaviour
 
     [Header("Raycasts")]
     public bool drawRaycast = false;
-    public float hightOfTheRaycast;
-    public float widthOfTheRaycast;
+    public float hightOfTheRaycast =0.2f;
+    public float widthOfTheRaycast = 0.15f;
     public LayerMask JumpableLayers;
 
     [Space]
     public float yVel;
+    float curVel;
+
 
     [Space]
-    public float coyoteTime;
+    public float coyoteTime = 0.2f;
     float curCoyoteTime;
     bool jumping = false;
 
-    // magic
-    public bool activatePlatform;
 
+    // Box
+    RaycastHit2D rightHit;
+    RaycastHit2D leftHit;
+    GameObject box;
+    private GeneralPlayerMovement gpm;
+    Transform parent;
 
-    public GameObject magicBulletKey;
-    private BulletKey bulletScript;
-
-    public float bulletVelX;
-    public float bulletVelY;
-
-    public bool right = true;
-
-
-    public bool OnMovablePlatform = false;
-
-    public GameObject rspawner;
-    public GameObject lspawner;
-    public GameObject downSpawner;
-
+    // Second ability
+    ObjectPooler objectPooler;
+    public GameObject firePointRight;
+    public GameObject firePointLeft;
+    bool facingRight;
 
     //[Header("")]
     public void Start()
     {
-
+        JumpableLayers = LayerMask.GetMask("Ground", "WallJump", "Default");
         // setting vars
-        rb   = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        gpm = GetComponent<GeneralPlayerMovement>();
+        objectPooler = ObjectPooler.instance;
+        facingRight = gpm.right;
     }
 
-    float curVel;
 
 
     public void Update()
     {
         GroundCheck();
-        MagicPower();
 
+
+
+        // THE BOCK MOVEMENT
+        if (Input.GetButton("AbilityB 01") && NextToBox())
+        {
+            if (rightHit)
+                box = rightHit.collider.gameObject;
+            else if (leftHit)
+                box = leftHit.collider.gameObject;
+
+            parent = box.transform.parent;
+            box.transform.parent = transform;
+        }
+        else if (Input.GetButtonUp("AbilityB 01") || !NextToBox())
+        {
+            try
+            {
+                box.transform.parent = null;
+            }
+            catch
+            {
+                Debug.Log("Box without parent attached");
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            if(gpm.right)
+                objectPooler.spawnFromPool("Player_Bullets", firePointRight.transform.position, firePointRight.transform.rotation);
+            else
+                objectPooler.spawnFromPool("Player_Bullets", firePointLeft.transform.position, firePointLeft.transform.rotation);
+
+            //Debug.Log("Player shooting");
+        }
 
 
 
@@ -96,6 +126,10 @@ public class FatherMovement : MonoBehaviour
                 curCoyoteTime -= Time.deltaTime;
 
                 Jump();
+
+            }
+            else if (curCoyoteTime <= 0)
+            {
             }
         }
 
@@ -103,50 +137,22 @@ public class FatherMovement : MonoBehaviour
 
         Jump();
 
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            //magicBulletKey.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 1);
 
-            //bulletScript = magicBulletKey.GetComponent<BulletKey>();
-
-            if (!OnMovablePlatform)
-            {
-
-                //float bulletVelX_ = 5.0f;
-                if (!right)//will shoot to the left.
-                {
-                    ObjectPooler.instance.spawnFromPool("BulletKey", lspawner.transform.position, lspawner.transform.rotation);
-                }
-                //    bulletVelX_ = -bulletVelX;
-                else //will shoot to the right.
-                {
-                    ObjectPooler.instance.spawnFromPool("BulletKey", rspawner.transform.position, rspawner.transform.rotation);
-                   
-                } /*bulletVelX_ = bulletVelX;*/
-
-                    //bulletScript.SetVelY(0);
-                    //bulletScript.SetVelX(bulletVelX_);
-
-                    
-                //ObjectPooler.instance.spawnFromPool("BulletKey", lspawner.transform.position, lspawner.transform.rotation);
-            }
-            else
-            { 
-                ObjectPooler.instance.spawnFromPool("BulletKey", downSpawner.transform.position, downSpawner.transform.rotation);
-            }
-
-            //Instantiate(magicBulletKey);
+        if (Input.GetButton("AbilityB 02")){
+            Debug.Log("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOL");
         }
+
+
     }
 
     public void Jump()
     {
+ 
         // Jumping
         if (Input.GetButtonUp("Jump") && jumping == true)// && curAirTime > 0) // jump over
         {
             curAirTime = 0;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
-
             jumping = false;
 
             //anim.SetBool("Jump", false);
@@ -158,7 +164,6 @@ public class FatherMovement : MonoBehaviour
             curCoyoteTime = 0;
 
             curAirJumpCount = airJumpCount;
-
             curVel = jumpSpeed; // set the vel
 
             rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
@@ -194,8 +199,12 @@ public class FatherMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
 
             curAirTime = DoubleJumpAirTime; // set how long the button press will be for
+
+
             return;
         }
+
+
     }
 
     public void FixedUpdate()
@@ -220,58 +229,61 @@ public class FatherMovement : MonoBehaviour
             isGrounded = true;
             anim.SetBool("isGrounded", true);
 
+
         }
         else if (isGrounded)
         {
             isGrounded = false;
             anim.SetBool("isGrounded", false);
-
-
         }
     }
 
-
-    /// MAGIC POWERS
-
-    void MagicPower()
+    bool NextToBox()
     {
+        bool b = false;
 
-        if (Input.GetButtonDown("AbilityB 01"))
+        //if (script.right)
+        rightHit = Physics2D.Raycast(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.4f, 0.5f, 0.0f), Vector2.right * transform.localScale.x, 1.0f);
+        //else
+        leftHit = Physics2D.Raycast(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.4f, -0.5f, 0.0f), Vector2.left * transform.localScale.x, 1.0f);
+
+
+        if (rightHit.collider != null)
         {
-            if (!activatePlatform)
-                activatePlatform = true;
-            else
-                activatePlatform = false;
+            if (rightHit.collider.gameObject.tag == "Box")
+                b = true;
+        }
+        else if (leftHit.collider != null)
+        {
+            if (leftHit.collider.gameObject.tag == "Box")
+                b = true;
+        }
+        else
+        {
+            b = false;
         }
 
-
+        return b;
     }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        //transform.Rotate(0f, 180f, 0f);
+    }
+
+
+    private void OnDisable()
+    {
+        if (box != null)
+            if (box.transform.parent != null)
+                box.transform.parent = parent;
+    }
+
 
     private void OnEnable()
     {
         curCoyoteTime = 0;
 
     }
-
-
-    public void changeShotDirecctio(int dir)
-    {
-        if (dir > 0)
-            right = true;
-        else right = false;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "MovablePlatform")
-            OnMovablePlatform = true;
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "MovablePlatform")
-            OnMovablePlatform = false;
-    }
-
-
 }

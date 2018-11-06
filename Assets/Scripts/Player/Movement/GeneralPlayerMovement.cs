@@ -24,8 +24,8 @@ public class GeneralPlayerMovement : MonoBehaviour
 
     // A variable for each character to enable and disable each power
     private DaughterMovement c0Script;
-    private SpiritMovement c1Script;
-    private FatherMovement c2Script;
+    private FatherNewMovement c1Script;
+    private SpiritMovement c2Script;
 
     private GameManager c3Script;
 
@@ -97,8 +97,8 @@ public class GeneralPlayerMovement : MonoBehaviour
         }
         // The scripts of the other characters
         c0Script = GetComponent<DaughterMovement>();
-        c1Script = GetComponent<SpiritMovement>();
-        c2Script = GetComponent<FatherMovement>();
+        c1Script = GetComponent<FatherNewMovement>();
+        c2Script = GetComponent<SpiritMovement>();
 
         anim = GetComponent<Animator>();
 
@@ -188,9 +188,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         // the player controls where the player change who they are by pressing X Y B on the controller || A S D on keyboard
         if (Input.GetButtonDown("Girl"))
         {
-            c0Script.enabled = true;
-            c1Script.enabled = false;
-            c2Script.enabled = false;
             characterSelected = 0;
             PlayerPrefs.SetInt("CharNr", characterSelected);
             changeChar(characterSelected);
@@ -199,9 +196,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         }
         else if (Input.GetButtonDown("Spirit"))
         {
-            c0Script.enabled = false;
-            c1Script.enabled = true;
-            c2Script.enabled = false;
             characterSelected = 2;
             PlayerPrefs.SetInt("CharNr", characterSelected);
             changeChar(characterSelected);
@@ -210,9 +204,6 @@ public class GeneralPlayerMovement : MonoBehaviour
         }
         else if (Input.GetButtonDown("OldMan"))
         {
-            c0Script.enabled = false;
-            c1Script.enabled = false;
-            c2Script.enabled = true;
             characterSelected = 1;
             PlayerPrefs.SetInt("CharNr", characterSelected);
             changeChar(characterSelected);
@@ -269,17 +260,18 @@ public class GeneralPlayerMovement : MonoBehaviour
                 curSpeed = dSpeed;
                 break;
             case 1: // the old man
-                //anim.Play("Wizard");
-                c0Script.enabled = false;
-                c1Script.enabled = false;
-                c2Script.enabled = true;
-                curSpeed = wSpeed;
-                break;
-            case 2: // the spirit
-                //anim.Play("Warrior");
+                    //anim.Play("Wizard");
                 c0Script.enabled = false;
                 c1Script.enabled = true;
                 c2Script.enabled = false;
+
+                curSpeed = wSpeed;
+                break;
+            case 2: // the spirit
+                    //anim.Play("Warrior");
+                c0Script.enabled = false;
+                c1Script.enabled = false;
+                c2Script.enabled = true;
                 curSpeed = sSpeed;
                 break;
             default:

@@ -644,7 +644,7 @@ MonoBehaviour:
     m_Bits: 12289
   yVel: 0
   coyoteTime: 0.2
-  wallJump: 0
+  wallJump: 1
   PushFromTheWall: 10
   PushUpFromTheWall: 15
   wallStcik: 6
@@ -671,7 +671,7 @@ MonoBehaviour:
   widthOfTheRaycast: 0.15
   JumpableLayers:
     serializedVersion: 2
-    m_Bits: 12289
+    m_Bits: 0
   yVel: 0
   coyoteTime: 0.2
   firePointRight: {fileID: 1279965960306684}

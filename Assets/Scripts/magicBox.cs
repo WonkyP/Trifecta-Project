@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class magicBox : MonoBehaviour
 {
-    private FatherMovement player;
+    private SpiritMovement player;
     private GameObject playerObject;
 
     private BoxCollider2D colision;
@@ -17,7 +17,7 @@ public class magicBox : MonoBehaviour
     void Start()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
-        player = playerObject.GetComponent<FatherMovement>();
+        player = playerObject.GetComponent<SpiritMovement>();
 
         colision = GetComponent<BoxCollider2D>();
         view = GetComponent<SpriteRenderer>();
