@@ -9,6 +9,8 @@ public class ShardControll : MonoBehaviour {
 
     public bool RemovePP = false;
 
+    Animator playerAnimator;
+
     [Header("should be assigned in the prefab")]
     public SpriteRenderer NrOne;
     public SpriteRenderer NrTen;
@@ -21,6 +23,8 @@ public class ShardControll : MonoBehaviour {
     private void Start()
     {
         //PlayerPrefs.SetInt("SoulShards",57);
+
+        playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
 
         Canvas.worldCamera = Camera.main; // set the camera
 
@@ -41,6 +45,8 @@ public class ShardControll : MonoBehaviour {
 
     public void UpdateNumbers () {
         SoulShards = PlayerPrefs.GetInt("SoulShards", 0);
+
+        playerAnimator.SetFloat("RemainingSwitches", SoulShards);
 
         // find the rounded nrs for the ui images
         int one = SoulShards - (SoulShards / 10) * 10;
