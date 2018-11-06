@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114881268266390140}
   - component: {fileID: 114293559025299394}
   - component: {fileID: 114536404846463378}
-  - component: {fileID: 114539482192208654}
+  - component: {fileID: 114608445008111612}
   - component: {fileID: 95521453491856636}
   - component: {fileID: 70124680354777026}
   - component: {fileID: 222125769419067726}
@@ -674,37 +674,10 @@ MonoBehaviour:
     m_Bits: 0
   yVel: 0
   coyoteTime: 0.2
-  firePointRight: {fileID: 1279965960306684}
-  firePointLeft: {fileID: 1578601716682750}
---- !u!114 &114539482192208654
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1042503808180818}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b3a1c5a7f1d37643871e773cf3fe2d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpSpeed: 14
-  airJumpCount: 0
-  airTime: 0.3
-  DoubleJumpAirTime: 0
-  isGrounded: 0
-  drawRaycast: 0
-  hightOfTheRaycast: 0.2
-  widthOfTheRaycast: 0.15
-  JumpableLayers:
-    serializedVersion: 2
-    m_Bits: 12289
-  yVel: 0
-  coyoteTime: 0.2
   activatePlatform: 0
-  magicBulletKey: {fileID: 1882487698761404, guid: 327655ada56d1824bae8d3e539ccd89d,
-    type: 2}
-  bulletVelX: 20
-  bulletVelY: 20
+  magicBulletKey: {fileID: 0}
+  bulletVelX: 0
+  bulletVelY: 0
   right: 1
   OnMovablePlatform: 0
   rspawner: {fileID: 1279965960306684}
@@ -734,6 +707,32 @@ MonoBehaviour:
   AnyaJump: {fileID: 0}
   AnyaJump2: {fileID: 0}
   VirayaJump: {fileID: 0}
+--- !u!114 &114608445008111612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042503808180818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d179b6b09c53081408540b77d5ac2d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSpeed: 14
+  airJumpCount: 0
+  airTime: 0.3
+  DoubleJumpAirTime: 0
+  isGrounded: 0
+  drawRaycast: 0
+  hightOfTheRaycast: 0.2
+  widthOfTheRaycast: 0.15
+  JumpableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  yVel: 0
+  coyoteTime: 0.2
+  firePointRight: {fileID: 1279965960306684}
+  firePointLeft: {fileID: 1578601716682750}
 --- !u!114 &114874534693430582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -979,7 +978,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.59, y: -0.24}
+  m_AnchoredPosition: {x: 2.484747, y: 1.666378}
   m_SizeDelta: {x: 2.3515625, y: 2.7226562}
   m_Pivot: {x: 0.5302335, y: 0.12397825}
 --- !u!224 &224548029442626928
