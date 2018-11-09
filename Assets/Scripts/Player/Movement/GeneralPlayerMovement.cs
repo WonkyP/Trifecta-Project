@@ -123,6 +123,9 @@ public class GeneralPlayerMovement : MonoBehaviour
     // General movement of the player
     void GeneralMovement()
     {
+		if (Input.GetKeyDown("x")){
+			Debug.Log("Doubt");
+		}
         if (Input.GetAxis("Horizontal") != 0)
         {
             if (Input.GetAxis("Horizontal") > 0 && !right) // goes right
