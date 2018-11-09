@@ -12,6 +12,10 @@ TextureImporter:
     21300014: Animation_Form_Wizard_Fall01
     21300016: Animation_Form_Wizard_Fall02
     21300018: Animation_Form_Wizard_Landing01
+    21300020: Smoke_Neutral
+    21300022: Smoke_Green
+    21300024: Smoke_Red
+    21300026: Smoke_Black
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -311,6 +315,86 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bb65a325390edf245985ecedb05efc8d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smoke_Neutral
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1269
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7170f2e4e82c2f44f8a53f2c2ab0be41
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smoke_Green
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1269
+        width: 260
+        height: 260
+      alignment: 9
+      pivot: {x: 0.5143079, y: 0.17091957}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8da9b9af4500af64da07c3c32e40dd84
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smoke_Red
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 1269
+        width: 260
+        height: 260
+      alignment: 9
+      pivot: {x: 0.4856924, y: 0.15184233}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f14e7e797a7fc78498272cb06d2d7211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smoke_Black
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 1273
+        width: 260
+        height: 260
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13276508}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13427dd3db4c459488f75103809735c4
       vertices: []
       indices: 
       edges: []
