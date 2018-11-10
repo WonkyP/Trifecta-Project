@@ -8,12 +8,15 @@ public class GeneralPlayerMovement : MonoBehaviour
     public int Controls = 1;
 
     [Header("Daughter Stats")]
+    [Range(1,20)]
     public float dSpeed;
 
     [Header("Spirit Stats")]
+    [Range(1, 20)]
     public float sSpeed;
 
     [Header("Wizard Stats")]
+    [Range(1, 20)]
     public float wSpeed;
 
     float curSpeed;
@@ -34,6 +37,7 @@ public class GeneralPlayerMovement : MonoBehaviour
     // A variable for the animations
     Animator anim;
     //[HideInInspector]
+    [Space]
     public int characterSelected = 1;// this variable will be used for the GameManager Getter "updateHUD" to change the HUD when Control = 0
     // Variable to rotate the PlayerFirepoint
     public bool changeDir = false;
