@@ -7,17 +7,8 @@ public class SpiritNewMovement : MonoBehaviour
 
 
     [Header("Jump Stats")]
-    public float jumpSpeed = 12;
-    public int airJumpCount = 1;
-    int curAirJumpCount;
-
-
-    [Header("Jump from the ground")]
-    public float airTime;
-    float curAirTime; // this var will change over time
-
-    [Header("Jump without ground")]
-    public float DoubleJumpAirTime;
+    [Range(10,40)]
+    public float jumpSpeed = 20;
 
 
     // Getting varables
@@ -29,20 +20,20 @@ public class SpiritNewMovement : MonoBehaviour
     public bool isGrounded = false;
 
     [Header("Raycasts")]
-    public bool drawRaycast = false;
-    public float hightOfTheRaycast;
-    public float widthOfTheRaycast;
-    public LayerMask JumpableLayers;
+    public float hightOfTheRaycast = 0.2f;
+    public float widthOfTheRaycast = 0.15f;
+     LayerMask JumpableLayers;
 
     [Space]
     public float yVel;
 
     [Space]
-    public float coyoteTime;
+    public float coyoteTime = 0.2f;
     float curCoyoteTime;
     bool jumping = false;
 
     // magic
+    [Header("Magic")]
     public bool activatePlatform;
 
 
@@ -62,7 +53,6 @@ public class SpiritNewMovement : MonoBehaviour
     public GameObject downSpawner;
 
 
-    //[Header("")]
     public void Start()
     {
         JumpableLayers = LayerMask.GetMask("Ground", "WallJump", "Default");
@@ -84,25 +74,26 @@ public class SpiritNewMovement : MonoBehaviour
 
 
         //coyote time
-        if (jumping == false)
+        if (isGrounded)
         {
+            curCoyoteTime = coyoteTime;
 
-            if (isGrounded)
-            {
-                curCoyoteTime = coyoteTime;
-            }
+            // ready to jump again
+            jumped = false;
 
-            else if (!isGrounded && curCoyoteTime > 0)
-            {
-                curCoyoteTime -= Time.deltaTime;
-
-                Jump();
-            }
+            Jump(false);
         }
 
+        else if (!isGrounded && curCoyoteTime > 0)
+        {
+            Jump(true);
+
+            curCoyoteTime -= Time.deltaTime;
+        }
+
+        
 
 
-        Jump();
 
         if (Input.GetKeyDown(KeyCode.U))
         {
@@ -140,62 +131,39 @@ public class SpiritNewMovement : MonoBehaviour
         }
     }
 
-    public void Jump()
+    bool jumped;
+
+    public void Jump(bool Coyoty)
     {
-        // Jumping
-        if (Input.GetButtonUp("Jump") && jumping == true)// && curAirTime > 0) // jump over
+        // THE JUMP SIGNAL
+        if (Input.GetButtonDown("Jump"))
         {
-            curAirTime = 0;
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
+            // COYOTY TIME JUMP
+            if (Coyoty && !jumped)
+            {
+                jumped = true;
 
-            jumping = false;
+                // PLAY THE ANIMATION
+                anim.SetTrigger("Jump");
 
-            //anim.SetBool("Jump", false);
-            anim.SetBool("DoubleJump", false);
-        }
-        else if (Input.GetButtonDown("Jump") && curCoyoteTime > 0) // take Off
-        {
-            jumping = true;
-            curCoyoteTime = 0;
+                // ACTIVTE THE JUMP
+                rb.velocity = Vector2.up * jumpSpeed;
 
-            curAirJumpCount = airJumpCount;
+                curCoyoteTime = 0;
 
-            curVel = jumpSpeed; // set the vel
+            }
 
-            rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
+            // SINGLE JUMP AKA GROUND JUMP
+            else if (isGrounded && !jumped)
+            {
+                jumped = true;
 
-            curAirTime = airTime; // set how long the button press will be for
+                // PLAY THE ANIMATION
+                anim.SetTrigger("Jump");
 
-            anim.SetTrigger("Jump");
-            print("PLAYER JUMPED");
-
-            return;
-        }
-        else if (Input.GetButton("Jump") && curAirTime > 0) // In The Air
-        {
-            curAirTime -= Time.deltaTime;
-
-            curVel = curVel - Time.deltaTime * 20;
-
-            rb.velocity = new Vector2(rb.velocity.x, curVel);
-
-            //anim.SetBool("Jump", false);
-            anim.SetBool("DoubleJump", false);
-            return;
-        }
-        //////////////////////////////////////////////////////// X2!!!!
-        if (Input.GetButtonDown("Jump") && curAirJumpCount > 0) // checks if the player tries to jump in the air
-        {
-            curAirJumpCount -= 1;
-
-            jumping = true;
-
-            curVel = jumpSpeed; // set the vel
-
-            rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
-
-            curAirTime = DoubleJumpAirTime; // set how long the button press will be for
-            return;
+                // ACTIVTE THE JUMP
+                rb.velocity = Vector2.up * jumpSpeed;
+            }
         }
     }
 
@@ -210,16 +178,17 @@ public class SpiritNewMovement : MonoBehaviour
         // check if player is grounded 
         RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(1, 0), widthOfTheRaycast, JumpableLayers/*Ignores the player layer*/);
         RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(-1, 0), widthOfTheRaycast, JumpableLayers/*Ignores the player layer*/);
-        if (drawRaycast)
-        {
-            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(widthOfTheRaycast, 0), Color.green, 0.5f);
-            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(-widthOfTheRaycast, 0), Color.green, 0.5f);
-        }
+
+        
 
         if (hitLeft || hitRight)
         {
             isGrounded = true;
             anim.SetBool("isGrounded", true);
+
+
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(widthOfTheRaycast, 0), Color.green);
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(-widthOfTheRaycast, 0), Color.green);
 
         }
         else if (isGrounded)

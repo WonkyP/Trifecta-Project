@@ -6,17 +6,8 @@ public class FatherNewMovement : MonoBehaviour
 {
 
     [Header("Jump Stats")]
-    public float jumpSpeed = 14;
-    public int airJumpCount = 0;
-    int curAirJumpCount;
-
-
-    [Header("Jump from the ground")]
-    public float airTime = 0.3f;
-    float curAirTime; // this var will change over time
-
-    [Header("Jump without ground")]
-    public float DoubleJumpAirTime = 0;
+    [Range(10,40)]
+    public float jumpSpeed = 20;
 
 
     // Getting varables
@@ -28,10 +19,9 @@ public class FatherNewMovement : MonoBehaviour
     public bool isGrounded = false;
 
     [Header("Raycasts")]
-    public bool drawRaycast = false;
     public float hightOfTheRaycast =0.2f;
     public float widthOfTheRaycast = 0.15f;
-    public LayerMask JumpableLayers;
+     LayerMask JumpableLayers;
 
     [Space]
     public float yVel;
@@ -113,29 +103,22 @@ public class FatherNewMovement : MonoBehaviour
 
 
         //coyote time
-        if (jumping == false)
+        if (isGrounded)
         {
+            curCoyoteTime = coyoteTime;
 
-            if (isGrounded)
-            {
-                curCoyoteTime = coyoteTime;
-            }
+            // ready to jump again
+            jumped = false;
 
-            else if (!isGrounded && curCoyoteTime > 0)
-            {
-                curCoyoteTime -= Time.deltaTime;
-
-                Jump();
-
-            }
-            else if (curCoyoteTime <= 0)
-            {
-            }
+            Jump(false);
         }
 
+        else if (!isGrounded && curCoyoteTime > 0)
+        {
+            Jump(true);
 
-
-        Jump();
+            curCoyoteTime -= Time.deltaTime;
+        }
 
 
         if (Input.GetButton("AbilityB 02")){
@@ -145,65 +128,41 @@ public class FatherNewMovement : MonoBehaviour
 
     }
 
-    public void Jump()
+    bool jumped;
+
+    public void Jump(bool Coyoty)
     {
- 
-        // Jumping
-        if (Input.GetButtonUp("Jump") && jumping == true)// && curAirTime > 0) // jump over
+
+        // THE JUMP SIGNAL
+        if (Input.GetButtonDown("Jump"))
         {
-            curAirTime = 0;
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 4);
-            jumping = false;
+            // COYOTY TIME JUMP
+            if (Coyoty && !jumped)
+            {
+                jumped = true;
 
-            //anim.SetBool("Jump", false);
-            anim.SetBool("DoubleJump", false);
+                // PLAY THE ANIMATION
+                anim.SetTrigger("Jump");
+
+                // ACTIVTE THE JUMP
+                rb.velocity = Vector2.up * jumpSpeed;
+
+                curCoyoteTime = 0;
+
+            }
+
+            // SINGLE JUMP AKA GROUND JUMP
+            else if (isGrounded && !jumped)
+            {
+                jumped = true;
+
+                // PLAY THE ANIMATION
+                anim.SetTrigger("Jump");
+
+                // ACTIVTE THE JUMP
+                rb.velocity = Vector2.up * jumpSpeed;
+            }
         }
-        else if (Input.GetButtonDown("Jump") && curCoyoteTime > 0) // take Off
-        {
-            jumping = true;
-            curCoyoteTime = 0;
-
-            curAirJumpCount = airJumpCount;
-            curVel = jumpSpeed; // set the vel
-
-            rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
-
-            curAirTime = airTime; // set how long the button press will be for
-
-            anim.SetTrigger("Jump");
-            print("PLAYER JUMPED");
-
-            return;
-        }
-        else if (Input.GetButton("Jump") && curAirTime > 0) // In The Air
-        {
-            curAirTime -= Time.deltaTime;
-
-            curVel = curVel - Time.deltaTime * 20;
-
-            rb.velocity = new Vector2(rb.velocity.x, curVel);
-
-            //anim.SetBool("Jump", false);
-            anim.SetBool("DoubleJump", false);
-            return;
-        }
-        //////////////////////////////////////////////////////// X2!!!!
-        if (Input.GetButtonDown("Jump") && curAirJumpCount > 0) // checks if the player tries to jump in the air
-        {
-            curAirJumpCount -= 1;
-
-            jumping = true;
-
-            curVel = jumpSpeed; // set the vel
-
-            rb.velocity = new Vector2(rb.velocity.x, curVel); // add the starting force
-
-            curAirTime = DoubleJumpAirTime; // set how long the button press will be for
-
-
-            return;
-        }
-
 
     }
 
@@ -218,18 +177,17 @@ public class FatherNewMovement : MonoBehaviour
         // check if player is grounded 
         RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(1, 0), widthOfTheRaycast, JumpableLayers/*Ignores the player layer*/);
         RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(-1, 0), widthOfTheRaycast, JumpableLayers/*Ignores the player layer*/);
-        if (drawRaycast)
-        {
-            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(widthOfTheRaycast, 0), Color.green, 0.5f);
-            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(-widthOfTheRaycast, 0), Color.green, 0.5f);
-        }
+
+
+        
 
         if (hitLeft || hitRight)
         {
             isGrounded = true;
             anim.SetBool("isGrounded", true);
 
-
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(widthOfTheRaycast, 0), Color.green);
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(-widthOfTheRaycast, 0), Color.green);
         }
         else if (isGrounded)
         {

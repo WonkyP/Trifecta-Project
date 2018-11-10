@@ -630,18 +630,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dacad082a3c95c04599837f3171d3742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 14
-  airJumpCount: 1
-  airTime: 0.3
+  jumpSpeed: 20
   DoubleJumpSpeed: 12
-  DoubleJumpAirTime: 0.01
+  airJumpCount: 1
   isGrounded: 1
-  drawRaycast: 0
   hightOfTheRaycast: 0.2
   widthOfTheRaycast: 0.15
-  JumpableLayers:
-    serializedVersion: 2
-    m_Bits: 12289
   yVel: 0
   coyoteTime: 0.2
   wallJump: 0
@@ -661,17 +655,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b3a1c5a7f1d37643871e773cf3fe2d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 14
-  airJumpCount: 0
-  airTime: 0.3
-  DoubleJumpAirTime: 0
+  jumpSpeed: 20
   isGrounded: 0
-  drawRaycast: 0
   hightOfTheRaycast: 0.2
   widthOfTheRaycast: 0.15
-  JumpableLayers:
-    serializedVersion: 2
-    m_Bits: 0
   yVel: 0
   coyoteTime: 0.2
   activatePlatform: 0
@@ -718,17 +705,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d179b6b09c53081408540b77d5ac2d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 14
-  airJumpCount: 0
-  airTime: 0.3
-  DoubleJumpAirTime: 0
+  jumpSpeed: 20
   isGrounded: 0
-  drawRaycast: 0
   hightOfTheRaycast: 0.2
   widthOfTheRaycast: 0.15
-  JumpableLayers:
-    serializedVersion: 2
-    m_Bits: 0
   yVel: 0
   coyoteTime: 0.2
   firePointRight: {fileID: 1279965960306684}
