@@ -11,6 +11,8 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
 
     public string NameOfTheExitObject;
 
+
+
     [Header("UI")]
     public GameObject uiCanvus;
 
@@ -22,7 +24,9 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
                 //print("YOU MAY PASS");
                 GameObject.FindGameObjectWithTag("DoorNr").GetComponent<DoNotDestroy>().NameOfTheObject = NameOfTheExitObject; // set the exit object
 
-                SceneManager.LoadScene(SceneName); // load the next scene
+                //SceneManager.LoadScene(SceneName); // load the next scene
+                GetComponent<LoadScene>().LoadLevel(SceneName);
+
             }
             
         }

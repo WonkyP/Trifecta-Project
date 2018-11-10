@@ -167,7 +167,10 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFade>().fadeDir = 1f;
         yield return new WaitForSeconds(3);
         GameObject.FindGameObjectWithTag("DoorNr").GetComponent<DoNotDestroy>().NameOfTheObject = NameOfTheExitObject; // set the exit object
-        SceneManager.LoadScene(SceneToLoad); // load the selected scene
+        //SceneManager.LoadScene(SceneToLoad); // load the selected scene
+        GetComponent<LoadScene>().LoadLevel(SceneToLoad);
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFade>().alpha = 0f;
+
         yield return null;
     }
 
