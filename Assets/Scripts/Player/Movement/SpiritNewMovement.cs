@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpiritNewMovement : MonoBehaviour
 {
 
+    public int spiritLife = 100;
 
     [Header("Jump Stats")]
     [Range(10,40)]
@@ -241,6 +242,10 @@ public class SpiritNewMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "MovablePlatform")
             OnMovablePlatform = false;
+    }
+
+    public void damaged() {
+        spiritLife -= 5;
     }
 
 

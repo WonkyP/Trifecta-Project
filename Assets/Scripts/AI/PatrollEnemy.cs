@@ -13,7 +13,9 @@ public class PatrollEnemy : MonoBehaviour {
     private Vector2 dir = new Vector2(1, 0);
 
     private Rigidbody2D rb;
-    //private BoxCollider2D myOwnCollider;
+    //private BoxCollider2D myOwnCollider
+
+    
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -43,6 +45,22 @@ public class PatrollEnemy : MonoBehaviour {
             Flip();
             vel = -vel;
             dir = -dir;
+        }
+
+        if (viewHit)
+        {
+            if(viewHit.collider.gameObject.tag == "Player")
+            {
+                if (viewHit.collider.gameObject.GetComponent<SpiritNewMovement>().enabled) {
+                    viewHit.collider.gameObject.GetComponent<SpiritNewMovement>().damaged();
+                }else if (viewHit.collider.gameObject.GetComponent<DaughterMovement>().enabled)
+                {
+
+                }else if (viewHit.collider.gameObject.GetComponent<FatherNewMovement>().enabled)
+                {
+
+                }
+            }
         }
 	}
 
