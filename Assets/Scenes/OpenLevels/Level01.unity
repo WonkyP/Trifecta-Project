@@ -28923,7 +28923,21 @@ Prefab:
     - target: {fileID: 114729356866987266, guid: f809e623b2f458c43ba375a005745e1c,
         type: 2}
       propertyPath: EntryCost
-      value: 8
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114729356866987266, guid: f809e623b2f458c43ba375a005745e1c,
+        type: 2}
+      propertyPath: SceneName
+      value: Level02
+      objectReference: {fileID: 0}
+    - target: {fileID: 114729356866987266, guid: f809e623b2f458c43ba375a005745e1c,
+        type: 2}
+      propertyPath: NameOfTheExitObject
+      value: Midterm_EndScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257495309682002, guid: f809e623b2f458c43ba375a005745e1c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f809e623b2f458c43ba375a005745e1c, type: 2}
@@ -30954,17 +30968,17 @@ Prefab:
     - target: {fileID: 224038404971939620, guid: b65f38434bf90424f92ba9bb6ef2d4e2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 18.9
+      value: 18.900002
       objectReference: {fileID: 0}
     - target: {fileID: 224051193661479666, guid: b65f38434bf90424f92ba9bb6ef2d4e2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 37.1
+      value: 37.100002
       objectReference: {fileID: 0}
     - target: {fileID: 224051193661479666, guid: b65f38434bf90424f92ba9bb6ef2d4e2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 23.999998
+      value: 23.999996
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b65f38434bf90424f92ba9bb6ef2d4e2, type: 2}
