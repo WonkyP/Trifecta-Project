@@ -44,7 +44,9 @@ public class SpiritNewMovement : MonoBehaviour
     public float bulletVelX;
     public float bulletVelY;
 
-    public bool right = true;
+    //public bool right = true;
+
+    private GeneralPlayerMovement gpm;
 
 
     public bool OnMovablePlatform = false;
@@ -61,6 +63,8 @@ public class SpiritNewMovement : MonoBehaviour
         // setting vars
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        gpm = GetComponent<GeneralPlayerMovement>();
     }
 
     float curVel;
@@ -106,7 +110,7 @@ public class SpiritNewMovement : MonoBehaviour
             {
 
                 //float bulletVelX_ = 5.0f;
-                if (!right)//will shoot to the left.
+                if (!gpm.right)//will shoot to the left.
                 {
                     ObjectPooler.instance.spawnFromPool("BulletKey", lspawner.transform.position, lspawner.transform.rotation);
                 }
@@ -225,12 +229,12 @@ public class SpiritNewMovement : MonoBehaviour
     }
 
 
-    public void changeShotDirecctio(int dir)
-    {
-        if (dir > 0)
-            right = true;
-        else right = false;
-    }
+    //public void changeShotDirecctio(int dir)
+    //{
+    //    if (dir > 0)
+    //        right = true;
+    //    else right = false;
+    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

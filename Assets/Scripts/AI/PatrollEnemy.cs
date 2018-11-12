@@ -51,14 +51,17 @@ public class PatrollEnemy : MonoBehaviour {
         {
             if(viewHit.collider.gameObject.tag == "Player")
             {
-                if (viewHit.collider.gameObject.GetComponent<SpiritNewMovement>().enabled) {
+                if (viewHit.collider.gameObject.GetComponent<SpiritNewMovement>().enabled)
+                {
                     viewHit.collider.gameObject.GetComponent<SpiritNewMovement>().damaged();
-                }else if (viewHit.collider.gameObject.GetComponent<DaughterMovement>().enabled)
+                }
+                else if (viewHit.collider.gameObject.GetComponent<DaughterMovement>().enabled)
                 {
-
-                }else if (viewHit.collider.gameObject.GetComponent<FatherNewMovement>().enabled)
+                    viewHit.collider.gameObject.GetComponent<DaughterMovement>().damaged();
+                }
+                else if (viewHit.collider.gameObject.GetComponent<FatherNewMovement>().enabled)
                 {
-
+                    viewHit.collider.gameObject.GetComponent<FatherNewMovement>().damaged();
                 }
             }
         }

@@ -47,6 +47,8 @@ public class FatherNewMovement : MonoBehaviour
     public GameObject firePointLeft;
     bool facingRight;
 
+    public int fatherLife = 100;
+
     //[Header("")]
     public void Start()
     {
@@ -243,5 +245,10 @@ public class FatherNewMovement : MonoBehaviour
     {
         curCoyoteTime = 0;
 
+    }
+
+    public void damaged()
+    {
+        fatherLife -= 5;
     }
 }

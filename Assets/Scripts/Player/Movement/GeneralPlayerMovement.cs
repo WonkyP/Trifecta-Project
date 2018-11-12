@@ -148,10 +148,10 @@ public class GeneralPlayerMovement : MonoBehaviour
                         return;
                     }
                 }
-                if (c2Script.enabled)
-                {
-                    c2Script.changeShotDirecctio(1);
-                }
+                //if (c2Script.enabled)
+                //{
+                //    c2Script.changeShotDirecctio(1);
+                //}
             }
             if (Input.GetAxis("Horizontal") < 0 && right) // goes left
             {
@@ -168,10 +168,10 @@ public class GeneralPlayerMovement : MonoBehaviour
                         return;
                     }
                 }
-                if (c2Script.enabled)
-                {
-                    c2Script.changeShotDirecctio(-1);
-                }
+                //if (c2Script.enabled)
+                //{
+                //    c2Script.changeShotDirecctio(-1);
+                //}
             }
 
             if (Input.GetAxis("Horizontal") <= movementDeadZone && Input.GetAxis("Horizontal") >= -movementDeadZone)

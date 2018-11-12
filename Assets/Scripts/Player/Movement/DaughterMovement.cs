@@ -8,7 +8,6 @@ public class DaughterMovement : MonoBehaviour
     [Range(10f,40f)]
     public float jumpSpeed = 20;
 
-
     [Header("Jump without ground")]
     [Range(10f, 40f)]
     public float DoubleJumpSpeed = 12;
@@ -46,11 +45,12 @@ public class DaughterMovement : MonoBehaviour
     public float wallSlide = -8;
     public bool doubleJumpAfterWall = true;
 
+    public int dauhgterLife = 100;
 
     public void Start()
     {
         JumpableLayers = LayerMask.GetMask("Ground", "WallJump", "Default");
-
+        
         // setting vars
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -357,6 +357,11 @@ public class DaughterMovement : MonoBehaviour
     {
         curCoyoteTime = 0;
 
+    }
+
+    public void damaged()
+    {
+        dauhgterLife -= 5;
     }
 
 }
