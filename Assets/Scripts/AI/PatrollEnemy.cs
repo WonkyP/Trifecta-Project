@@ -13,6 +13,7 @@ public class PatrollEnemy : MonoBehaviour {
     private Vector2 dir = new Vector2(1, 0);
 
     private Rigidbody2D rb;
+    private ObjectPooler objectPooler = ObjectPooler.instance;
 
     public int life = 2;
 
@@ -93,9 +94,11 @@ public class PatrollEnemy : MonoBehaviour {
 
         if(collision.gameObject.tag == "PlayerBullet")
         {
+
             life--;
-            Debug.Log("Enemigo tocado");
+
             checkDead();
+
         }
     }
 
@@ -103,7 +106,7 @@ public class PatrollEnemy : MonoBehaviour {
     {
         if (life <= 0)
         {
-            Destroy(this.gameObject);
+            objectPooler.killGameObject(gameObject);
         }
     }
 }
