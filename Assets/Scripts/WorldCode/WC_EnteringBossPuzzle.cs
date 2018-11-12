@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WC_EnteringBossPuzzle : MonoBehaviour {
 
@@ -11,12 +12,33 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
 
     public string NameOfTheExitObject;
 
-
+    [Space]
+     Image ScoreForRoom;
+    public List<Sprite> Sprites = new List<Sprite>();
 
     [Header("UI")]
     public GameObject uiCanvus;
 
-	void Update () {
+    public bool Tutorial = false;
+
+    private void Start()
+    {
+
+
+        ScoreForRoom = uiCanvus.transform.GetChild(1).GetComponent<Image>();
+        if (PlayerPrefs.GetInt(SceneName, 0) <= -1)
+        {
+            return;
+        }
+        ScoreForRoom.sprite = Sprites[PlayerPrefs.GetInt(SceneName,0)];
+
+        if (Tutorial)
+        {
+            ScoreForRoom.enabled = false;
+        }
+    }
+
+    void Update () {
         if (entryGrantet)
         {
             if (Input.GetButtonDown("Interact") && Time.timeScale != 0) // Currently set to E on the keyboard.
