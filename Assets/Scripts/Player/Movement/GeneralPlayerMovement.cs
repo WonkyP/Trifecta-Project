@@ -124,9 +124,32 @@ public class GeneralPlayerMovement : MonoBehaviour
         GeneralMovement();
         GravityControl();
     }
-    // General movement of the player
-    void GeneralMovement()
-    {
+	// General movement of the player
+	private float doubtTimer;
+	public GameObject doubter;
+	void GeneralMovement()
+	{
+		if (Input.GetKeyDown("x"))
+		{
+			doubtTimer = 5f;
+		}
+		if (Input.GetKey("x"))
+		{
+			doubtTimer -= Time.deltaTime;
+			if (doubtTimer < 0)
+			{
+				doubtTimer = 9999999999999999f;
+				doubter.SetActive(true);
+				Debug.Log("Doubt");
+
+			}
+		}
+		if (Input.GetKeyUp("x"))
+		{
+			doubtTimer = 0f;
+			doubter.SetActive(false);
+		}
+
 		if (Input.GetKeyDown("x")){
 			Debug.Log("Doubt");
 		}
