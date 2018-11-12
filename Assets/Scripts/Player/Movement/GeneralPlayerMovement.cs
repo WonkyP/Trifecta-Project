@@ -148,10 +148,6 @@ public class GeneralPlayerMovement : MonoBehaviour
                         return;
                     }
                 }
-                //if (c2Script.enabled)
-                //{
-                //    c2Script.changeShotDirecctio(1);
-                //}
             }
             if (Input.GetAxis("Horizontal") < 0 && right) // goes left
             {
@@ -318,5 +314,11 @@ public class GeneralPlayerMovement : MonoBehaviour
     {
         right = !right;
         changeDir = true;
+    }
+
+
+    public void touchedByEnemy(float dir)
+    {
+            rb.AddForce(new Vector2(-dir * 500, 500));
     }
 }

@@ -63,6 +63,8 @@ public class PatrollEnemy : MonoBehaviour {
                 {
                     viewHit.collider.gameObject.GetComponent<FatherNewMovement>().damaged();
                 }
+
+                viewHit.collider.gameObject.GetComponent<GeneralPlayerMovement>().touchedByEnemy(transform.localScale.x/Mathf.Abs(transform.localScale.x));
             }
         }
 	}
