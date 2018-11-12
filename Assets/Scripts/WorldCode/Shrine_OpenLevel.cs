@@ -14,6 +14,10 @@ public class Shrine_OpenLevel : MonoBehaviour {
     public bool PlayerInRange = false;
     public bool InteractionButtonPressed;
 
+    public Sprite toolTiptoShow;
+    private GameObject toolTip;
+    private bool AbilityUnlocked = false;
+
     // unlock abilities
     [Header("Ability unlock")]
     public string PowerUnlockID = "X";
@@ -27,7 +31,9 @@ public class Shrine_OpenLevel : MonoBehaviour {
         Rune01 = gameObject.transform.GetChild(0).gameObject;   
         Rune02 = gameObject.transform.GetChild(1).gameObject;       
         Rune03 = gameObject.transform.GetChild(2).gameObject;     
-        GodHaze = gameObject.transform.GetChild(3).gameObject;      
+        GodHaze = gameObject.transform.GetChild(3).gameObject;
+        toolTip = gameObject.transform.GetChild(4).gameObject;
+        toolTip.SetActive(false);
 
         if (PlayerPrefs.GetInt(PlayerPref, 0) == 0)
         {
@@ -65,6 +71,14 @@ public class Shrine_OpenLevel : MonoBehaviour {
         if(collision.tag == "Player")
         {
             PlayerInRange = true;
+            if(AbilityUnlocked == true)
+            {
+                toolTip.SetActive(true);
+            }
+            if (PlayerPrefs.GetInt(PowerUnlockID, 0) == 0 && upgradeReady == true)
+            {
+                gameObject.transform.GetChild(5).gameObject.SetActive(true);
+            }
         }
     }
 
@@ -73,6 +87,8 @@ public class Shrine_OpenLevel : MonoBehaviour {
         if (collision.tag == "Player")
         {
             PlayerInRange = false;
+            toolTip.SetActive(false);
+            gameObject.transform.GetChild(5).gameObject.SetActive(false);
         }
     }
 
@@ -90,6 +106,9 @@ public class Shrine_OpenLevel : MonoBehaviour {
                 PlayerPrefs.SetInt(PowerUnlockID, 1);
                 GameObject p = GameObject.FindGameObjectWithTag("Player");
                 p.SendMessage("GiveAbbility");
+                AbilityUnlocked = true;
+                toolTip.SetActive(true);
+                toolTip.GetComponent<SpriteRenderer>().sprite = toolTiptoShow;
             }
 
         }
