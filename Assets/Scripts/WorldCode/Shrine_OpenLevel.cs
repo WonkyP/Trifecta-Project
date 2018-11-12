@@ -18,7 +18,8 @@ public class Shrine_OpenLevel : MonoBehaviour {
     [Header("Ability unlock")]
     public string PowerUnlockID = "X";
 
-
+    [Space]
+    public string PlayerPref = "Level01_Progress";
 
     // Use this for initialization
     void Start ()
@@ -28,28 +29,28 @@ public class Shrine_OpenLevel : MonoBehaviour {
         Rune02 = gameObject.transform.GetChild(2).gameObject;     
         GodHaze = gameObject.transform.GetChild(3).gameObject;      
 
-        if (PlayerPrefs.GetInt("Level01_Progress", 0) == 0)
+        if (PlayerPrefs.GetInt(PlayerPref, 0) == 0)
         {
             Rune01.SetActive(false);
             Rune02.SetActive(false);
             Rune03.SetActive(false);
             GodHaze.SetActive(false);
         }
-        if(PlayerPrefs.GetInt("Level01_Progress", 0) == 1)
+        if(PlayerPrefs.GetInt(PlayerPref, 0) == 1)
         {
             Rune01.SetActive(true);
             Rune02.SetActive(false);
             Rune03.SetActive(false);
             GodHaze.SetActive(false);
         }
-        if(PlayerPrefs.GetInt("Level01_Progress", 0) == 2)
+        if(PlayerPrefs.GetInt(PlayerPref, 0) == 2)
         {
             Rune01.SetActive(true);
             Rune02.SetActive(true);
             Rune03.SetActive(false);
             GodHaze.SetActive(false);
         }
-        if (PlayerPrefs.GetInt("Level01_Progress", 0) == 3)
+        if (PlayerPrefs.GetInt(PlayerPref, 0) == 3)
         {
             Rune01.SetActive(true);
             Rune02.SetActive(true);
@@ -74,6 +75,8 @@ public class Shrine_OpenLevel : MonoBehaviour {
             PlayerInRange = false;
         }
     }
+
+
 
     // Update is called once per frame
     void Update ()

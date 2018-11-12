@@ -30,12 +30,11 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
     [Space]
     public bool anyButton = false;
 
-    // unlock abilities
-    [Header("Ability unlock")]
-    public string PowerUnlockID = "X";
+    [Space]
+    public string ShrineLevelPlayerPref = "Level01_Progress";
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         //Finding references
         ScorePresenter = GameObject.FindGameObjectWithTag("Canvas_PuzzleRoom").transform.GetChild(1).gameObject;
         //SoulShard = Resources.Load<Sprite>("Placeholders/ShardPNG");
@@ -83,16 +82,27 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
 
             //scene name
             string sceneName = SceneManager.GetActiveScene().name;
-            int roomLevel = PlayerPrefs.GetInt(sceneName, 0);
+            int roomLevel = PlayerPrefs.GetInt(sceneName, -99);
 
-            //unlock
-            if (PowerUnlockID != "X")
+            ////unlock
+            //if (PowerUnlockID != "X")
+            //{
+            //    PlayerPrefs.SetInt(PowerUnlockID, 1);
+            //    GameObject p = GameObject.FindGameObjectWithTag("Player");
+            //    p.SendMessage("GiveAbbility");
+            //}
+
+            if (roomLevel == -99)// makes sure you only add once
             {
-                PlayerPrefs.SetInt(PowerUnlockID, 1);
-                GameObject p = GameObject.FindGameObjectWithTag("Player");
-                p.SendMessage("GiveAbbility");
+                PlayerPrefs.SetInt(sceneName, 0);
+                roomLevel = PlayerPrefs.GetInt(sceneName);
+
+                // add to the shrine
+                PlayerPrefs.SetInt(ShrineLevelPlayerPref, PlayerPrefs.GetInt(ShrineLevelPlayerPref, 0) + 1);
+
             }
 
+            ////
 
             if (roomLevel >= 1) // checks if this have been given before
             {

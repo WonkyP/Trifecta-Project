@@ -53,7 +53,7 @@ public class Shrine_PuzzleRoom : MonoBehaviour
 
         if (PlayerInRange == true && InteractionButtonPressed == false)
         {
-            if (Input.GetKeyUp(KeyCode.W))
+            if (Input.GetButtonUp("Interact"))
             {
                 Debug.Log("Interation pressed");
                 InteractionButtonPressed = true;
