@@ -36,19 +36,21 @@ public class CameraMovement : MonoBehaviour {
         aspect = Camera.main.aspect;
 
 	}
-	
+    public float asdasD;
 	// Update is called once per frame
 	void FixedUpdate () {
 
+        asdasD = Input.GetAxis("RightStick");
+
         // Checking if player is looking up or down
-        if (Input.GetAxis("Vertical") != 0)
+        if (Input.GetAxis("RightStick") != 0)
         {
             // Timer
             if (cameraTimer <= 0)
             {
                 // checks the YVal
                 // stops if from happening while moving too much
-                if (Input.GetAxis("Vertical") >= 0 && Input.GetAxis("Horizontal") <= 0.1 && Input.GetAxis("Horizontal") >= -0.1 && GMP.velY == 0)
+                if (Input.GetAxis("RightStick") >= 0 && Input.GetAxis("Horizontal") <= 0.1 && Input.GetAxis("Horizontal") >= -0.1 && GMP.velY == 0)
                 {
                     // UP
                     p = new Vector3(player.position.x, player.position.y + cameraHight + LookDistance, cameraZPos);
@@ -58,7 +60,7 @@ public class CameraMovement : MonoBehaviour {
                     return;
                 }
                 // stops if from happening while moving too much
-                else if (Input.GetAxis("Vertical") <= 0 && Input.GetAxis("Horizontal") <= 0.1 && Input.GetAxis("Horizontal") >= -0.1 && GMP.velY == 0)
+                else if (Input.GetAxis("RightStick") <= 0 && Input.GetAxis("Horizontal") <= 0.1 && Input.GetAxis("Horizontal") >= -0.1 && GMP.velY == 0)
                 {
                     // Down
                     p = new Vector3(player.position.x, player.position.y + cameraHight - LookDistance, cameraZPos);
