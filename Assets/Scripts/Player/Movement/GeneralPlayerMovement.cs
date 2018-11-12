@@ -317,8 +317,8 @@ public class GeneralPlayerMovement : MonoBehaviour
     }
 
 
-    public void touchedByEnemy(float dir)
+    public void touchedByEnemy(float dir, int pot)
     {
-            rb.AddForce(new Vector2(-dir * 500, 500));
+            rb.AddForce(new Vector2(-dir * 500, pot * 500));
     }
 }

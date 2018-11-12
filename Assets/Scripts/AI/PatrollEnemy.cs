@@ -64,7 +64,7 @@ public class PatrollEnemy : MonoBehaviour {
                     viewHit.collider.gameObject.GetComponent<FatherNewMovement>().damaged();
                 }
 
-                viewHit.collider.gameObject.GetComponent<GeneralPlayerMovement>().touchedByEnemy(transform.localScale.x/Mathf.Abs(transform.localScale.x));
+                viewHit.collider.gameObject.GetComponent<GeneralPlayerMovement>().touchedByEnemy(transform.localScale.x/Mathf.Abs(transform.localScale.x), 1);
             }
         }
 	}
@@ -77,9 +77,15 @@ public class PatrollEnemy : MonoBehaviour {
     void Flip()
     {
         Vector3 objectScale = transform.localScale;
-
         objectScale.x = -objectScale.x;
-
         transform.localScale = objectScale;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<GeneralPlayerMovement>().touchedByEnemy(transform.localScale.x / Mathf.Abs(transform.localScale.x),2);
+        }
     }
 }
