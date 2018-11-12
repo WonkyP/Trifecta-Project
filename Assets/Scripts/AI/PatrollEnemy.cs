@@ -13,6 +13,9 @@ public class PatrollEnemy : MonoBehaviour {
     private Vector2 dir = new Vector2(1, 0);
 
     private Rigidbody2D rb;
+
+    public int life = 2;
+
     //private BoxCollider2D myOwnCollider
 
     
@@ -86,6 +89,21 @@ public class PatrollEnemy : MonoBehaviour {
         if(collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<GeneralPlayerMovement>().touchedByEnemy(transform.localScale.x / Mathf.Abs(transform.localScale.x),2);
+        }
+
+        if(collision.gameObject.tag == "PlayerBullet")
+        {
+            life--;
+            Debug.Log("Enemigo tocado");
+            checkDead();
+        }
+    }
+
+    private void checkDead()
+    {
+        if (life <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 }
