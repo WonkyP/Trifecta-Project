@@ -10,8 +10,8 @@ public class Shrine_PuzzleRoom : MonoBehaviour
 
     public GameObject PuzzleExit;
 
-    // Use this for initialization
-    void Start()
+        // Use this for initialization
+        void Start()
     {
         PuzzleExit = GameObject.Find("PuzzleRoom_Exit");
         PuzzleExit.SetActive(false);
@@ -37,18 +37,18 @@ public class Shrine_PuzzleRoom : MonoBehaviour
 
     IEnumerator FadeTo(float aValue, float aTime)
     {
-        float alpha = PuzzleExit.GetComponent<SpriteRenderer>().material.color.a;
+        float alpha = PuzzleExit.transform.GetComponent<SpriteRenderer>().material.color.a;
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
         {
             Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha, aValue, t));
-            PuzzleExit.GetComponent<SpriteRenderer>().material.color = newColor;
-            Debug.Log("Alpha faded");
+            PuzzleExit.transform.GetComponent<SpriteRenderer>().material.color = newColor;
+            Debug.Log("Alpha changed!");
             yield return null;
         }
     }
 
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
     {
 
         if (PlayerInRange == true && InteractionButtonPressed == false)
@@ -59,8 +59,7 @@ public class Shrine_PuzzleRoom : MonoBehaviour
                 InteractionButtonPressed = true;
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 PuzzleExit.SetActive(true);
-                StartCoroutine(FadeTo(1, 10));
-
+                //StartCoroutine(FadeTo(1.0f, 1.0f)); Not working yet.
             }
         }
 
