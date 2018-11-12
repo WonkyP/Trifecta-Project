@@ -11,14 +11,16 @@ public class CameraMovement : MonoBehaviour {
     [Header("Camera stats")]
     public float cSpeed = 2;
 
-    public float CameraMoveTime = 1f;
+    public float CameraMoveTime = 0.2f;
     float cameraTimer;
 
     Transform player;
     GeneralPlayerMovement GMP;
 
     private float aspect;
+    [HideInInspector]
     public Transform CamMin;
+    [HideInInspector]
     public Transform CamMax;
 
     public float LookDistance = 4;
