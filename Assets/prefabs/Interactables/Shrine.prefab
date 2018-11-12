@@ -136,6 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4578629658032192}
   - component: {fileID: 212244330589583622}
+  - component: {fileID: 114902730492922104}
   m_Layer: 0
   m_Name: Shrine
   m_TagString: Untagged
@@ -721,6 +722,22 @@ MonoBehaviour:
   materialIndex: 0
   uvAnimationRate: {x: -0.1, y: -0.093}
   textureName: _MainTex
+--- !u!114 &114902730492922104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1769937604169924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28481b83cf7ea4746ae259482b42e647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeReady: 0
+  PlayerInRange: 0
+  InteractionButtonPressed: 0
+  PowerUnlockID: X
+  PlayerPref: Level01_Progress
 --- !u!212 &212086313656088064
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -755,7 +772,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2c42e8334b056154c96cf883ff8e091a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -847,7 +864,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 446eccbbc50fe2d4d971163362c82af8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -893,7 +910,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 8d05c8ebbc9a20744afc24308d02feda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

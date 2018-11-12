@@ -14,7 +14,7 @@ public class CameraMovement : MonoBehaviour {
     public float CameraMoveTime = 0.2f;
     float cameraTimer;
 
-    Transform player;
+    public Transform player;
     GeneralPlayerMovement GMP;
 
     private float aspect;

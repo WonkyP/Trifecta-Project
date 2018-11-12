@@ -26,7 +26,7 @@ public class Shrine_OpenLevel : MonoBehaviour {
     {
         Rune01 = gameObject.transform.GetChild(0).gameObject;   
         Rune02 = gameObject.transform.GetChild(1).gameObject;       
-        Rune02 = gameObject.transform.GetChild(2).gameObject;     
+        Rune03 = gameObject.transform.GetChild(2).gameObject;     
         GodHaze = gameObject.transform.GetChild(3).gameObject;      
 
         if (PlayerPrefs.GetInt(PlayerPref, 0) == 0)
@@ -82,7 +82,7 @@ public class Shrine_OpenLevel : MonoBehaviour {
     void Update ()
     {
 
-        if (PlayerInRange == true && Input.GetKeyUp(KeyCode.W) && upgradeReady == true)
+        if (PlayerInRange == true && Input.GetButtonDown("Interact") && upgradeReady == true)
         {
             //unlock
             if (PowerUnlockID != "X")
