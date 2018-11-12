@@ -8,10 +8,13 @@ public class Shrine_PuzzleRoom : MonoBehaviour
     public bool PlayerInRange;
     public bool InteractionButtonPressed;
 
+    public GameObject PuzzleExit;
+
     // Use this for initialization
     void Start()
     {
-
+        PuzzleExit = GameObject.Find("PuzzleRoom_Exit");
+        PuzzleExit.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,11 +41,12 @@ public class Shrine_PuzzleRoom : MonoBehaviour
 
         if (PlayerInRange == true && InteractionButtonPressed == false)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyUp(KeyCode.W))
             {
                 Debug.Log("Interation pressed");
                 InteractionButtonPressed = true;
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                PuzzleExit.SetActive(true);
 
             }
         }
