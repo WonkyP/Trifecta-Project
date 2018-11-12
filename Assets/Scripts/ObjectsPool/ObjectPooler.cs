@@ -29,14 +29,7 @@ public class ObjectPooler : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-
-    #endregion
-
-
-    // Use this for initialization
-    void Start()
-    {
+        
         // We create a new dictionary
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
@@ -56,6 +49,33 @@ public class ObjectPooler : MonoBehaviour
             // We add the pool to the dictionary
             poolDictionary.Add(item.tag, objectPool);
         }
+    }
+
+    #endregion
+
+
+    // Use this for initialization
+    void Start()
+    {
+        //// We create a new dictionary
+        //poolDictionary = new Dictionary<string, Queue<GameObject>>();
+
+        //foreach (objectPoolItem item in itemsToPool)
+        //{
+        //    // We create a gameObject queue for each key of the dictionary
+        //    Queue<GameObject> objectPool = new Queue<GameObject>();
+
+        //    // We add the objects to the pools
+        //    for (int i = 0; i < item.amountToPool; i++)
+        //    {
+        //        GameObject go = Instantiate(item.objectToPool);
+        //        go.SetActive(false);
+        //        objectPool.Enqueue(go);
+        //    }
+
+        //    // We add the pool to the dictionary
+        //    poolDictionary.Add(item.tag, objectPool);
+        //}
 
     }
 
@@ -94,10 +114,36 @@ public class ObjectPooler : MonoBehaviour
             pooledObj.OnObjectSpawn();
     }
 
+    // Method to spawn an specific object of the queue
+    public void spawnSpecificFromPool(GameObject go, Vector2 position, Quaternion rotation)
+    {
+        go.transform.position = position;
+        go.transform.rotation = rotation;
+        go.SetActive(true);
+
+        // We call an specific method of an interface to make sure the start method of the reused objects works 
+        IPooledObject pooledObj = go.GetComponent<IPooledObject>();
+
+        if (pooledObj != null)
+            pooledObj.OnObjectSpawn();
+    }
+
     // Method to disabled a gameObject form one of the pools
     public void killGameObject(GameObject obj)
     {
         obj.SetActive(false);
     }
 
+    // Checks if there's a pool with an specific tag
+    public bool itemExists(string tag)
+    {
+        bool b;
+
+        if (poolDictionary.ContainsKey(tag))
+            b = true;
+        else
+            b = false;
+
+        return b;    
+    }
 }

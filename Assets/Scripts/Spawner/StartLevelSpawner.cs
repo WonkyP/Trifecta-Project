@@ -4,18 +4,44 @@ using UnityEngine;
 
 public class StartLevelSpawner : MonoBehaviour {
 
-    public GameObject BoxSpawner1;
-    public GameObject BoxSpawner2;
+    // A class to store the spawners and also add them from the editor
+    [System.Serializable]
+    public class itemsToSpawn
+    {
+        public string tag;
+        public List<GameObject> spawners;
+    }
+
+    // A list with all the different objects that have to spawn at the beginning
+    public List<itemsToSpawn> poolItemsToSpawn;
+
+    // The size of the spawners' list
+    int listSize;
+
 
 	// Use this for initialization
-	void Start () {
-        //ObjectPooler.instance.spawnFromPool("Boxes", BoxSpawner1.transform.position, BoxSpawner1.transform.rotation);
-        //ObjectPooler.instance.spawnFromPool("Boxes", BoxSpawner2.transform.position, BoxSpawner2.transform.rotation);
+	void Start ()
+    {
+        spawnItems();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		if(Input.GetKeyDown(KeyCode.P))
-            ObjectPooler.instance.spawnFromPool("Boxes", BoxSpawner1.transform.position, BoxSpawner1.transform.rotation);
+
+
+    void spawnItems()
+    {
+        foreach (itemsToSpawn item in poolItemsToSpawn)
+        {
+            if (ObjectPooler.instance.itemExists(item.tag))
+            {
+                listSize = item.spawners.Count;
+                for (int i = 0; i < listSize; i++)
+                {
+                    Vector2 pos = item.spawners[i].transform.position;
+                    Quaternion rot = item.spawners[i].transform.rotation;
+                    ObjectPooler.instance.spawnFromPool(item.tag, pos, rot);
+                }
+                item.spawners.Clear();
+            }
+        }
     }
+
 }

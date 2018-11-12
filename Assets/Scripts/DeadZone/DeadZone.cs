@@ -24,10 +24,12 @@ public class DeadZone : MonoBehaviour {
         respawnGo = collision.gameObject;
         objectPooler.killGameObject(respawnGo);
 
-        if (collision.gameObject.tag == "Box")
+        Box boxScript = collision.gameObject.GetComponent<Box>();
+
+        if (boxScript != null)
         {
-            respawnPos = collision.gameObject.GetComponent<Box>().getStartPosition();
-            objectPooler.spawnFromPool("Boxes", respawnPos, respawnGo.transform.rotation);
+            respawnPos = boxScript.getStartPosition();
+            objectPooler.spawnSpecificFromPool(respawnGo, respawnPos, respawnGo.transform.rotation);
         }
        
     }
