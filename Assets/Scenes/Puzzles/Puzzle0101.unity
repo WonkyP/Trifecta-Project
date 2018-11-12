@@ -599,6 +599,7 @@ GameObject:
   - component: {fileID: 122867979}
   - component: {fileID: 122867981}
   - component: {fileID: 122867980}
+  - component: {fileID: 122867982}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -5772,6 +5773,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &122867982
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 122867978}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
 --- !u!1 &166684698
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,6 +6157,11 @@ Prefab:
     - target: {fileID: 4168685739961318, guid: d60dfd5ec9025e74a9c11e4634dd9724, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212832252735215042, guid: d60dfd5ec9025e74a9c11e4634dd9724,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d60dfd5ec9025e74a9c11e4634dd9724, type: 2}
@@ -6715,7 +6734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &456067762
 Transform:
   m_ObjectHideFlags: 0
@@ -7289,7 +7308,7 @@ Prefab:
     - target: {fileID: 224038404971939620, guid: b65f38434bf90424f92ba9bb6ef2d4e2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -40.3
+      value: -40.300003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b65f38434bf90424f92ba9bb6ef2d4e2, type: 2}
@@ -7605,7 +7624,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4010726597906866, guid: bd81a9f53efd957459b248a4d4f8a43e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 27.495
+      value: 26.99
       objectReference: {fileID: 0}
     - target: {fileID: 4010726597906866, guid: bd81a9f53efd957459b248a4d4f8a43e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -7637,7 +7656,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4010726597906866, guid: bd81a9f53efd957459b248a4d4f8a43e, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.604959
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4010726597906866, guid: bd81a9f53efd957459b248a4d4f8a43e, type: 2}
       propertyPath: m_LocalScale.y
