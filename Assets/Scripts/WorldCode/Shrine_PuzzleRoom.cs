@@ -23,7 +23,7 @@ public class Shrine_PuzzleRoom : MonoBehaviour
         {
             Debug.Log("Player in Range");
             PlayerInRange = true;
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+           // gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -31,12 +31,24 @@ public class Shrine_PuzzleRoom : MonoBehaviour
         if (collision.tag == "Player")
         {
             PlayerInRange = false;
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+           // gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator FadeTo(float aValue, float aTime)
+    {
+        float alpha = PuzzleExit.GetComponent<SpriteRenderer>().material.color.a;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
+        {
+            Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha, aValue, t));
+            PuzzleExit.GetComponent<SpriteRenderer>().material.color = newColor;
+            Debug.Log("Alpha faded");
+            yield return null;
+        }
+    }
+
+        // Update is called once per frame
+        void Update()
     {
 
         if (PlayerInRange == true && InteractionButtonPressed == false)
@@ -47,6 +59,7 @@ public class Shrine_PuzzleRoom : MonoBehaviour
                 InteractionButtonPressed = true;
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 PuzzleExit.SetActive(true);
+                StartCoroutine(FadeTo(1, 10));
 
             }
         }
