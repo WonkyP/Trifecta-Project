@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 
 
     public bool testingLifeResotore = false;
-    public int testInitialLifes = 3;
+    public int testInitialLifes = 6;
 
     // This manages the current character the player is using
     //int currentCharacter = 0;
