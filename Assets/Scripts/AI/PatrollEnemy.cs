@@ -15,7 +15,7 @@ public class PatrollEnemy : MonoBehaviour {
     private Rigidbody2D rb;
     private ObjectPooler objectPooler = ObjectPooler.instance;
 
-    public int life = 2;
+    public int life = 5;
 
     //private BoxCollider2D myOwnCollider
 
@@ -23,6 +23,7 @@ public class PatrollEnemy : MonoBehaviour {
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
+        life = 5;
         //myOwnCollider = GetComponent<BoxCollider2D>();
     }
 	
@@ -96,9 +97,8 @@ public class PatrollEnemy : MonoBehaviour {
         {
 
             life--;
-
+            rb.AddForce(new Vector2(3000, 200));
             checkDead();
-
         }
     }
 
