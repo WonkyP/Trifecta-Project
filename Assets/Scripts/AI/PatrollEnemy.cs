@@ -17,11 +17,13 @@ public class PatrollEnemy : MonoBehaviour {
 
     public int life = 5;
 
+    public float multiplier = 0;
+
     //private BoxCollider2D myOwnCollider
 
-    
 
-	void Start () {
+
+    void Start () {
         rb = GetComponent<Rigidbody2D>();
         life = 5;
         //myOwnCollider = GetComponent<BoxCollider2D>();
@@ -111,9 +113,17 @@ public class PatrollEnemy : MonoBehaviour {
 
         if(collision.gameObject.tag == "PlayerBullet")
         {
-
+            
             life--;
-            rb.AddForce(new Vector2(3000, 200));
+            
+            multiplier = collision.gameObject.transform.rotation.y;
+            if (multiplier != 0)
+                multiplier = -1;
+            else multiplier = 1;
+
+            rb.AddForce(new Vector2(multiplier * 3000, 200));
+            Damaged();
+
             checkDead();
         }
     }
@@ -124,5 +134,17 @@ public class PatrollEnemy : MonoBehaviour {
         {
             objectPooler.killGameObject(gameObject);
         }
+    }
+
+
+    public void Damaged()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        Invoke("returnNormalState", 0.3f);
+    }
+
+    private void returnNormalState()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 }
