@@ -8,7 +8,13 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
 
+    public int daughterlife = 3;
+    public int fatherLife = 3;
+    public int spiritLife = 3;
 
+
+    public bool testingLifeResotore = false;
+    public int testInitialLifes = 3;
 
     // This manages the current character the player is using
     //int currentCharacter = 0;
@@ -16,6 +22,12 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         instance = this;
+
+        
+        //get the current lifes sved between scenes
+        daughterlife = PlayerPrefs.GetInt("daughterLife", daughterlife);
+        spiritLife = PlayerPrefs.GetInt("spiritLife", spiritLife);
+        fatherLife = PlayerPrefs.GetInt("fatherLife", fatherLife);
 
         //canvasAnimator = canvasCharacterImage.GetComponent<Animator>();
         ////abilitySelected.text = "Choosen Character " + currentCharacter;
@@ -36,6 +48,10 @@ public class GameManager : MonoBehaviour {
         if (Input.GetButtonDown("Restart"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (testingLifeResotore) {
+            testingRestoreLifes();
         }
     }
     public void missionComplete()
@@ -95,4 +111,40 @@ public class GameManager : MonoBehaviour {
         //abilitySelected.text = "Choosen Character: " + name;
         //abilityExplanation.text = explanation;
     }
+    
+    private void checkLifes()
+    {
+        if (fatherLife <=0 || daughterlife <=0 || spiritLife <=0)
+        {
+            Debug.Log("You died");
+        }
+    }
+
+    public void fatherDamage()
+    {
+        fatherLife--;
+        checkLifes();
+        PlayerPrefs.SetInt("fatherLife", fatherLife);
+    }
+
+    public void daughterDamage()
+    {
+        daughterlife--;
+        checkLifes();
+        PlayerPrefs.SetInt("daughterLife", daughterlife);
+    }
+
+    public void spiritDamage()
+    {
+        spiritLife--;
+        checkLifes();
+        PlayerPrefs.SetInt("spiritLife", spiritLife);
+    }
+
+    void testingRestoreLifes()
+    {
+        fatherLife = spiritLife = daughterlife = testInitialLifes;
+        testingLifeResotore = false;
+    }
+
 }

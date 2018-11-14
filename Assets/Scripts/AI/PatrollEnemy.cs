@@ -94,7 +94,19 @@ public class PatrollEnemy : MonoBehaviour {
         if(collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<GeneralPlayerMovement>().touchedByEnemy(transform.localScale.x / Mathf.Abs(transform.localScale.x),2);
-            collision.gameObject.GetComponent<GeneralPlayerMovement>().Damaged();
+
+            if (collision.gameObject.GetComponent<SpiritNewMovement>().enabled)
+            {
+                collision.gameObject.GetComponent<SpiritNewMovement>().damaged();
+            }
+            else if (collision.gameObject.GetComponent<DaughterMovement>().enabled)
+            {
+                collision.gameObject.GetComponent<DaughterMovement>().damaged();
+            }
+            else if (collision.gameObject.GetComponent<FatherNewMovement>().enabled)
+            {
+                collision.gameObject.GetComponent<FatherNewMovement>().damaged();
+            }
         }
 
         if(collision.gameObject.tag == "PlayerBullet")

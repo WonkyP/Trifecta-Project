@@ -361,7 +361,8 @@ public class DaughterMovement : MonoBehaviour
 
     public void damaged()
     {
-        dauhgterLife -= 5;
+        //dauhgterLife -= 5;
+        GameManager.instance.daughterDamage();
     }
 
 }

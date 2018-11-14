@@ -249,7 +249,8 @@ public class SpiritNewMovement : MonoBehaviour
     }
 
     public void damaged() {
-        spiritLife -= 5;
+        //spiritLife -= 5;
+        GameManager.instance.spiritDamage();
     }
 
 
