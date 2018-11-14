@@ -56,6 +56,8 @@ public class PatrollEnemy : MonoBehaviour {
         {
             if(viewHit.collider.gameObject.tag == "Player")
             {
+
+
                 if (viewHit.collider.gameObject.GetComponent<SpiritNewMovement>().enabled)
                 {
                     viewHit.collider.gameObject.GetComponent<SpiritNewMovement>().damaged();
@@ -70,6 +72,7 @@ public class PatrollEnemy : MonoBehaviour {
                 }
 
                 viewHit.collider.gameObject.GetComponent<GeneralPlayerMovement>().touchedByEnemy(transform.localScale.x/Mathf.Abs(transform.localScale.x), 1);
+                viewHit.collider.gameObject.GetComponent<GeneralPlayerMovement>().Damaged();
             }
         }
 	}
@@ -91,6 +94,7 @@ public class PatrollEnemy : MonoBehaviour {
         if(collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<GeneralPlayerMovement>().touchedByEnemy(transform.localScale.x / Mathf.Abs(transform.localScale.x),2);
+            collision.gameObject.GetComponent<GeneralPlayerMovement>().Damaged();
         }
 
         if(collision.gameObject.tag == "PlayerBullet")

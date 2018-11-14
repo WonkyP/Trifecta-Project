@@ -344,4 +344,15 @@ public class GeneralPlayerMovement : MonoBehaviour
     {
             rb.AddForce(new Vector2(-dir * 500, pot * 500));
     }
+
+    public void Damaged()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        Invoke("returnNormalState", 0.3f);
+    }
+
+    private void returnNormalState()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+    }
 }

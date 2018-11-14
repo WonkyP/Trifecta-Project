@@ -123,20 +123,20 @@ Prefab:
     - target: {fileID: 114840439012455214, guid: a195b55eaefdc6f418f377f15d24009f,
         type: 2}
       propertyPath: poolItemsToSpawn.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114840439012455214, guid: a195b55eaefdc6f418f377f15d24009f,
         type: 2}
       propertyPath: poolItemsToSpawn.Array.data[1].spawners.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4816005723149728, guid: a195b55eaefdc6f418f377f15d24009f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -15.98
       objectReference: {fileID: 0}
     - target: {fileID: 4816005723149728, guid: a195b55eaefdc6f418f377f15d24009f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.31
       objectReference: {fileID: 0}
     - target: {fileID: 4816005723149728, guid: a195b55eaefdc6f418f377f15d24009f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -160,12 +160,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4816005723149728, guid: a195b55eaefdc6f418f377f15d24009f, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 114840439012455214, guid: a195b55eaefdc6f418f377f15d24009f,
         type: 2}
       propertyPath: poolItemsToSpawn.Array.data[1].tag
-      value: Boxes
+      value: DestroyableBlock
       objectReference: {fileID: 0}
     - target: {fileID: 114840439012455214, guid: a195b55eaefdc6f418f377f15d24009f,
         type: 2}
@@ -180,6 +180,16 @@ Prefab:
     - target: {fileID: 114840439012455214, guid: a195b55eaefdc6f418f377f15d24009f,
         type: 2}
       propertyPath: poolItemsToSpawn.Array.data[0].spawners.Array.data[1]
+      value: 
+      objectReference: {fileID: 1838136406}
+    - target: {fileID: 114840439012455214, guid: a195b55eaefdc6f418f377f15d24009f,
+        type: 2}
+      propertyPath: poolItemsToSpawn.Array.data[1].spawners.Array.data[0]
+      value: 
+      objectReference: {fileID: 1702474063}
+    - target: {fileID: 114840439012455214, guid: a195b55eaefdc6f418f377f15d24009f,
+        type: 2}
+      propertyPath: poolItemsToSpawn.Array.data[1].spawners.Array.data[1]
       value: 
       objectReference: {fileID: 1838136406}
     m_RemovedComponents: []
@@ -413,6 +423,10 @@ MonoBehaviour:
     objectToPool: {fileID: 1717353664036588, guid: f751a8c49de1899429db888c2bf27868,
       type: 2}
     amountToPool: 2
+  - tag: DestroyableBlock
+    objectToPool: {fileID: 1516771860551258, guid: 17b07aa6a25e5484189877c482c0152c,
+      type: 2}
+    amountToPool: 1
 --- !u!4 &626366226
 Transform:
   m_ObjectHideFlags: 0
@@ -979,6 +993,34 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edbcb3d3f989de24e9697dd046055813, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1702474063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1702474064}
+  m_Layer: 0
+  m_Name: DestroyableBlockStandPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1702474064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1702474063}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16.46, y: -2.69, z: 0}
+  m_LocalScale: {x: 12.337699, y: 12.248811, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1838136406
 GameObject:
   m_ObjectHideFlags: 0
