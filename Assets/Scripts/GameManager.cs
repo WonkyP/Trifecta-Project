@@ -15,6 +15,15 @@ public class GameManager : MonoBehaviour {
 
     public bool testingLifeResotore = false;
     public int testInitialLifes = 6;
+    public bool testRecoveLive = false;
+
+    public int elementosLista = 0;
+    public int elementosStack = 0;
+
+    public List<Image> imageList;
+    private Stack<Image> lifesStack;
+    private Stack<Image> lifesStackLost;
+    //private Stack<Image> lifesStackLost;
 
     // This manages the current character the player is using
     //int currentCharacter = 0;
@@ -22,8 +31,10 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         instance = this;
+        lifesStack = new Stack<Image>();
+        lifesStackLost = new Stack<Image>();
 
-        
+        stackFiller();
         //get the current lifes sved between scenes
         daughterlife = PlayerPrefs.GetInt("daughterLife", daughterlife);
         spiritLife = PlayerPrefs.GetInt("spiritLife", spiritLife);
@@ -40,6 +51,10 @@ public class GameManager : MonoBehaviour {
         //    youWin.enabled = false;
 
         //}
+        //stackFiller();
+
+        elementosLista = imageList.Count;
+        elementosStack = lifesStack.Count;
     }
 
     // Update is called once per frame
@@ -52,6 +67,12 @@ public class GameManager : MonoBehaviour {
 
         if (testingLifeResotore) {
             testingRestoreLifes();
+        }
+
+        if (testRecoveLive)
+        {
+            recoverFatherLifes();
+            testRecoveLive = false;
         }
     }
     public void missionComplete()
@@ -116,20 +137,25 @@ public class GameManager : MonoBehaviour {
     {
         if (fatherLife <=0 || daughterlife <=0 || spiritLife <=0)
         {
+            testingRestoreLifes();
             Debug.Log("You died");
         }
     }
 
     public void fatherDamage()
     {
+        //damaged();
         fatherLife--;
+        damaged();
         checkLifes();
         PlayerPrefs.SetInt("fatherLife", fatherLife);
     }
 
     public void daughterDamage()
     {
+        
         daughterlife--;
+        
         checkLifes();
         PlayerPrefs.SetInt("daughterLife", daughterlife);
     }
@@ -137,6 +163,7 @@ public class GameManager : MonoBehaviour {
     public void spiritDamage()
     {
         spiritLife--;
+     
         checkLifes();
         PlayerPrefs.SetInt("spiritLife", spiritLife);
     }
@@ -147,4 +174,33 @@ public class GameManager : MonoBehaviour {
         testingLifeResotore = false;
     }
 
+
+    private void stackFiller()
+    {
+
+        int size = imageList.Count;
+        for (int i = 0; i < size; i++)
+        {
+            lifesStack.Push(imageList[i]);
+        }
+
+        imageList.Clear();
+    }
+
+    void damaged()
+    {
+        Image heart;
+        heart = lifesStack.Peek();
+        heart.enabled = false;
+        lifesStack.Pop();
+        lifesStackLost.Push(heart);
+    }
+
+    void recoverFatherLifes() {
+        Image heart;
+        heart = lifesStackLost.Peek();
+        heart.enabled = true;
+        lifesStackLost.Pop();
+        lifesStack.Push(heart);
+    }
 }

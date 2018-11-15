@@ -31,6 +31,7 @@ public class PatrollEnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         Debug.DrawRay(viewOrigin.position, dir*viewRange);
         Debug.DrawRay(feetOrigin.position, dir * feetRange);
 
