@@ -541,51 +541,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114842521466873830, guid: fad5113d29da6c44194791ab746f8827,
-        type: 2}
-      propertyPath: NameOfTheExitObject
-      value: ExitPuzzel0101
-      objectReference: {fileID: 0}
-    - target: {fileID: 114842521466873830, guid: fad5113d29da6c44194791ab746f8827,
-        type: 2}
-      propertyPath: ChargesForScore1
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114842521466873830, guid: fad5113d29da6c44194791ab746f8827,
-        type: 2}
-      propertyPath: ChargesForScore2
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114842521466873830, guid: fad5113d29da6c44194791ab746f8827,
-        type: 2}
-      propertyPath: ChargesForScore3
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114842521466873830, guid: fad5113d29da6c44194791ab746f8827,
-        type: 2}
-      propertyPath: SceneToLoad
-      value: Level01
-      objectReference: {fileID: 0}
-    - target: {fileID: 212876899450723582, guid: fad5113d29da6c44194791ab746f8827,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212876899450723582, guid: fad5113d29da6c44194791ab746f8827,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212876899450723582, guid: fad5113d29da6c44194791ab746f8827,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212876899450723582, guid: fad5113d29da6c44194791ab746f8827,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fad5113d29da6c44194791ab746f8827, type: 2}
   m_IsPrefabAsset: 0
@@ -6128,11 +6083,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4168685739961318, guid: d60dfd5ec9025e74a9c11e4634dd9724, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -30.01
+      value: -30.204
       objectReference: {fileID: 0}
     - target: {fileID: 4168685739961318, guid: d60dfd5ec9025e74a9c11e4634dd9724, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.68
+      value: 2.587
       objectReference: {fileID: 0}
     - target: {fileID: 4168685739961318, guid: d60dfd5ec9025e74a9c11e4634dd9724, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6158,10 +6113,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 212832252735215042, guid: d60dfd5ec9025e74a9c11e4634dd9724,
+    - target: {fileID: 82359333069017144, guid: d60dfd5ec9025e74a9c11e4634dd9724,
         type: 2}
-      propertyPath: m_SortingOrder
-      value: -1
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d60dfd5ec9025e74a9c11e4634dd9724, type: 2}
@@ -7303,7 +7258,7 @@ Prefab:
     - target: {fileID: 224051193661479666, guid: b65f38434bf90424f92ba9bb6ef2d4e2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 37.100006
+      value: 37.100002
       objectReference: {fileID: 0}
     - target: {fileID: 224038404971939620, guid: b65f38434bf90424f92ba9bb6ef2d4e2,
         type: 2}
@@ -9276,6 +9231,11 @@ Prefab:
         type: 2}
       propertyPath: SceneName
       value: Level01
+      objectReference: {fileID: 0}
+    - target: {fileID: 114441612155766866, guid: 03b7103ca2d8a484fad3a408d46a6323,
+        type: 2}
+      propertyPath: uiCanvus
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03b7103ca2d8a484fad3a408d46a6323, type: 2}

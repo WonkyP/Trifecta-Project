@@ -10,6 +10,10 @@ public class Shrine_PuzzleRoom : MonoBehaviour
 
     public GameObject PuzzleExit;
 
+    public AudioClip objectActive;
+    public AudioClip shrineActivated;
+
+
         // Use this for initialization
         void Start()
     {
@@ -23,7 +27,8 @@ public class Shrine_PuzzleRoom : MonoBehaviour
         {
             Debug.Log("Player in Range");
             PlayerInRange = true;
-            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            GetComponent<AudioSource>().PlayOneShot(objectActive);
+            //gameObject.transform.GetChild(1).gameObject.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -31,7 +36,7 @@ public class Shrine_PuzzleRoom : MonoBehaviour
         if (collision.tag == "Player")
         {
             PlayerInRange = false;
-            gameObject.transform.GetChild(1).gameObject.SetActive(false);
+            //gameObject.transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 
@@ -59,6 +64,7 @@ public class Shrine_PuzzleRoom : MonoBehaviour
                 InteractionButtonPressed = true;
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 PuzzleExit.SetActive(true);
+                GetComponent<AudioSource>().PlayOneShot(shrineActivated);
                 //StartCoroutine(FadeTo(1.0f, 1.0f)); Not working yet.
             }
         }

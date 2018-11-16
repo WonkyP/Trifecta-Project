@@ -174,6 +174,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
 
     IEnumerator FadeOutAndLoadScene()
     {
+        GetComponent<AudioSource>().Play();
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFade>().fadeDir = 1f;
         yield return new WaitForSeconds(3);
         GameObject.FindGameObjectWithTag("DoorNr").GetComponent<DoNotDestroy>().NameOfTheObject = NameOfTheExitObject; // set the exit object

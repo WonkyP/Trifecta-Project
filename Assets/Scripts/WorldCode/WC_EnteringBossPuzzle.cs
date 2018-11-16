@@ -21,6 +21,9 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
 
     public bool Tutorial = false;
 
+    public AudioClip objectActive;
+   // public AudioClip objectInteract;
+
     private void Start()
     {
 
@@ -45,7 +48,7 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
             {
                 //print("YOU MAY PASS");
                 GameObject.FindGameObjectWithTag("DoorNr").GetComponent<DoNotDestroy>().NameOfTheObject = NameOfTheExitObject; // set the exit object
-
+               // GetComponent<AudioSource>().PlayOneShot(objectInteract);
                 //SceneManager.LoadScene(SceneName); // load the next scene
                 GetComponent<LoadScene>().LoadLevel(SceneName);
 
@@ -59,7 +62,8 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
         if (collision.gameObject.layer == 10) // checks what layer the triggering object is and activates if it's the "Player" layer
         {
             entryGrantet = true;
-            uiCanvus.SetActive(true);
+            //uiCanvus.SetActive(true);
+            GetComponent<AudioSource>().PlayOneShot(objectActive);
         }
     }
 
@@ -68,7 +72,7 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
         if (collision.gameObject.layer == 10) // checks what layer the triggering object is and deactivates if it's the "Player" layer
         {
             entryGrantet = false;
-            uiCanvus.SetActive(false);
+            //uiCanvus.SetActive(false);
 
         }
     }
