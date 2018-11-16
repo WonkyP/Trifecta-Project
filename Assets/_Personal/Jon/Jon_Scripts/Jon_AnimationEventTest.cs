@@ -5,11 +5,16 @@ using UnityEngine;
 public class Jon_AnimationEventTest : MonoBehaviour {
 
     public AudioSource Movement;
+    public AudioSource Jump;
+    public AudioSource Transform;
+
     public AudioClip[] Footsteps;
     public AudioClip BrumundJump;
     public AudioClip AnyaJump;
     public AudioClip AnyaJump2;
     public AudioClip VirayaJump;
+
+    bool transformIsPlaying = false;
 
 	// Use this for initialization
 	void Start () {
@@ -30,8 +35,14 @@ public class Jon_AnimationEventTest : MonoBehaviour {
     }
     public void PlayJump(AudioClip clip)
     {
-        Movement.clip = clip;
-        Movement.PlayOneShot(clip);
+        Jump.clip = clip;
+        Jump.PlayOneShot(clip);
+    }
+
+    public void PlayTransform(AudioClip clip)
+    {
+        Transform.clip = clip;
+        Transform.PlayOneShot(clip);      
     }
 
     // Update is called once per frame
