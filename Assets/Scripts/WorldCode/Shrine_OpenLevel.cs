@@ -63,7 +63,7 @@ public class Shrine_OpenLevel : MonoBehaviour {
             Rune03.SetActive(true);
             GodHaze.SetActive(true);
             upgradeReady = true;
-            //GetComponent<AudioSource>().Play();
+            gameObject.transform.GetChild(5).transform.GetComponent<AudioSource>().Play();
         }
     }
 

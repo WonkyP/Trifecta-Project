@@ -109,7 +109,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -153,7 +153,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   InteractionButtonPressed: 0
   PuzzleExit: {fileID: 0}
   objectActive: {fileID: 8300000, guid: 262eeba71d541c843a14541d0bed701d, type: 3}
-  shrineActivated: {fileID: 8300000, guid: 17c23b63eb0b45346bed55f99daeed58, type: 3}
+  shrineActivated: {fileID: 8300000, guid: 01e1bd2fb5da5db418f661cf0f849c76, type: 3}
 --- !u!212 &212096302406902794
 SpriteRenderer:
   m_ObjectHideFlags: 1
