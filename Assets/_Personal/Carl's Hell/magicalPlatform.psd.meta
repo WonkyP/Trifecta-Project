@@ -21,6 +21,8 @@ TextureImporter:
     21300032: magicalPlatform_16
     21300034: magicalPlatform_17
     21300036: magicalPlatform_18
+    21300038: magicalPlatform_19
+    21300040: magicalPlatform_20
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -139,7 +141,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37c2d6164cdb9c14ca7a52cb20e4ac7b
+      spriteID: 363609a3da567544f9b3220e466cc2c4
       vertices: []
       indices: 
       edges: []
@@ -159,7 +161,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f694bc5abf175e40890583cf3c45e7a
+      spriteID: eb6b664394316e84d9c4c0b6ee820ffb
       vertices: []
       indices: 
       edges: []
@@ -179,7 +181,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 064311a7f2db82b468e74c2fb39fa0a0
+      spriteID: 4cb099ea8535fc1458b0998d9e797e9c
       vertices: []
       indices: 
       edges: []
@@ -199,7 +201,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f61275b04909eb64e9e28394b0988f86
+      spriteID: ecdc305bfe6cd37428ff915aaff57332
       vertices: []
       indices: 
       edges: []
@@ -219,7 +221,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03894c2e468049b46a728c4a7b3a51d7
+      spriteID: fd7729e2e95b8bc40a4be8de4387ea97
       vertices: []
       indices: 
       edges: []
@@ -239,7 +241,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6358259d8bbac0478395a5f0dba2623
+      spriteID: af14d4165565d96418a9a6645700c0be
       vertices: []
       indices: 
       edges: []
@@ -259,7 +261,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6cbb8cfb6cfefb418de2815598cce6f
+      spriteID: b20526b3886631b4f8df0a783596c3a2
       vertices: []
       indices: 
       edges: []
@@ -279,7 +281,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a69d21263d6571d4cac7c001acee59dc
+      spriteID: 57a94b4cc5df38b4aaa84e64875b7fc5
       vertices: []
       indices: 
       edges: []
@@ -299,7 +301,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cfac5e07c5886c4e893ae0c6e736609
+      spriteID: 819d47e6abb12d542b3119fbee9777ec
       vertices: []
       indices: 
       edges: []
@@ -319,7 +321,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d287b89f17b99f4097fabc22dbe5ab2
+      spriteID: 2ee6cce2b4e0e8a4e98012b08edfa393
       vertices: []
       indices: 
       edges: []
@@ -339,7 +341,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddac7d8dfd54565409d8b58aeb50c4fc
+      spriteID: 618cb34064657434b93ca8998fc4a062
       vertices: []
       indices: 
       edges: []
@@ -359,7 +361,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b393c4f2a1f18a74a85c931db97e8b29
+      spriteID: 9998b5f099df1284baddb01e3c864d15
       vertices: []
       indices: 
       edges: []
@@ -368,10 +370,10 @@ TextureImporter:
       name: magicalPlatform_12
       rect:
         serializedVersion: 2
-        x: 216
+        x: 255
         y: 250
-        width: 359
-        height: 286
+        width: 258
+        height: 275
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -379,7 +381,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b5774b20301d5c448a5f6a2bb45577d
+      spriteID: 51627c2d8d1975e419a43277ac7ec898
       vertices: []
       indices: 
       edges: []
@@ -389,9 +391,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 755
-        y: 347
+        y: 350
         width: 50
-        height: 31
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -399,13 +401,53 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b35b29a8e0fd9443847aff010a14c8b
+      spriteID: 89aa669a98c554e469688c06fc582495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: magicalPlatform_14
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 342
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b65df9cf17d10c34abd24db51516befd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magicalPlatform_15
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 344
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c90850ffab9b3e14282eff23f92c45f1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magicalPlatform_16
       rect:
         serializedVersion: 2
         x: 758
@@ -419,47 +461,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d788338be9537d44096deee7e2cf7d4d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: magicalPlatform_15
-      rect:
-        serializedVersion: 2
-        x: 770
-        y: 342
-        width: 7
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e87a86814201bad45aa75a83524f8766
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: magicalPlatform_16
-      rect:
-        serializedVersion: 2
-        x: 78
-        y: 301
-        width: 46
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7283ccca7ed19b04982f4a024c86ad62
+      spriteID: 18c82ce476b180e44aefc59dbb9660c5
       vertices: []
       indices: 
       edges: []
@@ -468,9 +470,29 @@ TextureImporter:
       name: magicalPlatform_17
       rect:
         serializedVersion: 2
+        x: 78
+        y: 308
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c33f23730066d4e890995ac6ed7118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magicalPlatform_18
+      rect:
+        serializedVersion: 2
         x: 87
         y: 300
-        width: 6
+        width: 9
         height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -479,13 +501,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fb72704d9787fb4d95d5999f71da9f7
+      spriteID: 41854779ad89c8344ab7ecde6f7f9341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: magicalPlatform_18
+      name: magicalPlatform_19
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 302
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a47c603bbe3644445b0afeefa64b7bb6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magicalPlatform_20
       rect:
         serializedVersion: 2
         x: 76
@@ -499,7 +541,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72a8f8d3c15b72348a70823907b48b84
+      spriteID: 0170043ab02db0940ba058330a8e23f2
       vertices: []
       indices: 
       edges: []
