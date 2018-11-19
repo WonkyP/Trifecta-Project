@@ -97,6 +97,7 @@ public class PatrollEnemy : MonoBehaviour {
         if(collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<GeneralPlayerMovement>().touchedByEnemy(transform.localScale.x / Mathf.Abs(transform.localScale.x),2);
+            collision.gameObject.GetComponent<GeneralPlayerMovement>().Damaged();
 
             if (collision.gameObject.GetComponent<SpiritNewMovement>().enabled)
             {
