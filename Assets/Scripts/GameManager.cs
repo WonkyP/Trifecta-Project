@@ -21,22 +21,38 @@ public class GameManager : MonoBehaviour {
     public int testInitialLifes = 6;
     public bool testRecoveLive = false;
 
-    public int elementosLista = 0;
-    public int elementosStack = 0;
 
-    public List<Image> imageList;
-    private Stack<Image> lifesStack;
-    private Stack<Image> lifesStackLost;
+    public List<Image> wizzardList;
+    private Stack<Image> lifesWizzardStack;
+    private Stack<Image> lifesWizzardStackLost;
     //private Stack<Image> lifesStackLost;
+
+    public List<Image> daughterdList;
+    private Stack<Image> lifesDaughterStack;
+    private Stack<Image> lifesDaughterStackLost;
+
+    public List<Image> spiritList;
+    private Stack<Image> lifesSpiritStack;
+    private Stack<Image> lifesSpriritStackLost;
 
     // This manages the current character the player is using
     //int currentCharacter = 0;
 
-    void Start()
+    private void Awake()
     {
         instance = this;
-        lifesStack = new Stack<Image>();
-        lifesStackLost = new Stack<Image>();
+    }
+
+    void Start()
+    {
+        lifesWizzardStack = new Stack<Image>();
+        lifesWizzardStackLost = new Stack<Image>();
+
+        lifesSpiritStack = new Stack<Image>();
+        lifesSpriritStackLost = new Stack<Image>();
+
+        lifesDaughterStack = new Stack<Image>();
+        lifesDaughterStackLost = new Stack<Image>();
 
         stackFiller();
         //get the current lifes sved between scenes
@@ -56,9 +72,6 @@ public class GameManager : MonoBehaviour {
 
         //}
         //stackFiller();
-
-        elementosLista = imageList.Count;
-        elementosStack = lifesStack.Count;
     }
 
     // Update is called once per frame
@@ -150,7 +163,7 @@ public class GameManager : MonoBehaviour {
     {
         //damaged();
         fatherLife--;
-        damaged();
+        updateFatherLife();
         checkLifes();
         PlayerPrefs.SetInt("fatherLife", fatherLife);
     }
@@ -159,7 +172,7 @@ public class GameManager : MonoBehaviour {
     {
         
         daughterlife--;
-        
+        updateDaughterLife();
         checkLifes();
         PlayerPrefs.SetInt("daughterLife", daughterlife);
     }
@@ -167,7 +180,7 @@ public class GameManager : MonoBehaviour {
     public void spiritDamage()
     {
         spiritLife--;
-     
+        updateSpiritLife();
         checkLifes();
         PlayerPrefs.SetInt("spiritLife", spiritLife);
     }
@@ -182,45 +195,82 @@ public class GameManager : MonoBehaviour {
     private void stackFiller()
     {
 
-        int size = imageList.Count;
+        int size = wizzardList.Count;
         for (int i = 0; i < size; i++)
         {
-            lifesStack.Push(imageList[i]);
+            lifesWizzardStack.Push(wizzardList[i]);
         }
 
-        imageList.Clear();
+        wizzardList.Clear();
+
+
+        size = daughterdList.Count;
+        for (int i = 0; i < size; i++)
+        {
+            lifesDaughterStack.Push(daughterdList[i]);
+        }
+
+        daughterdList.Clear();
+
+
+
+        size = spiritList.Count;
+        for (int i = 0; i < size; i++)
+        {
+            lifesSpiritStack.Push(spiritList[i]);
+        }
+
+        spiritList.Clear();
     }
 
-    void damaged()
+    void updateFatherLife()
     {
         Image heart;
-        heart = lifesStack.Peek();
+        heart = lifesWizzardStack.Peek();
         heart.enabled = false;
-        lifesStack.Pop();
-        lifesStackLost.Push(heart);
+        lifesWizzardStack.Pop();
+        lifesWizzardStackLost.Push(heart);
+    }
+
+    void updateDaughterLife()
+    {
+        Image heart;
+        heart = lifesDaughterStack.Peek();
+        heart.enabled = false;
+        lifesDaughterStack.Pop();
+        lifesDaughterStackLost.Push(heart);
+    }
+
+
+    void updateSpiritLife()
+    {
+        Image heart;
+        heart = lifesSpiritStack.Peek();
+        heart.enabled = false;
+        lifesSpiritStack.Pop();
+        lifesSpriritStackLost.Push(heart);
     }
 
     void recoverFatherLifes() {
         Image heart;
-        heart = lifesStackLost.Peek();
+        heart = lifesWizzardStackLost.Peek();
         heart.enabled = true;
-        lifesStackLost.Pop();
-        lifesStack.Push(heart);
+        lifesWizzardStackLost.Pop();
+        lifesWizzardStack.Push(heart);
     }
 
     public void EnableDaughterLife()
     {
-
         SpiritLife.SetActive(false);
         DaughterLife.SetActive(true);
         FatherLife.SetActive(false);
-}
+    }
 
     public void EnableFatherLife()
     {
-        SpiritLife.SetActive(false);
-        DaughterLife.SetActive(false);
-        FatherLife.SetActive(true);
+        //SpiritLife.SetActive(false);
+        //DaughterLife.SetActive(false);
+        //FatherLife.SetActive(true);
     }
 
     public void EnableSpiritLife()

@@ -200,8 +200,6 @@ public class SpiritNewMovement : MonoBehaviour
         {
             isGrounded = false;
             anim.SetBool("isGrounded", false);
-
-
         }
     }
 
@@ -227,14 +225,6 @@ public class SpiritNewMovement : MonoBehaviour
         curCoyoteTime = 0;
         GameManager.instance.EnableSpiritLife();
     }
-
-
-    //public void changeShotDirecctio(int dir)
-    //{
-    //    if (dir > 0)
-    //        right = true;
-    //    else right = false;
-    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
