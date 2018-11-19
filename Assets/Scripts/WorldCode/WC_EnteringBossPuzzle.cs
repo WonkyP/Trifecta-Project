@@ -28,7 +28,7 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
     {
 
 
-        ScoreForRoom = uiCanvus.transform.GetChild(1).GetComponent<Image>();
+        ScoreForRoom = uiCanvus.transform.GetChild(0).GetComponent<Image>();
         if (PlayerPrefs.GetInt(SceneName, 0) <= -1)
         {
             return;
@@ -62,7 +62,7 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
         if (collision.gameObject.layer == 10) // checks what layer the triggering object is and activates if it's the "Player" layer
         {
             entryGrantet = true;
-            //uiCanvus.SetActive(true);
+            uiCanvus.SetActive(true);
             GetComponent<AudioSource>().PlayOneShot(objectActive);
         }
     }
@@ -72,7 +72,7 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
         if (collision.gameObject.layer == 10) // checks what layer the triggering object is and deactivates if it's the "Player" layer
         {
             entryGrantet = false;
-            //uiCanvus.SetActive(false);
+            uiCanvus.SetActive(false);
 
         }
     }

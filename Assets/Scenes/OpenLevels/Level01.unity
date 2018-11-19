@@ -27539,6 +27539,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114060617312937636, guid: da635a43eeea46b4cbaba995d74edc78,
+        type: 2}
+      propertyPath: magicPlatformType
+      value: 66
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da635a43eeea46b4cbaba995d74edc78, type: 2}
   m_IsPrefabAsset: 0
@@ -27921,6 +27926,11 @@ Prefab:
     - target: {fileID: 4301427775574366, guid: 8fe14de8a9a6a034ca66c28d97044a76, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114752132488010830, guid: 8fe14de8a9a6a034ca66c28d97044a76,
+        type: 2}
+      propertyPath: magicPlatformType
+      value: 66
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe14de8a9a6a034ca66c28d97044a76, type: 2}
@@ -30055,10 +30065,6 @@ Prefab:
     - target: {fileID: 1292451959388052, guid: 03b7103ca2d8a484fad3a408d46a6323, type: 2}
       propertyPath: m_Name
       value: Puzzle1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292451959388052, guid: 03b7103ca2d8a484fad3a408d46a6323, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03b7103ca2d8a484fad3a408d46a6323, type: 2}
