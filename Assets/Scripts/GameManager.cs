@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour {
     public int fatherLife = 3;
     public int spiritLife = 3;
 
+    public GameObject SpiritLife;
+    public GameObject DaughterLife;
+    public GameObject FatherLife;
+
 
     public bool testingLifeResotore = false;
     public int testInitialLifes = 6;
@@ -202,5 +206,27 @@ public class GameManager : MonoBehaviour {
         heart.enabled = true;
         lifesStackLost.Pop();
         lifesStack.Push(heart);
+    }
+
+    public void EnableDaughterLife()
+    {
+
+        SpiritLife.SetActive(false);
+        DaughterLife.SetActive(true);
+        FatherLife.SetActive(false);
+}
+
+    public void EnableFatherLife()
+    {
+        SpiritLife.SetActive(false);
+        DaughterLife.SetActive(false);
+        FatherLife.SetActive(true);
+    }
+
+    public void EnableSpiritLife()
+    {
+        SpiritLife.SetActive(true);
+        DaughterLife.SetActive(false);
+        FatherLife.SetActive(false);
     }
 }

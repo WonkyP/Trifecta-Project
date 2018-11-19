@@ -244,7 +244,7 @@ public class FatherNewMovement : MonoBehaviour
     private void OnEnable()
     {
         curCoyoteTime = 0;
-
+        GameManager.instance.EnableFatherLife();
     }
 
     public void damaged()

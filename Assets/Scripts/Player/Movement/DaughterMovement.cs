@@ -47,6 +47,8 @@ public class DaughterMovement : MonoBehaviour
 
     public int dauhgterLife = 100;
 
+
+
     public void Start()
     {
         JumpableLayers = LayerMask.GetMask("Ground", "WallJump", "Default");
@@ -356,7 +358,7 @@ public class DaughterMovement : MonoBehaviour
     private void OnEnable()
     {
         curCoyoteTime = 0;
-
+        GameManager.instance.EnableDaughterLife();
     }
 
     public void damaged()
