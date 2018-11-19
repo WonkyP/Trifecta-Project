@@ -53,7 +53,7 @@ public class GeneralPlayerMovement : MonoBehaviour
 
     // CANVAS
     GameObject AbilityWheel;
-    Animator WheelAnimator;
+    public Animator WheelAnimator;
 
 
     //Gravity Control
@@ -238,6 +238,7 @@ public class GeneralPlayerMovement : MonoBehaviour
         }
         if (WheelAnimator != null)
         {
+
             WheelAnimator.SetInteger("Character", characterSelected); // change the hud wheel
         }
         //the Switch Movement where the player changes char with LB and RB on the controller
@@ -275,6 +276,9 @@ public class GeneralPlayerMovement : MonoBehaviour
         anim.SetInteger("Char", nr);
         anim.SetTrigger("Char_Change");
         lastChar = nr;
+
+        WheelAnimator.SetFloat("Char_Last", WheelAnimator.GetInteger("Character"));
+        WheelAnimator.SetTrigger("Char_Change");
 
         switch (nr)
         {
