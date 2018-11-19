@@ -160,8 +160,7 @@ public class GameManager : MonoBehaviour {
         {
             testingRestoreLifes();
             youDie.SetActive(true);
-            //Time.timeScale = 0;
-            Debug.Log("You died");
+            Time.timeScale = 0.0f;
         }
     }
 
