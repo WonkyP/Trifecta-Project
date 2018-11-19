@@ -66,9 +66,6 @@ public class FatherNewMovement : MonoBehaviour
     public void Update()
     {
         GroundCheck();
-
-
-
         // THE BOCK MOVEMENT
         if (Input.GetButton("AbilityB 01") && NextToBox())
         {
@@ -244,8 +241,10 @@ public class FatherNewMovement : MonoBehaviour
     private void OnEnable()
     {
         curCoyoteTime = 0;
+        Debug.Log("Hellow");
         GameManager.instance.EnableFatherLife();
     }
+
     public void damaged()
     {
         //fatherLife -= 5;
