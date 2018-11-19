@@ -3,7 +3,7 @@ guid: f8d671e1402c6a646b4e45d2d71b2fba
 TextureImporter:
   fileIDToRecycleName:
     21300000: Animation_Spirit_Walking01
-    21300002: Animation_Spirit_Walking02
+    21300002: Animation_Spirit_Idle_01
     21300004: Animation_Spirit_Walking03
     21300006: Animation_Spirit_Jump01
     21300008: Animation_Spirit_Jump02
@@ -116,12 +116,12 @@ TextureImporter:
       name: Animation_Spirit_Walking01
       rect:
         serializedVersion: 2
-        x: 193
-        y: 1644
-        width: 209
+        x: 1023
+        y: 1161
+        width: 268
         height: 300
       alignment: 9
-      pivot: {x: 0.48113942, y: 0.04052368}
+      pivot: {x: 0.5025653, y: 0.10177368}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,11 +133,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_Spirit_Walking02
+      name: Animation_Spirit_Idle_01
       rect:
         serializedVersion: 2
-        x: 386
-        y: 1620
+        x: 184
+        y: 1618
         width: 218
         height: 330
       alignment: 9
@@ -153,35 +153,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_Spirit_Walking03
-      rect:
-        serializedVersion: 2
-        x: 609
-        y: 1643
-        width: 210
-        height: 304
-      alignment: 9
-      pivot: {x: 0.5, y: 0.06498518}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c06014dff6b74d42b5a5e784fe35630
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Animation_Spirit_Jump01
       rect:
         serializedVersion: 2
         x: 851
-        y: 1567
-        width: 231
-        height: 357
+        y: 1667
+        width: 279
+        height: 282
       alignment: 9
-      pivot: {x: 0.6357147, y: 0.36339888}
+      pivot: {x: 0.5722122, y: 0.057603337}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,11 +177,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1152
-        y: 1499
+        y: 1653
         width: 350
-        height: 463
+        height: 309
       alignment: 9
-      pivot: {x: 0.410429, y: 0.36457893}
+      pivot: {x: 0.42191476, y: 0.11162086}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -216,12 +196,12 @@ TextureImporter:
       name: Animation_Spirit_Jump03
       rect:
         serializedVersion: 2
-        x: 1456
-        y: 1474
-        width: 450
-        height: 505
+        x: 1505
+        y: 1647
+        width: 401
+        height: 332
       alignment: 9
-      pivot: {x: 0.5232224, y: 0.48275593}
+      pivot: {x: 0.44093472, y: 0.093147}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,7 +221,7 @@ TextureImporter:
         width: 500
         height: 580
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
