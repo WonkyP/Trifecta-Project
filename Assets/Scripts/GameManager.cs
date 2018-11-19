@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     public GameObject DaughterLife;
     public GameObject FatherLife;
 
+    public GameObject youDie;
 
     public bool testingLifeResotore = false;
     public int testInitialLifes = 6;
@@ -72,6 +73,8 @@ public class GameManager : MonoBehaviour {
 
         //}
         //stackFiller();
+
+        youDie.SetActive(false);
         testingRestoreLifes();
     }
 
@@ -156,6 +159,8 @@ public class GameManager : MonoBehaviour {
         if (fatherLife <=0 || daughterlife <=0 || spiritLife <=0)
         {
             testingRestoreLifes();
+            youDie.SetActive(true);
+            //Time.timeScale = 0;
             Debug.Log("You died");
         }
     }
@@ -279,5 +284,11 @@ public class GameManager : MonoBehaviour {
         SpiritLife.SetActive(true);
         DaughterLife.SetActive(false);
         FatherLife.SetActive(false);
+    }
+
+    public void resetScene2()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Level02");
     }
 }
