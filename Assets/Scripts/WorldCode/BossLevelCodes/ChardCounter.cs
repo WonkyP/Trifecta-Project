@@ -71,6 +71,7 @@ public class ChardCounter : MonoBehaviour {
 
     public void UpdateNumbers(int switches)
     {
+
         // find the rounded nrs for the ui images
         int one = switches - (switches / 10) * 10;
         int ten = switches / 10;

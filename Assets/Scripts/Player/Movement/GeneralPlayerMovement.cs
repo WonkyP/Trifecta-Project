@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GeneralPlayerMovement : MonoBehaviour
 {
+    public Animator[] animat;
+
+
     [HideInInspector]
     public int Controls = 1;
 
@@ -236,10 +239,18 @@ public class GeneralPlayerMovement : MonoBehaviour
 
             curSpeed = wSpeed;
         }
-        if (WheelAnimator != null)
+        if (AbilityWheel != null)
         {
+            print("stfu");
+            animat = AbilityWheel.GetComponentsInChildren<Animator>();
+            print("BS");
+            foreach (Animator item in animat)
+            {
+                print(item);
+                item.SetInteger("Character", characterSelected);
+            }
 
-            WheelAnimator.SetInteger("Character", characterSelected); // change the hud wheel
+            //WheelAnimator.SetInteger("Character", characterSelected); // change the hud wheel
         }
         //the Switch Movement where the player changes char with LB and RB on the controller
         if (Input.GetButtonDown("LeftButton"))
@@ -277,8 +288,8 @@ public class GeneralPlayerMovement : MonoBehaviour
         anim.SetTrigger("Char_Change");
         lastChar = nr;
 
-        WheelAnimator.SetFloat("Char_Last", WheelAnimator.GetInteger("Character"));
-        WheelAnimator.SetTrigger("Char_Change");
+        //WheelAnimator.SetFloat("Char_Last", WheelAnimator.GetInteger("Character"));
+        //WheelAnimator.SetTrigger("Char_Change");
 
         switch (nr)
         {
@@ -309,11 +320,17 @@ public class GeneralPlayerMovement : MonoBehaviour
         }
         if (AbilityWheel != null)
         {
-            WheelAnimator.SetInteger("Character", nr); // change the hud wheel
+            animat = AbilityWheel.GetComponentsInChildren<Animator>();
 
+            foreach (Animator item in animat)
+            {
+                item.SetInteger("Character", characterSelected);
+            }
+
+            //WheelAnimator.SetInteger("Character", characterSelected); // change the hud wheel
         }
     }
-
+    
     void GravityControl()
     {
         velY = rb.velocity.y;

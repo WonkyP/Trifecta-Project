@@ -26,7 +26,7 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
 
     private void Start()
     {
-
+        uiCanvus = transform.GetChild(1).gameObject;
 
         ScoreForRoom = uiCanvus.transform.GetChild(0).GetComponent<Image>();
         if (PlayerPrefs.GetInt(SceneName, 0) <= -1)
