@@ -68,6 +68,7 @@ public class WC_ExitOpenWorld : MonoBehaviour {
         if (collision.gameObject.layer == 10) // checks what layer the triggering object is and activates if it's the "Player" layer
         {
             entryGrantet = true;
+            gameObject.transform.GetChild(3).gameObject.SetActive(true);
 
             if (PlayerPrefs.GetInt(SceneName, 0) == 0)
             {
@@ -82,6 +83,7 @@ public class WC_ExitOpenWorld : MonoBehaviour {
     {
         if (collision.gameObject.layer == 10) // checks what layer the triggering object is and deactivates if it's the "Player" layer
         {
+            gameObject.transform.GetChild(3).gameObject.SetActive(false);
             entryGrantet = false;
 
             UiCanvas.SetActive(false);

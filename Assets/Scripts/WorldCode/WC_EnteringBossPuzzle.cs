@@ -61,6 +61,7 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
     {
         if (collision.gameObject.layer == 10) // checks what layer the triggering object is and activates if it's the "Player" layer
         {
+            gameObject.transform.GetChild(2).gameObject.SetActive(true);
             entryGrantet = true;
             uiCanvus.SetActive(true);
             GetComponent<AudioSource>().PlayOneShot(objectActive);
@@ -71,6 +72,7 @@ public class WC_EnteringBossPuzzle : MonoBehaviour {
     {
         if (collision.gameObject.layer == 10) // checks what layer the triggering object is and deactivates if it's the "Player" layer
         {
+            gameObject.transform.GetChild(2).gameObject.SetActive(false);
             entryGrantet = false;
             uiCanvus.SetActive(false);
 

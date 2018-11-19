@@ -72,6 +72,7 @@ public class Shrine_OpenLevel : MonoBehaviour {
         if(collision.tag == "Player")
         {
             PlayerInRange = true;
+            gameObject.transform.GetChild(6).gameObject.SetActive(true);
             GetComponent<AudioSource>().Play();
             if(AbilityUnlocked == true)
             {
@@ -89,6 +90,7 @@ public class Shrine_OpenLevel : MonoBehaviour {
         if (collision.tag == "Player")
         {
             PlayerInRange = false;
+            gameObject.transform.GetChild(6).gameObject.SetActive(false);
             toolTip.SetActive(false);
             gameObject.transform.GetChild(5).gameObject.SetActive(false);
         }

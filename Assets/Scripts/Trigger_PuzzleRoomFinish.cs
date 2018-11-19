@@ -52,6 +52,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
         {
             PlayerInRange = true;
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -60,6 +61,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
         {
             PlayerInRange = false;
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            gameObject.transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 

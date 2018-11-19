@@ -27,6 +27,7 @@ public class Shrine_PuzzleRoom : MonoBehaviour
         {
             Debug.Log("Player in Range");
             PlayerInRange = true;
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
             GetComponent<AudioSource>().PlayOneShot(objectActive);
             //gameObject.transform.GetChild(1).gameObject.SetActive(true);
         }
@@ -36,6 +37,7 @@ public class Shrine_PuzzleRoom : MonoBehaviour
         if (collision.tag == "Player")
         {
             PlayerInRange = false;
+            gameObject.transform.GetChild(1).gameObject.SetActive(false);
             //gameObject.transform.GetChild(1).gameObject.SetActive(false);
         }
     }
