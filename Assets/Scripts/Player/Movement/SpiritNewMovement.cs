@@ -35,6 +35,9 @@ public class SpiritNewMovement : MonoBehaviour
 
     // magic
     [Header("Magic")]
+    public bool MovePatform = false;
+
+    [Space]
     public bool activatePlatform;
 
 
@@ -65,6 +68,9 @@ public class SpiritNewMovement : MonoBehaviour
         anim = GetComponent<Animator>();
 
         gpm = GetComponent<GeneralPlayerMovement>();
+
+        // setting abilities
+        GiveAbbility();
     }
 
     float curVel;
@@ -100,7 +106,7 @@ public class SpiritNewMovement : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetButtonDown("AbilityB 02") && MovePatform)
         {
             //magicBulletKey.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 1);
 
@@ -133,6 +139,18 @@ public class SpiritNewMovement : MonoBehaviour
             }
 
             //Instantiate(magicBulletKey);
+        }
+    }
+
+
+    public void GiveAbbility()
+    {
+        if (!MovePatform)
+        {
+            if (PlayerPrefs.GetInt("S01", 0) == 1)
+            {
+                MovePatform = true;
+            }
         }
     }
 
