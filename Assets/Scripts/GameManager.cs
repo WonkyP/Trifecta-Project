@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour {
 
         //}
         //stackFiller();
+        testingRestoreLifes();
     }
 
     // Update is called once per frame
@@ -268,9 +269,9 @@ public class GameManager : MonoBehaviour {
 
     public void EnableFatherLife()
     {
-        //SpiritLife.SetActive(false);
-        //DaughterLife.SetActive(false);
-        //FatherLife.SetActive(true);
+        SpiritLife.SetActive(false);
+        DaughterLife.SetActive(false);
+        FatherLife.SetActive(true);
     }
 
     public void EnableSpiritLife()

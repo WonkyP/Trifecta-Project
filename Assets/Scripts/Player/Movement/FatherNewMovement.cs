@@ -88,7 +88,7 @@ public class FatherNewMovement : MonoBehaviour
             }
             catch
             {
-                Debug.Log("Box without parent attached");
+                //Debug.Log("Box without parent attached");
             }
         }
 
