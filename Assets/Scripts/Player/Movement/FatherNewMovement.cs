@@ -242,6 +242,7 @@ public class FatherNewMovement : MonoBehaviour
     {
         curCoyoteTime = 0;
         Debug.Log("Hellow");
+        if(GameManager.instance != null)
         GameManager.instance.EnableFatherLife();
     }
 
