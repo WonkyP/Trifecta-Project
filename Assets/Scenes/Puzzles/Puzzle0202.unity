@@ -9602,6 +9602,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114015599279926542, guid: 78606495f41a975438d5d24ffbdee783,
+        type: 2}
+      propertyPath: itemsToPool.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4074367432133388, guid: 78606495f41a975438d5d24ffbdee783, type: 2}
       propertyPath: m_LocalPosition.x
       value: 35.81472
@@ -9633,6 +9638,22 @@ Prefab:
     - target: {fileID: 4074367432133388, guid: 78606495f41a975438d5d24ffbdee783, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114015599279926542, guid: 78606495f41a975438d5d24ffbdee783,
+        type: 2}
+      propertyPath: itemsToPool.Array.data[3].tag
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114015599279926542, guid: 78606495f41a975438d5d24ffbdee783,
+        type: 2}
+      propertyPath: itemsToPool.Array.data[3].objectToPool
+      value: 
+      objectReference: {fileID: 1042503808180818, guid: 696d3721d042eec40bb264d18f4f5d9e,
+        type: 2}
+    - target: {fileID: 114015599279926542, guid: 78606495f41a975438d5d24ffbdee783,
+        type: 2}
+      propertyPath: itemsToPool.Array.data[3].amountToPool
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78606495f41a975438d5d24ffbdee783, type: 2}

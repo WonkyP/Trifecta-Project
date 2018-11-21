@@ -79,6 +79,9 @@ public class GeneralPlayerMovement : MonoBehaviour
     [Header("colliding")]
     public LayerMask layers;
 
+    // Prevent solution, I need to think about it. Pablo
+    Vector2 startPosition;
+
     public void ChangeMovements(int move) // change movements
     {
         Controls = move;
@@ -114,6 +117,8 @@ public class GeneralPlayerMovement : MonoBehaviour
         changeChar(characterSelected);
 
         lastChar = characterSelected;
+
+        startPosition = gameObject.transform.position;
     }
     void Update() // used to get the player input since they don't live in frames
     {
@@ -373,5 +378,11 @@ public class GeneralPlayerMovement : MonoBehaviour
     private void returnNormalState()
     {
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+
+    public Vector2 getStartPosition()
+    {
+        return startPosition;
     }
 }
