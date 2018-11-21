@@ -251,7 +251,7 @@ public class GeneralPlayerMovement : MonoBehaviour
             //WheelAnimator.SetInteger("Character", characterSelected); // change the hud wheel
         }
         //the Switch Movement where the player changes char with LB and RB on the controller
-        if (Input.GetButtonDown("LeftButton"))
+        if (Input.GetButtonDown("RightButton"))
         {
             if (characterSelected != 2)
             {
@@ -264,7 +264,7 @@ public class GeneralPlayerMovement : MonoBehaviour
             PlayerPrefs.SetInt("CharNr", characterSelected);
             changeChar(characterSelected);
         }
-        if (Input.GetButtonDown("RightButton"))
+        if (Input.GetButtonDown("LeftButton"))
         {
             if (characterSelected != 0)
             {
