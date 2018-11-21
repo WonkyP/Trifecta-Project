@@ -241,12 +241,10 @@ public class GeneralPlayerMovement : MonoBehaviour
         }
         if (AbilityWheel != null)
         {
-            print("stfu");
             animat = AbilityWheel.GetComponentsInChildren<Animator>();
-            print("BS");
             foreach (Animator item in animat)
             {
-                print(item);
+                //print(item);
                 item.SetInteger("Character", characterSelected);
             }
 
