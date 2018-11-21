@@ -19,8 +19,8 @@ public class ChardCounter : MonoBehaviour {
     public GameObject shardUI;
 
     // UIForAbillityWheel
-    SpriteRenderer One;
-    SpriteRenderer Ten;
+    //SpriteRenderer One;
+    //SpriteRenderer Ten;
     [Header("Images for UI nr")]
     public List<Sprite> Numbers = new List<Sprite>();
 
@@ -38,8 +38,8 @@ public class ChardCounter : MonoBehaviour {
 
         // assign one and ten
         GameObject HolderOfSpritRenderer = GameObject.FindGameObjectWithTag("AbilityWheel").transform.GetChild(0).gameObject;
-        One = HolderOfSpritRenderer.transform.GetChild(0).GetComponent<SpriteRenderer>();
-        Ten = HolderOfSpritRenderer.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        //One = HolderOfSpritRenderer.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        //Ten = HolderOfSpritRenderer.transform.GetChild(1).GetComponent<SpriteRenderer>();
         // assign the nr
         UpdateNumbers(curShardCount);
     }
@@ -73,11 +73,11 @@ public class ChardCounter : MonoBehaviour {
     {
 
         // find the rounded nrs for the ui images
-        int one = switches - (switches / 10) * 10;
-        int ten = switches / 10;
+        //int one = switches - (switches / 10) * 10;
+        //int ten = switches / 10;
         // set the up images
-        One.sprite = Numbers[one];
-        Ten.sprite = Numbers[ten];
+        //One.sprite = Numbers[one];
+        //Ten.sprite = Numbers[ten];
 
     }
 
