@@ -1540,6 +1540,36 @@ Prefab:
       propertyPath: youDie
       value: 
       objectReference: {fileID: 386693614}
+    - target: {fileID: 114468436632979044, guid: 272e1d4867cdc504b86cae80d46f37c9,
+        type: 2}
+      propertyPath: daughterlife
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114468436632979044, guid: 272e1d4867cdc504b86cae80d46f37c9,
+        type: 2}
+      propertyPath: fatherLife
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114468436632979044, guid: 272e1d4867cdc504b86cae80d46f37c9,
+        type: 2}
+      propertyPath: spiritLife
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114468436632979044, guid: 272e1d4867cdc504b86cae80d46f37c9,
+        type: 2}
+      propertyPath: FatherLifeContainer
+      value: 
+      objectReference: {fileID: 221708494}
+    - target: {fileID: 114468436632979044, guid: 272e1d4867cdc504b86cae80d46f37c9,
+        type: 2}
+      propertyPath: DaughterLifeContainer
+      value: 
+      objectReference: {fileID: 408380506}
+    - target: {fileID: 114468436632979044, guid: 272e1d4867cdc504b86cae80d46f37c9,
+        type: 2}
+      propertyPath: SpiritLifeContainer
+      value: 
+      objectReference: {fileID: 1712747557}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 272e1d4867cdc504b86cae80d46f37c9, type: 2}
   m_IsPrefabAsset: 0

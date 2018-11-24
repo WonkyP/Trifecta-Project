@@ -8,13 +8,13 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
 
-    public int daughterlife = 3;
-    public int fatherLife = 3;
-    public int spiritLife = 3;
+    public int daughterlife = 6;
+    public int fatherLife = 6;
+    public int spiritLife = 6;
 
-    public GameObject SpiritLife;
-    public GameObject DaughterLife;
-    public GameObject FatherLife;
+    public GameObject SpiritLifeContainer;
+    public GameObject DaughterLifeContainer;
+    public GameObject FatherLifeContainer;
 
     public GameObject youDie;
 
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour {
 
     public List<Image> spiritList;
     private Stack<Image> lifesSpiritStack;
-    private Stack<Image> lifesSpriritStackLost;
+    private Stack<Image> lifesSpiritStackLost;
 
     // This manages the current character the player is using
     //int currentCharacter = 0;
@@ -48,20 +48,25 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
+
+        daughterlife = PlayerPrefs.GetInt("daughterLife", daughterlife);
+        spiritLife = PlayerPrefs.GetInt("spiritLife", spiritLife);
+        fatherLife = PlayerPrefs.GetInt("fatherLife", fatherLife);
+
         lifesWizzardStack = new Stack<Image>();
         lifesWizzardStackLost = new Stack<Image>();
 
         lifesSpiritStack = new Stack<Image>();
-        lifesSpriritStackLost = new Stack<Image>();
+        lifesSpiritStackLost = new Stack<Image>();
 
         lifesDaughterStack = new Stack<Image>();
         lifesDaughterStackLost = new Stack<Image>();
 
         stackFiller();
+
+
         //get the current lifes sved between scenes
-        daughterlife = PlayerPrefs.GetInt("daughterLife", daughterlife);
-        spiritLife = PlayerPrefs.GetInt("spiritLife", spiritLife);
-        fatherLife = PlayerPrefs.GetInt("fatherLife", fatherLife);
+
 
         //canvasAnimator = canvasCharacterImage.GetComponent<Animator>();
         ////abilitySelected.text = "Choosen Character " + currentCharacter;
@@ -77,7 +82,7 @@ public class GameManager : MonoBehaviour {
         //stackFiller();
 
         youDie.SetActive(false);
-        testingRestoreLifes();
+        
     }
 
     // Update is called once per frame
@@ -195,39 +200,44 @@ public class GameManager : MonoBehaviour {
     void testingRestoreLifes()
     {
         fatherLife = spiritLife = daughterlife = testInitialLifes;
+        PlayerPrefs.SetInt("fatherLife", fatherLife);
+        PlayerPrefs.SetInt("daughterLife", daughterlife);
+        PlayerPrefs.SetInt("spiritLife", spiritLife);
         testingLifeResotore = false;
     }
 
 
     private void stackFiller()
     {
+        currentFatherLife();
+        currentSpiritLife();
+        currentDaughterLife();
+        ////int size = wizzardList.Count;
+        //////for (int i = 0; i < size; i++)
+        //////{
+        //////    lifesWizzardStack.Push(wizzardList[i]);
+        //////}
 
-        int size = wizzardList.Count;
-        for (int i = 0; i < size; i++)
-        {
-            lifesWizzardStack.Push(wizzardList[i]);
-        }
-
-        wizzardList.Clear();
-
-
-        size = daughterdList.Count;
-        for (int i = 0; i < size; i++)
-        {
-            lifesDaughterStack.Push(daughterdList[i]);
-        }
-
-        daughterdList.Clear();
+        //////wizzardList.Clear();
 
 
+        ////size = daughterdList.Count;
+        ////for (int i = 0; i < size; i++)
+        ////{
+        ////    lifesDaughterStack.Push(daughterdList[i]);
+        ////}
 
-        size = spiritList.Count;
-        for (int i = 0; i < size; i++)
-        {
-            lifesSpiritStack.Push(spiritList[i]);
-        }
+        ////daughterdList.Clear();
 
-        spiritList.Clear();
+
+
+        ////size = spiritList.Count;
+        ////for (int i = 0; i < size; i++)
+        ////{
+        ////    lifesSpiritStack.Push(spiritList[i]);
+        ////}
+
+        ////spiritList.Clear();
     }
 
     void updateFatherLife()
@@ -255,7 +265,7 @@ public class GameManager : MonoBehaviour {
         heart = lifesSpiritStack.Peek();
         heart.enabled = false;
         lifesSpiritStack.Pop();
-        lifesSpriritStackLost.Push(heart);
+        lifesSpiritStackLost.Push(heart);
     }
 
     void recoverFatherLifes() {
@@ -268,23 +278,23 @@ public class GameManager : MonoBehaviour {
 
     public void EnableDaughterLife()
     {
-        SpiritLife.SetActive(false);
-        DaughterLife.SetActive(true);
-        FatherLife.SetActive(false);
+        SpiritLifeContainer.SetActive(false);
+        DaughterLifeContainer.SetActive(true);
+        FatherLifeContainer.SetActive(false);
     }
 
     public void EnableFatherLife()
     {
-        SpiritLife.SetActive(false);
-        DaughterLife.SetActive(false);
-        FatherLife.SetActive(true);
+        SpiritLifeContainer.SetActive(false);
+        DaughterLifeContainer.SetActive(false);
+        FatherLifeContainer.SetActive(true);
     }
 
     public void EnableSpiritLife()
     {
-        SpiritLife.SetActive(true);
-        DaughterLife.SetActive(false);
-        FatherLife.SetActive(false);
+        SpiritLifeContainer.SetActive(true);
+        DaughterLifeContainer.SetActive(false);
+        FatherLifeContainer.SetActive(false);
     }
 
     public void resetScene2()
@@ -292,4 +302,56 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
         SceneManager.LoadScene("Level02");
     }
+
+    void currentFatherLife()
+    {
+        for (int i = 0; i < fatherLife; i++)
+        {
+            wizzardList[i].enabled = true;
+            lifesWizzardStack.Push(wizzardList[i]);
+        }
+
+        for (int i = fatherLife; i<testInitialLifes; i++) {
+
+            wizzardList[i].enabled = false;
+            lifesWizzardStackLost.Push(wizzardList[i]);
+        }
+        wizzardList.Clear();
+    }
+
+    void currentDaughterLife()
+    {
+        for (int i = 0; i < daughterlife; i++)
+        {
+            daughterdList[i].enabled = true;
+            lifesDaughterStack.Push(daughterdList[i]);
+        }
+
+        for (int i = daughterlife; i < testInitialLifes; i++)
+        {
+
+            daughterdList[i].enabled = false;
+            lifesDaughterStackLost.Push(daughterdList[i]);
+        }
+        daughterdList.Clear();
+    }
+
+    void currentSpiritLife()
+    {
+        for (int i = 0; i < spiritLife; i++)
+        {
+            spiritList[i].enabled = true;
+            lifesSpiritStack.Push(spiritList[i]);
+        }
+
+        for (int i = spiritLife; i < testInitialLifes; i++)
+        {
+            spiritList[i].enabled = false;
+            lifesSpiritStackLost.Push(spiritList[i]);
+        }
+        spiritList.Clear();
+    }
+
+
+
 }
