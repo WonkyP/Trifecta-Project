@@ -560,6 +560,21 @@ Prefab:
       propertyPath: spiritList.Array.data[5]
       value: 
       objectReference: {fileID: 1873609165}
+    - target: {fileID: 114468436632979044, guid: 272e1d4867cdc504b86cae80d46f37c9,
+        type: 2}
+      propertyPath: FatherLifeContainer
+      value: 
+      objectReference: {fileID: 535064882}
+    - target: {fileID: 114468436632979044, guid: 272e1d4867cdc504b86cae80d46f37c9,
+        type: 2}
+      propertyPath: DaughterLifeContainer
+      value: 
+      objectReference: {fileID: 1552203068}
+    - target: {fileID: 114468436632979044, guid: 272e1d4867cdc504b86cae80d46f37c9,
+        type: 2}
+      propertyPath: SpiritLifeContainer
+      value: 
+      objectReference: {fileID: 1809159249}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 272e1d4867cdc504b86cae80d46f37c9, type: 2}
   m_IsPrefabAsset: 0

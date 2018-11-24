@@ -30131,6 +30131,21 @@ Prefab:
       propertyPath: youDie
       value: 
       objectReference: {fileID: 1168731632}
+    - target: {fileID: 114468436632979044, guid: 272e1d4867cdc504b86cae80d46f37c9,
+        type: 2}
+      propertyPath: FatherLifeContainer
+      value: 
+      objectReference: {fileID: 1209567457}
+    - target: {fileID: 114468436632979044, guid: 272e1d4867cdc504b86cae80d46f37c9,
+        type: 2}
+      propertyPath: DaughterLifeContainer
+      value: 
+      objectReference: {fileID: 1492652489}
+    - target: {fileID: 114468436632979044, guid: 272e1d4867cdc504b86cae80d46f37c9,
+        type: 2}
+      propertyPath: SpiritLifeContainer
+      value: 
+      objectReference: {fileID: 778517094}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 272e1d4867cdc504b86cae80d46f37c9, type: 2}
   m_IsPrefabAsset: 0
