@@ -89,8 +89,9 @@ public class FatherNewMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonUp("AbilityB 02"))
+        if (Input.GetButtonDown("AbilityB 02"))
         {
+            Debug.Log("I'm here");
             if (gpm.right)
             {
                 objectPooler.spawnFromPool("Player_Bullets", firePointRight.transform.position, firePointRight.transform.rotation);
@@ -122,11 +123,6 @@ public class FatherNewMovement : MonoBehaviour
             Jump(true);
 
             curCoyoteTime -= Time.deltaTime;
-        }
-
-
-        if (Input.GetButton("AbilityB 02")){
-            Debug.Log("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOL");
         }
 
 

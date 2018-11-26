@@ -160,7 +160,7 @@ Prefab:
     - target: {fileID: 114972728725297844, guid: 84a5b92596562a340aecb1f9cab8fa94,
         type: 2}
       propertyPath: Facing_Right
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114467725804812304, guid: 84a5b92596562a340aecb1f9cab8fa94,
         type: 2}
@@ -180,7 +180,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4553185398665838, guid: 84a5b92596562a340aecb1f9cab8fa94, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.78
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1097091362549888, guid: 84a5b92596562a340aecb1f9cab8fa94, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553185398665838, guid: 84a5b92596562a340aecb1f9cab8fa94, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.232
+      objectReference: {fileID: 0}
+    - target: {fileID: 50833286785913510, guid: 84a5b92596562a340aecb1f9cab8fa94,
+        type: 2}
+      propertyPath: m_Mass
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a5b92596562a340aecb1f9cab8fa94, type: 2}
@@ -789,6 +802,55 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1828310981}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &1825394372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1825394374}
+  - component: {fileID: 1825394373}
+  m_Layer: 0
+  m_Name: Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1825394373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1825394372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58596b9cb96114b47a201203213e37fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToPool:
+  - tag: Player_Bullets
+    objectToPool: {fileID: 1184290511732758, guid: 795a33815bee5f94b93e96805228e833,
+      type: 2}
+    amountToPool: 10
+  - tag: Turret_Enemy_Bullets
+    objectToPool: {fileID: 1902344850471472, guid: 6c5572f0460e2b54ba25c6f6b0109329,
+      type: 2}
+    amountToPool: 7
+--- !u!4 &1825394374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1825394372}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.31083953, y: -0.6406007, z: -0.0390625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1828310981
 Prefab:
   m_ObjectHideFlags: 0
