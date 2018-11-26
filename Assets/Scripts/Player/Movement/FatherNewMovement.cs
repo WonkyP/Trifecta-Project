@@ -89,13 +89,18 @@ public class FatherNewMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetButtonUp("AbilityB 02"))
         {
-            if(gpm.right)
+            if (gpm.right)
+            {
                 objectPooler.spawnFromPool("Player_Bullets", firePointRight.transform.position, firePointRight.transform.rotation);
+            }
             else
+            {
                 objectPooler.spawnFromPool("Player_Bullets", firePointLeft.transform.position, firePointLeft.transform.rotation);
+            }
 
+            anim.SetTrigger("Attack");
             //Debug.Log("Player shooting");
         }
 

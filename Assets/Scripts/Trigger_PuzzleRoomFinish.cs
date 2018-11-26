@@ -32,6 +32,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
 
     [Space]
     public string ShrineLevelPlayerPref = "Level01_Progress";
+    public string ShrineLevelPlayerPref2 = "PlaceHolder-San";
 
     // Use this for initialization
     void Start () {
@@ -101,7 +102,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
 
                 // add to the shrine
                 PlayerPrefs.SetInt(ShrineLevelPlayerPref, PlayerPrefs.GetInt(ShrineLevelPlayerPref, 0) + 1);
-
+                PlayerPrefs.SetInt(ShrineLevelPlayerPref2, PlayerPrefs.GetInt(ShrineLevelPlayerPref2, 0) + 1);
             }
 
             ////
