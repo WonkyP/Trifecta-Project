@@ -18,6 +18,8 @@ public class Shrine_OpenLevel : MonoBehaviour {
     private GameObject toolTip;
     private bool AbilityUnlocked = false;
 
+    [Space]
+    public int NumbersOfShrines = 3;
     // unlock abilities
     [Header("Ability unlock")]
     public string PowerUnlockID = "X";
@@ -56,7 +58,7 @@ public class Shrine_OpenLevel : MonoBehaviour {
             Rune03.SetActive(false);
             GodHaze.SetActive(false);
         }
-        if (PlayerPrefs.GetInt(PlayerPref, 0) == 3)
+        if (PlayerPrefs.GetInt(PlayerPref, 0) == NumbersOfShrines)
         {
             Rune01.SetActive(true);
             Rune02.SetActive(true);
@@ -107,6 +109,8 @@ public class Shrine_OpenLevel : MonoBehaviour {
             //unlock
             if (PowerUnlockID != "X")
             {
+
+
                 PlayerPrefs.SetInt(PowerUnlockID, 1);
                 GameObject p = GameObject.FindGameObjectWithTag("Player");
                 p.SendMessage("GiveAbbility");
