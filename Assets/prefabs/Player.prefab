@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 70124680354777026}
   - component: {fileID: 222125769419067726}
   - component: {fileID: 114550025350902656}
+  - component: {fileID: 81905895166187126}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -315,6 +316,13 @@ CapsuleCollider2D:
   m_Offset: {x: -0.01, y: 1.1}
   m_Size: {x: 0.82, y: 2.22}
   m_Direction: 0
+--- !u!81 &81905895166187126
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042503808180818}
+  m_Enabled: 1
 --- !u!82 &82391437742584362
 AudioSource:
   m_ObjectHideFlags: 1
@@ -804,6 +812,7 @@ MonoBehaviour:
   widthOfTheRaycast: 0.15
   yVel: 0
   coyoteTime: 0.2
+  MovePatform: 0
   activatePlatform: 0
   magicBulletKey: {fileID: 0}
   bulletVelX: 0
@@ -855,6 +864,7 @@ MonoBehaviour:
   widthOfTheRaycast: 0.15
   yVel: 0
   coyoteTime: 0.2
+  FireballUnlocked: 0
   firePointRight: {fileID: 1279965960306684}
   firePointLeft: {fileID: 1578601716682750}
 --- !u!114 &114874534693430582
@@ -901,6 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f3cfe84483afb46ad545fb30074ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animat: []
   Controls: 1
   dSpeed: 8
   sSpeed: 7
@@ -908,6 +919,7 @@ MonoBehaviour:
   right: 1
   characterSelected: 0
   changeDir: 0
+  WheelAnimator: {fileID: 0}
   gFourceDown: 4
   gFourceUp: 1
   velY: 0
