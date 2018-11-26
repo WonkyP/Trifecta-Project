@@ -7,7 +7,6 @@ public class ShootingEnemy : MonoBehaviour
     ObjectPooler objectPooler;
 
     public Transform FirePoint;
-    public GameObject Bullet;
     public float fireRate = 2.0f;
     private float fireTimer;
     public bool Facing_Right;
