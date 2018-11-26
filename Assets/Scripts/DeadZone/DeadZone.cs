@@ -34,8 +34,9 @@ public class DeadZone : MonoBehaviour {
         }
         if (playerScript != null)
         {
-            respawnPos = playerScript.getStartPosition();
-            objectPooler.spawnSpecificFromPool(respawnGo, respawnPos, respawnGo.transform.rotation);
+            //respawnPos = playerScript.getStartPosition();
+            //objectPooler.spawnSpecificFromPool(respawnGo, respawnPos, respawnGo.transform.rotation);
+            GameManager.instance.instaKill();
         }
        
     }

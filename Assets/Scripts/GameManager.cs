@@ -353,5 +353,11 @@ public class GameManager : MonoBehaviour {
     }
 
 
+    public void instaKill()
+    {
+        fatherLife = 0;
+        checkLifes();
+    }
+
 
 }
