@@ -182,7 +182,6 @@ public class GameManager : MonoBehaviour {
 
     public void daughterDamage()
     {
-        
         daughterlife--;
         updateDaughterLife();
         checkLifes();
@@ -195,6 +194,63 @@ public class GameManager : MonoBehaviour {
         updateSpiritLife();
         checkLifes();
         PlayerPrefs.SetInt("spiritLife", spiritLife);
+    }
+
+    public void fatherRecover()
+    {
+        if (fatherLife<testInitialLifes) {
+            fatherLife++;
+            giveFatherALife();
+            PlayerPrefs.SetInt("fatherLife", fatherLife);
+        }
+    }
+
+    public void daughterRecover()
+    {
+        if (daughterlife < testInitialLifes)
+        {
+            daughterlife++;
+            giveDaughterALife();
+            PlayerPrefs.SetInt("daughterLife", daughterlife);
+        }
+    }
+
+    public void spiritRecover()
+    {
+        if (spiritLife<testInitialLifes) {
+            spiritLife++;
+            giveSpiritALife();
+
+            PlayerPrefs.SetInt("spiritLife", spiritLife);
+        }
+    }
+
+
+    private void giveFatherALife()
+    {
+        Image heart;
+        heart = lifesWizzardStackLost.Peek();
+        heart.enabled = true;
+        lifesWizzardStackLost.Pop();
+        lifesWizzardStack.Push(heart);
+    }
+
+    private void giveDaughterALife()
+    {
+        Image heart;
+        heart = lifesDaughterStackLost.Peek();
+        heart.enabled = true;
+        lifesDaughterStackLost.Pop();
+        lifesDaughterStack.Push(heart);
+    }
+
+    private void giveSpiritALife()
+    {
+        Image heart;
+        heart = lifesSpiritStackLost.Peek();
+        heart.enabled = true;
+        lifesSpiritStackLost.Pop();
+        lifesSpiritStack.Push(heart);
     }
 
     void testingRestoreLifes()
