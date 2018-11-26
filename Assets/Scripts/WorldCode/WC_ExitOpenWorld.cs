@@ -20,6 +20,7 @@ public class WC_ExitOpenWorld : MonoBehaviour {
     [Space]
     public Sprite Open;
 
+    public bool Entry = true;
     private void Start()
     {
         if (PlayerPrefs.GetInt(SceneName, 0) == 1) // change the sprite to be open
@@ -72,8 +73,12 @@ public class WC_ExitOpenWorld : MonoBehaviour {
 
             if (PlayerPrefs.GetInt(SceneName, 0) == 0)
             {
-                UiCanvas.SetActive(true);
-                TheUIText.text = "Cost:  " + EntryCost.ToString();
+                if (Entry)
+                {
+                    UiCanvas.SetActive(true);
+                    TheUIText.text = "Cost:  " + EntryCost.ToString();
+                }
+
             }
 
         }
@@ -83,10 +88,14 @@ public class WC_ExitOpenWorld : MonoBehaviour {
     {
         if (collision.gameObject.layer == 10) // checks what layer the triggering object is and deactivates if it's the "Player" layer
         {
+            if (Entry)
+            {
             gameObject.transform.GetChild(3).gameObject.SetActive(false);
             entryGrantet = false;
 
             UiCanvas.SetActive(false);
+
+            }
         }
     }
 

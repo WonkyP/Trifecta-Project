@@ -46,7 +46,7 @@ public class ShardControll : MonoBehaviour {
     public void UpdateNumbers () {
         SoulShards = PlayerPrefs.GetInt("SoulShards", 0);
 
-        playerAnimator.SetFloat("RemainingSwitches", SoulShards);
+        //playerAnimator.SetFloat("RemainingSwitches", SoulShards);
 
         // find the rounded nrs for the ui images
         int one = SoulShards - (SoulShards / 10) * 10;
