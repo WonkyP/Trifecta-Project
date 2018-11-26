@@ -38,17 +38,20 @@ public class Trigger_Dialogue : MonoBehaviour {
             switch (message.talker)
             {
                 case DialogColor_Class.WhoTalking.Anya:
-                    Color myColor = new Color();
+                    Color anyaColor = new Color();
                     //Copy desired color with hex string after the "#"
-                    ColorUtility.TryParseHtmlString("#34C8B7", out myColor);
-                    floatingText.color = myColor;
+                    ColorUtility.TryParseHtmlString("#D41515", out anyaColor);
+                    floatingText.color = anyaColor;
                     
                     break;
                 case DialogColor_Class.WhoTalking.Brumund:
                     floatingText.color = Color.green;
                     break;
                 case DialogColor_Class.WhoTalking.Viraya:
-                    floatingText.color = Color.black;
+                    Color virayaColor = new Color();
+                    //Copy desired color with hex string after the "#"
+                    ColorUtility.TryParseHtmlString("#71009A", out virayaColor);
+                    floatingText.color = virayaColor;
                     break;
                 default:
                     break;
