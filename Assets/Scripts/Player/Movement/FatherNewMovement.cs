@@ -41,6 +41,8 @@ public class FatherNewMovement : MonoBehaviour
     private GeneralPlayerMovement gpm;
     Transform parent;
 
+    [Header("FireBall")]
+    public bool FireballUnlocked = false;
     // Second ability
     ObjectPooler objectPooler;
     public GameObject firePointRight;
@@ -59,8 +61,20 @@ public class FatherNewMovement : MonoBehaviour
         gpm = GetComponent<GeneralPlayerMovement>();
         objectPooler = ObjectPooler.instance;
         facingRight = gpm.right;
-    }
 
+        // setting abilities
+        GiveAbbility();
+    }
+    public void GiveAbbility()
+    {
+        if (!FireballUnlocked)
+        {
+            if (PlayerPrefs.GetInt("F01", 0) == 1)
+            {
+                FireballUnlocked = true;
+            }
+        }
+    }
 
 
     public void Update()
@@ -89,7 +103,7 @@ public class FatherNewMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("AbilityB 02"))
+        if (Input.GetButtonDown("AbilityB 02") && FireballUnlocked)
         {
             Debug.Log("I'm here");
             if (gpm.right)
