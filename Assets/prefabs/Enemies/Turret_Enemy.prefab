@@ -39,7 +39,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4553185398665838}
-  - component: {fileID: 114467725804812304}
   m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
@@ -54,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1777824079992172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.54, y: 0.06, z: 0}
+  m_LocalPosition: {x: 0.849, y: 0.06, z: 0}
   m_LocalScale: {x: 0.97465885, y: 0.40016007, z: 1}
   m_Children: []
   m_Father: {fileID: 4947004157584938}
@@ -67,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1097091362549888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.01, y: -2.78, z: -1.3852836}
+  m_LocalPosition: {x: -6.3917503, y: -2.2093964, z: -1.3852836}
   m_LocalScale: {x: 1.026, y: 2.499, z: 1}
   m_Children:
   - {fileID: 4553185398665838}
@@ -161,18 +160,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114467725804812304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1777824079992172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58596b9cb96114b47a201203213e37fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsToPool: []
 --- !u!114 &114972728725297844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,4 +174,4 @@ MonoBehaviour:
   FirePoint: {fileID: 4553185398665838}
   Bullet: {fileID: 1902344850471472, guid: 6c5572f0460e2b54ba25c6f6b0109329, type: 2}
   fireRate: 3
-  Facing_Right: 0
+  Facing_Right: 1
