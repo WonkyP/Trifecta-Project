@@ -26,7 +26,11 @@ public class PlatformLogic : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            player_.transform.parent = null;
+            if (player_ != null)
+            {
+                player_.transform.parent = null;
+
+            }
         }
         //else if (collision.gameObject.tag == "Box")
         //{
