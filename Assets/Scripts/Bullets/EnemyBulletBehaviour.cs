@@ -17,7 +17,13 @@ public class EnemyBulletBehaviour : MonoBehaviour {
         // Damage logic
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<GeneralPlayerMovement>().touchedByEnemy(transform.localScale.x / Mathf.Abs(transform.localScale.x), 2);
+            if(transform.rotation.y == 0)
+            {
+                collision.gameObject.GetComponent<GeneralPlayerMovement>().touchedByEnemy(-1, 2);
+            }
+            else
+                collision.gameObject.GetComponent<GeneralPlayerMovement>().touchedByEnemy(1, 2);
+            //collision.gameObject.GetComponent<GeneralPlayerMovement>().touchedByEnemy(transform.localScale.x / Mathf.Abs(transform.localScale.x), 2);
             collision.gameObject.GetComponent<GeneralPlayerMovement>().Damaged();
 
             if (collision.gameObject.GetComponent<SpiritNewMovement>().enabled)
