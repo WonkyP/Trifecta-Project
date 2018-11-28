@@ -6,8 +6,6 @@ TextureImporter:
     21300002: GrassAnim_1
     21300004: GrassAnim_2
     21300006: GrassAnim_3
-    21300008: GrassAnim_4
-    21300010: GrassAnim_5
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -51,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,16 +115,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f449ef4191661248a8587c616ac72a8
+      spriteID: 38b5ea37a9bfd6743b927a2c0f07684d
       vertices: []
       indices: 
       edges: []
@@ -135,18 +133,18 @@ TextureImporter:
       name: GrassAnim_1
       rect:
         serializedVersion: 2
-        x: 256
+        x: 100
         y: 0
-        width: 256
-        height: 256
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5640c967d694de42b1d7ea007759f7a
+      spriteID: 4e1d8a6cc312338479f822415ec5f19e
       vertices: []
       indices: 
       edges: []
@@ -155,18 +153,18 @@ TextureImporter:
       name: GrassAnim_2
       rect:
         serializedVersion: 2
-        x: 512
+        x: 200
         y: 0
-        width: 256
-        height: 256
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ace4a3fd7f4f1134d9bf8d828d18510e
+      spriteID: 456562d1591d3d2468ea29a62a4fb5dc
       vertices: []
       indices: 
       edges: []
@@ -175,58 +173,18 @@ TextureImporter:
       name: GrassAnim_3
       rect:
         serializedVersion: 2
-        x: 768
+        x: 300
         y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 100
+        height: 100
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4c4b6cc0168abe469710c6b57279a6e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GrassAnim_4
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2c578043e31da34cba64f5f0a31c0e5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GrassAnim_5
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c0e009d202faa741b53056720663914
+      spriteID: 28d2e2e3aca04a14a8e2b631ee55968e
       vertices: []
       indices: 
       edges: []
