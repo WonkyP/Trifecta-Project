@@ -10,7 +10,8 @@ public class StartMenuButtons : MonoBehaviour {
         
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetString("LastLoadedScene", "Tutorial");
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        GetComponent<LoadScene>().LoadLevel(PlayerPrefs.GetString("LastLoadedScene"));
     }
 
     public void ContinueGame()
