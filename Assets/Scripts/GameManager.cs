@@ -334,23 +334,23 @@ public class GameManager : MonoBehaviour {
 
     public void EnableDaughterLife()
     {
-        SpiritLifeContainer.SetActive(false);
-        DaughterLifeContainer.SetActive(true);
-        FatherLifeContainer.SetActive(false);
+        //SpiritLifeContainer.SetActive(false);
+        //DaughterLifeContainer.SetActive(true);
+        //FatherLifeContainer.SetActive(false);
     }
 
     public void EnableFatherLife()
     {
-        SpiritLifeContainer.SetActive(false);
-        DaughterLifeContainer.SetActive(false);
-        FatherLifeContainer.SetActive(true);
+        //SpiritLifeContainer.SetActive(false);
+        //DaughterLifeContainer.SetActive(false);
+        //FatherLifeContainer.SetActive(true);
     }
 
     public void EnableSpiritLife()
     {
-        SpiritLifeContainer.SetActive(true);
-        DaughterLifeContainer.SetActive(false);
-        FatherLifeContainer.SetActive(false);
+        //SpiritLifeContainer.SetActive(true);
+        //DaughterLifeContainer.SetActive(false);
+        //FatherLifeContainer.SetActive(false);
     }
 
     public void resetScene2()
