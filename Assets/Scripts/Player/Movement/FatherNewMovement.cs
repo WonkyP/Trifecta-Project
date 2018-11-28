@@ -90,17 +90,20 @@ public class FatherNewMovement : MonoBehaviour
 
             parent = box.transform.parent;
             box.transform.parent = transform;
+            box.GetComponent<SpriteRenderer>().color = new Color32(12, 231, 39, 255);
         }
         else if (Input.GetButtonUp("AbilityB 01") || !NextToBox())
         {
             try
             {
                 box.transform.parent = null;
+                box.GetComponent<SpriteRenderer>().color = Color.white;
             }
             catch
             {
                 //Debug.Log("Box without parent attached");
             }
+            
         }
 
         if (Input.GetButtonDown("AbilityB 02") && FireballUnlocked)
