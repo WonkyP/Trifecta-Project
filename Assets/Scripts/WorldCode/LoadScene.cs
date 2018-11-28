@@ -15,14 +15,17 @@ public class LoadScene : MonoBehaviour {
         LC.worldCamera = Camera.main;
         LoadingImage = LC.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<Image>();
 
+
         StartCoroutine(LoadAsync(SceneName));
 
     }
 
     IEnumerator LoadAsync(string SceneName)
     {
+        PlayerPrefs.SetString("LastLoadedScene", SceneName);
+
         AsyncOperation AO =
-            SceneManager.LoadSceneAsync(SceneName);
+            SceneManager.LoadSceneAsync(PlayerPrefs.GetString("LastLoadedScene"));
 
         while (!AO.isDone)
         {

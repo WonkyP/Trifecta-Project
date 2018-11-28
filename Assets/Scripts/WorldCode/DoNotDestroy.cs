@@ -30,6 +30,9 @@ public class DoNotDestroy : MonoBehaviour {
                 {
                     if (spawnpoints[i].name == NameOfTheObject)
                     {
+
+                        PlayerPrefs.SetString("EntryPoint", NameOfTheObject);
+
                         spawnPoint = spawnpoints[i]; // connect the spawn point names to an object
                         GameObject.FindGameObjectWithTag("Player").transform.position = spawnPoint.transform.position; // teleport the player
                     }
