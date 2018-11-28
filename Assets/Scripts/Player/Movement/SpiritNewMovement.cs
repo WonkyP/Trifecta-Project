@@ -42,7 +42,6 @@ public class SpiritNewMovement : MonoBehaviour
 
 
     public GameObject magicBulletKey;
-    private BulletKey bulletScript;
 
     public float bulletVelX;
     public float bulletVelY;
