@@ -108,6 +108,8 @@ public class FatherNewMovement : MonoBehaviour
 
         if (Input.GetButtonDown("AbilityB 02") && FireballUnlocked)
         {
+            anim.SetTrigger("MagicAB01");
+
             Debug.Log("I'm here");
             if (gpm.right)
             {

@@ -107,6 +107,8 @@ public class SpiritNewMovement : MonoBehaviour
 
         if (Input.GetButtonDown("AbilityB 02") && MovePatform)
         {
+            anim.SetTrigger("MagicAB01");
+
             //magicBulletKey.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 1);
 
             //bulletScript = magicBulletKey.GetComponent<BulletKey>();
