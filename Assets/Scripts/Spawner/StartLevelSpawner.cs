@@ -35,17 +35,23 @@ public class StartLevelSpawner : MonoBehaviour {
                 listSize = item.spawners.Count;
                 for (int i = 0; i < listSize; i++)
                 {
-                    if (item.spawners[i] != null)
-                    {
-                        Vector2 pos = item.spawners[i].transform.position;
-                        Quaternion rot = item.spawners[i].transform.rotation;
-                        ObjectPooler.instance.spawnFromPool(item.tag, pos, rot);
-                    }
-                    else
-                        Debug.Log("There's empty objects in the Spawners list");
+                    Vector2 pos = item.spawners[i].transform.position;
+                    Quaternion rot = item.spawners[i].transform.rotation;
+                    ObjectPooler.instance.spawnFromPool(item.tag, pos, rot);
                 }
                 item.spawners.Clear();
             }
+        }
+    }
+
+
+    private void OnValidate()
+    {
+        foreach (itemsToSpawn item in poolItemsToSpawn)
+        {
+            for (int i = 0; i < item.spawners.Count; i++)               
+                if (item.spawners[i] == null)
+                    item.spawners.RemoveAt(i);           
         }
     }
 
