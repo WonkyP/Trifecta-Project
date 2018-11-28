@@ -13,7 +13,7 @@ public class PatrollEnemy : MonoBehaviour {
     private Vector2 dir = new Vector2(1, 0);
 
     private Rigidbody2D rb;
-    private ObjectPooler objectPooler = ObjectPooler.instance;
+    //private ObjectPooler objectPooler = ObjectPooler.instance;
 
     public int life = 5;
 
@@ -134,7 +134,7 @@ public class PatrollEnemy : MonoBehaviour {
     {
         if (life <= 0)
         {
-            objectPooler.killGameObject(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
