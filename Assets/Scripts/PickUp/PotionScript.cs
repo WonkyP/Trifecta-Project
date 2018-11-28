@@ -30,8 +30,10 @@ public class PotionScript : MonoBehaviour {
             {
                 GameManager.instance.fatherRecover();
             }
+
+            this.gameObject.SetActive(false);
         }
 
-        Destroy(this.gameObject);
+
     }
 }
