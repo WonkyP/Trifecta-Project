@@ -7240,6 +7240,11 @@ Prefab:
     - target: {fileID: 114536404846463378, guid: 696d3721d042eec40bb264d18f4f5d9e,
         type: 2}
       propertyPath: MovePatform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114293559025299394, guid: 696d3721d042eec40bb264d18f4f5d9e,
+        type: 2}
+      propertyPath: doubleJumpAfterWall
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7906,6 +7911,11 @@ Prefab:
     - {fileID: 212120703567141406, guid: c6fde38dce2ebbf44bc1bcd89e576c9c, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: c6fde38dce2ebbf44bc1bcd89e576c9c, type: 2}
   m_IsPrefabAsset: 0
+--- !u!20 &848731179 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20235121995156550, guid: d0feac60b1e04a548ad7d99975b9233a,
+    type: 2}
+  m_PrefabInternal: {fileID: 2034846408}
 --- !u!1 &917709451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1640835143000916, guid: c6fde38dce2ebbf44bc1bcd89e576c9c,
@@ -9456,6 +9466,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 223596362630452136, guid: b65f38434bf90424f92ba9bb6ef2d4e2,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 848731179}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b65f38434bf90424f92ba9bb6ef2d4e2, type: 2}
   m_IsPrefabAsset: 0
