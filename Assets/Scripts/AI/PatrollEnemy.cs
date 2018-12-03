@@ -15,7 +15,7 @@ public class PatrollEnemy : MonoBehaviour {
     private Rigidbody2D rb;
     //private ObjectPooler objectPooler = ObjectPooler.instance;
 
-    public int life = 5;
+    public int life = 3;
 
     public float multiplier = 0;
 
@@ -25,8 +25,6 @@ public class PatrollEnemy : MonoBehaviour {
 
     void Start () {
         rb = GetComponent<Rigidbody2D>();
-        life = 5;
-        //myOwnCollider = GetComponent<BoxCollider2D>();
     }
 	
 	// Update is called once per frame
