@@ -40,7 +40,7 @@ public class ShootingEnemy : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(fireRate);
+            yield return new WaitForSeconds(fireRate); // waiting for the fire rate
             anim.SetTrigger("Shooting"); // tell the animation to start
 
             // wait to spawn the bullet
