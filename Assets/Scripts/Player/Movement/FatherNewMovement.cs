@@ -234,13 +234,13 @@ public class FatherNewMovement : MonoBehaviour
         {
             if (rightHit.collider.gameObject.tag == "Box")
                 b = true;
-            Debug.Log("Next to a box from right -> " + b);
+            //Debug.Log("Next to a box from right -> " + b);
         }
         else if (leftHit.collider != null)
         {
             if (leftHit.collider.gameObject.tag == "Box")
                 b = true;
-            Debug.Log("Next to a box from left -> " + b);
+            //Debug.Log("Next to a box from left -> " + b);
         }
 
         
