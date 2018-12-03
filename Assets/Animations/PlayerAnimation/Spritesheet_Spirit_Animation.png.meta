@@ -9,6 +9,8 @@ TextureImporter:
     21300008: Animation_Spirit_Jump02
     21300010: Animation_Spirit_Jump03
     21300012: Animation_Spirit_Jump04
+    21300014: Animation_Spirit_AttackHorizontal
+    21300016: Animation_Spirit_AttackDown
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -228,6 +230,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 935bb1881da12e1498bd3c2c1d6e3294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Spirit_AttackHorizontal
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1114
+        width: 366
+        height: 335
+      alignment: 9
+      pivot: {x: 0.4245152, y: 0.13346621}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ada8a633b397834d91d2aec9421656c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Spirit_AttackDown
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 751
+        width: 268
+        height: 334
+      alignment: 9
+      pivot: {x: 0.44438013, y: 0.1251133}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1325bb210ed2933469b51ad57f2b7d19
       vertices: []
       indices: 
       edges: []
