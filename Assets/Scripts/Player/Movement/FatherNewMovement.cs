@@ -47,7 +47,6 @@ public class FatherNewMovement : MonoBehaviour
     ObjectPooler objectPooler;
     public GameObject firePointRight;
     public GameObject firePointLeft;
-    bool facingRight;
 
     //public int fatherLife = 100;
 
@@ -60,7 +59,6 @@ public class FatherNewMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         gpm = GetComponent<GeneralPlayerMovement>();
         objectPooler = ObjectPooler.instance;
-        facingRight = gpm.right;
 
         // setting abilities
         GiveAbbility();
@@ -122,6 +120,8 @@ public class FatherNewMovement : MonoBehaviour
 
             anim.SetTrigger("Attack");
             //Debug.Log("Player shooting");
+
+           
         }
 
 
@@ -143,6 +143,11 @@ public class FatherNewMovement : MonoBehaviour
 
             curCoyoteTime -= Time.deltaTime;
         }
+
+        if(gpm.right)
+            Debug.DrawRay(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.05f, 0.5f, 0.0f), Vector2.right * transform.localScale.x, Color.red);
+        else
+            Debug.DrawRay(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.05f, -0.5f, 0.0f), Vector2.left * transform.localScale.x, Color.green);
 
 
     }
@@ -219,34 +224,28 @@ public class FatherNewMovement : MonoBehaviour
     {
         bool b = false;
 
-        //if (script.right)
-        rightHit = Physics2D.Raycast(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.4f, 0.5f, 0.0f), Vector2.right * transform.localScale.x, 1.0f);
-        //else
-        leftHit = Physics2D.Raycast(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.4f, -0.5f, 0.0f), Vector2.left * transform.localScale.x, 1.0f);
+        if(gpm.right)
+            rightHit = Physics2D.Raycast(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.05f, 0.5f, 0.0f), Vector2.right * transform.localScale.x, 1.0f);
+        else
+            leftHit = Physics2D.Raycast(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.05f, -0.5f, 0.0f), Vector2.left * transform.localScale.x, 1.0f);
 
 
         if (rightHit.collider != null)
         {
             if (rightHit.collider.gameObject.tag == "Box")
                 b = true;
+            Debug.Log("Next to a box from right -> " + b);
         }
         else if (leftHit.collider != null)
         {
             if (leftHit.collider.gameObject.tag == "Box")
                 b = true;
-        }
-        else
-        {
-            b = false;
+            Debug.Log("Next to a box from left -> " + b);
         }
 
+        
         return b;
-    }
 
-    void Flip()
-    {
-        facingRight = !facingRight;
-        //transform.Rotate(0f, 180f, 0f);
     }
 
 

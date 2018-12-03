@@ -166,7 +166,7 @@ public class GeneralPlayerMovement : MonoBehaviour
             if (Input.GetAxis("Horizontal") > 0 && !right) // goes right
             {
                 Flip();
-                right = true;
+                //right = true;
                 sR.flipX = false;
 
                 RaycastHit2D rightWall = Physics2D.Raycast(new Vector2(transform.position.x + 0.5f, transform.position.y + 1f), Vector2.down, 0.5f);
@@ -183,7 +183,7 @@ public class GeneralPlayerMovement : MonoBehaviour
             if (Input.GetAxis("Horizontal") < 0 && right) // goes left
             {
                 Flip();
-                right = false;
+                //right = false;
                 sR.flipX = true;
 
                 RaycastHit2D leftWall = Physics2D.Raycast(new Vector2(transform.position.x - 0.5f, transform.position.y + 1f), Vector2.down, 0.5f);

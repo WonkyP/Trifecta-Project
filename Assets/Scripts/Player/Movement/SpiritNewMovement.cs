@@ -60,6 +60,9 @@ public class SpiritNewMovement : MonoBehaviour
 
     public void Start()
     {
+
+        OnMovablePlatform = false;
+
         JumpableLayers = LayerMask.GetMask("Ground", "WallJump", "Default");
 
         // setting vars
