@@ -11,31 +11,51 @@ public class ShootingEnemy : MonoBehaviour
     private float fireTimer;
     public bool Facing_Right;
 
+    Animator anim;
+
     // Use this for initialization
     void Start()
     {
         objectPooler = ObjectPooler.instance;
         fireTimer = fireRate;
 
+        anim = GetComponent<Animator>();
+
         if (!Facing_Right)
             Flip();
+
+
+        StartCoroutine( Shoot()); // Start shooting
     }
 
     // Update is called once per frame
     void Update()
     {
-        Shoot();
+        
     }
 
     // Script with the shoot logic
-    void Shoot()
+    IEnumerator Shoot()
     {
-        fireTimer -= Time.deltaTime;
-        if (fireTimer <= 0)
+
+        while (true)
         {
+            yield return new WaitForSeconds(fireRate);
+            anim.SetTrigger("Shooting"); // tell the animation to start
+
+            // wait to spawn the bullet
+            yield return new WaitForSeconds(0.5f);
             objectPooler.spawnFromPool("Turret_Enemy_Bullets", FirePoint.transform.position, FirePoint.transform.rotation);
-            fireTimer = fireRate;
         }
+
+
+        //fireTimer -= Time.deltaTime;
+        //if (fireTimer <= 0)
+        //{
+        //    anim.SetTrigger("Shooting");
+        //    objectPooler.spawnFromPool("Turret_Enemy_Bullets", FirePoint.transform.position, FirePoint.transform.rotation);
+        //    fireTimer = fireRate;
+        //}
 
     }
 
