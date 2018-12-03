@@ -233,6 +233,7 @@ public class SpiritNewMovement : MonoBehaviour
 
         if (Input.GetButtonDown("AbilityB 01"))
         {
+            anim.SetTrigger("GrowMagic");
             if (!activatePlatform)
                 activatePlatform = true;
             else

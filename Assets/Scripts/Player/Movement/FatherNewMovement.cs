@@ -81,6 +81,8 @@ public class FatherNewMovement : MonoBehaviour
         // THE BOCK MOVEMENT
         if (Input.GetButton("AbilityB 01") && NextToBox())
         {
+            anim.SetBool("CarryMagic", true);
+
             if (rightHit)
                 box = rightHit.collider.gameObject;
             else if (leftHit)
@@ -96,6 +98,7 @@ public class FatherNewMovement : MonoBehaviour
             {
                 box.transform.parent = null;
                 box.GetComponent<SpriteRenderer>().color = Color.white;
+                anim.SetBool("CarryMagic", false);
             }
             catch
             {
@@ -253,7 +256,13 @@ public class FatherNewMovement : MonoBehaviour
     {
         if (box != null)
             if (box.transform.parent != null)
+            {
+                box.GetComponent<SpriteRenderer>().color = Color.white;
+                anim.SetBool("CarryMagic", false);
+
                 box.transform.parent = parent;
+            }
+
     }
 
 
