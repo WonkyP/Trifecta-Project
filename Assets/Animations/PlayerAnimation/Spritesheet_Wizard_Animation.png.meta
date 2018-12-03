@@ -16,6 +16,8 @@ TextureImporter:
     21300022: Smoke_Green
     21300024: Smoke_Red
     21300026: Smoke_Black
+    21300028: Spritesheet_Wizard_Animation_0
+    21300030: Animation_Form_Wizard_Attack01
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -395,6 +397,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 13427dd3db4c459488f75103809735c4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Form_Wizard_Attack01
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 1282
+        width: 280
+        height: 244
+      alignment: 9
+      pivot: {x: 0.23537293, y: 0.07546547}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c43df2c809f4bbe4c92582e6da713af7
       vertices: []
       indices: 
       edges: []
