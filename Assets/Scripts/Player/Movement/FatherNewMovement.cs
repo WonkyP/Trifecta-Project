@@ -79,7 +79,7 @@ public class FatherNewMovement : MonoBehaviour
     {
         GroundCheck();
         // THE BOCK MOVEMENT
-        if (Input.GetButton("AbilityB 01") && NextToBox())
+        if (Input.GetButton("AbilityB 01") && !isCarryingAbox() && NextToBox())
         {
             anim.SetBool("CarryMagic", true);
 
@@ -278,5 +278,15 @@ public class FatherNewMovement : MonoBehaviour
     {
         //fatherLife -= 5;
         GameManager.instance.fatherDamage();
+    }
+
+    bool isCarryingAbox()
+    {
+        bool b = false;
+
+        if (transform.GetComponentInChildren<Box>() != null)
+            b = true;
+
+        return b;
     }
 }
