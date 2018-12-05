@@ -260,7 +260,7 @@ public class FatherNewMovement : MonoBehaviour
                 box.GetComponent<SpriteRenderer>().color = Color.white;
                 anim.SetBool("CarryMagic", false);
 
-                box.transform.parent = parent;
+                box.transform.parent = null;
             }
 
     }
