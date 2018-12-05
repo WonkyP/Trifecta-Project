@@ -22,8 +22,6 @@ public class ObjectPooler : MonoBehaviour
     public Dictionary<string, Queue<GameObject>> poolDictionary;
 
     // We make the pool a singleton to get access in an easy way
-    #region Singleton
-
     public static ObjectPooler instance;
 
     private void Awake()
@@ -49,34 +47,6 @@ public class ObjectPooler : MonoBehaviour
             // We add the pool to the dictionary
             poolDictionary.Add(item.tag, objectPool);
         }
-    }
-
-    #endregion
-
-
-    // Use this for initialization
-    void Start()
-    {
-        //// We create a new dictionary
-        //poolDictionary = new Dictionary<string, Queue<GameObject>>();
-
-        //foreach (objectPoolItem item in itemsToPool)
-        //{
-        //    // We create a gameObject queue for each key of the dictionary
-        //    Queue<GameObject> objectPool = new Queue<GameObject>();
-
-        //    // We add the objects to the pools
-        //    for (int i = 0; i < item.amountToPool; i++)
-        //    {
-        //        GameObject go = Instantiate(item.objectToPool);
-        //        go.SetActive(false);
-        //        objectPool.Enqueue(go);
-        //    }
-
-        //    // We add the pool to the dictionary
-        //    poolDictionary.Add(item.tag, objectPool);
-        //}
-
     }
 
     // Method to get an item from one of the pools
