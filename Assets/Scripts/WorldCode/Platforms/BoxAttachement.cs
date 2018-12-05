@@ -6,6 +6,7 @@ public class BoxAttachement : MonoBehaviour {
 
     Transform oldParentTransform = null;
 
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (gameObject.transform.parent != null)

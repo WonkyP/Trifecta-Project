@@ -79,7 +79,7 @@ public class FatherNewMovement : MonoBehaviour
     {
         GroundCheck();
         // THE BOCK MOVEMENT
-        if (Input.GetButton("AbilityB 01") && !isCarryingAbox() && NextToBox())
+        if (Input.GetButton("AbilityB 01") && NextToBox() && !isCarryingAbox())
         {
             anim.SetBool("CarryMagic", true);
 
@@ -91,8 +91,9 @@ public class FatherNewMovement : MonoBehaviour
             parent = box.transform.parent;
             box.transform.parent = transform;
             box.GetComponent<SpriteRenderer>().color = new Color32(12, 231, 39, 255);
+
         }
-        else if (Input.GetButtonUp("AbilityB 01") || !NextToBox())
+        else if (Input.GetButtonUp("AbilityB 01") || !NextToBox() || !isCarryingAbox())
         {
             try
             {
@@ -206,8 +207,6 @@ public class FatherNewMovement : MonoBehaviour
         RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - hightOfTheRaycast), new Vector2(-1, 0), widthOfTheRaycast, JumpableLayers/*Ignores the player layer*/);
 
 
-        
-
         if (hitLeft || hitRight)
         {
             isGrounded = true;
@@ -227,10 +226,9 @@ public class FatherNewMovement : MonoBehaviour
     {
         bool b = false;
 
-        if(gpm.right)
-            rightHit = Physics2D.Raycast(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.05f, 0.5f, 0.0f), Vector2.right * transform.localScale.x, 1.0f);
-        else
-            leftHit = Physics2D.Raycast(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.05f, -0.5f, 0.0f), Vector2.left * transform.localScale.x, 1.0f);
+
+        rightHit = Physics2D.Raycast(transform.position + new Vector3(transform.lossyScale.x / 2 + 0.05f, 0.5f, 0.0f), Vector2.right * transform.localScale.x, 1.0f);
+        leftHit = Physics2D.Raycast(transform.position - new Vector3(transform.lossyScale.x / 2 + 0.05f, -0.5f, 0.0f), Vector2.left * transform.localScale.x, 1.0f);
 
 
         if (rightHit.collider != null)
@@ -246,7 +244,6 @@ public class FatherNewMovement : MonoBehaviour
             //Debug.Log("Next to a box from left -> " + b);
         }
 
-        
         return b;
 
     }
