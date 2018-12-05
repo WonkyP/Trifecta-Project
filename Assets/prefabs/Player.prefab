@@ -928,7 +928,7 @@ MonoBehaviour:
   SPD: 0
   layers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   doubter: {fileID: 1703769476512970}
 --- !u!114 &114969384142794806
 MonoBehaviour:
@@ -1181,7 +1181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.22, y: 5.81}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2.3515625, y: 2.7226562}
   m_Pivot: {x: 0.5302335, y: 0.12397825}
 --- !u!224 &224548029442626928
