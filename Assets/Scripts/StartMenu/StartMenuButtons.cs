@@ -31,4 +31,9 @@ public class StartMenuButtons : MonoBehaviour {
 
 
     }
+
+    public void Starmenu()
+    {
+        GetComponent<LoadScene>().LoadLevel("StartMenu");
+    }
 }
