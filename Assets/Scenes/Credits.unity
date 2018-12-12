@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 21790145}
   - component: {fileID: 21790147}
   - component: {fileID: 21790146}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Lead Artist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,6 +188,75 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 21790144}
   m_CullTransparentMesh: 0
+--- !u!1 &35948967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 35948968}
+  - component: {fileID: 35948970}
+  - component: {fileID: 35948969}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &35948968
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35948967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1920884520}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.68200004, y: 0.5434431}
+  m_AnchorMax: {x: 0.8498507, y: 0.5652954}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &35948969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35948967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &35948970
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35948967}
+  m_CullTransparentMesh: 0
 --- !u!1 &98205532
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,8 +284,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1880931275}
+  m_Children: []
   m_Father: {fileID: 163845474}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -296,8 +364,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300012, guid: 0a7f469f89bf5f246bc3b7b00f4234d6, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -321,7 +389,7 @@ GameObject:
   - component: {fileID: 120817659}
   - component: {fileID: 120817661}
   - component: {fileID: 120817660}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Jon Henrik Bergbye (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +464,7 @@ GameObject:
   - component: {fileID: 157595513}
   - component: {fileID: 157595515}
   - component: {fileID: 157595514}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Carl Christian Von Munthe af Morgenstierne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -545,7 +613,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 620052444}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -566,7 +634,7 @@ GameObject:
   - component: {fileID: 317980300}
   - component: {fileID: 317980302}
   - component: {fileID: 317980301}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Jon Henrik Bergbye (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +709,7 @@ GameObject:
   - component: {fileID: 325817824}
   - component: {fileID: 325817826}
   - component: {fileID: 325817825}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: "Aaron Reboredo V\xE1zquez (1)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,7 +784,7 @@ GameObject:
   - component: {fileID: 351135117}
   - component: {fileID: 351135119}
   - component: {fileID: 351135118}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Artists
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +859,7 @@ GameObject:
   - component: {fileID: 368292675}
   - component: {fileID: 368292677}
   - component: {fileID: 368292676}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Carl Christian Von Munthe af Morgenstierne (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +934,7 @@ GameObject:
   - component: {fileID: 369242304}
   - component: {fileID: 369242306}
   - component: {fileID: 369242305}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: "Pablo Mart\xEDn Garcia (1)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -941,7 +1009,7 @@ GameObject:
   - component: {fileID: 377812663}
   - component: {fileID: 377812665}
   - component: {fileID: 377812664}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Programmers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1015,7 +1083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 516812702}
   - component: {fileID: 516812703}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,7 +1135,7 @@ GameObject:
   - component: {fileID: 596679553}
   - component: {fileID: 596679555}
   - component: {fileID: 596679554}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Animators
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1271,7 +1339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 837759870}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Tasks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1355,7 +1423,7 @@ GameObject:
   - component: {fileID: 1103690459}
   - component: {fileID: 1103690461}
   - component: {fileID: 1103690460}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Johan Pavel Mathise (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1430,7 +1498,7 @@ GameObject:
   - component: {fileID: 1104171088}
   - component: {fileID: 1104171090}
   - component: {fileID: 1104171089}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Designers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1505,7 +1573,7 @@ GameObject:
   - component: {fileID: 1132815415}
   - component: {fileID: 1132815417}
   - component: {fileID: 1132815416}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Johan Pavel Mathise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1580,7 +1648,7 @@ GameObject:
   - component: {fileID: 1181621991}
   - component: {fileID: 1181621993}
   - component: {fileID: 1181621992}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: "Pablo Mart\xEDn Garcia"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1655,7 +1723,7 @@ GameObject:
   - component: {fileID: 1249448542}
   - component: {fileID: 1249448544}
   - component: {fileID: 1249448543}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Team Lead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1730,7 +1798,7 @@ GameObject:
   - component: {fileID: 1318046923}
   - component: {fileID: 1318046925}
   - component: {fileID: 1318046924}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Rune Rauland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1805,7 +1873,7 @@ GameObject:
   - component: {fileID: 1489089837}
   - component: {fileID: 1489089839}
   - component: {fileID: 1489089838}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Lead Programmer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1880,7 +1948,7 @@ GameObject:
   - component: {fileID: 1499037296}
   - component: {fileID: 1499037298}
   - component: {fileID: 1499037297}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: "Aaron Reboredo V\xE1zquez"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1955,7 +2023,7 @@ GameObject:
   - component: {fileID: 1518342290}
   - component: {fileID: 1518342292}
   - component: {fileID: 1518342291}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2030,7 +2098,7 @@ GameObject:
   - component: {fileID: 1638114894}
   - component: {fileID: 1638114896}
   - component: {fileID: 1638114895}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2103,7 +2171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1770000403}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Names
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2150,7 +2218,7 @@ GameObject:
   - component: {fileID: 1870054474}
   - component: {fileID: 1870054476}
   - component: {fileID: 1870054475}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: "Julie R\xF8sta Holberg"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2215,81 +2283,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1870054473}
   m_CullTransparentMesh: 0
---- !u!1 &1880931274
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1880931275}
-  - component: {fileID: 1880931277}
-  - component: {fileID: 1880931276}
-  m_Layer: 0
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1880931275
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1880931274}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 98205533}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1880931276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1880931274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
-    m_FontStyle: 3
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Menu
---- !u!222 &1880931277
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1880931274}
-  m_CullTransparentMesh: 0
 --- !u!1 &1920884519
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,7 +2293,7 @@ GameObject:
   - component: {fileID: 1920884520}
   - component: {fileID: 1920884522}
   - component: {fileID: 1920884521}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2318,6 +2311,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 516812702}
+  - {fileID: 35948968}
   m_Father: {fileID: 163845474}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
