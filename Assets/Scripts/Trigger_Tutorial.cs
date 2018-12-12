@@ -16,7 +16,7 @@ public class Trigger_Tutorial : MonoBehaviour {
 
     void Start () {
         //Trigger is finding references in the canvas to store, then deactivating the tutorial box. There must be Canvas_Menu prefab in the scene hierarchy.
-        tutBox = GameObject.FindGameObjectWithTag("Canvas_Main").transform.GetChild(4).gameObject;
+        tutBox = GameObject.FindGameObjectWithTag("Canvas_Main").transform.GetChild(3).gameObject;
         //tutBoxButton = tutBox.transform.GetChild(0).GetComponent<Button>();
         tutBox.SetActive(false);
 
