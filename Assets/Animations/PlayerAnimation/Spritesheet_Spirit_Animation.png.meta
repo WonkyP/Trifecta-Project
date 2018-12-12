@@ -11,6 +11,8 @@ TextureImporter:
     21300012: Animation_Spirit_Jump04
     21300014: Animation_Spirit_AttackHorizontal
     21300016: Animation_Spirit_AttackDown
+    21300018: Animation_Spirit_Magic01
+    21300020: Spirit_Bullet
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -219,11 +221,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 934
+        y: 1131
         width: 406
-        height: 580
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 383
+      alignment: 9
+      pivot: {x: 0.495717, y: 0.20488721}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -243,7 +245,7 @@ TextureImporter:
         width: 366
         height: 335
       alignment: 9
-      pivot: {x: 0.4245152, y: 0.13346621}
+      pivot: {x: 0.42451486, y: 0.086749725}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -270,6 +272,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1325bb210ed2933469b51ad57f2b7d19
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Spirit_Magic01
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 676
+        width: 407
+        height: 417
+      alignment: 9
+      pivot: {x: 0.4414067, y: 0.085334025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f13db19fc8a26934fb2365bab6e0d8a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spirit_Bullet
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 1468
+        width: 176
+        height: 103
+      alignment: 9
+      pivot: {x: 0.70900273, y: 0.48196322}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c021bf86f470845459ec04b6ba36bcfc
       vertices: []
       indices: 
       edges: []
