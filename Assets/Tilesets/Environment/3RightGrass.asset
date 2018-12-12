@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Animated Grass
+  m_Name: 3RightGrass
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 89ac41e265d21cd4ab645e5d587f0e22, type: 3}
   - {fileID: 21300002, guid: 89ac41e265d21cd4ab645e5d587f0e22, type: 3}
-  - {fileID: 21300004, guid: 89ac41e265d21cd4ab645e5d587f0e22, type: 3}
-  - {fileID: 21300006, guid: 89ac41e265d21cd4ab645e5d587f0e22, type: 3}
-  - {fileID: 21300008, guid: 89ac41e265d21cd4ab645e5d587f0e22, type: 3}
-  m_MinSpeed: 1
-  m_MaxSpeed: 1
+  - {fileID: 21300000, guid: 89ac41e265d21cd4ab645e5d587f0e22, type: 3}
+  m_MinSpeed: 4
+  m_MaxSpeed: 4
   m_AnimationStartTime: 0
   m_TileColliderType: 0
