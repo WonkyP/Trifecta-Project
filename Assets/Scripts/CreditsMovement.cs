@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CreditsMovement : MonoBehaviour {
     StartMenuButtons sMB;
-    public int vely;
+    public int vely = 100;
     public float timeToMenu = 5.0f;
 	// Use this for initialization
 	void Start () { 
@@ -15,7 +15,7 @@ public class CreditsMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        gameObject.transform.Translate(new Vector2(0.0f, vely));
+        gameObject.transform.Translate(new Vector2(0.0f, vely * Time.deltaTime));
 	}
 
     void InvokeFunction()
