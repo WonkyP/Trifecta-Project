@@ -91,8 +91,8 @@ public class GameManager : MonoBehaviour {
     {
         if (Input.GetButtonDown("Restart"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         if (testingLifeResotore) {
