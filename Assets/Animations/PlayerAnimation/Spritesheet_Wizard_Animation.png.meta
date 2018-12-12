@@ -16,8 +16,11 @@ TextureImporter:
     21300022: Smoke_Green
     21300024: Smoke_Red
     21300026: Smoke_Black
-    21300028: Spritesheet_Wizard_Animation_0
+    21300028: Animation_Wizard_Magic_Left1
     21300030: Animation_Form_Wizard_Attack01
+    21300032: Animation_Wizard_Magic_Right1
+    21300034: Animation_Wizard_Magic_Left2
+    21300036: Animation_Wizard_Magic_Right2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -417,6 +420,86 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c43df2c809f4bbe4c92582e6da713af7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Wizard_Magic_Left1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 967
+        width: 194
+        height: 238
+      alignment: 9
+      pivot: {x: 0.37404412, y: 0.034319453}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd8374b3c3d7964fb63bde38952d14b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Wizard_Magic_Right1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 733
+        width: 218
+        height: 221
+      alignment: 9
+      pivot: {x: 0.36389175, y: 0.08932095}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db52328e925e46543bc74f0ef0b03746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Wizard_Magic_Left2
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 958
+        width: 205
+        height: 251
+      alignment: 9
+      pivot: {x: 0.6387351, y: 0.064891554}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf2152eea9f7de4da2c364035816ea8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Wizard_Magic_Right2
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 733
+        width: 227
+        height: 225
+      alignment: 9
+      pivot: {x: 0.68228245, y: 0.05983941}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed25c64084bff6a4784b33f2cbff8831
       vertices: []
       indices: 
       edges: []
