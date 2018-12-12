@@ -39,10 +39,10 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
         //Finding references
         ScorePresenter = GameObject.FindGameObjectWithTag("Canvas_PuzzleRoom").transform.GetChild(1).gameObject;
         //SoulShard = Resources.Load<Sprite>("Placeholders/ShardPNG");
-        scoreToDisplay = ScorePresenter.transform.GetChild(5).gameObject.GetComponent<Text>();
-        Score1 = ScorePresenter.transform.GetChild(1).GetComponent<Image>();
-        Score2 = ScorePresenter.transform.GetChild(2).GetComponent<Image>();
-        Score3 = ScorePresenter.transform.GetChild(3).GetComponent<Image>();
+        scoreToDisplay = ScorePresenter.transform.GetChild(8).gameObject.GetComponent<Text>();
+        Score1 = ScorePresenter.transform.GetChild(4).GetComponent<Image>();
+        Score2 = ScorePresenter.transform.GetChild(5).GetComponent<Image>();
+        Score3 = ScorePresenter.transform.GetChild(6).GetComponent<Image>();
         PlayerInRange = false;
         InteractionButtonPressed = false;
     }
@@ -208,7 +208,7 @@ public class Trigger_PuzzleRoomFinish : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<FatherNewMovement>().enabled = false;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<SpiritNewMovement>().enabled = false;
                 ScorePresenter.SetActive(true);
-                ScorePresenter.transform.GetChild(6).gameObject.GetComponent<Button>().onClick.AddListener(OKButton);
+                //ScorePresenter.transform.GetChild(6).gameObject.GetComponent<Button>().onClick.AddListener(OKButton);
                 StartCoroutine("ShowScore");
                 
             }
