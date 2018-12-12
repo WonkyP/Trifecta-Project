@@ -39,7 +39,7 @@ public class WC_ExitOpenWorld : MonoBehaviour {
                     //print("YOU MAY PASS");
                     GameObject.FindGameObjectWithTag("DoorNr").GetComponent<DoNotDestroy>().NameOfTheObject = NameOfTheExitObject; // set the exit object
 
-                    SceneManager.LoadScene(SceneName); // load the next scene
+                    EntryToNextScene();
                     return;
                 }
 
@@ -53,16 +53,19 @@ public class WC_ExitOpenWorld : MonoBehaviour {
 
                     //print("YOU MAY PASS");
                     GameObject.FindGameObjectWithTag("DoorNr").GetComponent<DoNotDestroy>().NameOfTheObject = NameOfTheExitObject; // set the exit object
+                    EntryToNextScene();
 
-                    SceneManager.LoadScene(SceneName); // load the next scene
+
                 }
-
-
-
-            }
-            
+            }            
         }
 	}
+
+    void EntryToNextScene()
+    {
+        //SceneManager.LoadScene(SceneName); // load the next scene
+        GetComponent<LoadScene>().LoadLevel(SceneName);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

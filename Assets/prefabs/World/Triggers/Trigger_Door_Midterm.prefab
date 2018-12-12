@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 114729356866987266}
   - component: {fileID: 212533656368564588}
   - component: {fileID: 70799913633749436}
+  - component: {fileID: 114592082862168732}
   m_Layer: 0
   m_Name: Trigger_Door_Midterm
   m_TagString: Untagged
@@ -276,6 +277,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114592082862168732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1077741471786872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f4c2cc577e73b439dab19276af2a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadingCanvas: {fileID: 223273349896063634, guid: d8f14d0ffbfd1cd41b937246225a9dbe,
+    type: 2}
 --- !u!114 &114664966941968892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -309,6 +323,7 @@ MonoBehaviour:
   TheUIText: {fileID: 114313389691280750}
   UiCanvas: {fileID: 1974731461086658}
   Open: {fileID: 21300000, guid: 4621bbd9493d33648881bdf62a32ce42, type: 3}
+  Entry: 1
 --- !u!114 &114923092843191234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -455,7 +470,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1635899305
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1121bfa47b05c0146a0f9795db67a020, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.7254902}
