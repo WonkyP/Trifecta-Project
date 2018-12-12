@@ -88,7 +88,7 @@ public class GeneralPlayerMovement : MonoBehaviour
         this.gameObject.SendMessage("Start");
     }
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         characterSelected = PlayerPrefs.GetInt("CharNr", 1);
 

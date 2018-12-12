@@ -58,9 +58,8 @@ public class SpiritNewMovement : MonoBehaviour
     public GameObject downSpawner;
 
 
-    public void Start()
+    private void Start()
     {
-
         OnMovablePlatform = false;
 
         JumpableLayers = LayerMask.GetMask("Ground", "WallJump", "Default");

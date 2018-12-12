@@ -21,6 +21,8 @@ public class ChardCounter : MonoBehaviour {
     // UIForAbillityWheel
     //SpriteRenderer One;
     //SpriteRenderer Ten;
+    public Image SwapNumbers;
+
     [Header("Images for UI nr")]
     public List<Sprite> Numbers = new List<Sprite>();
 
@@ -28,6 +30,8 @@ public class ChardCounter : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        transform.GetChild(0).GetComponent<Canvas>().worldCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         curShardCount = StartShards;
 
@@ -78,6 +82,7 @@ public class ChardCounter : MonoBehaviour {
         // set the up images
         //One.sprite = Numbers[one];
         //Ten.sprite = Numbers[ten];
+        SwapNumbers.sprite = Numbers[switches];
 
     }
 
