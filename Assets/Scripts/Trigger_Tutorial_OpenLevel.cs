@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Trigger_Tutorial : MonoBehaviour {
+public class Trigger_Tutorial_OpenLevel : MonoBehaviour
+{
 
     public Sprite tutorialToSHow;
     private GameObject tutBox;
@@ -14,7 +15,8 @@ public class Trigger_Tutorial : MonoBehaviour {
     bool boxOpen = false;
     // Use this for initialization
 
-    void Start () {
+    void Start()
+    {
         //Trigger is finding references in the canvas to store, then deactivating the tutorial box. There must be Canvas_Menu prefab in the scene hierarchy.
         tutBox = GameObject.FindGameObjectWithTag("Canvas_Main").transform.GetChild(4).gameObject;
         //tutBoxButton = tutBox.transform.GetChild(0).GetComponent<Button>();
@@ -25,11 +27,11 @@ public class Trigger_Tutorial : MonoBehaviour {
     //When player enters trigger
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
-            if (PlayerPrefs.GetInt("TriggerTutorial",0) == 0)
+            if (PlayerPrefs.GetInt("TriggerTutorialOpenLevel", 0) == 0)
             {
-                PlayerPrefs.SetInt("TriggerTutorial", 1);
+                PlayerPrefs.SetInt("TriggerTutorialOpenLevel", 1);
 
                 //Activates tutorial box and displays text as input from trigger gameObject in inspector. Stops time.
                 tutBox.SetActive(true);
@@ -55,10 +57,12 @@ public class Trigger_Tutorial : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (Input.anyKeyDown && boxOpen)
         {
             OKbutton();
         }
     }
 }
+
