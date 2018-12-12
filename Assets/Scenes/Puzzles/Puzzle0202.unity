@@ -7693,6 +7693,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1300944542}
     m_Modifications:
+    - target: {fileID: 114840439012455214, guid: a195b55eaefdc6f418f377f15d24009f,
+        type: 2}
+      propertyPath: poolItemsToSpawn.Array.data[0].spawners.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4816005723149728, guid: a195b55eaefdc6f418f377f15d24009f, type: 2}
       propertyPath: m_LocalPosition.x
       value: -29.5
@@ -8502,7 +8507,7 @@ Prefab:
     - target: {fileID: 224931116946851930, guid: b65f38434bf90424f92ba9bb6ef2d4e2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -7.0000153
+      value: -7.0000305
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b65f38434bf90424f92ba9bb6ef2d4e2, type: 2}
