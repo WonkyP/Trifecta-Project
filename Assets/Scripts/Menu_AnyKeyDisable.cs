@@ -25,6 +25,7 @@ public class Menu_AnyKeyDisable : MonoBehaviour {
     {
         if (Input.anyKeyDown)
         {
+            Debug.Log("Any key pressed!");
             this.gameObject.SetActive(false);
         }
     }
