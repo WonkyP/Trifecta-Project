@@ -84,9 +84,15 @@ public class FatherNewMovement : MonoBehaviour
             anim.SetBool("CarryMagic", true);
 
             if (rightHit)
+            {
                 box = rightHit.collider.gameObject;
+                anim.SetFloat("PushSide", 1);
+            }
             else if (leftHit)
+            {
                 box = leftHit.collider.gameObject;
+                anim.SetFloat("PushSide", -1);
+            }
 
             parent = box.transform.parent;
             box.transform.parent = transform;
