@@ -358,7 +358,8 @@ public class DaughterMovement : MonoBehaviour
     private void OnEnable()
     {
         curCoyoteTime = 0;
-        GameManager.instance.EnableDaughterLife();
+        if (GameManager.instance != null)
+            GameManager.instance.EnableDaughterLife();
     }
 
     public void damaged()

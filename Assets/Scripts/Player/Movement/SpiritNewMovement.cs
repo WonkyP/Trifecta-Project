@@ -245,6 +245,7 @@ public class SpiritNewMovement : MonoBehaviour
     private void OnEnable()
     {
         curCoyoteTime = 0;
+        if (GameManager.instance != null)
         GameManager.instance.EnableSpiritLife();
     }
 
